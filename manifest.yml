@@ -1,0 +1,15 @@
+---
+applications:
+- name: test_at_home-((env))
+  buildpacks:
+    - nodejs_buildpack
+    - ruby_buildpack
+  env:
+    RAILS_MASTER_KEY: ((rails_master_key))
+    RAILS_ENV: production
+  processes:
+  - type: web
+    instances: ((web_instances))
+    memory: ((web_memory))
+  services:
+  - test_at_home-rds-((env))
