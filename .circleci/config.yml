@@ -1,0 +1,74 @@
+version: 2.1
+ 
+orbs:
+  ruby: circleci/ruby@1.2.0
+  node: circleci/node@2
+
+jobs:
+  build:
+    docker:
+      - image: cimg/ruby:3.0.3-node 
+    steps:
+      - checkout
+      - ruby/install-deps
+      - node/install-packages:
+          pkg-manager: yarn
+          cache-key: "yarn.lock"
+
+  test:
+    parallelism: 3
+    docker:
+      - image: cimg/ruby:3.0.3-node
+      - image: circleci/postgres:9.5-alpine
+        environment:
+          POSTGRES_USER: circleci
+          POSTGRES_DB: test_at_home_test
+          POSTGRES_PASSWORD: ""
+    environment:
+      BUNDLE_JOBS: "3"
+      BUNDLE_RETRY: "3"
+      PGHOST: 127.0.0.1
+      PGUSER: circleci
+      PGPASSWORD: ""
+      RAILS_ENV: test
+    steps:
+      - checkout
+      - ruby/install-deps
+      - node/install-packages:
+          pkg-manager: yarn
+          cache-key: "yarn.lock"
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
+          name: Database setup
+          command: bundle exec rails db:schema:load --trace
+
+      # Precompile assets
+      # Load assets from cache if possible, precompile assets then save cache
+      # Multiple caches are used to increase the chance of a cache hit
+      # https://circleci.com/docs/2.0/caching/#full-example-of-saving-and-restoring-cache
+      - restore_cache:
+          keys:
+            - asset-cache-v1-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+            - asset-cache-v1-{{ arch }}-{{ .Branch }}
+            - asset-cache-v1
+ 
+      - run: bundle exec rake assets:precompile
+
+      - save_cache:
+          key: asset-cache-v1-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - public/assets
+            - tmp/cache/assets/sprockets
+
+      - ruby/rspec-test
+
+workflows:
+  version: 2.1
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
