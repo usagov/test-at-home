@@ -74,6 +74,22 @@ jobs:
           name: Run Brakeman scan
           command: bundle exec brakeman
 
+  dependency_audits:
+    docker:
+      - image: cimg/ruby:3.0.3-node
+    steps:
+      - checkout
+      - ruby/install-deps
+      - node/install-packages:
+          pkg-manager: yarn
+          cache-key: "yarn.lock"
+      - run:
+          name: Bundle audit
+          command: bundle exec rake bundler:audit
+      - run:
+          name: Yarn audit
+          command: bundle exec rake yarn:audit
+
 workflows:
   version: 2.1
   build_and_test:
@@ -83,5 +99,8 @@ workflows:
           requires:
             - build
       - brakeman:
+          requires:
+            - build
+      - dependency_audits:
           requires:
             - build
