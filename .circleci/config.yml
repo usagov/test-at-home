@@ -64,11 +64,24 @@ jobs:
 
       - ruby/rspec-test
 
+  brakeman:
+    docker:
+      - image: cimg/ruby:3.0.3-node
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run:
+          name: Run Brakeman scan
+          command: bundle exec brakeman
+
 workflows:
   version: 2.1
   build_and_test:
     jobs:
       - build
       - test:
+          requires:
+            - build
+      - brakeman:
           requires:
             - build
