@@ -1,7 +1,7 @@
 version: 2.1
  
 orbs:
-  ruby: circleci/ruby@1.0
+  ruby: circleci/ruby@1.2.0
   node: circleci/node@2
 
 jobs:
@@ -43,10 +43,29 @@ jobs:
       - run:
           name: Database setup
           command: bundle exec rails db:schema:load --trace
-      - ruby/rspec-test
+
+      # Precompile assets
+      # Load assets from cache if possible, precompile assets then save cache
+      # Multiple caches are used to increase the chance of a cache hit
+      # https://circleci.com/docs/2.0/caching/#full-example-of-saving-and-restoring-cache
+      - restore_cache:
+          keys:
+            - asset-cache-v1-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+            - asset-cache-v1-{{ arch }}-{{ .Branch }}
+            - asset-cache-v1
  
+      - run: bundle exec rake assets:precompile
+
+      - save_cache:
+          key: asset-cache-v1-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - public/assets
+            - tmp/cache/assets/sprockets
+
+      - ruby/rspec-test
+
 workflows:
-  version: 2
+  version: 2.1
   build_and_test:
     jobs:
       - build
