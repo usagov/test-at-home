@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   ruby: circleci/ruby@1.2.0
-  node: circleci/node@2
+  node: circleci/node@5.0.0
   browser-tools: circleci/browser-tools@1.2.3
 
 jobs:
@@ -14,7 +14,6 @@ jobs:
       - ruby/install-deps
       - node/install-packages:
           pkg-manager: yarn
-          cache-key: "yarn.lock"
 
   test:
     parallelism: 3
@@ -37,7 +36,6 @@ jobs:
       - ruby/install-deps
       - node/install-packages:
           pkg-manager: yarn
-          cache-key: "yarn.lock"
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -83,7 +81,6 @@ jobs:
       - ruby/install-deps
       - node/install-packages:
           pkg-manager: yarn
-          cache-key: "yarn.lock"
       - run:
           name: Bundle audit
           command: bundle exec rake bundler:audit
@@ -131,7 +128,6 @@ jobs:
       - ruby/install-deps
       - node/install-packages:
           pkg-manager: yarn
-          cache-key: "yarn.lock"
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - run:
