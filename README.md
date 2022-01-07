@@ -1,7 +1,11 @@
 Test At Home
 ========================
+## Overview
+A web-based, mobile-responsive solution for the public to submit a pre-order request for 1 set of four COVID-19 tests to be sent directly to their home through the USPS infrastructure. This solution is intended to be a back-up for the USPS web store, if it cannot stand peak traffic.
 
-<<TKTK: quick summary of project>>
+The launch date for this solution is January 17, 2022.
+
+For more detail, see the [product scope doc](https://github.com/usagov/test-at-home/blob/main/doc/product/product-scope.md)
 
 ## Development
 
