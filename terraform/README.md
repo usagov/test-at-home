@@ -128,4 +128,4 @@ export AWS_ACCESS_KEY_ID=<<access_key_id from bucket_credentials or cf service-k
 export AWS_SECRET_ACCESS_KEY=<<secret_access_key from bucket_credentials or cf service-key>>
 ```
 
-3. Copy `bucket` from `terraform` or `cf service-key` output to the backend block of `<env>/providers.tf`
+2. Copy `bucket` from `terraform` or `cf service-key` output to the backend block of `<env>/providers.tf`

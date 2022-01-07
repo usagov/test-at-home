@@ -1,19 +1,16 @@
 variable "aws_region" {
   type        = string
   description = "region output by cloud foundry service-key command"
-  default     = "us-gov-west-1"
 }
 
 variable "cf_api_url" {
   type        = string
   description = "cloud.gov api url"
-  default     = "https://api.fr.cloud.gov"
 }
 
-variable "cf_org_name" {
+variable "cf_user" {
   type        = string
-  description = "cloud.gov organization name"
-  default     = "tts-usps-test-at-home"
+  description = "cloud.gov deployer account user"
 }
 
 variable "cf_password" {
@@ -22,14 +19,15 @@ variable "cf_password" {
   sensitive   = true
 }
 
+variable "cf_org_name" {
+  type        = string
+  description = "cloud.gov organization name"
+  default     = "tts-usps-test-at-home"
+}
+
 variable "cf_space_name" {
   type        = string
   description = "cloud.gov space name (tah-<env>)"
-}
-
-variable "cf_user" {
-  type        = string
-  description = "cloud.gov deployer account user"
 }
 
 variable "env" {
