@@ -107,7 +107,7 @@ jobs:
 
       - run:
           name: Start up local server
-          command: docker-compose up -d
+          command: docker-compose -f docker-compose.ci.yml up -d
       - run:
           name: Create reports directory
           command: mkdir reports
