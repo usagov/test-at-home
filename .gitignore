@@ -37,3 +37,10 @@ spec/examples.txt
 !/app/assets/builds/.keep
 
 /node_modules
+
+# Terraform
+.terraform.lock.hcl
+**/.terraform/*
+secrets.auto.tfvars
+terraform.tfstate
+terraform.tfstate.backup
