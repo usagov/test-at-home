@@ -45,30 +45,37 @@ The below steps rely on you first configuring access to the Terraform state in s
 
 ## Structure
 
+Each foundry has it's own folder with bootstrap s3 module for storing state, and staging and prod environments.
+
 Each environment has its own module, which relies on a shared module for everything except the providers code and environment specific variables and settings.
 
 ```
-- bootstrap/
-  |- main.tf
-  |- providers.tf
-  |- variables.tf
-  |- run.sh
-  |- teardown_creds.sh
-  |- import.sh
-- <env>/
-  |- main.tf
-  |- providers.tf
-  |- secrets.auto.tfvars
-  |- secrets.auto.tfvars.example
-  |- variables.tf
+- foundry_x/
+  |- bootstrap/
+     |- main.tf
+     |- providers.tf
+     |- variables.tf
+     |- run.sh
+     |- teardown_creds.sh
+     |- import.sh
+  |- <env>/
+     |- main.tf
+     |- providers.tf
+     |- secrets.auto.tfvars
+     |- secrets.auto.tfvars.example
+     |- variables.tf
 - shared/
+  |- s3/
+     |- main.tf
+     |- providers.tf
+     |- variables.tf
   |- database/
      |- main.tf
      |- providers.tf
      |- variables.tf
 ```
 
-In the shared module:
+In the shared modules:
 - `providers.tf` contains set up instructions for Terraform about Cloud Foundry and AWS
 - `main.tf` sets up the data and resources the application relies on
 - `variables.tf` lists the required variables and applicable default values
@@ -114,15 +121,7 @@ Prerequisite: install the `jq` JSON processor: `brew install jq`
 
 ##### Locally
 
-1. Add the following to `~/.aws/config`
-
-```
-[profile tah-terraform]
-region = us-gov-west-1
-output = json
-```
-
-2. You will need to set the following environment variables:
+1. You will need to set the following environment variables:
 
 ```
 export AWS_ACCESS_KEY_ID=<<access_key_id from bucket_credentials or cf service-key>>
