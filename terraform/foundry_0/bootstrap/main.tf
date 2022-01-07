@@ -1,32 +1,15 @@
-###
-# Target spaces
-###
+module "s3" {
+  source = "../../shared/s3"
 
-data "cloudfoundry_space" "prod" {
-  org_name = "tts-usps-test-at-home"
-  name     = "tah-prod"
-}
-
-data "cloudfoundry_service" "s3" {
-  name = "s3"
-}
-
-###
-# config S3 bucket
-###
-
-resource "cloudfoundry_service_instance" "shared_config_bucket" {
-  name             = "tah-shared-config"
-  space            = data.cloudfoundry_space.prod.id
-  service_plan     = data.cloudfoundry_service.s3.service_plans["basic"]
-  recursive_delete = false
-}
-
-resource "cloudfoundry_service_key" "config_bucket_creds" {
-  name             = "config-bucket-access"
-  service_instance = cloudfoundry_service_instance.shared_config_bucket.id
+  aws_region      = "us-gov-west-1"
+  cf_api_url      = "https://api.fr.cloud.gov"
+  cf_user         = var.cf_user
+  cf_password     = var.cf_password
+  cf_space_name   = "tah-prod"
+  s3_service_name = "tah-shared-config"
+  s3_plan_name    = "basic"
 }
 
 output "bucket_credentials" {
-  value = cloudfoundry_service_key.config_bucket_creds.credentials
+  value = module.s3.bucket_credentials
 }
