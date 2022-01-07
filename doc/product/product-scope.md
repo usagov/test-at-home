@@ -6,7 +6,7 @@ Key Stakeholders
 - USPS: Is responsible for coordinating and fulfilling at-home test orders requested using their existing mail delivery infrastructure. 
 - USDS is supporting HHS, DOD, and USPS in sourcing at-home tests and ensuring the testing request service is successful both in technology and in actual service completion.
 - TTS: Developing a ‘back-up’ application to accept orders mitigate risk if USPS online store cannot accommodate traffic.
-- White House Digital: Designing and maintaining landing page directing the public to the test request form either within the USPS store or the back-up solution being developed by TTS.
+- White House Office of Digital Strategy: Designing and maintaining landing page directing the public to the test request form either within the USPS store or the back-up solution being developed by TTS.
 
 # What this system will do
 
@@ -15,7 +15,7 @@ Reside at USAgov URL as we are using USAgov authorities/SORN.
     - 1 staging
     - 1 prod
 
-User is sent to application from whitehouse.gov landing page call to action
+User is sent to application from covidtests.gov landing page call to action
 - 100M requests/day
 - Peak traffic - TBD
 
@@ -27,8 +27,8 @@ Languages supported:
 Fields to be collected on each order
 - Name
 - Address (include APO/FPO)
-- Optional - phone
-- Optional - email
+- phone (may be optional, USPS is assessing)
+- email
 
 Address validation of each order
 - User will have the option to accept what they entered in the field vs. validated (suggested) addresses.
@@ -78,7 +78,7 @@ Limited fraud concerns in scope:
 - **I am able to easily fill out and submit the form on my mobile device** in case I don’t have access to a desktop computer.
 - **I am able to override an address validation** if it is incorrect.
 - ~~**I am able to receive an order number (outside of the USPS tracking)**~~
-- **I am able to view a confirmation page showing my request has been received** even if I have not provided an email address.
+- **I am able to view a confirmation page showing my request has been received** 
 
 ## Content-Focused Stories
 - **I know why and when I should request a set of tests** so that I am prepared to keep myself and the community safe most effectively.
