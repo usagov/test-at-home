@@ -7,7 +7,7 @@ class KitRequestsController < ApplicationController
     @kit_request = KitRequest.new(kit_request_params)
 
     if @kit_request.save
-      render :confirmation
+      redirect_to kit_request_confirmation_path
     else
       render :new
     end

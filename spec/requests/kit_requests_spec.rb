@@ -21,9 +21,32 @@ RSpec.describe "KitRequests", type: :request do
           post "/kit_requests", params: {kit_request: kit_request_params}
         }.to change { KitRequest.count }.by(1)
 
-        expect(response).to have_http_status(200)
-        expect(response).to render_template(:confirmation)
+        expect(response).to have_http_status(302)
       end
+    end
+
+    context "when data is invalid" do
+      it "creates a new kit request and redirects to confirmation page" do
+        kit_request_params = {
+          full_name: "",
+          address: ""
+        }
+
+        expect {
+          post "/kit_requests", params: {kit_request: kit_request_params}
+        }.to change { KitRequest.count }.by(0)
+
+        expect(response).to have_http_status(200)
+        expect(response).to render_template(:new)
+      end
+    end
+  end
+
+  describe "GET kit_requests/confirmation" do
+    it "renders a confirmation page" do
+      get "/kit_requests/confirmation"
+      expect(response).to have_http_status(200)
+      expect(response).to render_template(:confirmation)
     end
   end
 end
