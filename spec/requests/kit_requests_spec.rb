@@ -21,7 +21,8 @@ RSpec.describe "KitRequests", type: :request do
           post "/kit_requests", params: {kit_request: kit_request_params}
         }.to change { KitRequest.count }.by(1)
 
-        expect(response).to have_http_status(302)
+        expect(response).to have_http_status(200)
+        expect(response).to render_template(:confirmation)
       end
     end
 
@@ -42,9 +43,9 @@ RSpec.describe "KitRequests", type: :request do
     end
   end
 
-  describe "GET kit_requests/confirmation" do
+  describe "GET /kit_requests" do
     it "renders a confirmation page" do
-      get "/kit_requests/confirmation"
+      get "/kit_requests"
       expect(response).to have_http_status(200)
       expect(response).to render_template(:confirmation)
     end
