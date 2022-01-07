@@ -30,7 +30,7 @@ guide for an introduction to the framework.
 * Build CSS and JS: `yarn build && yarn build:css`
 * Create database: `bundle exec rake db:create`
 * Run migrations: `bundle exec rake db:migrate`
-* Run the server: `bundle exec rails s`
+* Run the server: `./bin/dev`
 * Visit the site: http://localhost:3000
 
 #### Local Configuration
