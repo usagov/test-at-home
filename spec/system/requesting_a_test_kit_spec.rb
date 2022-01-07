@@ -8,8 +8,6 @@ RSpec.describe "Person requests a test kit", type: :system do
   it "accepts input" do
     visit "/"
 
-    click_on "Request tests"
-
     fill_in "Full name", with: "Kewpee Doll"
     fill_in "Address", with: "1234 Fake St Lima, OH"
     fill_in "Email", with: "hello@example.com"
