@@ -13,9 +13,12 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "build:css": "postcss ./app/assets/stylesheets/application.postcss.css -o ./app/assets/builds/application.css"
+    "build:css": "postcss ./app/assets/stylesheets/application.postcss.css -o ./app/assets/builds/application.css",
+    "postinstall": "patch-package"
   },
   "devDependencies": {
-    "pa11y-ci": "^3.0.1"
+    "pa11y-ci": "^3.0.1",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0"
   }
 }
