@@ -27,6 +27,7 @@ guide for an introduction to the framework.
     * The command line: `xattr -d com.apple.quarantine $(which chromedriver)` (this is the only option if you are on Big Sur)
     * Manually: clicking "allow" when you run the integration tests for the first time and a dialogue opens up
 * Install JS dependencies: `yarn install`
+* Build CSS and JS: `yarn build && yarn build:css`
 * Create database: `bundle exec rake db:create`
 * Run migrations: `bundle exec rake db:migrate`
 * Run the server: `bundle exec rails s`
