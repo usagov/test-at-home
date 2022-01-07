@@ -1,2 +1,31 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<%= form_with(class: "usa-form usa-form--large") do |form| %>
+<fieldset class="usa-fieldset">
+  <%= form.label :name, class: "usa-label" %>
+  <%= form.text_field :name, class: "usa-input usa-input--xl" %>
+
+  <fieldset class="usa-fieldset">
+    <%= form.label :"mailing-address", "Mailing address", class: "usa-label" %>
+    <%= form.text_field :"mailing-address", class: "usa-input usa-input--xl" %>
+
+    <%= form.label :city, class: "usa-label" %>
+    <%= form.text_field :city, class: "usa-input usa-input--xl" %>
+
+    <%= form.label :state, class: "usa-label" %>
+    <%= form.text_field :state, class: "usa-input usa-input--xl" %>
+
+    <%= form.label :zipcode, class: "usa-label" %>
+    <%= form.text_field :zipcode, class: "usa-input usa-input--medium" %>
+  </fieldset>
+
+  <%= form.label :phone, class: "usa-label" %>
+  <%= form.telephone_field :phone, class: "usa-input usa-input--xl" %>
+
+  <%= form.label :email, class: "usa-label" %>
+  <%= form.email_field :email, class: "usa-input usa-input--xl" %>
+
+  <%= form.submit "Submit", class: "usa-button" %>
+</fieldset>
+<% end %>
