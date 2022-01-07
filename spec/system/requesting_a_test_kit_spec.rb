@@ -8,12 +8,18 @@ RSpec.describe "Person requests a test kit", type: :system do
   it "accepts input" do
     visit "/"
 
-    fill_in "Full name", with: "Kewpee Doll"
-    fill_in "Address", with: "1234 Fake St Lima, OH"
+    fill_in "First name", with: "Kewpee"
+    fill_in "Last name", with: "Doll"
     fill_in "Email", with: "hello@example.com"
-    fill_in "Phone", with: "5551234567"
-    click_on "Submit"
 
-    expect(page).to have_content "Your request for a Covid test kit has been received."
+    fill_in "Mailing address 1", with: "1234 Fake St"
+    fill_in "Mailing address 2", with: "Apt 2"
+    fill_in "City", with: "Lima"
+    select "OH", from: "State"
+    fill_in "Zip code", with: "12345"
+
+    click_on "Review your order"
+
+    expect(page).to have_content "Thank you, your pre-order has been placed."
   end
 end

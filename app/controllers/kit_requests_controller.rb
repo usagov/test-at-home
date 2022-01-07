@@ -19,6 +19,15 @@ class KitRequestsController < ApplicationController
   private
 
   def kit_request_params
-    params.require(:kit_request).permit(:full_name, :address, :email, :phone_number)
+    params.require(:kit_request).permit(
+      :first_name,
+      :last_name,
+      :email,
+      :mailing_address_1,
+      :mailing_address_2,
+      :city,
+      :state,
+      :zip_code
+    )
   end
 end

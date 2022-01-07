@@ -30,4 +30,24 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    errors:
+      messages:
+        blank: can't be blank
+    attributes:
+      first_name: First name
+      last_name: Last name
+      email: Email address
+      mailing_address_1: Mailing address 1
+      mailing_address_2: Mailing address 2
+      city: City
+      state: State, Territory, Military Base
+      zip_code: Zip code
+  kit_requests:
+    new:
+      title: Place your pre-order for free COVID-19 at-home test
+      body_html: Fill in this form with your contact and shipping information to preorer one set of 4 individual at-home tests. <strong>Orders will ship late January.</strong>
+      error_header: "Couldn't process your request because of errors:"
+      submit: Review your order
+    confirmation:
+      title: Thank you, your pre-order has been placed.

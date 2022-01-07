@@ -1,6 +1,9 @@
 FactoryBot.define do
   factory :kit_request do
-    full_name { "Test McTester" }
-    address { "1234 Fake Street" }
+    first_name { "Test" }
+    last_name { "McTester" }
+    mailing_address_1 { "1234 Fake Street" }
+    state { "OH" }
+    zip_code { "12345" }
   end
 end
