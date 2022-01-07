@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  ruby: circleci/ruby@1.2.0
+  ruby: circleci/ruby@1.3.0
   node: circleci/node@5.0.0
   browser-tools: circleci/browser-tools@1.2.3
 
@@ -13,6 +13,7 @@ jobs:
       - checkout
       - ruby/install-deps
       - node/install-packages:
+          cache-only-lockfile: false
           pkg-manager: yarn
 
   test:
@@ -35,6 +36,7 @@ jobs:
       - checkout
       - ruby/install-deps
       - node/install-packages:
+          cache-only-lockfile: false
           pkg-manager: yarn
       - run:
           name: Wait for DB
@@ -80,6 +82,7 @@ jobs:
       - checkout
       - ruby/install-deps
       - node/install-packages:
+          cache-only-lockfile: false
           pkg-manager: yarn
       - run:
           name: Bundle audit
@@ -92,6 +95,16 @@ jobs:
     machine: true
     steps:
       - checkout
+
+      # attempt to restore cache from build step to speed up local server startup time
+      # This will need to be updated if the cache key for the `install-(deps|packages)` steps changes
+      - restore_cache:
+          keys:
+            - gems-v1-{{ checksum "Gemfile.lock"  }}-{{ .Branch }}
+      - restore_cache:
+          keys:
+            - node-deps-{{ arch }}-v1-{{ .Branch }}-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+
       - run:
           name: Start up local server
           command: docker-compose up -d
@@ -127,6 +140,7 @@ jobs:
       - checkout
       - ruby/install-deps
       - node/install-packages:
+          cache-only-lockfile: false
           pkg-manager: yarn
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
