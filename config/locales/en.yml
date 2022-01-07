@@ -33,7 +33,8 @@ en:
   shared:
     banner:
       fake_site: A DEMO website of the United States government
-      gov_description_html: A <strong>.gov</strong> website belongs to an official
+      gov_description_html:
+        A <strong>.gov</strong> website belongs to an official
         government organization in the United States.
       gov_heading: Official websites use .gov
       how: Here’s how you know
