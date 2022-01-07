@@ -192,3 +192,23 @@ workflows:
       - a11y_scan:
           requires:
             - build
+  daily_scan:
+    triggers:
+      - schedule:
+          cron: "0 12 * * *"
+          filters:
+            branches:
+              only:
+                - main
+                - production
+    jobs:
+      - build
+      - brakeman:
+          requires:
+            - build
+      - dependency_audits:
+          requires:
+            - build
+      - owasp_scan:
+          requires:
+            - build
