@@ -3,6 +3,7 @@ version: 2.1
 orbs:
   ruby: circleci/ruby@1.2.0
   node: circleci/node@2
+  browser-tools: circleci/browser-tools@1.2.3
 
 jobs:
   build:
@@ -109,6 +110,68 @@ jobs:
       - store_artifacts:
           path: reports/owasp_report.html
 
+  a11y_scan:
+    docker:
+      - image: cimg/ruby:3.0.3-node
+      - image: cimg/postgres:12.9
+        environment:
+          POSTGRES_USER: circleci
+          POSTGRES_DB: test_at_home_development
+          POSTGRES_PASSWORD: ""
+    environment:
+      BUNDLE_JOBS: "3"
+      BUNDLE_RETRY: "3"
+      PGHOST: 127.0.0.1
+      PGUSER: circleci
+      PGPASSWORD: ""
+      SECRET_KEY_BASE: not-a-secret
+      RAILS_ENV: ci
+    steps:
+      - checkout
+      - ruby/install-deps
+      - node/install-packages:
+          pkg-manager: yarn
+          cache-key: "yarn.lock"
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
+          name: Database setup
+          command: bundle exec rails db:schema:load --trace
+
+      # Precompile assets
+      # Load assets from cache if possible, precompile assets then save cache
+      # Multiple caches are used to increase the chance of a cache hit
+      # https://circleci.com/docs/2.0/caching/#full-example-of-saving-and-restoring-cache
+      - restore_cache:
+          keys:
+            - asset-cache-v1-ci-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+            - asset-cache-v1-ci-{{ arch }}-{{ .Branch }}
+            - asset-cache-v1-ci
+
+      - run: bundle exec rake assets:precompile
+
+      - save_cache:
+          key: asset-cache-v1-ci-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - public/assets
+            - tmp/cache/assets/sprockets
+
+      - run:
+          name: Start server
+          command: ./bin/rails server -p 3000
+          background: true
+
+      - run:
+          name: Wait for server
+          command: dockerize -wait http://localhost:3000 -timeout 1m
+
+      - run:
+          name: Run pa11y-ci
+          command: yarn run pa11y-ci
+
 workflows:
   version: 2.1
   build_and_test:
@@ -124,5 +187,8 @@ workflows:
           requires:
             - build
       - owasp_scan:
+          requires:
+            - build
+      - a11y_scan:
           requires:
             - build
