@@ -44,7 +44,12 @@ Limited fraud concerns in scope:
 - USPS may need name for post-processing, but that is being confirmed
 - A 508/accessible countermeasure to bots (captcha/recaptcha)
 - IP filtering along the lines of what we think of normal DDOS considerations
+# System sequence diagram
 
+<img src="https://github.com/usagov/test-at-home/blob/main/doc/product/assets/system-sequence-diagram.png"
+     alt="Message sequence chart for TTS system"
+     style="float: left; margin-right: 10px;" />
+     
 # What this system will not do
 - Verify identity information
 - Provide authorization or eligibility
