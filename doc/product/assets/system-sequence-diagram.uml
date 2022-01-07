@@ -1,0 +1,63 @@
+@startuml
+Actor User as User
+Participant “White House Landing” as WHL
+Participant “TTS Webapp” as FE
+Participant “TTS Backend” as BE
+Database “DataStore” as DB
+Participant “USPS” as USPS
+
+autonumber 
+== USPS Outage Begins ==
+
+USPS -> USPS : USPS outage
+WHL -> WHL : Switchover to TTS
+
+== Ordering ==
+
+group#grey TTS Scope
+WHL -> User : Sends user to TTS Webapp
+FE -[#ADD8E6]> User : Open - Serve any introductory content 
+FE -> User : Serve Form
+User -> FE : Enters information
+note right
+Name (mandatory)
+Address (mandatory)
+Phone (optional)
+Email (optional)
+end note
+FE -[#ADD8E6]> FE: Validate address 
+Note right #ADD8E6
+Open - what service will we use to validate? 
+If USPS is down, we can't assume the validation service is up.
+end note
+User -> FE : Select which address (user entered or suggested after validation)
+User -> FE : Provides consent to share information with USPS
+FE -> User : Confirmation page
+FE -> BE : Order information 
+BE -> DB : Store order (all fields collected)
+
+== USPS Outage Ends ==
+
+note across #ADD8E6: Open What is the trigger to let the TTS backend to deliver order information to USPS
+
+BE -> DB : Retrieve individual open orders
+BE -> BE : Create batch of orders
+BE -> BE : Encrypt batch with USPS key
+Note right #ADD8E6
+Is there a batch size limit for USPS?
+Need USPS public key
+End note
+BE -> USPS : Deliver batch of orders
+USPS -[#ADD8E6]> BE : Open - What, if any, is the confirmation of receipt of batch
+BE -[#ADD8E6]> DB : Delete any stored PII
+Note right #ADD8E6
+Cadence and triggers for deletion of PII records hinges on confirmation of batch from USPS.
+Key requirement was to not lose orders while USPS system was unavailable.
+end note
+end
+
+== Fulfillment ==
+
+USPS -> USPS : Deduplicates any order to meet 1 kit/household constraint.
+USPS -[#ADD8E6]> User : Open - wil user receive information from USPS on shipping?
+@enduml
