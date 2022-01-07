@@ -61,4 +61,7 @@ group :development, :test do
   gem "bundler-audit", "~> 0.9"
   gem "standard", "~> 1.5"
   gem "rspec_junit_formatter", "~> 0.5"
+  gem "factory_bot_rails", "~> 6.2"
+  gem "capybara", "~> 3.36"
+  gem "rails-controller-testing", "~> 1.0"
 end
