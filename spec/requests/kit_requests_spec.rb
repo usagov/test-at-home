@@ -20,7 +20,7 @@ RSpec.describe "KitRequests", type: :request do
           mailing_address_2: "Apt A",
           city: "SF",
           state: "CA",
-          zip_code: "12345",
+          zip_code: "12345"
         }
       end
 
@@ -52,7 +52,7 @@ RSpec.describe "KitRequests", type: :request do
     context "when data is invalid" do
       it "creates a new kit request and redirects to confirmation page" do
         kit_request_params = {
-          first_name: "",
+          first_name: ""
         }
 
         expect {
