@@ -1,0 +1,38 @@
+<h1>Request a Covid test kit</h1>
+
+<%= form_with model: @kit_request do |f| %>
+    <% if @kit_request.errors.any? %>
+        <div id="error_explanation">
+            <h2>
+                Couldn't process your request because of errors:
+            </h2>
+            <ul>
+                <% @kit_request.errors.full_messages.each do |message| %>
+                    <li><%= message.downcase %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div>
+        <%= f.label :full_name %>
+        <%= f.text_field :full_name %>
+    </div>
+
+    <div>
+        <%= f.label :address %>
+        <%= f.text_field :address %>
+    </div>
+
+    <div>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+    </div>
+
+    <div>
+        <%= f.label :phone_number %>
+        <%= f.telephone_field :phone_number %>
+    </div>
+
+    <%= f.submit 'Submit' %>
+<% end %>

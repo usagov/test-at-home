@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  root "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :kit_requests, only: %i[new create]
+  get "kit_requests/confirmation", to: "kit_requests#confirmation", as: :kit_request_confirmation
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  root "pages#home"
 end
