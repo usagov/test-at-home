@@ -2,12 +2,15 @@
 
 ## Set up a new environment
 
+Prerequisite: install the `jq` JSON processor: `brew install jq`
+
 The below steps rely on you first configuring access to the Terraform state in s3 as described in [Terraform State Credentials](#terraform-state-credentials).
 
 1. Set up a service key
     ```bash
-    # login
-    cf login -a api.fr.cloud.gov --sso
+    # login to the appropriate foundry
+    # foundry_0 = api.fr.cloud.gov
+    cf login -a <FOUNDRY_API_URL> --sso
     # follow temporary authorization code prompts
     # select the desired cloud.gov org and environment space
 
@@ -17,17 +20,14 @@ The below steps rely on you first configuring access to the Terraform state in s
     # something that communicates the purpose of the deployer
     # for example: circleci-deployer for the credentials CircleCI uses to
     # deploy the application
-    ./create_space_deployer.sh < SPACE-NAME > < SERVICE-NAME >
+    ./create_space_deployer.sh <SPACE-NAME> <SERVICE-NAME> > foundry_<X>/<env>/secrets.auto.tfvars
     ```
 
-    The script will output the `username` and `password` for your `< SERVICE-NAME >`. Read more in the [cloud.gov service account documentation](https://cloud.gov/docs/services/cloud-gov-service-account/).
+    The script will output the `username` (as `cf_user`) and `password` (as `cf_password`) for your `<SERVICE-NAME>`. Read more in the [cloud.gov service account documentation](https://cloud.gov/docs/services/cloud-gov-service-account/).
 
-1. Copy `terraform/<ENV>/secrets.auto.tfvars.example` to `secrets.auto.tfvars` and add the service key information from the above step
+    The easiest way to use this script is to redirect the output directly to the `secrets.auto.tfvars` file it needs to be used in
 
-    ```
-    cf_user = "username"
-    cf_password = "password"
-    ```
+1. `cd` to the foundry/env you are working in
 
 1. Run terraform from your new environment directory with
     ```bash
@@ -35,12 +35,14 @@ The below steps rely on you first configuring access to the Terraform state in s
     terraform plan
     ```
 
-1. TKTK, information about how the terraform actually gets applied by CI/CD or manually.
+1. Apply changes with `terraform apply`.
+
+  *TKTK, information about how the terraform gets applied by CI/CD, if we do that.*
 
 1. Remove the space deployer service instance if it doesn't need to be used again, such as when manually running terraform once.
     ```bash
-    # < SPACE-NAME > and < SERVICE-NAME > have the same values as used above.
-    ./destroy_space_deployer.sh < SPACE-NAME > < SERVICE-NAME >
+    # <SPACE-NAME> and <SERVICE-NAME> have the same values as used above.
+    ./destroy_space_deployer.sh <SPACE-NAME> <SERVICE-NAME>
     ```
 
 ## Structure
@@ -100,32 +102,37 @@ The bootstrap module is used to create an s3 bucket for later terraform runs to 
 
 ### Retrieving existing bucket credentials
 
-1. Run `cf service-key tah-shared-config config-bucket-access`
+1. login to the appropriate foundry with `cf login -a <FOUNDRY_API_HOSTNAME> --sso`
+1. Run `./run.sh show`
 1. Follow instructions under `Use bootstrap credentials`
+
+### Bootstrapping the state storage s3 buckets
+
+1. login to the appropriate foundry with `cf login -a <FOUNDRY_API_HOSTNAME> --sso`
+1. Run `terraform init`
+1. Run `./run.sh plan` to verify that the changes are what you expect
+1. Run `./run.sh apply` to set up the bucket and retrieve credentials
+1. Follow instructions under `Use bootstrap credentials`
+1. Ensure that `import.sh` includes a line and correct IDs for any resources created
+1. Run `./teardown_creds.sh` to remove the space deployer account used to create the s3 bucket
 
 ### To make changes to the bootstrap module
 
-Prerequisite: install the `jq` JSON processor: `brew install jq`
-
+1. login to the appropriate foundry with `cf login -a <FOUNDRY_API_HOSTNAME> --sso`
+1. Run `terraform init`
 1. If you don't have terraform state locally:
   1. run `./import.sh`
   1. optionally run `./run.sh apply` to include the existing outputs in the state file
 1. Make your changes
-1. Run `./run.sh plan` to verify that the changes are what you expect
-1. Run `./run.sh apply` to make changes and retrieve the bucket credentials
-1. Follow instructions under `Use bootstrap credentials`
-1. Run `./teardown_creds.sh` to remove the space deployer account used to create the s3 bucket
-1. Ensure that `import.sh` includes a line and correct IDs for any resources
+1. Continue from step 2 of the boostrapping instructions
 
 #### Use bootstrap credentials
 
-##### Locally
+1. Add the following to `~/.aws/credentials` (where X is the foundry number)
+    ```
+    [tah-foundry-X-backend]
+    aws_access_key_id = <access_key_id from bucket_credentials>
+    aws_secret_access_key = <secret_access_key from bucket_credentials>
+    ```
 
-1. You will need to set the following environment variables:
-
-```
-export AWS_ACCESS_KEY_ID=<<access_key_id from bucket_credentials or cf service-key>>
-export AWS_SECRET_ACCESS_KEY=<<secret_access_key from bucket_credentials or cf service-key>>
-```
-
-2. Copy `bucket` from `terraform` or `cf service-key` output to the backend block of `<env>/providers.tf`
+1. Copy `bucket` from `bucket_credentials` output to the backend block of `foundry_X/<env>/providers.tf`
