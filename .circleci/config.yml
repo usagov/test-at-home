@@ -1,8 +1,9 @@
 version: 2.1
 
 orbs:
-  ruby: circleci/ruby@1.2.0
-  node: circleci/node@2
+  ruby: circleci/ruby@1.3.0
+  node: circleci/node@5.0.0
+  browser-tools: circleci/browser-tools@1.2.3
 
 jobs:
   build:
@@ -12,8 +13,8 @@ jobs:
       - checkout
       - ruby/install-deps
       - node/install-packages:
+          cache-only-lockfile: false
           pkg-manager: yarn
-          cache-key: "yarn.lock"
 
   test:
     parallelism: 3
@@ -35,8 +36,8 @@ jobs:
       - checkout
       - ruby/install-deps
       - node/install-packages:
+          cache-only-lockfile: false
           pkg-manager: yarn
-          cache-key: "yarn.lock"
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -81,14 +82,105 @@ jobs:
       - checkout
       - ruby/install-deps
       - node/install-packages:
+          cache-only-lockfile: false
           pkg-manager: yarn
-          cache-key: "yarn.lock"
       - run:
           name: Bundle audit
           command: bundle exec rake bundler:audit
       - run:
           name: Yarn audit
           command: bundle exec rake yarn:audit
+
+  owasp_scan:
+    machine: true
+    steps:
+      - checkout
+
+      # attempt to restore cache from build step to speed up local server startup time
+      # This will need to be updated if the cache key for the `install-(deps|packages)` steps changes
+      - restore_cache:
+          keys:
+            - gems-v1-{{ checksum "Gemfile.lock"  }}-{{ .Branch }}
+      - restore_cache:
+          keys:
+            - node-deps-{{ arch }}-v1-{{ .Branch }}-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+
+      - run:
+          name: Start up local server
+          command: docker-compose -f docker-compose.ci.yml up -d
+      - run:
+          name: Create reports directory
+          command: mkdir reports
+      - run:
+          name: Run OWASP Zap
+          command: |
+            docker run -v $(pwd)/zap.conf:/zap/wrk/zap.conf:ro -v $(pwd)/reports:/zap/wrk:rw --rm \
+              --user zap:$(id -g) --network="project_test-at-home" -t owasp/zap2docker-weekly \
+              zap-baseline.py -t http://web:3000 -c zap.conf -I -i -r owasp_report.html
+      - store_artifacts:
+          path: reports/owasp_report.html
+
+  a11y_scan:
+    docker:
+      - image: cimg/ruby:3.0.3-node
+      - image: cimg/postgres:12.9
+        environment:
+          POSTGRES_USER: circleci
+          POSTGRES_DB: test_at_home_development
+          POSTGRES_PASSWORD: ""
+    environment:
+      BUNDLE_JOBS: "3"
+      BUNDLE_RETRY: "3"
+      PGHOST: 127.0.0.1
+      PGUSER: circleci
+      PGPASSWORD: ""
+      SECRET_KEY_BASE: not-a-secret
+      RAILS_ENV: ci
+    steps:
+      - checkout
+      - ruby/install-deps
+      - node/install-packages:
+          cache-only-lockfile: false
+          pkg-manager: yarn
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
+          name: Database setup
+          command: bundle exec rails db:schema:load --trace
+
+      # Precompile assets
+      # Load assets from cache if possible, precompile assets then save cache
+      # Multiple caches are used to increase the chance of a cache hit
+      # https://circleci.com/docs/2.0/caching/#full-example-of-saving-and-restoring-cache
+      - restore_cache:
+          keys:
+            - asset-cache-v1-ci-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+            - asset-cache-v1-ci-{{ arch }}-{{ .Branch }}
+            - asset-cache-v1-ci
+
+      - run: bundle exec rake assets:precompile
+
+      - save_cache:
+          key: asset-cache-v1-ci-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - public/assets
+            - tmp/cache/assets/sprockets
+
+      - run:
+          name: Start server
+          command: ./bin/rails server -p 3000
+          background: true
+
+      - run:
+          name: Wait for server
+          command: dockerize -wait http://localhost:3000 -timeout 1m
+
+      - run:
+          name: Run pa11y-ci
+          command: yarn run pa11y-ci
 
 workflows:
   version: 2.1
@@ -102,5 +194,31 @@ workflows:
           requires:
             - build
       - dependency_audits:
+          requires:
+            - build
+      - owasp_scan:
+          requires:
+            - build
+      - a11y_scan:
+          requires:
+            - build
+  daily_scan:
+    triggers:
+      - schedule:
+          cron: "0 12 * * *"
+          filters:
+            branches:
+              only:
+                - main
+                - production
+    jobs:
+      - build
+      - brakeman:
+          requires:
+            - build
+      - dependency_audits:
+          requires:
+            - build
+      - owasp_scan:
           requires:
             - build

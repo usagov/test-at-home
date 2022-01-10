@@ -1,5 +1,6 @@
 Test At Home
-========================
+============
+
 ## Overview
 A web-based, mobile-responsive solution for the public to submit a pre-order request for 1 set of four COVID-19 tests to be sent directly to their home through the USPS infrastructure. This solution is intended to be a back-up for the USPS web store, if it cannot stand peak traffic.
 
@@ -27,9 +28,10 @@ guide for an introduction to the framework.
     * The command line: `xattr -d com.apple.quarantine $(which chromedriver)` (this is the only option if you are on Big Sur)
     * Manually: clicking "allow" when you run the integration tests for the first time and a dialogue opens up
 * Install JS dependencies: `yarn install`
+* Build CSS and JS: `yarn build && yarn build:css`
 * Create database: `bundle exec rake db:create`
 * Run migrations: `bundle exec rake db:migrate`
-* Run the server: `bundle exec rails s`
+* Run the server: `./bin/dev`
 * Visit the site: http://localhost:3000
 
 #### Local Configuration
@@ -47,7 +49,7 @@ of the test.
 
 #### Authentication
 
-TBD
+This application does not contain an authentication component. All interaction is public/guest
 
 ### Inline `<script>` and `<style>` security
 
@@ -75,9 +77,8 @@ Run everything: `bundle exec rake`
 ## CI/CD
 
 
-GitHub actions are used to run all tests and scans as part of pull requests.
-
-Security scans are also run on a scheduled basis. Weekly for static code scans, and daily for dependency scans.
+CircleCI is in use as our CI/CD pipeline. All scans run on each PR, and security scans are also run
+on a daily basis.
 
 
 ### Deployment
@@ -110,9 +111,9 @@ Otherwise, they are set as a `((variable))` within `manifest.yml` and the variab
 #### Credentials and other Secrets
 
 
-1. Store variables that must be secret using [GitHub Environment Secrets](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-environment)
-1. Add the secret to the `env:` block of the deploy action [as in this example](https://github.com/OHS-Hosting-Infrastructure/complaint-tracker/blob/a9e8d22aae2023a0afb631a6182251c04f597f7e/.github/workflows/deploy-stage.yml#L20)
-1. Add the appropriate `--var` addition to the `push_arguments` line on the deploy action [as in this example](https://github.com/OHS-Hosting-Infrastructure/complaint-tracker/blob/a9e8d22aae2023a0afb631a6182251c04f597f7e/.github/workflows/deploy-stage.yml#L27)
+1. Store variables that must be secret using [CircleCI Environment Variables](https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-project)
+1. TKTK, this step needs to be updated for CircleCI deployment pipeline. Add the secret to the `env:` block of the deploy action [as in this example](https://github.com/OHS-Hosting-Infrastructure/complaint-tracker/blob/a9e8d22aae2023a0afb631a6182251c04f597f7e/.github/workflows/deploy-stage.yml#L20)
+1. TKTK, this step needs to be updated for CircleCI deployment pipeline. Add the appropriate `--var` addition to the `push_arguments` line on the deploy action [as in this example](https://github.com/OHS-Hosting-Infrastructure/complaint-tracker/blob/a9e8d22aae2023a0afb631a6182251c04f597f7e/.github/workflows/deploy-stage.yml#L27)
 
 
 #### Non-secrets
