@@ -37,7 +37,7 @@ The below steps rely on you first configuring access to the Terraform state in s
 
 1. Apply changes with `terraform apply`.
 
-  *TKTK, information about how the terraform gets applied by CI/CD, if we do that.*
+  *TKTK, information about how the terraform gets applied by CI/CD, when we do that.*
 
 1. Remove the space deployer service instance if it doesn't need to be used again, such as when manually running terraform once.
     ```bash
