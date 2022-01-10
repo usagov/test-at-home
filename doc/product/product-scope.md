@@ -29,7 +29,7 @@ Fields to be collected on each order
 - Address (include APO/FPO)
 - phone (may be optional, USPS is assessing)
 - email (optional)
-    - User entry is optional (to meet the needs of people that do not have email), however an email will need to be sent to the USPS fulfillment system 
+    - User aware that without email, they will not receive any status updates. 
 
 Address validation of each order
 - User will have the option to accept what they entered in the field vs. validated (suggested) addresses.
