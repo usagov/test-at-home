@@ -1,6 +1,6 @@
 <h1><%= t('.title') %></h1>
 
-<p><%= t('.body_html').html_safe %></p>
+<p><%= t('.body_html') %></p>
 
 <%= form_with model: @kit_request, class: "usa-form usa-form--large" do |form| %>
     <% if @kit_request.errors.any? %>

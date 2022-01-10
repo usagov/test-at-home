@@ -28,7 +28,7 @@ RSpec.describe KitRequest, type: :model do
 
     it "requires state" do
       expect(FactoryBot.build(:kit_request, state: nil)).to_not be_valid
-      expect(FactoryBot.build(:kit_request, state: "12345")).to be_valid
+      expect(FactoryBot.build(:kit_request, state: "OH")).to be_valid
     end
   end
 end

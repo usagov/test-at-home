@@ -50,7 +50,7 @@ RSpec.describe "KitRequests", type: :request do
     end
 
     context "when data is invalid" do
-      it "creates a new kit request and redirects to confirmation page" do
+      it "renders errors without creating new record" do
         kit_request_params = {
           first_name: ""
         }
