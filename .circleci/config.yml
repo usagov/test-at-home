@@ -134,7 +134,6 @@ jobs:
       PGHOST: 127.0.0.1
       PGUSER: circleci
       PGPASSWORD: ""
-      SECRET_KEY_BASE: not-a-secret
       RAILS_ENV: ci
     steps:
       - checkout

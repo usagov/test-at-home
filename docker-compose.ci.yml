@@ -13,7 +13,7 @@ services:
     environment:
       RAILS_ENV: ci
       DATABASE_URL: postgres://circleci:notasecret@db:5432/test_at_home_ci
-      SECRET_KEY_BASE: notasecret
+      RAILS_MASTER_KEY: $RAILS_MASTER_KEY
   db:
     image: cimg/postgres:12.9
     environment:
