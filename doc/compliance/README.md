@@ -17,3 +17,15 @@ These plugins may be helpful for editing diagrams.
   - Use "PlantUML: Export Workspace Diagrams" to render all diagrams (eg before pushing a branch)
 - vim: [weirongxu/plantuml-previewer.vim](https://github.com/weirongxu/plantuml-previewer.vim)
 - vim: [aklt/plantuml-syntax](https://github.com/aklt/plantuml-syntax)
+
+### PlantUML Server
+
+The plugin default settings use the public server, https://www.plantuml.com/plantuml, which may **leak sensitive information**. Instead, run a local plantuml server:
+
+```bash
+docker run -d -p 8080:8080 plantuml/plantuml-server:jetty
+```
+
+In VSCode, update settings in `@ext:jebbs.plantuml` and set Plantuml: Server to `http://localhost:8080`
+
+In addition, you may need to `brew install graphviz` to use the Export diagram features.
