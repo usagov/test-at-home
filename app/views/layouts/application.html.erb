@@ -10,12 +10,14 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body class="bg-primary-lighter">
     <%= render "application/usa_banner" %>
-    <main id="main-content">
+    <%= render "application/header" %>
+    <main id="main-content" class="text-primary-dark">
       <div class="grid-container usa-section">
         <%= yield %>
       </div>
     </main>
+    <%= render "application/footer" %>
   </body>
 </html>

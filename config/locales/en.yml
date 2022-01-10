@@ -31,6 +31,9 @@
 
 en:
   shared:
+    languages:
+      language: Language
+      en: English
     banner:
       fake_site: A DEMO website of the United States government
       gov_description_html:
@@ -46,8 +49,13 @@ en:
       lock: Lock
       locked_padlock: A locked padlock
       us_flag: U.S. Flag
-    footer_lite:
-      gsa: US General Services Administration
+    header:
+      title: COVIDtest.gov
+      menu: Menu
+      primary: Primary navigation
+      close: Close
+    footer:
+      return_top: Return to top
     skip_link: Skip to main content
   activerecord:
     errors:
@@ -65,7 +73,10 @@ en:
   kit_requests:
     new:
       title: Place your pre-order for free COVID-19 at-home test
-      body_html: Fill in this form with your contact and shipping information to preorer one set of 4 individual at-home tests. <strong>Orders will ship late January.</strong>
+      body_html: >
+        <p class="usa-intro">Fill in this form with your contact and shipping information to preorer one set of 4 individual at-home tests. <strong>Orders will ship late January.</strong></p>
+
+        <p class="text-italic font-body-xs">If you are requesting on behalf of someone else, please use their name and address.</p>
       error_header: "Couldn't process your request because of errors:"
       submit: Review your order
     confirmation:

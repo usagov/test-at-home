@@ -1,5 +1,5 @@
 /* Entry point for your PostCSS build */
 /* KNOWN ISSUE: only changes to application.postcss.css will trigger an automatic rebuild */
 /* restart your server or run `yarn build:css` when changing other files */
-@import "uswds-settings.scss";
-@import "../../../node_modules/uswds/dist/scss/uswds.scss";
+
+@import "uswds/styles.scss";
