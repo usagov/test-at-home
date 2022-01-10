@@ -31,7 +31,8 @@ Fields to be collected on each order
 - Optional - email
 
 Address validation of each order
-- User will have the option to accept what they entered in the field vs. validated (suggested) addresses.
+- Address must be found in their USPS address API/database.
+    - The address submitted to USPS fulfillment must be an exact match (i.e. user input is modified prior to submission)
 - This validation must happen whether USPS address validator is available or not.
 
 Each order must be retained until it is delivered to the USPS fulfillment system
