@@ -1,0 +1,7 @@
+{
+    "plantuml.diagramsRoot": "doc/compliance",
+    "plantuml.exportFormat": "svg",
+    "plantuml.exportOutDir": "doc/compliance/rendered",
+    "plantuml.exportSubFolder": false,
+    "plantuml.fileExtensions": ".wsd,.pu,.puml,.plantuml,.iuml,.md"
+}
