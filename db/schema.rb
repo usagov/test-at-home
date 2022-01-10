@@ -10,18 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_07_174155) do
+ActiveRecord::Schema.define(version: 2022_01_07_213558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "kit_requests", force: :cascade do |t|
-    t.string "full_name", null: false
-    t.string "address", null: false
+    t.string "first_name", null: false
+    t.string "mailing_address_1", null: false
     t.string "email"
-    t.string "phone_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "last_name", null: false
+    t.string "mailing_address_2"
+    t.string "city"
+    t.string "state", null: false
+    t.string "zip_code", null: false
   end
 
 end

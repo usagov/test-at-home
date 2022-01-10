@@ -1,10 +1,12 @@
-<h1>Request a Covid test kit</h1>
+<h1><%= t('.title') %></h1>
 
-<%= form_with model: @kit_request do |f| %>
+<p><%= t('.body_html') %></p>
+
+<%= form_with model: @kit_request, class: "usa-form usa-form--large" do |form| %>
     <% if @kit_request.errors.any? %>
         <div id="error_explanation">
             <h2>
-                Couldn't process your request because of errors:
+                <%= t('.error_header') %>
             </h2>
             <ul>
                 <% @kit_request.errors.full_messages.each do |message| %>
@@ -14,25 +16,35 @@
         </div>
     <% end %>
 
-    <div>
-        <%= f.label :full_name %>
-        <%= f.text_field :full_name %>
-    </div>
+    <fieldset class="usa-fieldset">
+        <%= form.label :first_name, class: "usa-label" %>
+        <%= form.text_field :first_name, class: "usa-input usa-input--xl" %>
 
-    <div>
-        <%= f.label :address %>
-        <%= f.text_field :address %>
-    </div>
+        <%= form.label :last_name, class: "usa-label" %>
+        <%= form.text_field :last_name, class: "usa-input usa-input--xl" %>
 
-    <div>
-        <%= f.label :email %>
-        <%= f.email_field :email %>
-    </div>
+        <%= form.label :email, class: "usa-label" %>
+        <%= form.email_field :email, class: "usa-input usa-input--xl" %>
 
-    <div>
-        <%= f.label :phone_number %>
-        <%= f.telephone_field :phone_number %>
-    </div>
+        <fieldset class="usa-fieldset">
+            <%= form.label :mailing_address_1, class: "usa-label" %>
+            <%= form.text_field :mailing_address_1, class: "usa-input usa-input--xl" %>
 
-    <%= f.submit 'Submit' %>
+            <%= form.label :mailing_address_2, class: "usa-label" %>
+            <%= form.text_field :mailing_address_2, class: "usa-input usa-input--xl" %>
+
+            <%= form.label :city, class: "usa-label" %>
+            <%= form.text_field :city, class: "usa-input usa-input--xl" %>
+
+            <%= form.label :state, class: "usa-label" %>
+            <div class="usa-combo-box">
+                <%= form.select :state, options_for_select(us_states), {}, { class: 'usa-select' } %>
+            </div>
+        
+            <%= form.label :zip_code, class: "usa-label" %>
+            <%= form.text_field :zip_code, class: "usa-input usa-input--medium" %>
+        </fieldset>
+
+        <%= form.submit t('.submit'), class: "usa-button" %>
+    </fieldset>
 <% end %>

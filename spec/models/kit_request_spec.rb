@@ -6,14 +6,29 @@ RSpec.describe KitRequest, type: :model do
   end
 
   describe "validations" do
-    it "requires full name" do
-      expect(FactoryBot.build(:kit_request, full_name: nil)).to_not be_valid
-      expect(FactoryBot.build(:kit_request, full_name: "Test McTester")).to be_valid
+    it "requires first_name" do
+      expect(FactoryBot.build(:kit_request, first_name: nil)).to_not be_valid
+      expect(FactoryBot.build(:kit_request, first_name: "Test")).to be_valid
     end
 
-    it "requires address" do
-      expect(FactoryBot.build(:kit_request, address: nil)).to_not be_valid
-      expect(FactoryBot.build(:kit_request, address: "1234 Fake St Lima, OH")).to be_valid
+    it "requires last_name" do
+      expect(FactoryBot.build(:kit_request, last_name: nil)).to_not be_valid
+      expect(FactoryBot.build(:kit_request, last_name: "McTester")).to be_valid
+    end
+
+    it "requires mailing address 1" do
+      expect(FactoryBot.build(:kit_request, mailing_address_1: nil)).to_not be_valid
+      expect(FactoryBot.build(:kit_request, mailing_address_1: "1234 Fake St")).to be_valid
+    end
+
+    it "requires zip code" do
+      expect(FactoryBot.build(:kit_request, zip_code: nil)).to_not be_valid
+      expect(FactoryBot.build(:kit_request, zip_code: "12345")).to be_valid
+    end
+
+    it "requires state" do
+      expect(FactoryBot.build(:kit_request, state: nil)).to_not be_valid
+      expect(FactoryBot.build(:kit_request, state: "OH")).to be_valid
     end
   end
 end

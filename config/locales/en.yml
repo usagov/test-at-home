@@ -30,4 +30,42 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  shared:
+    banner:
+      fake_site: A DEMO website of the United States government
+      gov_description_html: A <strong>.gov</strong> website belongs to an official
+        government organization in the United States.
+      gov_heading: Official websites use .gov
+      how: Here’s how you know
+      official_site: An official website of the United States government
+      secure_description_html: A <strong>lock</strong> (%{lock_icon}) or
+        <strong>https://</strong> means you’ve safely connected to the .gov
+        website. Share sensitive information only on official, secure websites.
+      secure_heading: Secure .gov websites use HTTPS
+      lock: Lock
+      locked_padlock: A locked padlock
+      us_flag: U.S. Flag
+    footer_lite:
+      gsa: US General Services Administration
+    skip_link: Skip to main content
+  activerecord:
+    errors:
+      messages:
+        blank: can't be blank
+    attributes:
+      first_name: First name
+      last_name: Last name
+      email: Email address
+      mailing_address_1: Mailing address 1
+      mailing_address_2: Mailing address 2
+      city: City
+      state: State, Territory, Military Base
+      zip_code: Zip code
+  kit_requests:
+    new:
+      title: Place your pre-order for free COVID-19 at-home test
+      body_html: Fill in this form with your contact and shipping information to preorer one set of 4 individual at-home tests. <strong>Orders will ship late January.</strong>
+      error_header: "Couldn't process your request because of errors:"
+      submit: Review your order
+    confirmation:
+      title: Thank you, your pre-order has been placed.
