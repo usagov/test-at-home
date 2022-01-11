@@ -6,7 +6,9 @@ applications:
     - ruby_buildpack
   env:
     RAILS_MASTER_KEY: ((rails_master_key))
-    RAILS_ENV: production
+    RAILS_ENV: ((rails_env))
+    RAILS_SERVE_STATIC_FILES: true
+    RAILS_LOG_TO_STDOUT: true
   processes:
   - type: web
     instances: ((web_instances))
