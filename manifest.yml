@@ -6,10 +6,13 @@ applications:
     - ruby_buildpack
   env:
     RAILS_MASTER_KEY: ((rails_master_key))
-    RAILS_ENV: production
+    RAILS_ENV: ((rails_env))
+    RAILS_SERVE_STATIC_FILES: true
+    RAILS_LOG_TO_STDOUT: true
   processes:
   - type: web
     instances: ((web_instances))
     memory: ((web_memory))
+    command: bundle exec rake cf:on_first_instance db:migrate && bundle exec rails s -b 0.0.0.0 -p $PORT -e $RAILS_ENV
   services:
   - test_at_home-rds-((env))
