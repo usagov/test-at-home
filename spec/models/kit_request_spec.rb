@@ -1,6 +1,11 @@
 require "rails_helper"
 
 RSpec.describe KitRequest, type: :model do
+  before do
+    fake_result = double("result", analysis: double(dpv_match_code: "Y"))
+    allow(UsStreetAddressValidator).to receive(:new) { instance_double(UsStreetAddressValidator, run: [fake_result]) }
+  end
+
   it "has a valid factory" do
     expect(FactoryBot.build(:kit_request)).to be_valid
   end
