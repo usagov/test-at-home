@@ -102,5 +102,9 @@ en:
           <p>You are not required to provide your name and address; however, not providing it will prevent USPS from shipping COVID tests to you. You are not required to provide your email address; however, not providing it will prevent USPS from emailing you shipment information.</p>
 
           <p>Any information you provide when placing your order will be shared with USPS and may also be disclosed as described in the published Privacy Act System of Records Notice, usa.gov.</p>
+      js:
+        review: Review your order
+        submit: Place your order
+        empty: Not provided
     confirmation:
       title: Thank you, your pre-order has been placed.

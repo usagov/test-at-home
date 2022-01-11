@@ -6,9 +6,9 @@ module.exports = (function() {
   const privacyContainer = document.getElementById("privacy-cntr");
   const editButton = document.getElementById("edit-btn");
 
-  const reviewText = "Review your order";
-  const submitText = "Place your order";
-  const emptyText = "Not provided";
+  const reviewText = I18n.t("kit_requests.new.js.review");
+  const submitText = I18n.t("kit_requests.new.js.submit");
+  const emptyText = I18n.t("kit_requests.new.js.empty");
 
   const getElement = key => {
     const id = key.match(/\[(.*?)\]/);
