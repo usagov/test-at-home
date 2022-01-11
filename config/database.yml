@@ -85,6 +85,11 @@ production:
   username: test_at_home
   password: <%= ENV["TEST_AT_HOME_DATABASE_PASSWORD"] %>
 
+staging:
+  <<: *default
+  # db will be configured by DATABASE_URL in a "real" staging env. Use dev db here for ease of local use
+  database: test_at_home_development
+
 ci:
   <<: *default
   database: test_at_home_development

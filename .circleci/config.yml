@@ -92,7 +92,8 @@ jobs:
           command: bundle exec rake yarn:audit
 
   owasp_scan:
-    machine: true
+    machine:
+      image: ubuntu-2004:202111-02
     steps:
       - checkout
 
@@ -181,6 +182,36 @@ jobs:
           name: Run pa11y-ci
           command: yarn run pa11y-ci
 
+  deploy:
+    docker:
+      - image: cimg/node:16.13.1
+    steps:
+      - checkout
+      - when:
+          condition:
+            and:
+              - equal: [<< pipeline.project.git_url >>, "https://github.com/usagov/test-at-home"]
+              - equal: [<< pipeline.git.branch >>, "main"]
+          steps:
+            - node/install-packages:
+                cache-only-lockfile: false
+                pkg-manager: yarn
+            - run:
+                name: Install Cloud Foundry CLI
+                command: |
+                  curl -v -L -o cf-cli_amd64.deb 'https://packages.cloudfoundry.org/stable?release=debian64&version=v7&source=github'
+                  sudo dpkg -i cf-cli_amd64.deb
+            - run:
+                name: Deploy to staging
+                command: ./bin/cf-deploy
+                environment:
+                  CF_FOUNDRY_API: api.fr.cloud.gov
+                  CF_USER: a14eb22f-a73b-4cdc-afbd-e3198203b95d
+                  CF_PASSWORD_NAME: CF_FOUNDRY_0_STAGE_PASS
+                  CF_SPACE: tah-stage
+                  VARS_FILE: config/deployment/stage.yml
+                  RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
+
 workflows:
   version: 2.1
   build_and_test:
@@ -201,6 +232,13 @@ workflows:
       - a11y_scan:
           requires:
             - build
+      - deploy:
+          requires:
+            - test
+            - brakeman
+            - dependency_audits
+            - owasp_scan
+            - a11y_scan
   daily_scan:
     triggers:
       - schedule:
