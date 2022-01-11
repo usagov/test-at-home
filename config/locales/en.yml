@@ -74,10 +74,29 @@ en:
     new:
       title: Place your pre-order for free COVID-19 at-home test
       body_html: >
-        <p class="usa-intro">Fill in this form with your contact and shipping information to preorer one set of 4 individual at-home tests. <strong>Orders will ship late January.</strong></p>
+        <p class="usa-intro">Fill in this form to request a free at-home testing kit. Testing kits will include one set of 4 individual rapid antigen tests.</p>
 
-        <p class="text-italic font-body-xs">If you are requesting on behalf of someone else, please use their name and address.</p>
+        <p class="text-bold">Testing kits will ship late January.</p>
+      form:
+        first_name: "First name"
+        last_name: "Last name"
+        mailing_address_1: "Mailing address 1"
+        mailing_address_2: "Mailing address 2"
+        city: "City"
+        state: "State, Territory, Military base"
+        zip_code: "Zip code"
+        email: "Email address"
+      contact_title: Contact information
+      contact_html: >
+        Contact information for the person receiving the order.
+        <span class="text-secondary">*</span><span class="text-italic">Required</span>
+      shipping_title: Shipping address
+      shipping_html: >
+        <span class="text-secondary">*</span><span class="text-italic">Required</span>
+      tracking_title: Order tracking
+      tracking_html: >
+        To receive updates on the status of your order from USPS, please provide an email address. <span class="text-italic text-primary">This step is optional, but we will not be able to provide tracking without an email.</span>
       error_header: "Couldn't process your request because of errors:"
-      submit: Review your order
+      submit: Place your order
     confirmation:
       title: Thank you, your pre-order has been placed.

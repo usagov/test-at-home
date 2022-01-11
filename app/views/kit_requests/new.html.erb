@@ -1,13 +1,13 @@
 <%= render "application/separator" %>
-<h1 class="margin-top-1"><%= t('.title') %></h1>
+<h1 class="margin-top-1"><%= t('kit_requests.new.title') %></h1>
 
-<p><%= t('.body_html') %></p>
+<p><%= t('kit_requests.new.body_html') %></p>
 
 <%= form_with model: @kit_request, class: "usa-form usa-form--large" do |form| %>
   <% if @kit_request.errors.any? %>
       <div id="error_explanation">
           <h2>
-              <%= t('.error_header') %>
+              <%= t('kit_requests.new.error_header') %>
           </h2>
           <ul>
               <% @kit_request.errors.full_messages.each do |message| %>
@@ -17,54 +17,62 @@
       </div>
   <% end %>
 
-  <fieldset class="usa-fieldset">
-    <%= render :layout => 'card', :locals => {:title => 'Contact information'} do %>
-      <p class="font-body-xs">
-        Contact information for the person receiving the order.
-        <span class="text-secondary">*</span><span class="text-italic">You must include a first and last name.</span>
-      </p>
+  <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.contact_title')} do %>
+    <p class="font-body-xs margin-top-0">
+      <%= t('kit_requests.new.contact_html') %>
+    </p>
 
-      <%= form.label :first_name, class: "usa-label" do %>
-      First name<span class="text-secondary">*</span>
-      <% end %>
-      <%= form.text_field :first_name, class: "usa-input" %>
-
-      <%= form.label :last_name, class: "usa-label" do %>
-      Last name<span class="text-secondary">*</span>
-      <% end %>
-      <%= form.text_field :last_name, class: "usa-input" %>
-
-      <%= form.label :email, class: "usa-label" %>
-      <%= form.email_field :email, class: "usa-input" %>
+    <%= form.label :first_name, class: "usa-label" do %>
+    <%= t('kit_requests.new.form.first_name') %><span class="text-secondary">*</span>
     <% end %>
+    <%= form.text_field :first_name, class: "usa-input" %>
 
-    <%= render :layout => 'card', :locals => {:title => 'Shipping address'} do %>
-      <%= form.label :mailing_address_1, class: "usa-label" do %>
-      Mailing address 1<span class="text-secondary">*</span>
-      <% end %>
-      <%= form.text_field :mailing_address_1, class: "usa-input" %>
-
-      <%= form.label :mailing_address_2, class: "usa-label" %>
-      <%= form.text_field :mailing_address_2, class: "usa-input" %>
-
-      <%= form.label :city, class: "usa-label" do %>
-      City<span class="text-secondary">*</span>
-      <% end %>
-      <%= form.text_field :city, class: "usa-input" %>
-
-      <%= form.label :state, class: "usa-label" do %>
-      State<span class="text-secondary">*</span>
-      <% end %>
-      <div class="usa-combo-box">
-        <%= form.select :state, options_for_select(us_states), {}, { class: 'usa-select' } %>
-      </div>
-
-      <%= form.label :zip_code, class: "usa-label" do %>
-      Zip code<span class="text-secondary">*</span>
-      <% end %>
-      <%= form.text_field :zip_code, class: "usa-input usa-input--medium" %>
+    <%= form.label :last_name, class: "usa-label" do %>
+    <%= t('kit_requests.new.form.last_name') %><span class="text-secondary">*</span>
     <% end %>
+    <%= form.text_field :last_name, class: "usa-input" %>
+  <% end %>
 
-    <%= form.submit t('.submit'), class: "usa-button radius-pill font-ui-lg width-full" %>
-  </fieldset>
+  <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.shipping_title')} do %>
+    <p class="font-body-xs margin-top-0">
+      <%= t('kit_requests.new.shipping_html') %>
+    </p>
+    <%= form.label :mailing_address_1, class: "usa-label" do %>
+    <%= t('kit_requests.new.form.mailing_address_1') %><span class="text-secondary">*</span>
+    <% end %>
+    <%= form.text_field :mailing_address_1, class: "usa-input" %>
+
+    <%= form.label :mailing_address_2, class: "usa-label" %>
+    <%= form.text_field :mailing_address_2, class: "usa-input" %>
+
+    <%= form.label :city, class: "usa-label" do %>
+    <%= t('kit_requests.new.form.city') %><span class="text-secondary">*</span>
+    <% end %>
+    <%= form.text_field :city, class: "usa-input" %>
+
+    <%= form.label :state, class: "usa-label" do %>
+    <%= t('kit_requests.new.form.state') %><span class="text-secondary">*</span>
+    <% end %>
+    <div class="usa-combo-box">
+      <%= form.select :state, options_for_select(us_states), {}, { class: 'usa-select' } %>
+    </div>
+
+    <%= form.label :zip_code, class: "usa-label" do %>
+    <%= t('kit_requests.new.form.zip_code') %><span class="text-secondary">*</span>
+    <% end %>
+    <%= form.text_field :zip_code, class: "usa-input usa-input--medium" %>
+  <% end %>
+
+  <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.tracking_title')} do %>
+    <p class="font-body-xs margin-top-0">
+      <%= t('kit_requests.new.tracking_html') %>
+    </p>
+    <%= form.label :email, class: "usa-label" do %>
+      <%= t('kit_requests.new.form.email') %>
+    <% end %>
+    <%= form.email_field :email, class: "usa-input" %>
+  <% end %>
+
+
+  <%= form.submit t('kit_requests.new.submit'), class: "usa-button radius-pill font-ui-lg width-full margin-top-0" %>
 <% end %>
