@@ -1,0 +1,32 @@
+<div id="review-cntr" hidden>
+  <%= render "application/separator" %>
+  <h1 class="margin-top-1" tabindex="-1">
+    <%= t('kit_requests.new.review.title') %>
+  </h1>
+
+  <%= render :layout => 'card' do %>
+    <h3 class="text-primary margin-top-0">
+      <%= t('kit_requests.new.review.contact_heading') %>
+    </h3>
+    <div class="margin-bottom-4">
+      <h4 class="text-primary-dark">
+        <%= t('kit_requests.new.review.ship_to') %>
+      </h4>
+      <div class="text-bold">
+        <span id="review-first_name"></span> <span id="review-last_name"></span>
+      </div>
+      <div>
+        <span class="display-block" id="review-mailing_address_1"></span>
+        <span class="display-block" id="review-mailing_address_2"></span>
+        <span id="review-city"></span>, <span id="review-state"></span> <span id="review-zip_code"></span>
+      </div>
+    </div>
+    <div class="margin-bottom-4">
+      <h4 class="text-primary-dark"><%= t('kit_requests.new.review.tracking_to') %></h4>
+      <div>
+        <span id="review-email"></span>
+      </div>
+    </div>
+    <button class="usa-button usa-button--outline radius-pill padding-y-1 margin-y-0" id="edit-btn">Edit</button>
+  <% end %>
+</div>
