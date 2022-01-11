@@ -21,9 +21,9 @@
       </div>
     </main>
     <%= render "application/footer" %>
-    <script type="text/javascript">
+    <%= javascript_tag nonce: true do %>
       I18n.defaultLocale = "<%= I18n.default_locale %>"
       I18n.locale = "<%= I18n.locale || I18n.default_locale %>"
-    </script>
+    <% end %>
   </body>
 </html>

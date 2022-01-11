@@ -29,7 +29,7 @@ module.exports = (function() {
 
     toggleContainer();
 
-    Object.entries(getFormValues(e.target)).forEach(
+    Object.entries(getFormValues(form)).forEach(
       ([key, value]) => (getElement(key).innerHTML = "")
     );
   };
