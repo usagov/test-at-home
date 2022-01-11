@@ -7,7 +7,7 @@ module "s3" {
   cf_password     = var.cf_password
   cf_space_name   = "tah-prod"
   s3_service_name = "tah-shared-config"
-  s3_plan_name    = "basic"
+  s3_plan_name    = "basic-sandbox"
 }
 
 output "bucket_credentials" {
