@@ -17,7 +17,6 @@ class UsStreetAddressValidator
     @lookup = SmartyStreets::USStreet::Lookup.new
     lookup.street = kit_request.mailing_address_1
     lookup.secondary = kit_request.mailing_address_2
-    # lookup.urbanization = ''  # Only applies to Puerto Rico addresses
     lookup.city = kit_request.city
     lookup.state = kit_request.state
     lookup.zipcode = kit_request.zip_code
@@ -36,7 +35,12 @@ class UsStreetAddressValidator
     lookup.result
   end
 
+  def self.deliverable?(candidate)
+    return false unless candidate
+    DELIVERABLE_MATCH_CODES.include?(candidate.analysis.dpv_match_code)
+  end
+
   private
 
-  attr_accessor :client, :lookup
+  attr_reader :client, :lookup
 end

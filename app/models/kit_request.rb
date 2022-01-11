@@ -11,17 +11,17 @@ class KitRequest < ApplicationRecord
 
   def valid_mailing_address
     validation_results = UsStreetAddressValidator.new(self).run
-    deliverable_results = validation_results.select do |result|
-      UsStreetAddressValidator::DELIVERABLE_MATCH_CODES.include?(result.analysis.dpv_match_code)
+    # No matches
+    unless validation_results
+      errors.add :mailing_address, :address_not_found
+      return false
     end
 
+    deliverable_results = validation_results.select { |result| UsStreetAddressValidator.deliverable?(result) }
     # A deliverable match
-    if validation_results.any? && deliverable_results.any?
+    if deliverable_results.any?
+      self.smarty_response = deliverable_results.first.to_json
       true
-    # No matches
-    elsif validation_results.none?
-      errors.add :mailing_address, :address_not_found
-      false
     # A match that is undeliverable (eg missing apartment number)
     else
       errors.add :mailing_address, :address_more_info
