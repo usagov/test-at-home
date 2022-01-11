@@ -21,12 +21,12 @@ Boundary(aws_com, "AWS Commercial") {
 }
 Rel(browser, r53, "dns resolution")
 
-
 note as EncryptionNote
 All connections depicted are encrypted with TLS 1.2 unless otherwise noted.
 end note
 Boundary(aws, "AWS GovCloud") {
     Boundary(cloudgov, "cloud.gov") {
+        System_Ext(cg_api, "cloud.gov API")
         Boundary(cg_aws_com, "AWS Commercial") {
             System_Ext(aws_cf, "cloudfront CDN", "CDN Static Content Cache")
         }
@@ -63,6 +63,17 @@ Boundary(other_saas, "SaaS") {
 Rel(browser, address_api, "auto-complete address entries", "https GET/POST (443)")
 Rel(browser, recaptcha, "interact with reCAPTCHA", "https GET/POST (443)")
 Rel(app, recaptcha, "verify reCAPTCHA response", "https POST (443)")
+
+Person(developer, "Developer", "Application developers")
+Boundary(cicd, "CI/CD Pipeline") {
+    System_Ext(github, "GitHub", "GSA-controlled code repository")
+    System_Ext(circleci, "CircleCI", "Continuous Integration Service")
+}
+Rel(developer, github, "Publish code", "git ssh (22)")
+Rel(github, circleci, "Commit hook notifies CircleCI to run CI/CD pipeline", "https POST (443)")
+Rel(circleci, cg_api, "Deploy App", "Auth: SpaceDeployer Service Account, https (443)")
+Rel(developer, dap, "View traffic statistics", "https GET (443)")
+Rel(developer, newrelic, "Manage performance", "https (443)")
 
 
 @enduml
