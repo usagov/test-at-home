@@ -18,7 +18,7 @@ RSpec.describe "Person requests a test kit", type: :system do
     select "OH", from: "State"
     fill_in "Zip code", with: "12345"
 
-    click_on "Review your order"
+    click_on "Place your order"
 
     expect(page).to have_content "Thank you, your pre-order has been placed."
   end
