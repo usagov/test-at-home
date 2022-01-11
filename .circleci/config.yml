@@ -92,7 +92,8 @@ jobs:
           command: bundle exec rake yarn:audit
 
   owasp_scan:
-    machine: true
+    machine:
+      image: ubuntu-2004:202111-02
     steps:
       - checkout
 
