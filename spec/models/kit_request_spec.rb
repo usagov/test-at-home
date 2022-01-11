@@ -69,14 +69,13 @@ RSpec.describe KitRequest, type: :model do
       end
 
       context "matches received with unallowable delivery code" do
-        it "is invalid and assigns an error to relevant fields" do
+        it "is invalid and assigns an error" do
           allow(UsStreetAddressValidator).to receive(:new) { instance_double(UsStreetAddressValidator, run: [double("foo")]) }
           allow(UsStreetAddressValidator).to receive(:deliverable?) { false }
 
           kr = FactoryBot.build(:kit_request)
           expect(kr).to_not be_valid
           expect(kr.errors[:mailing_address].count).to eq(1)
-          expect(kr.errors[:mailing_address_2].count).to eq(1)
         end
       end
     end

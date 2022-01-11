@@ -62,8 +62,7 @@ en:
       messages:
         blank: can't be blank
         address_not_found: must be a valid USPS delivery address
-        address_more_info: needs additional information
-        line_2_required: seems to be missing
+        address_incorrect: seems to be incorrect. Please check for missing information
     attributes:
       first_name: First name
       last_name: Last name

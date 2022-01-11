@@ -24,8 +24,7 @@ class KitRequest < ApplicationRecord
       true
     # A match that is undeliverable (eg missing apartment number)
     else
-      errors.add :mailing_address, :address_more_info
-      errors.add :mailing_address_2, :line_2_required
+      errors.add :mailing_address, :address_incorrect
       false
     end
   end
