@@ -1,0 +1,898 @@
+/*
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+========================================
+========================================
+========================================
+----------------------------------------
+USWDS THEME CUSTOM STYLES
+----------------------------------------
+!! Copy this file to your project's
+  sass root. Don't edit the version
+  in node_modules.
+----------------------------------------
+Custom project SASS goes here.
+
+i.e.
+@include u-padding-right('05');
+----------------------------------------
+*/
+$max-width: "desktop-lg";
+
+$font-family: "Noto Sans", sans;
+$font-size: 16;
+$line-height: 22;
+
+$color-white: #ffffff; // white on blue, magenta, or dark blue
+$color-blue: #0057b7; // blue on white
+$color-cyan: #00d1f0; // cyan on dark blue
+$color-magenta: #e01782; // magenta on white
+$color-dark-blue: #00426b; // dark blue on cyan or white
+
+@mixin covidtest-font($font-size-px, $line-height-px: false) {
+  font-size: px-to-rem($font-size-px);
+  @if $line-height-px {
+    line-height: divide($line-height-px, $font-size-px);
+  }
+}
+
+@mixin covidtest-font-base() {
+  font-family: $font-family;
+  color: $color-dark-blue;
+  @include covidtest-font($font-size, $line-height);
+}
+
+.covidtest-container {
+  @include u-padding-x($theme-site-margins-mobile-width);
+
+  @include at-media("desktop") {
+    @include u-padding-x($theme-site-margins-width);
+  }
+
+  @include at-media($max-width) {
+    @include grid-container($max-width);
+  }
+}
+
+a.covidtest-button {
+  &,
+  .covidtest-main & {
+    display: inline-block;
+    font-weight: 700;
+    background: $color-cyan;
+    color: $color-dark-blue;
+    border-radius: 90px;
+    padding: units("205") units(4);
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+
+    &:focus,
+    &:hover {
+      color: $color-dark-blue;
+      text-decoration: underline;
+    }
+  }
+}
+
+.covidtest-header {
+  @include covidtest-font-base;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+
+    @include u-padding-x($theme-site-margins-mobile-width);
+
+    @include at-media("desktop") {
+      @include u-padding-x($theme-site-margins-width);
+    }
+  }
+}
+
+.covidtest-logo {
+  margin-top: px-to-rem(10);
+  margin-bottom: px-to-rem(10);
+
+  @include at-media("mobile-lg") {
+    @include covidtest-font(19);
+  }
+
+  @include at-media("tablet") {
+    @include covidtest-font(24);
+  }
+
+  @include at-media("desktop") {
+    @include covidtest-font(37);
+    margin-top: 2px;
+  }
+
+  @include at-media("widescreen") {
+    margin-left: -98px; // Logo img width
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+    font-style: normal;
+    font-weight: 700;
+
+    img {
+      @include at-media-max("tablet-lg") {
+        max-width: 50px;
+        max-height: 50px;
+      }
+    }
+
+    a {
+      color: $color-blue;
+      text-decoration: none;
+    }
+  }
+}
+
+.covidtest-nav {
+  display: flex;
+  margin-left: units(2);
+
+  &__primary,
+  &__primary-mobile,
+  &__primary-submenu {
+    @include unstyled-list;
+  }
+  &__primary {
+    display: flex;
+    @include at-media-max("tablet-lg") {
+      display: none;
+    }
+
+    &-item {
+      button,
+      span,
+      a {
+        transition: color 0.2s ease;
+
+        &::before {
+          position: absolute;
+          content: "";
+          top: 0;
+          left: units(2);
+          right: units(2);
+          height: 4px;
+          background-color: transparent;
+        }
+      }
+
+      button,
+      span {
+        &::before {
+          background-color: $color-magenta;
+        }
+      }
+
+      a:focus,
+      a:hover {
+        color: $color-magenta;
+      }
+    }
+  }
+  &__primary-mobile {
+    display: flex;
+    @include at-media("tablet-lg") {
+      display: none;
+    }
+  }
+
+  &__primary-item,
+  &__primary-mobile-item,
+  &__primary-submenu-item {
+    button,
+    span,
+    a {
+      @include u-padding(1);
+      font-weight: 400;
+      text-decoration: none;
+      color: $color-dark-blue;
+    }
+  }
+  &__primary-item,
+  &__primary-mobile-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    @include u-padding-x(1);
+
+    button {
+      white-space: nowrap;
+
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: px-to-rem(8) px-to-rem(5) 0 px-to-rem(5);
+        border-color: transparent;
+        margin-left: units(0.5);
+        transition: transform 0.2s ease;
+      }
+
+      &,
+      &[aria-expanded="false"],
+      &[aria-expanded="false"]:hover {
+        background: transparent;
+        background-image: none;
+
+        span {
+          color: $color-dark-blue;
+        }
+
+        &::after {
+          border-top-color: $color-magenta;
+        }
+      }
+
+      &[aria-expanded="true"] {
+        background: $color-dark-blue;
+        background-image: none;
+
+        span {
+          color: $color-white;
+        }
+
+        &::after {
+          transform: rotate(-180deg);
+          border-top-color: $color-white;
+        }
+      }
+    }
+  }
+  &__primary-submenu {
+    position: absolute;
+    right: units(1);
+    margin-top: units(1);
+    @include u-padding(2);
+    min-width: 200%;
+    background: $color-dark-blue;
+    z-index: 10;
+
+    &-item {
+      a {
+        color: $color-white;
+        display: block;
+      }
+
+      a:focus,
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.covidtest-main {
+  @include covidtest-font-base;
+  border-top: 5px solid rgba(#eaf0f1, 0.72);
+
+  h1,
+  h2,
+  h3 {
+    font-weight: 700;
+    margin: units(2) 0;
+  }
+
+  // Desktop styles
+  p,
+  li {
+    @include covidtest-font(20, 27);
+    margin: units(2) 0;
+  }
+
+  ul {
+    padding-left: 1.1em;
+  }
+
+  a {
+    position: relative;
+    color: $color-blue;
+    text-decoration: underline;
+    // text-decoration: none;
+    // background-image: linear-gradient(currentColor, currentColor);
+    // background-position: 0% 100%;
+    // background-repeat: no-repeat;
+    // background-size: 0% 1px;
+    transition: all 0.2s ease;
+
+    &:focus,
+    &:hover {
+      color: $color-magenta;
+      // background-size: 100% 1px;
+    }
+  }
+}
+
+.covidtest-footer {
+  @include covidtest-font-base;
+  padding-top: units(2);
+  padding-bottom: units(5);
+
+  @include at-media("tablet-lg") {
+    padding-bottom: units(10);
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+
+    @include at-media-max("tablet-lg") {
+      flex-direction: column;
+
+      > * + * {
+        margin-top: units(2);
+      }
+    }
+
+    @include at-media("tablet-lg") {
+      justify-content: space-between;
+    }
+  }
+
+  &__logos {
+    display: flex;
+    align-items: center;
+
+    > * + * {
+      margin-left: units(1);
+    }
+  }
+
+  &__logo {
+    &-link {
+      display: block;
+      text-decoration: none;
+    }
+    &-text {
+      @include at-media("tablet-lg") {
+        @include covidtest-font(28);
+      }
+    }
+    &-img {
+      display: block;
+      max-width: 50px;
+      max-height: 50px;
+
+      @include at-media("tablet") {
+        max-width: 100px;
+        max-height: 100px;
+      }
+
+      @include at-media("tablet-lg") {
+        max-width: 140px;
+        max-height: 140px;
+      }
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.covidtest-hero {
+  position: relative;
+  margin-top: units(5);
+
+  &__container {
+    @include at-media("desktop") {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: -18px;
+    }
+  }
+
+  &__content {
+    @include at-media("desktop") {
+      flex-basis: 55%;
+      margin-bottom: units(3);
+    }
+
+    h1 {
+      @include covidtest-font(30, 41);
+      margin: units(3) 0;
+
+      @include at-media("mobile-lg") {
+        @include covidtest-font(36);
+      }
+
+      @include at-media("tablet") {
+        @include covidtest-font(40);
+      }
+
+      @include at-media("desktop") {
+        @include covidtest-font(54);
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        margin-top: units(3);
+        height: 6px;
+        width: 45px;
+        background: $color-magenta;
+      }
+    }
+
+    p {
+      margin: units(3) 0;
+    }
+  }
+
+  &__images {
+    position: relative;
+    width: 100%;
+    max-width: 504px;
+    margin: units(2) auto;
+
+    @include at-media("desktop") {
+      flex: 0 0 45%;
+      margin: 0 0 0 units(2);
+    }
+  }
+
+  &__images-container {
+    height: 0;
+    padding-bottom: 128%;
+  }
+
+  &__image {
+    position: absolute;
+    max-width: 65%;
+    border: 18px solid $color-white;
+    z-index: 1;
+
+    img {
+      display: block;
+      height: auto;
+    }
+
+    &--1 {
+      top: 0;
+      right: 0;
+      border-right: 0;
+    }
+
+    &--2 {
+      bottom: 0;
+      left: 0;
+      @include at-media-max("desktop") {
+        border-left: 0;
+      }
+    }
+  }
+}
+
+.covidtest-resources {
+  position: relative;
+  background-color: $color-dark-blue;
+
+  &__bg {
+    position: absolute;
+    object-fit: cover;
+    object-position: 68% center;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__container {
+    position: relative;
+    padding-top: 560px;
+    padding-bottom: units(2);
+
+    @include at-media("desktop") {
+      padding-top: 140px;
+      padding-bottom: 170px;
+    }
+  }
+
+  &__content {
+    background-color: $color-white;
+    @include u-padding(2);
+
+    @include at-media("desktop") {
+      @include u-padding(0);
+      background-color: transparent;
+      color: $color-white;
+      width: 45%;
+    }
+
+    h2 {
+      font-weight: 400;
+      @include covidtest-font($font-size, $line-height);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+
+      &::after {
+        content: "";
+        display: block;
+        margin-top: units(2);
+        height: 4px;
+        width: 30px;
+        background: $color-magenta;
+      }
+    }
+
+    p {
+      @include covidtest-font(24, 32);
+      font-weight: 700;
+    }
+
+    ul {
+      @include unstyled-list;
+    }
+
+    li {
+      a {
+        display: block;
+        @include covidtest-font(22, 30);
+        font-weight: 700;
+        text-decoration: none;
+        color: $color-dark-blue;
+
+        &::after {
+          content: "";
+          background: center / contain no-repeat
+            url("../img/covidtest/arrow.svg");
+          display: inline-block;
+          width: 29px;
+          height: 12px;
+          margin-left: units(1);
+          transition: transform 0.2s ease;
+        }
+
+        &:focus,
+        &:hover {
+          color: $color-blue;
+          text-decoration: underline;
+
+          &::after {
+            transform: translateX(units(1));
+          }
+        }
+      }
+
+      @include at-media("desktop") {
+        margin-top: units(2px);
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        a {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: rgba($color-white, 0.94);
+          @include u-padding(2);
+
+          &::after {
+            margin-right: units(1);
+          }
+
+          &:focus,
+          &:hover {
+            background-color: $color-white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.covidtest-about {
+  @include at-media("desktop") {
+    background: #f3f5f8;
+    padding-top: 88px;
+    padding-bottom: 106px;
+  }
+
+  &__container {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+
+    @include at-media("desktop") {
+      align-items: center;
+      flex-direction: row;
+      background: $color-white;
+    }
+  }
+
+  &__image {
+    @include u-padding(5);
+
+    @include at-media("desktop") {
+      flex: 0 0 45%;
+    }
+
+    img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      display: block;
+      margin: auto;
+    }
+  }
+
+  &__content {
+    @include at-media("desktop") {
+      @include u-padding(2);
+      flex-basis: 55%;
+    }
+
+    @include at-media("desktop-lg") {
+      @include u-padding-y(10);
+      padding-left: units(10);
+      padding-right: 0;
+    }
+
+    h2 {
+      font-weight: 400;
+      @include covidtest-font($font-size, $line-height);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+
+      &::after {
+        content: "";
+        display: block;
+        margin-top: units(2);
+        height: 4px;
+        width: 30px;
+        background: $color-magenta;
+      }
+    }
+
+    p {
+      @include covidtest-font(24, 32);
+      font-weight: 700;
+    }
+  }
+}
+
+.covidtest-instructions {
+  position: relative;
+  background-color: $color-dark-blue;
+
+  &__bg {
+    position: absolute;
+    object-fit: cover;
+    object-position: 76% center;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__container {
+    position: relative;
+    padding-top: 500px;
+    padding-bottom: units(2);
+
+    @include at-media("desktop") {
+      padding-top: 112px;
+      padding-bottom: 148px;
+    }
+  }
+
+  &__content {
+    background-color: $color-white;
+    @include u-padding(2);
+
+    @include at-media("desktop") {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      @include u-padding-x(2);
+      width: 45%;
+    }
+
+    @include at-media("desktop-lg") {
+      padding-top: 80px;
+      padding-bottom: 80px;
+      @include u-padding-x(10);
+    }
+
+    h2 {
+      @include covidtest-font(24, 32);
+
+      @include at-media("desktop") {
+        @include covidtest-font(30);
+      }
+    }
+  }
+}
+
+.covidtest-whatif {
+  position: relative;
+  @include at-media("desktop") {
+    display: flex;
+  }
+
+  &__positive,
+  &__negative {
+    color: $color-white;
+
+    .covidtest-whatif__content {
+      @include u-padding-y(5);
+      @include u-padding-x(2);
+    }
+
+    @include at-media("desktop") {
+      display: flex;
+      align-items: center;
+      @include u-padding-y(15);
+
+      .covidtest-whatif__content {
+        @include u-padding(0);
+        margin-left: units(2);
+        margin-right: units(2);
+      }
+    }
+
+    @include at-media("desktop-lg") {
+      .covidtest-whatif__content {
+        margin-left: units(10);
+        margin-right: units(10);
+      }
+    }
+  }
+  &__positive {
+    background: #c01b6c;
+
+    .covidtest-whatif__content {
+      h2 em {
+        background-color: #db297f;
+      }
+
+      a:focus,
+      a:hover {
+        text-decoration-color: #db297f;
+      }
+    }
+
+    @include at-media("desktop") {
+      flex: 0 0 45%;
+      margin-top: units(-4);
+      margin-bottom: units(-4);
+      z-index: 1;
+    }
+
+    @include at-media("desktop-lg") {
+      flex-basis: calc((100vw - 1200px) / 2 + (1200px * 0.45));
+
+      .covidtest-whatif__content {
+        margin-left: calc((100vw - 1200px) / 2 + units("205") + units(10));
+      }
+    }
+  }
+  &__negative {
+    background: $color-dark-blue
+      linear-gradient(230.49deg, #1f59b1 -103.44%, #01426c 72.6%);
+
+    .covidtest-whatif__content {
+      h2 em {
+        background-color: rgba(#4293bd, 0.59);
+      }
+
+      a:focus,
+      a:hover {
+        text-decoration-color: rgba(#4293bd, 0.59);
+      }
+    }
+
+    @include at-media("desktop") {
+      flex-basis: 55%;
+    }
+
+    @include at-media("desktop-lg") {
+      flex-basis: calc((100vw - 1200px) / 2 + (1200px * 0.55));
+
+      .covidtest-whatif__content {
+        margin-right: calc((100vw - 1200px) / 2 + units("205"));
+      }
+    }
+  }
+
+  &__content {
+    h2 {
+      @include covidtest-font(24, 36);
+
+      em {
+        font-style: normal;
+        padding: units("05");
+      }
+    }
+
+    a {
+      color: $color-white;
+      text-decoration-thickness: 2px;
+
+      &:focus,
+      &:hover {
+        color: $color-white;
+      }
+    }
+
+    p.covidtest-whatif__note {
+      @include covidtest-font(17, 26);
+    }
+  }
+}
+
+.covidtest-other {
+  position: relative;
+  background: #f3f5f8;
+  @include u-padding-y(2);
+
+  @include at-media("desktop") {
+    padding-top: 88px; // fix
+    padding-bottom: 106px; // fix
+  }
+
+  &__container {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+
+    @include at-media("desktop") {
+      align-items: center;
+      flex-direction: row;
+    }
+  }
+
+  &__image {
+    @include at-media("desktop") {
+      flex: 0 0 45%;
+    }
+
+    img {
+      width: 100%;
+      max-width: 555px;
+      height: auto;
+      display: block;
+      margin: auto;
+    }
+  }
+
+  &__content {
+    @include at-media("desktop") {
+      @include u-padding-x(2);
+      flex-basis: 55%;
+    }
+
+    @include at-media("desktop-lg") {
+      padding-left: units(10);
+      padding-right: 0;
+    }
+
+    h2 {
+      font-weight: 400;
+      @include covidtest-font($font-size, $line-height);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+
+      &::after {
+        content: "";
+        display: block;
+        margin-top: units(2);
+        height: 4px;
+        width: 30px;
+        background: $color-magenta;
+      }
+    }
+
+    p {
+      @include covidtest-font(24, 32);
+      font-weight: 700;
+    }
+  }
+}
