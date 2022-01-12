@@ -7,6 +7,7 @@
     url("fonts/noto-sans/noto-sans-v21-latin-regular.woff") format("woff"),
     url("fonts/noto-sans/noto-sans-v21-latin-regular.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "Noto Sans";
   font-style: normal;
@@ -16,6 +17,7 @@
     url("fonts/noto-sans/noto-sans-v21-latin-700.woff") format("woff"),
     url("fonts/noto-sans/noto-sans-v21-latin-700.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "Noto Sans";
   font-style: italic;
@@ -25,6 +27,7 @@
     url("fonts/noto-sans/noto-sans-v21-latin-italic.woff") format("woff"),
     url("fonts/noto-sans/noto-sans-v21-latin-italic.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "Noto Sans";
   font-style: italic;
@@ -34,4 +37,8 @@
       format("woff2"),
     url("fonts/noto-sans/noto-sans-v21-latin-700italic.woff") format("woff"),
     url("fonts/noto-sans/noto-sans-v21-latin-700italic.ttf") format("truetype");
+}
+
+.font-noto-sans {
+  font-family: "Noto Sans", sans;
 }

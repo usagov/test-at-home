@@ -25,7 +25,7 @@ Theme palette colors
 
 // Base colors
 $theme-color-base-family: "gray-cool";
-$theme-color-base-lightest: #dcdee0;
+$theme-color-base-lightest: "gray-5";
 $theme-color-base-lighter: "gray-cool-10";
 $theme-color-base-light: "gray-cool-30";
 $theme-color-base: "gray-cool-50";
@@ -37,11 +37,11 @@ $theme-color-base-ink: "gray-90";
 // Primary colors
 $theme-color-primary-family: "blue";
 $theme-color-primary-lightest: false;
-$theme-color-primary-lighter: #f3f5f8;
+$theme-color-primary-lighter: "blue-10";
 $theme-color-primary-light: "blue-30";
-$theme-color-primary: #0057b7;
+$theme-color-primary: "blue-60v";
 $theme-color-primary-vivid: "blue-warm-60v";
-$theme-color-primary-dark: #0e4c73;
+$theme-color-primary-dark: "blue-warm-70v";
 $theme-color-primary-darker: "blue-warm-80v";
 $theme-color-primary-darkest: false;
 
@@ -50,7 +50,7 @@ $theme-color-secondary-family: "red";
 $theme-color-secondary-lightest: #ffe5f3;
 $theme-color-secondary-lighter: "red-cool-10";
 $theme-color-secondary-light: "red-30";
-$theme-color-secondary: #e01782;
+$theme-color-secondary: "red-50";
 $theme-color-secondary-vivid: "red-cool-50v";
 $theme-color-secondary-dark: "red-60v";
 $theme-color-secondary-darker: "red-70v";
@@ -131,7 +131,7 @@ General colors
 */
 
 // Body
-$theme-body-background-color: "primary-lighter";
+$theme-body-background-color: "white";
 
 // Text
 $theme-text-color: "ink";

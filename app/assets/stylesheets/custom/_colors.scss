@@ -1,0 +1,83 @@
+.bg {
+  &-white {
+    background-color: $color-white !important;
+  }
+  &-blue {
+    background-color: $color-blue !important;
+  }
+  &-cyan {
+    background-color: $color-cyan !important;
+  }
+  &-magenta {
+    background-color: $color-magenta !important;
+  }
+  &-dark-blue {
+    background-color: $color-dark-blue !important;
+  }
+  &-light-gray {
+    background-color: $color-light-gray !important;
+  }
+}
+
+.border {
+  &-white {
+    border-color: $color-white !important;
+  }
+  &-blue {
+    border-color: $color-blue !important;
+  }
+  &-cyan {
+    border-color: $color-cyan !important;
+  }
+  &-magenta {
+    border-color: $color-magenta !important;
+  }
+  &-dark-blue {
+    border-color: $color-dark-blue !important;
+  }
+  &-light-gray {
+    border-color: $color-light-gray !important;
+  }
+}
+
+.text {
+  &-white {
+    color: $color-white !important;
+  }
+  &-blue {
+    color: $color-blue !important;
+  }
+  &-cyan {
+    color: $color-cyan !important;
+  }
+  &-magenta {
+    color: $color-magenta !important;
+  }
+  &-dark-blue {
+    color: $color-dark-blue !important;
+  }
+  &-light-gray {
+    color: $color-light-gray !important;
+  }
+}
+
+.outline {
+  &-white {
+    outline-color: $color-white !important;
+  }
+  &-blue {
+    outline-color: $color-blue !important;
+  }
+  &-cyan {
+    outline-color: $color-cyan !important;
+  }
+  &-magenta {
+    outline-color: $color-magenta !important;
+  }
+  &-dark-blue {
+    outline-color: $color-dark-blue !important;
+  }
+  &-light-gray {
+    outline-color: $color-light-gray !important;
+  }
+}

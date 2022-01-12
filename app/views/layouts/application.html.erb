@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>TestAtHome</title>
+    <title>COVIDtest.gov</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,18 +11,52 @@
     <% end %>
 
     <%= stylesheet_link_tag "application" %>
+
     <%= javascript_include_tag "i18n" %>
     <%= javascript_include_tag "translations", skip_pipeline: true %>
+
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/favicon.ico" sizes="16x16">
+
+    <!-- Structured Data -->
+    <%= javascript_tag nonce: true, type: "application/ld+json" do %>
+      [
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name":"COVIDtest.gov",
+          "url": "https://www.covidtest.gov/",
+          "logo": "https://www.covidtest.gov/favicon-196.png",
+          "parentOrganization": [
+            {
+              "@type": "Organization",
+              "name": "U.S. Department of Health & Human Services",
+              "url": "https://www.hhs.gov/"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "COVIDtest.gov",
+          "url": "https://www.covidtest.gov/"
+        }
+      ]
+    <% end %>
+
+    <!-- We participate in the US government's analytics program. See the data at analytics.usa.gov. -->
+    <% if Rails.env.production? %>
+      <%= javascript_include_tag "https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=HHS", async: true, id:"_fed_an_ua_tag" %>
+    <% end %>
   </head>
 
-  <body class="bg-primary-lighter">
+  <body>
     <%= render "application/usa_banner" %>
     <%= render "application/header" %>
-    <main id="main-content" class="text-primary-dark">
-      <div class="grid-container usa-section">
-        <%= yield %>
-      </div>
+    <main id="main-content" class="covidtest-main font-noto-sans border-top-0">
+      <%= yield %>
     </main>
     <%= render "application/footer" %>
     <%= javascript_tag nonce: true do %>

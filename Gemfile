@@ -40,6 +40,7 @@ gem "bootsnap", require: false
 gem "sassc-rails"
 
 gem "smartystreets_ruby_sdk", "~> 5.14"
+gem "valid_email", "~> 0.1"
 
 gem "newrelic_rpm", "~> 8.3"
 
@@ -72,4 +73,5 @@ group :development, :test do
   gem "factory_bot_rails", "~> 6.2"
   gem "capybara", "~> 3.36"
   gem "rails-controller-testing", "~> 1.0"
+  gem "climate_control", "~> 1.0"
 end

@@ -12,8 +12,8 @@ Rails.application.configure do
     policy.frame_ancestors :none
     policy.img_src :self, :data, "https://*.nr-data.net"
     policy.object_src :none
-    policy.script_src :self, "https://js-agent.newrelic.com", "https://*.nr-data.net"
-    policy.connect_src :self, "https://*.nr-data.net"
+    policy.script_src :self, "https://dap.digitalgov.gov", "https://js-agent.newrelic.com", "https://*.nr-data.net"
+    policy.connect_src :self, "https://dap.digitalgov.gov", "https://*.nr-data.net"
     policy.style_src :self
   end
 
