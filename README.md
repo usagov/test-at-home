@@ -59,6 +59,28 @@ configuration. Use `<%= javascript_tag nonce: true %>` for inline javascript.
 See the [CSP compliant script tag helpers](./doc/adr/0004-rails-csp-compliant-script-tag-helpers.md) ADR for
 more information on setting these up successfully.
 
+## Managing translation files
+
+We use the gem `i18n-tasks` to manage translation files. Here are a few common tasks:
+
+Add missing keys across locales:
+```
+$ i18n-tasks add-missing
+```
+
+Key sorting:
+```
+$ i18n-tasks normalize
+```
+
+Removing unused keys:
+```
+$ i18n-tasks unused
+$ i18n-tasks remove-unused
+```
+
+For more information on usage and helpful rake tasks to manage translation files, see [the documentation](https://github.com/glebm/i18n-tasks#usage).
+
 
 ### Testing
 
