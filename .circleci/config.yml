@@ -184,15 +184,16 @@ jobs:
 
   deploy:
     docker:
-      - image: cimg/node:16.13.1
+      - image: cimg/ruby:3.0.3-node
     steps:
-      - checkout
       - when:
           condition:
-            and:
-              - equal: [<< pipeline.project.git_url >>, "https://github.com/usagov/test-at-home"]
+            or:
               - equal: [<< pipeline.git.branch >>, "main"]
+              - equal: [<< pipeline.git.branch >>, "production"]
           steps:
+            - checkout
+            - ruby/install-deps
             - node/install-packages:
                 cache-only-lockfile: false
                 pkg-manager: yarn
@@ -201,13 +202,29 @@ jobs:
                 command: |
                   curl -v -L -o cf-cli_amd64.deb 'https://packages.cloudfoundry.org/stable?release=debian64&version=v7&source=github'
                   sudo dpkg -i cf-cli_amd64.deb
+      - when:
+          condition:
+            and:
+              - equal: [<< pipeline.project.git_url >>, "https://github.com/usagov/test-at-home"]
+              - equal: [<< pipeline.git.branch >>, "main"]
+          steps:
             - run:
-                name: Deploy to staging
+                name: Deploy to foundry 0 staging
                 command: ./bin/cf-deploy
                 environment:
                   CF_FOUNDRY_API: api.fr.cloud.gov
                   CF_USER: a14eb22f-a73b-4cdc-afbd-e3198203b95d
                   CF_PASSWORD_NAME: CF_FOUNDRY_0_STAGE_PASS
+                  CF_SPACE: tah-stage
+                  VARS_FILE: config/deployment/stage-small.yml
+                  RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
+            - run:
+                name: Deploy to foundry 1 staging
+                command: ./bin/cf-deploy
+                environment:
+                  CF_FOUNDRY_API: api.fr.wb.cloud.gov
+                  CF_USER: TKTK
+                  CF_PASSWORD_NAME: CF_FOUNDRY_1_STAGE_PASS
                   CF_SPACE: tah-stage
                   VARS_FILE: config/deployment/stage.yml
                   RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
