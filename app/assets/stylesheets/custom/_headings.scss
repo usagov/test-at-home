@@ -1,4 +1,42 @@
+h1 {
+  @include covidtest-font(24, 32);
+
+  @include at-media("desktop") {
+    @include covidtest-font(30);
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    margin-bottom: units(2);
+    height: 4px;
+    width: 30px;
+    background: $color-magenta;
+  }
+}
+
+h2 {
+  font-weight: 400;
+  @include covidtest-font($font-size, $line-height);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  &::after {
+    content: "";
+    display: block;
+    margin-top: units(2);
+    height: 4px;
+    width: 30px;
+    background: $color-magenta;
+  }
+}
+
+h3 {
+  @include covidtest-font(18, 32);
+}
+
 h4 {
+  @include covidtest-font($font-size, $line-height);
   border-bottom: 1px solid color("base-lightest");
   margin: units(2) 0;
   padding-bottom: units(1);

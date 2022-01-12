@@ -54,16 +54,14 @@
     <% end %>
 
     <!-- We participate in the US government's analytics program. See the data at analytics.usa.gov. -->
-    <%# <%= javascript_include_tag "https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=HHS", async: true, id:"_fed_an_ua_tag" %> %>
+    <!-- <%= javascript_include_tag "https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=HHS", async: true, id:"_fed_an_ua_tag" %>  -->
   </head>
 
-  <body class="bg-primary-lighter">
+  <body>
     <%= render "application/usa_banner" %>
     <%= render "application/header" %>
-    <main id="main-content" class="text-primary-dark">
-      <div class="grid-container usa-section">
-        <%= yield %>
-      </div>
+    <main id="main-content" class="covidtest-main font-noto-sans border-top-0">
+      <%= yield %>
     </main>
     <%= render "application/footer" %>
     <%= javascript_tag nonce: true do %>

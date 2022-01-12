@@ -56,6 +56,10 @@ $color-dark-blue: #00426b; // dark blue on cyan or white
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 a.covidtest-button {
   &,
   .covidtest-main & {
@@ -180,6 +184,12 @@ a.covidtest-button {
   }
   &__primary-mobile {
     display: flex;
+
+    &,
+    button {
+      @include covidtest-font-base(); // Override usa-accordion
+    }
+
     @include at-media("tablet-lg") {
       display: none;
     }
@@ -251,9 +261,10 @@ a.covidtest-button {
   }
   &__primary-submenu {
     position: absolute;
+    top: 50%;
     right: units(1);
-    margin-top: units(1);
-    @include u-padding(2);
+    margin-top: px-to-rem(18);
+    @include u-padding(1);
     min-width: 200%;
     background: $color-dark-blue;
     z-index: 10;
