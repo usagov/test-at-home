@@ -1,0 +1,25 @@
+.error {
+  border: 1px solid color("secondary");
+}
+
+.error-message {
+  align-items: center;
+  background: color("secondary-lightest");
+  border-left: 8px solid color("secondary");
+  display: flex;
+  flex-direction: row;
+  font-style: italic;
+  margin-top: units(1);
+  padding: units(1);
+  width: 100%;
+
+  &:before {
+    display: block;
+    content: ' ';
+    background-image: url('images/error.svg');
+    background-size: 16px 16px;
+    height: 16px;
+    margin-right: units(1);
+    width: 16px;
+  }
+}

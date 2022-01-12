@@ -61,6 +61,8 @@ en:
     errors:
       messages:
         blank: can't be blank
+        address_not_found: must be a valid USPS delivery address
+        address_incorrect: seems to be incorrect. Please check for missing information
     attributes:
       first_name: First name
       last_name: Last name
@@ -101,7 +103,7 @@ en:
 
           <p>You are not required to provide your name and address; however, not providing it will prevent USPS from shipping COVID tests to you. You are not required to provide your email address; however, not providing it will prevent USPS from emailing you shipment information.</p>
 
-          <p>Any information you provide when placing your order will be shared with USPS and may also be disclosed as described in the published Privacy Act System of Records Notice, usa.gov.</p>
+          <p>Any information you provide when placing your order will be shared with USPS and may also be disclosed as described in the published Privacy Act <a href="https://www.federalregister.gov/documents/2016/07/18/2016-16868/privacy-act-of-1974-notice-of-an-updated-system-of-records">System of Records Notice, usa.gov</a>.</p>
       js:
         review: Review your order
         submit: Place your order
