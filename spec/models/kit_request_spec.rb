@@ -98,5 +98,18 @@ RSpec.describe KitRequest, type: :model do
         end
       end
     end
+
+    context "email" do
+      it "is not required" do
+        expect(FactoryBot.build(:kit_request, email: "")).to be_valid
+      end
+
+      context "when provided" do
+        it "validates format" do
+          expect(FactoryBot.build(:kit_request, email: "asdlfj")).to_not be_valid
+          expect(FactoryBot.build(:kit_request, email: "foo@example.com")).to be_valid
+        end
+      end
+    end
   end
 end
