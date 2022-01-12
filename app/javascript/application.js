@@ -16,6 +16,7 @@ const editButton = document.getElementById("edit-btn");
 const reviewText = I18n.t("kit_requests.new.js.review");
 const submitText = I18n.t("kit_requests.new.js.submit");
 const emptyText = I18n.t("kit_requests.new.js.empty");
+const invalidZipText = I18n.t("kit_requests.new.js.invalid_zip");
 
 // Initialize form validation library
 const validate = new Bouncer("#form", {
@@ -29,7 +30,7 @@ const validate = new Bouncer("#form", {
     }
   },
   messages: {
-    isValidZip: "Please provide a valid zip code"
+    isValidZip: invalidZipText
   }
 });
 
