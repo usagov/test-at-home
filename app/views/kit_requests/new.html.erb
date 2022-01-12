@@ -1,92 +1,94 @@
-<%= form_with model: @kit_request, class: "usa-form usa-form--large", id: "form" do |form| %>
-  <div id="form-cntr">
-    <%= render "application/separator" %>
-    <h1 class="margin-top-1" tabindex="-1">
-      <%= t('kit_requests.new.title') %>
-    </h1>
+<div class="bg-light-gray">
+  <div class="covidtest-container usa-section">
+    <%= form_with model: @kit_request, class: "usa-form usa-form--large", id: "form" do |form| %>
+      <div id="form-cntr">
+        <h1 tabindex="-1">
+          <%= t('kit_requests.new.title') %>
+        </h1>
 
-    <p><%= t('kit_requests.new.body_html') %></p>
+        <%= t('kit_requests.new.body_html') %>
 
-    <% if @kit_request.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          <%= t('kit_requests.new.error_header') %>
-        </h2>
-        <ul>
-          <% @kit_request.errors.full_messages.each do |message| %>
-            <li><%= message.downcase %></li>
+        <% if @kit_request.errors.any? %>
+          <div id="error_explanation">
+            <h2>
+              <%= t('kit_requests.new.error_header') %>
+            </h2>
+            <ul>
+              <% @kit_request.errors.full_messages.each do |message| %>
+                <li><%= message.downcase %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.contact_heading')} do %>
+          <p class="font-body-xs">
+            <%= t('kit_requests.new.contact_html') %>
+          </p>
+
+          <%= form.label :first_name, class: "usa-label" do %>
+          <%= t('activerecord.attributes.first_name') %>
+            <span class="text-magenta">*</span>
           <% end %>
-        </ul>
-      </div>
-    <% end %>
+          <%= form.text_field :first_name, class: "usa-input", required: true %>
 
-    <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.contact_heading')} do %>
-      <p class="font-body-xs margin-top-0">
-        <%= t('kit_requests.new.contact_html') %>
-      </p>
+          <%= form.label :last_name, class: "usa-label" do %>
+          <%= t('activerecord.attributes.last_name') %>
+            <span class="text-magenta">*</span>
+          <% end %>
+          <%= form.text_field :last_name, class: "usa-input", required: true %>
+        <% end %>
 
-      <%= form.label :first_name, class: "usa-label" do %>
-      <%= t('activerecord.attributes.first_name') %>
-        <span class="text-secondary">*</span>
-      <% end %>
-      <%= form.text_field :first_name, class: "usa-input", required: true %>
+        <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.shipping_heading')} do %>
+          <p class="font-body-xs">
+            <%= t('kit_requests.new.shipping_html') %>
+          </p>
+          <%= form.label :mailing_address_1, class: "usa-label" do %>
+          <%= t('activerecord.attributes.mailing_address_1') %>
+            <span class="text-magenta">*</span>
+          <% end %>
+          <%= form.text_field :mailing_address_1, class: "usa-input", required: true %>
 
-      <%= form.label :last_name, class: "usa-label" do %>
-      <%= t('activerecord.attributes.last_name') %>
-        <span class="text-secondary">*</span>
-      <% end %>
-      <%= form.text_field :last_name, class: "usa-input", required: true %>
-    <% end %>
+          <%= form.label :mailing_address_2, class: "usa-label" %>
+          <%= form.text_field :mailing_address_2, class: "usa-input" %>
 
-    <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.shipping_heading')} do %>
-      <p class="font-body-xs margin-top-0">
-        <%= t('kit_requests.new.shipping_html') %>
-      </p>
-      <%= form.label :mailing_address_1, class: "usa-label" do %>
-      <%= t('activerecord.attributes.mailing_address_1') %>
-        <span class="text-secondary">*</span>
-      <% end %>
-      <%= form.text_field :mailing_address_1, class: "usa-input", required: true %>
+          <%= form.label :city, class: "usa-label" do %>
+          <%= t('activerecord.attributes.city') %>
+            <span class="text-magenta">*</span>
+          <% end %>
+          <%= form.text_field :city, class: "usa-input", required: true %>
 
-      <%= form.label :mailing_address_2, class: "usa-label" %>
-      <%= form.text_field :mailing_address_2, class: "usa-input" %>
+          <%= form.label :state, class: "usa-label" do %>
+          <%= t('activerecord.attributes.state') %>
+            <span class="text-magenta">*</span>
+          <% end %>
+          <div class="usa-combo-box" data-bouncer-target="#error-state">
+            <%= form.select :state, options_for_select(us_states), {}, { class: 'usa-select', required: true } %>
+          </div>
+          <div id="error-state"></div>
 
-      <%= form.label :city, class: "usa-label" do %>
-      <%= t('activerecord.attributes.city') %>
-        <span class="text-secondary">*</span>
-      <% end %>
-      <%= form.text_field :city, class: "usa-input", required: true %>
+          <%= form.label :zip_code, class: "usa-label" do %>
+          <%= t('activerecord.attributes.zip_code') %>
+            <span class="text-magenta">*</span>
+          <% end %>
+          <%= form.text_field :zip_code, class: "usa-input usa-input--medium", data: {'bouncer-is-valid-zip': true}, required: true %>
+        <% end %>
 
-      <%= form.label :state, class: "usa-label" do %>
-      <%= t('activerecord.attributes.state') %>
-        <span class="text-secondary">*</span>
-      <% end %>
-      <div class="usa-combo-box" data-bouncer-target="#error-state">
-        <%= form.select :state, options_for_select(us_states), {}, { class: 'usa-select', required: true } %>
-      </div>
-      <div id="error-state"></div>
+        <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.tracking_heading') } do %>
+          <p class="font-body-xs">
+            <%= t('kit_requests.new.tracking_html') %>
+          </p>
+          <%= form.label :email, class: "usa-label" do %>
+            <%= t('activerecord.attributes.email') %>
+          <% end %>
+          <%= form.email_field :email, class: "usa-input" %>
+        <% end %>
 
-      <%= form.label :zip_code, class: "usa-label" do %>
-      <%= t('activerecord.attributes.zip_code') %>
-        <span class="text-secondary">*</span>
-      <% end %>
-      <%= form.text_field :zip_code, class: "usa-input usa-input--medium", data: {'bouncer-is-valid-zip': true}, required: true %>
-    <% end %>
+      <%= render "application/review" %>
 
-    <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.tracking_heading') } do %>
-      <p class="font-body-xs margin-top-0">
-        <%= t('kit_requests.new.tracking_html') %>
-      </p>
-      <%= form.label :email, class: "usa-label" do %>
-        <%= t('activerecord.attributes.email') %>
-      <% end %>
-      <%= form.email_field :email, class: "usa-input" %>
+      <%= render "application/privacy" %>
+
+      <%= form.submit t('kit_requests.new.submit'), class: "usa-button radius-pill font-ui-lg width-full margin-top-0", id:"submit-btn" %>
     <% end %>
   </div>
-
-  <%= render "application/review" %>
-
-  <%= render "application/privacy" %>
-
-  <%= form.submit t('kit_requests.new.submit'), class: "usa-button radius-pill font-ui-lg width-full margin-top-0", id:"submit-btn" %>
-<% end %>
+</div>

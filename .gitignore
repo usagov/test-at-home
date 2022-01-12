@@ -38,6 +38,8 @@ spec/examples.txt
 
 /node_modules
 
+.DS_Store 
+
 # Terraform
 .terraform.lock.hcl
 **/.terraform/*
