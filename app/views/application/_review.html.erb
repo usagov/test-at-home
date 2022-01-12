@@ -1,15 +1,14 @@
 <div id="review-cntr" hidden>
-  <%= render "application/separator" %>
-  <h1 class="margin-top-1" tabindex="-1">
+  <h1 tabindex="-1">
     <%= t('kit_requests.new.review.title') %>
   </h1>
 
   <%= render :layout => 'card' do %>
-    <h3 class="text-primary margin-top-0">
+    <h3 class="margin-top-0 text-blue">
       <%= t('kit_requests.new.review.contact_heading') %>
     </h3>
     <div class="margin-bottom-4">
-      <h4 class="text-primary-dark">
+      <h4 class="text-dark-blue">
         <%= t('kit_requests.new.review.ship_to') %>
       </h4>
       <div class="text-bold">
@@ -22,11 +21,11 @@
       </div>
     </div>
     <div class="margin-bottom-4">
-      <h4 class="text-primary-dark"><%= t('kit_requests.new.review.tracking_to') %></h4>
+      <h4 class="text-dark-blue"><%= t('kit_requests.new.review.tracking_to') %></h4>
       <div>
         <span id="review-email"></span>
       </div>
     </div>
-    <button class="usa-button usa-button--outline radius-pill padding-y-1 margin-y-0" id="edit-btn">Edit</button>
+    <button class="usa-button usa-button--outline radius-pill padding-y-1 margin-y-0 width-auto" id="edit-btn">Edit</button>
   <% end %>
 </div>

@@ -14,6 +14,7 @@ jobs:
       - ruby/install-deps
       - node/install-packages:
           cache-only-lockfile: false
+          cache-version: v2
           pkg-manager: yarn
 
   test:
@@ -37,6 +38,7 @@ jobs:
       - ruby/install-deps
       - node/install-packages:
           cache-only-lockfile: false
+          cache-version: v2
           pkg-manager: yarn
       - run:
           name: Wait for DB
@@ -83,6 +85,7 @@ jobs:
       - ruby/install-deps
       - node/install-packages:
           cache-only-lockfile: false
+          cache-version: v2
           pkg-manager: yarn
       - run:
           name: Bundle audit
@@ -104,7 +107,7 @@ jobs:
             - gems-v1-{{ checksum "Gemfile.lock"  }}-{{ .Branch }}
       - restore_cache:
           keys:
-            - node-deps-{{ arch }}-v1-{{ .Branch }}-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+            - node-deps-{{ arch }}-v2-{{ .Branch }}-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
 
       - run:
           name: Start up local server
@@ -141,6 +144,7 @@ jobs:
       - ruby/install-deps
       - node/install-packages:
           cache-only-lockfile: false
+          cache-version: v2
           pkg-manager: yarn
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
@@ -196,6 +200,7 @@ jobs:
             - ruby/install-deps
             - node/install-packages:
                 cache-only-lockfile: false
+                cache-version: v2
                 pkg-manager: yarn
             - run:
                 name: Install Cloud Foundry CLI
@@ -218,16 +223,18 @@ jobs:
                   CF_SPACE: tah-stage
                   VARS_FILE: config/deployment/stage-small.yml
                   RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
+                  DISABLE_SMARTY_STREETS: false
             - run:
                 name: Deploy to foundry 1 staging
                 command: ./bin/cf-deploy
                 environment:
                   CF_FOUNDRY_API: api.fr.wb.cloud.gov
-                  CF_USER: TKTK
+                  CF_USER: 3a12ee9a-6986-4947-8611-9176f99a6181
                   CF_PASSWORD_NAME: CF_FOUNDRY_1_STAGE_PASS
                   CF_SPACE: tah-stage
                   VARS_FILE: config/deployment/stage.yml
                   RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
+                  DISABLE_SMARTY_STREETS: false
 
 workflows:
   version: 2.1

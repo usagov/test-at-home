@@ -34,8 +34,9 @@ en:
     languages:
       language: Language
       en: English
+      es: Español
+      zh: 中文
     banner:
-      fake_site: A DEMO website of the United States government
       gov_description_html:
         A <strong>.gov</strong> website belongs to an official
         government organization in the United States.
@@ -56,11 +57,18 @@ en:
       close: Close
     footer:
       return_top: Return to top
+      links:
+        hhs: U.S. Department of Health & Human Services
+        usps: USPS.com
+        covid: We Can Do This
     skip_link: Skip to main content
   activerecord:
     errors:
       messages:
         blank: can't be blank
+        address_not_found: must be a valid USPS delivery address
+        address_incorrect: seems to be incorrect. Please check for missing information
+        invalid_email: must be valid format
     attributes:
       first_name: First name
       last_name: Last name
@@ -76,17 +84,17 @@ en:
       body_html: >
         <p class="usa-intro">Fill in this form to request a free at-home testing kit. Testing kits will include one set of 4 individual rapid antigen tests.</p>
 
-        <p class="text-bold">Testing kits will ship late January.</p>
+        <p class="text-bold margin-bottom-4">Testing kits will ship late January.</p>
       contact_heading: Contact information
       contact_html: >
         Contact information for the person receiving the order.
-        <span class="text-secondary">*</span><span class="text-italic">Required</span>
+        <span class="text-magenta">*</span><span class="text-italic">Required</span>
       shipping_heading: Shipping address
       shipping_html: >
-        <span class="text-secondary">*</span><span class="text-italic">Required</span>
+        <span class="text-magenta">*</span><span class="text-italic">Required</span>
       tracking_heading: Order tracking
       tracking_html: >
-        To receive updates on the status of your order from USPS, please provide an email address. <span class="text-italic text-primary">This step is optional, but we will not be able to provide tracking without an email.</span>
+        To receive updates on the status of your order from USPS, please provide an email address. <span class="text-italic text-blue">This step is optional, but we will not be able to provide tracking without an email.</span>
       error_header: "Couldn't process your request because of errors:"
       submit: Place your order
       review:
@@ -97,11 +105,11 @@ en:
       privacy:
         heading: Privacy Statement
         html: >
-          <p>usa.gov is asking for your name and address so that the United States Postal Service (“USPS”) can ship you four at-home rapid COVID tests for free. If you provide an email address, USPS will send you an email that includes a number to track shipment. This collection of information is authorized by the E-Government Act of 2002 (44 U.S.C. § 3501).</p>
+          <p class="font-body-xs">usa.gov is asking for your name and address so that the United States Postal Service (“USPS”) can ship you four at-home rapid COVID tests for free. If you provide an email address, USPS will send you an email that includes a number to track shipment. This collection of information is authorized by the E-Government Act of 2002 (44 U.S.C. § 3501).</p>
 
-          <p>You are not required to provide your name and address; however, not providing it will prevent USPS from shipping COVID tests to you. You are not required to provide your email address; however, not providing it will prevent USPS from emailing you shipment information.</p>
+          <p class="font-body-xs">You are not required to provide your name and address; however, not providing it will prevent USPS from shipping COVID tests to you. You are not required to provide your email address; however, not providing it will prevent USPS from emailing you shipment information.</p>
 
-          <p>Any information you provide when placing your order will be shared with USPS and may also be disclosed as described in the published Privacy Act System of Records Notice, usa.gov.</p>
+          <p class="font-body-xs">Any information you provide when placing your order will be shared with USPS and may also be disclosed as described in the published Privacy Act <a href="https://www.federalregister.gov/documents/2016/07/18/2016-16868/privacy-act-of-1974-notice-of-an-updated-system-of-records">System of Records Notice, usa.gov</a>.</p>
       js:
         review: Review your order
         submit: Place your order

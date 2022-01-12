@@ -9,6 +9,8 @@ applications:
     RAILS_ENV: ((rails_env))
     RAILS_SERVE_STATIC_FILES: true
     RAILS_LOG_TO_STDOUT: true
+    NEW_RELIC_LOG: stdout
+    DISABLE_SMARTY_STREETS: ((disable_smarty_streets))
   processes:
   - type: web
     instances: ((web_instances))

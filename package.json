@@ -4,6 +4,7 @@
   "dependencies": {
     "@csstools/postcss-sass": "https://github.com/sinankeskin/postcss-sass",
     "autoprefixer": "^10.4.1",
+    "formbouncerjs": "^1.4.6",
     "i18n-js": "^3.8.0",
     "patch-package": "^6.4.7",
     "postcss": "^8.4.5",

@@ -1,22 +1,44 @@
 <div class="usa-overlay"></div>
-<header class="usa-header usa-header--basic bg-white">
-  <div class="usa-nav-container">
-    <div class="usa-navbar">
-      <div class="usa-logo" id="basic-logo">
-        <em class="usa-logo__text">
-          <a href="javascript:void(0)" title="<%= t('shared.header.title') %>">
-            <%= t('shared.header.title') %>
-          </a>
-        </em>
-      </div>
-      <button class="usa-menu-btn"><%= t('shared.header.menu') %></button>
+<header class="covidtest-header">
+  <div class="covidtest-header__container covidtest-container">
+    <div class="covidtest-logo">
+      <em class="covidtest-logo__text">
+        <img src="images/covidtest/wecandothis-logo.svg" alt="<%= t('shared.header.title') %>" width="98" height="98" />
+        <a href="/"><%= t('shared.header.title') %></a>
+      </em>
     </div>
-    <nav aria-label="<%= t('shared.header.primary') %>" class="usa-nav">
-      <button class="usa-nav__close">
-        <%= image_tag "uswds/dist/img/usa-icons/close.svg", :alt => t('shared.header.close') %>
-      </button>
-      <ul class="usa-nav__primary usa-accordion">
-        
+    <nav aria-label="<%= t('shared.header.primary') %>" class="covidtest-nav">
+      <!-- Desktop Nav -->
+      <ul class="covidtest-nav__primary">
+        <li class="covidtest-nav__primary-item">
+          <span><%= t('shared.languages.en') %></span>
+        </li>
+        <li class="covidtest-nav__primary-item">
+          <a href="/"><%= t('shared.languages.es') %></a>
+        </li>
+        <li class="covidtest-nav__primary-item">
+          <a href="/"><%= t('shared.languages.zh') %></a>
+        </li>
+      </ul>
+
+      <!-- Mobile Nav -->
+      <ul class="covidtest-nav__primary-mobile usa-accordion">
+        <li class="covidtest-nav__primary-mobile-item">
+          <button
+            class="usa-accordion__button"
+            aria-expanded="false"
+            aria-controls="covidtest-languages">
+            <span><%= t('shared.languages.en') %></span>
+          </button>
+          <ul id="covidtest-languages" class="covidtest-nav__primary-submenu usa-accordion__content">
+            <li class="covidtest-nav__primary-submenu-item">
+              <a href="/"><%= t('shared.languages.es') %></a>
+            </li>
+            <li class="covidtest-nav__primary-submenu-item">
+              <a href="/"><%= t('shared.languages.zh') %></a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </div>
