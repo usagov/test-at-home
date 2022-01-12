@@ -4,6 +4,7 @@ class KitRequest < ApplicationRecord
   validates_presence_of :first_name, :last_name
 
   validate :valid_mailing_address
+  after_validation :store_smarty_response
 
   attr_accessor :mailing_address
 
@@ -20,12 +21,16 @@ class KitRequest < ApplicationRecord
     deliverable_results = validation_results.select { |result| UsStreetAddressValidator.deliverable?(result) }
     # A deliverable match
     if deliverable_results.any?
-      self.smarty_response = deliverable_results.first.to_json
+      @smarty_response_json = deliverable_results.first.to_json
       true
     # A match that is undeliverable (eg missing apartment number)
     else
       errors.add :mailing_address, :address_incorrect
       false
     end
+  end
+
+  def store_smarty_response
+    self.smarty_response = @smarty_response_json
   end
 end

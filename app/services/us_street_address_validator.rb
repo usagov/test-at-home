@@ -10,9 +10,8 @@ class UsStreetAddressValidator
     auth_token = Rails.application.credentials.smarty_streets.secrets.auth_token
     credentials = SmartyStreets::StaticCredentials.new(auth_id, auth_token)
 
-    @client = SmartyStreets::ClientBuilder.new(credentials).with_licenses(["us-core-cloud"]).
-      # with_proxy('localhost', 8080, 'proxyUser', 'proxyPassword'). # Uncomment this line to try it with a proxy
-      build_us_street_api_client
+    @client = SmartyStreets::ClientBuilder.new(credentials).with_licenses(["us-core-cloud"])
+      .build_us_street_api_client
 
     @lookup = SmartyStreets::USStreet::Lookup.new
     lookup.street = kit_request.mailing_address_1

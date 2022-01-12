@@ -24,12 +24,19 @@ RSpec.describe KitRequest, type: :model do
 
     describe "address validation" do
       context "no matches returned" do
-        it "is invalid and assigns an error to mailing adddress" do
+        before do
           allow(UsStreetAddressValidator).to receive(:new) { instance_double(UsStreetAddressValidator, run: nil) }
+        end
 
+        it "is invalid and assigns an error to mailing adddress" do
           kr = FactoryBot.build(:kit_request)
           expect(kr).to_not be_valid
           expect(kr.errors[:mailing_address].count).to eq(1)
+        end
+
+        it "doesn't blow up on save, and instead returns false" do
+          kr = FactoryBot.build(:kit_request)
+          expect(kr.save).to eq(false)
         end
       end
 

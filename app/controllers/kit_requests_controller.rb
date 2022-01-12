@@ -6,9 +6,7 @@ class KitRequestsController < ApplicationController
   def create
     @kit_request = KitRequest.new(kit_request_params)
 
-    if @kit_request.valid?
-      @kit_request.save
-
+    if @kit_request.save
       render :confirmation
     else
       render :new
