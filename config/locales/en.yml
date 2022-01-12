@@ -57,6 +57,10 @@ en:
       close: Close
     footer:
       return_top: Return to top
+      links:
+        hhs: U.S. Department of Health & Human Services
+        usps: USPS.com
+        covid: We Can Do This
     skip_link: Skip to main content
   activerecord:
     errors:
