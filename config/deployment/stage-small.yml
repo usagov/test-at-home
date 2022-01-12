@@ -1,4 +1,4 @@
 env: stage
 rails_env: staging
-web_instances: 100
+web_instances: 2
 web_memory: 512M
