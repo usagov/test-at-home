@@ -11,7 +11,13 @@ class KitRequest < ApplicationRecord
   private
 
   def valid_mailing_address
-    validation_results = UsStreetAddressValidator.new(self).run
+    begin
+      validation_results = UsStreetAddressValidator.new(self).run
+    rescue UsStreetAddressValidator::ServiceIssueError => err
+      puts err
+      return true
+    end
+
     # No matches
     unless validation_results
       errors.add :mailing_address, :address_not_found
@@ -22,6 +28,7 @@ class KitRequest < ApplicationRecord
     # A deliverable match
     if deliverable_results.any?
       @smarty_response_json = deliverable_results.first.to_json
+      self.address_validated = true
       true
     # A match that is undeliverable (eg missing apartment number)
     else

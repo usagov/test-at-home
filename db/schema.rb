@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_11_184143) do
+ActiveRecord::Schema.define(version: 2022_01_12_191403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2022_01_11_184143) do
     t.string "state", null: false
     t.string "zip_code", null: false
     t.json "smarty_response", default: {}
+    t.boolean "address_validated", default: false
   end
 
 end

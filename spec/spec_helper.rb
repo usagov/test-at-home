@@ -96,6 +96,6 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 
   config.before(:each) do
-    stub_request(:get, /api.smartystreets.com/)
+    stub_request(:any, /api.smartystreets.com/)
   end
 end

@@ -5,12 +5,20 @@ require "smartystreets_ruby_sdk/us_street/lookup"
 class UsStreetAddressValidator
   DELIVERABLE_MATCH_CODES = %w[Y S]
 
+  class ServiceIssueError < StandardError; end
+
+  MAX_TIMEOUT = (ENV["SMARTY_STREETS_MAX_TIMEOUT"] || 1).to_i
+  MAX_RETRY = (ENV["SMARTY_STREETS_MAX_RETRY"] || 2).to_i
+
   def initialize(kit_request)
     auth_id = Rails.application.credentials.smarty_streets.secrets.auth_id
     auth_token = Rails.application.credentials.smarty_streets.secrets.auth_token
     credentials = SmartyStreets::StaticCredentials.new(auth_id, auth_token)
 
-    @client = SmartyStreets::ClientBuilder.new(credentials).with_licenses(["us-core-cloud"])
+    @client = SmartyStreets::ClientBuilder.new(credentials)
+      .with_licenses(["us-core-cloud"])
+      .with_max_timeout(MAX_TIMEOUT)
+      .retry_at_most(MAX_RETRY)
       .build_us_street_api_client
 
     @lookup = SmartyStreets::USStreet::Lookup.new
@@ -26,9 +34,11 @@ class UsStreetAddressValidator
   def run
     begin
       client.send_lookup(lookup)
-    rescue SmartyStreets::SmartyError => err
+    # Possible exceptions: https://github.com/smartystreets/smartystreets-ruby-sdk/blob/master/lib/smartystreets_ruby_sdk/exceptions.rb
+    rescue Net::OpenTimeout, SmartyStreets::SmartyError => err
       puts err
-      return
+      # Send to New Relic
+      raise ServiceIssueError
     end
 
     lookup.result
