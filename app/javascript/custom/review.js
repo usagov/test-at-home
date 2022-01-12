@@ -77,15 +77,15 @@ module.exports = (function() {
   // Check if JavaScript is enabled
   if (window.uswdsPresent) {
     // Update value of submit button to reflect review step
-    submitButton.value = reviewText;
+    if (submitButton) submitButton.value = reviewText;
 
     // Hide privacy notice until review step
-    privacyContainer.setAttribute("hidden", "");
+    if (privacyContainer) privacyContainer.setAttribute("hidden", "");
 
     // Add listener to submit button
-    if (submitButton) form.addEventListener("submit", showReview);
+    if (submitButton) form.addEventListener("submit", showReview, false);
 
     // Add listener to edit button
-    if (editButton) editButton.addEventListener("click", hideReview);
+    if (editButton) editButton.addEventListener("click", hideReview, false);
   }
 })();
