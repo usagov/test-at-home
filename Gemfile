@@ -40,6 +40,7 @@ gem "bootsnap", require: false
 gem "sassc-rails"
 
 gem "smartystreets_ruby_sdk", "~> 5.14"
+gem "valid_email", "~> 0.1"
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]

@@ -2,6 +2,7 @@ class KitRequest < ApplicationRecord
   encrypts :first_name, :last_name, :email, :mailing_address_1, :mailing_address_2, :smarty_response
 
   validates_presence_of :first_name, :last_name
+  validates :email, email: {message: I18n.t("activerecord.errors.messages.invalid_email")}, allow_blank: true
 
   validate :valid_mailing_address
   after_validation :store_smarty_response

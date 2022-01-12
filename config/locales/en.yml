@@ -63,6 +63,7 @@ en:
         blank: can't be blank
         address_not_found: must be a valid USPS delivery address
         address_incorrect: seems to be incorrect. Please check for missing information
+        invalid_email: must be valid format
     attributes:
       first_name: First name
       last_name: Last name
