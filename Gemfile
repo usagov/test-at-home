@@ -39,10 +39,7 @@ gem "bootsnap", require: false
 # Use Sass to process CSS
 gem "sassc-rails"
 
-group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[mri mingw x64_mingw]
-end
+gem "smartystreets_ruby_sdk", "~> 5.14"
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
@@ -57,7 +54,13 @@ end
 
 gem "secure_headers", "~> 6.3"
 
+group :test do
+  gem "webmock", "~> 3.14"
+end
+
 group :development, :test do
+  gem "debug", platforms: %i[mri mingw x64_mingw]
+  gem "pry-byebug"
   gem "rspec-rails", "~> 5.0"
   gem "dotenv-rails", "~> 2.7"
   gem "brakeman", "~> 5.2"
