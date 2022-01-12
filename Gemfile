@@ -67,4 +67,5 @@ group :development, :test do
   gem "factory_bot_rails", "~> 6.2"
   gem "capybara", "~> 3.36"
   gem "rails-controller-testing", "~> 1.0"
+  gem "climate_control", "~> 1.0"
 end

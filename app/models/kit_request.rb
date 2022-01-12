@@ -3,7 +3,7 @@ class KitRequest < ApplicationRecord
 
   validates_presence_of :first_name, :last_name
 
-  validate :valid_mailing_address
+  validate :valid_mailing_address, unless: -> { ENV["DISABLE_SMARTY_STREETS"] == "true" }
   after_validation :store_smarty_response
 
   attr_accessor :mailing_address
