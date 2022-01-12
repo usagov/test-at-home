@@ -186,13 +186,13 @@ jobs:
     docker:
       - image: cimg/ruby:3.0.3-node
     steps:
+      - checkout
       - when:
           condition:
             or:
               - equal: [<< pipeline.git.branch >>, "main"]
               - equal: [<< pipeline.git.branch >>, "production"]
           steps:
-            - checkout
             - ruby/install-deps
             - node/install-packages:
                 cache-only-lockfile: false
