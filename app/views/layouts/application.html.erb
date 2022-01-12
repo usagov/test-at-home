@@ -6,6 +6,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <% if Rails.env.production? || Rails.env.staging? %>
+      <%= render "new_relic_js" %>
+    <% end %>
+
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "i18n" %>
     <%= javascript_include_tag "translations", skip_pipeline: true %>

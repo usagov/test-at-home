@@ -10,9 +10,10 @@ Rails.application.configure do
     policy.font_src :self
     policy.form_action :self
     policy.frame_ancestors :none
-    policy.img_src :self, :data
+    policy.img_src :self, :data, "https://*.nr-data.net"
     policy.object_src :none
-    policy.script_src :self
+    policy.script_src :self, "https://js-agent.newrelic.com", "https://*.nr-data.net"
+    policy.connect_src :self, "https://*.nr-data.net"
     policy.style_src :self
   end
 
