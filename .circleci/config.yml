@@ -14,6 +14,7 @@ jobs:
       - ruby/install-deps
       - node/install-packages:
           cache-only-lockfile: false
+          cache-version: v2
           pkg-manager: yarn
 
   test:
@@ -37,6 +38,7 @@ jobs:
       - ruby/install-deps
       - node/install-packages:
           cache-only-lockfile: false
+          cache-version: v2
           pkg-manager: yarn
       - run:
           name: Wait for DB
@@ -83,6 +85,7 @@ jobs:
       - ruby/install-deps
       - node/install-packages:
           cache-only-lockfile: false
+          cache-version: v2
           pkg-manager: yarn
       - run:
           name: Bundle audit
@@ -104,7 +107,7 @@ jobs:
             - gems-v1-{{ checksum "Gemfile.lock"  }}-{{ .Branch }}
       - restore_cache:
           keys:
-            - node-deps-{{ arch }}-v1-{{ .Branch }}-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+            - node-deps-{{ arch }}-v2-{{ .Branch }}-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
 
       - run:
           name: Start up local server
@@ -141,6 +144,7 @@ jobs:
       - ruby/install-deps
       - node/install-packages:
           cache-only-lockfile: false
+          cache-version: v2
           pkg-manager: yarn
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
@@ -190,11 +194,16 @@ jobs:
       - when:
           condition:
             and:
-              - equal: [<< pipeline.project.git_url >>, "https://github.com/usagov/test-at-home"]
+              - equal:
+                  [
+                    << pipeline.project.git_url >>,
+                    "https://github.com/usagov/test-at-home",
+                  ]
               - equal: [<< pipeline.git.branch >>, "main"]
           steps:
             - node/install-packages:
                 cache-only-lockfile: false
+                cache-version: v2
                 pkg-manager: yarn
             - run:
                 name: Install Cloud Foundry CLI

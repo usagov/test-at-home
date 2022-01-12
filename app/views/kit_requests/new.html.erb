@@ -61,15 +61,16 @@
       <%= t('activerecord.attributes.state') %>
         <span class="text-secondary">*</span>
       <% end %>
-      <div class="usa-combo-box">
+      <div class="usa-combo-box" data-bouncer-target="#error-state">
         <%= form.select :state, options_for_select(us_states), {}, { class: 'usa-select', required: true } %>
       </div>
+      <div id="error-state"></div>
 
       <%= form.label :zip_code, class: "usa-label" do %>
       <%= t('activerecord.attributes.zip_code') %>
         <span class="text-secondary">*</span>
       <% end %>
-      <%= form.text_field :zip_code, class: "usa-input usa-input--medium", required: true %>
+      <%= form.text_field :zip_code, class: "usa-input usa-input--medium", data: {'bouncer-is-valid-zip': true}, required: true %>
     <% end %>
 
     <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.tracking_heading') } do %>
