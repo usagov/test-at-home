@@ -8,6 +8,7 @@
 # CF_SPACE: space to deploy to
 # VARS_FILE: filename for variables
 # RAILS_MASTER_KEY_NAME: name of ENV variable holding key to decrypt the credentials file(s)
+# DISABLE_SMARTY_STREETS: boolean to disable Smarty API address validation
 
 # exit the script if either step fails
 set -e
@@ -16,4 +17,6 @@ set -e
 cf login -a $CF_FOUNDRY_API -u $CF_USER -p ${!CF_PASSWORD_NAME} -o tts-usps-test-at-home -s $CF_SPACE
 
 # do the deploy
-cf push --strategy rolling --vars-file $VARS_FILE --var rails_master_key=${!RAILS_MASTER_KEY_NAME}
+cf push --strategy rolling --vars-file $VARS_FILE \
+    --var rails_master_key=${!RAILS_MASTER_KEY_NAME} \
+    --var disable_smarty_streets=$DISABLE_SMARTY_STREETS
