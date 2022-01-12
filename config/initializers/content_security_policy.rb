@@ -12,7 +12,7 @@ Rails.application.configure do
     policy.frame_ancestors :none
     policy.img_src :self, :data
     policy.object_src :none
-    policy.script_src :self
+    policy.script_src :self, 'https://dap.digitalgov.gov'
     policy.style_src :self
   end
 
