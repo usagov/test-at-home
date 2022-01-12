@@ -114,5 +114,10 @@ en:
         review: Review your order
         submit: Place your order
         empty: Not provided
+        invalid:
+          address_not_found: Address must be a valid USPS delivery address
+          address_incorrect: Address seems to be incorrect. Please check for missing information
+          address_error: There was an error while validating your address
+          zip_code: Please provide a valid zip code
     confirmation:
       title: Thank you, your pre-order has been placed.

@@ -14,6 +14,7 @@ Rails.application.configure do
     policy.object_src :none
     policy.script_src :self, 'https://dap.digitalgov.gov'
     policy.style_src :self
+    policy.connect_src :self, "https://us-street.api.smartystreets.com"
   end
 
   #

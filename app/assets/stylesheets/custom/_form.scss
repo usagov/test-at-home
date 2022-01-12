@@ -13,11 +13,16 @@
   padding: units(1);
   width: 100%;
 
+  &[hidden] {
+    display: none;
+  }
+
   &:before {
     display: block;
-    content: ' ';
-    background-image: url('images/error.svg');
+    content: " ";
+    background-image: url("images/error.svg");
     background-size: 16px 16px;
+    flex: none;
     height: 16px;
     margin-right: units(1);
     width: 16px;
