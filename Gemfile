@@ -42,6 +42,8 @@ gem "sassc-rails"
 gem "smartystreets_ruby_sdk", "~> 5.14"
 gem "valid_email", "~> 0.1"
 
+gem "newrelic_rpm", "~> 8.3"
+
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
