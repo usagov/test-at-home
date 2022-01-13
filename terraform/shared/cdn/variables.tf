@@ -40,7 +40,13 @@ variable "recursive_delete" {
   default     = false
 }
 
-variable "rds_plan_name" {
+variable "cdn_plan_name" {
   type        = string
   description = "name of the service plan name to create"
+  default     = "domain-with-cdn"
+}
+
+variable "public_domain_name" {
+  type        = string
+  description = "publicly routable DNS name for app"
 }
