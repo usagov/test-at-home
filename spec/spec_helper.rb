@@ -98,4 +98,9 @@ RSpec.configure do |config|
   config.before(:each) do
     stub_request(:any, /api.smartystreets.com/)
   end
+
+  config.before(:all) do
+    WebMock.disable_net_connect!(allow_localhost: true)
+    WebMock.allow_net_connect!(net_http_connect_on_start: true)
+  end
 end

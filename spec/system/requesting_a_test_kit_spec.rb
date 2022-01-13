@@ -1,4 +1,5 @@
 require "rails_helper"
+require "selenium/webdriver"
 
 RSpec.describe "Person requests a test kit", type: :system do
   let(:smarty_response) do
@@ -54,26 +55,73 @@ RSpec.describe "Person requests a test kit", type: :system do
   end
 
   before do
-    driven_by(:rack_test)
-
     stub_request(:get, /us-street.api.smartystreets.com/).to_return(status: 200, body: smarty_response.to_json, headers: {})
   end
 
-  it "accepts input" do
-    visit "/"
+  describe "with javascript enabled" do
+    before do
+      driven_by(:selenium_chrome_headless)
+    end
 
-    fill_in "First name", with: "Kewpee"
-    fill_in "Last name", with: "Doll"
-    fill_in "Email", with: "hello@example.com"
+    it "can request test and edit kit" do
+      visit "/"
 
-    fill_in "Mailing address 1", with: "1234 Fake St"
-    fill_in "Mailing address 2", with: "Apt 2"
-    fill_in "City", with: "Lima"
-    select "OH", from: "State"
-    fill_in "Zip code", with: "12345"
+      fill_in "First name", with: "Kewpee"
+      fill_in "Last name", with: "Doll"
+      fill_in "Email", with: "hello@example.com"
 
-    click_on "Place your order"
+      fill_in "Mailing address 1", with: "1234 Fake St"
+      fill_in "Mailing address 2", with: "Apt 2"
+      fill_in "City", with: "Lima"
+      find(:xpath, "//button[contains(@aria-label, 'Toggle the dropdown list')]").click
+      find("li", text: "OH - Ohio").click
+      fill_in "Zip code", with: "12345"
+      fill_in "Email", with: "fake@example.com"
 
-    expect(page).to have_content "Thank you, your pre-order has been placed."
+      # Note: client-side address validations are currently silently failing in JS spec
+      click_on "Review your order"
+
+      expect(page).to have_content("Contact information")
+      expect(page).to have_content("1234 Fake St")
+      expect(page).to have_content("Apt 2")
+      expect(page).to have_content("Lima, OH 12345")
+      expect(page).to have_content("fake@example.com")
+
+      click_on "Edit"
+
+      fill_in "Email", with: "real@example.com"
+
+      click_on "Review your order"
+
+      expect(page).to have_content("real@example.com")
+
+      click_on "Place your order"
+
+      expect(page).to have_content "Thank you, your pre-order has been placed."
+    end
+  end
+
+  describe "with javascript disabled" do
+    before do
+      driven_by(:rack_test)
+    end
+
+    it "can still request test kit" do
+      visit "/"
+
+      fill_in "First name", with: "Kewpee"
+      fill_in "Last name", with: "Doll"
+      fill_in "Email", with: "hello@example.com"
+
+      fill_in "Mailing address 1", with: "1234 Fake St"
+      fill_in "Mailing address 2", with: "Apt 2"
+      fill_in "City", with: "Lima"
+      select "OH", from: "State"
+      fill_in "Zip code", with: "12345"
+
+      click_on "Place your order"
+
+      expect(page).to have_content "Thank you, your pre-order has been placed."
+    end
   end
 end

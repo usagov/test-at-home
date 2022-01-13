@@ -36,8 +36,10 @@ function handleSuccess(response) {
   return { status: "invalid", message: addressNotFound };
 }
 
-function handleError(response) {
-  return { status: "error", message: addressError };
+function handleError(res) {
+  // Assume there is a problem with the API and let
+  // user proceed without client-side validations
+  return { status: "valid" };
 }
 
 async function handleResponse(lookup) {
