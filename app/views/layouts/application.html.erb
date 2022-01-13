@@ -20,7 +20,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
     <!-- Favicons -->
-    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/favicon.ico" sizes="16x16">
+    <%= favicon_link_tag asset_path('favicon.ico') %>
 
     <!-- Structured Data -->
     <%= javascript_tag nonce: true, type: "application/ld+json" do %>
@@ -50,7 +50,7 @@
 
     <!-- We participate in the US government's analytics program. See the data at analytics.usa.gov. -->
     <% if Rails.env.production? %>
-      <%= javascript_include_tag "https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=HHS", async: true, id:"_fed_an_ua_tag" %>
+      <%= javascript_include_tag "https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA", async: true, id:"_fed_an_ua_tag" %>
     <% end %>
   </head>
 
