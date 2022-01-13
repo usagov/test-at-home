@@ -4,7 +4,7 @@ class KitRequest < ApplicationRecord
   validates_presence_of :first_name, :last_name
   validates :email, email: {message: I18n.t("activerecord.errors.messages.invalid_email")}, allow_blank: true
 
-  validates_presence_of :email, if: -> { ENV["DISABLE_SMARTY_STREETS"] == "true" }
+  validates_presence_of :mailing_address_1, :city, :state, :zip_code, :email, if: -> { ENV["DISABLE_SMARTY_STREETS"] == "true" }
   validate :valid_mailing_address, unless: -> { ENV["DISABLE_SMARTY_STREETS"] == "true" }
 
   after_validation :store_smarty_response
@@ -16,7 +16,7 @@ class KitRequest < ApplicationRecord
   def valid_mailing_address
     begin
       validation_results = UsStreetAddressValidator.new(self).run
-    rescue UsStreetAddressValidator::ServiceIssueError => err
+    rescue UsStreetAddressValidator::ServiceIssueError
       return true
     end
 

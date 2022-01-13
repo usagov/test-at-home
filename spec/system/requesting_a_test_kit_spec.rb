@@ -68,7 +68,6 @@ RSpec.describe "Person requests a test kit", type: :system do
 
       fill_in "First name", with: "Kewpee"
       fill_in "Last name", with: "Doll"
-      fill_in "Email", with: "hello@example.com"
 
       fill_in "Mailing address 1", with: "1234 Fake St"
       fill_in "Mailing address 2", with: "Apt 2"
@@ -85,7 +84,6 @@ RSpec.describe "Person requests a test kit", type: :system do
       expect(page).to have_content("1234 Fake St")
       expect(page).to have_content("Apt 2")
       expect(page).to have_content("Lima, OH 12345")
-      expect(page).to have_content("fake@example.com")
 
       click_on "Edit"
 
@@ -99,6 +97,39 @@ RSpec.describe "Person requests a test kit", type: :system do
 
       expect(page).to have_content "Thank you, your pre-order has been placed."
     end
+
+    context "when smarty streets disabled" do
+      xit "requires email" do
+        ClimateControl.modify DISABLE_SMARTY_STREETS: "true" do
+          visit "/"
+
+          fill_in "First name", with: "Kewpee"
+          fill_in "Last name", with: "Doll"
+          fill_in "Email", with: "fake@example.com"
+
+          fill_in "Mailing address 1", with: "1234 Fake St"
+          fill_in "Mailing address 2", with: "Apt 2"
+          fill_in "City", with: "Lima"
+          find(:xpath, "//button[contains(@aria-label, 'Toggle the dropdown list')]").click
+          find("li", text: "OH - Ohio").click
+          fill_in "Zip code", with: "12345"
+
+          click_on "Review your order"
+
+          expect(page).to have_content("Email is required")
+
+          fill_in "Email", with: "real@example.com"
+
+          click_on "Review your order"
+
+          expect(page).to have_content("real@example.com")
+
+          click_on "Place your order"
+
+          expect(page).to have_content "Thank you, your pre-order has been placed."
+        end
+      end
+    end
   end
 
   describe "with javascript disabled" do
@@ -111,7 +142,6 @@ RSpec.describe "Person requests a test kit", type: :system do
 
       fill_in "First name", with: "Kewpee"
       fill_in "Last name", with: "Doll"
-      fill_in "Email", with: "hello@example.com"
 
       fill_in "Mailing address 1", with: "1234 Fake St"
       fill_in "Mailing address 2", with: "Apt 2"
@@ -122,6 +152,33 @@ RSpec.describe "Person requests a test kit", type: :system do
       click_on "Place your order"
 
       expect(page).to have_content "Thank you, your pre-order has been placed."
+    end
+
+    context "when smarty streets disabled" do
+      it "requires email" do
+        ClimateControl.modify DISABLE_SMARTY_STREETS: "true" do
+          visit "/"
+
+          fill_in "First name", with: "Kewpee"
+          fill_in "Last name", with: "Doll"
+
+          fill_in "Mailing address 1", with: "1234 Fake St"
+          fill_in "Mailing address 2", with: "Apt 2"
+          fill_in "City", with: "Lima"
+          select "OH", from: "State"
+          fill_in "Zip code", with: "12345"
+
+          click_on "Place your order"
+
+          expect(page).to have_content("email can't be blank")
+          fill_in "Email", with: "foo@example.com"
+          select "OH", from: "State" # Re-select for now
+
+          click_on "Place your order"
+
+          expect(page).to have_content "Thank you, your pre-order has been placed."
+        end
+      end
     end
   end
 end

@@ -120,19 +120,22 @@ RSpec.describe KitRequest, type: :model do
       end
 
       it "does not require address validation" do
-        kit_request = FactoryBot.build(:kit_request, email: "foo@example.com")
+        kit_request = FactoryBot.build(:kit_request, :smarty_streets_disabled)
+
         expect(kit_request).to be_valid
         expect(kit_request.save).to be_truthy
       end
 
-      it "requires email to be present" do
-        kit_request = FactoryBot.build(:kit_request, email: "")
-
-        expect(kit_request).to_not be_valid
+      it "does require other address fields" do
+        expect(FactoryBot.build(:kit_request, :smarty_streets_disabled, email: "")).to_not be_valid
+        expect(FactoryBot.build(:kit_request, :smarty_streets_disabled, mailing_address_1: "")).to_not be_valid
+        expect(FactoryBot.build(:kit_request, :smarty_streets_disabled, city: "")).to_not be_valid
+        expect(FactoryBot.build(:kit_request, :smarty_streets_disabled, state: "")).to_not be_valid
+        expect(FactoryBot.build(:kit_request, :smarty_streets_disabled, zip_code: "")).to_not be_valid
       end
 
       it "requires email to be valid" do
-        kit_request = FactoryBot.build(:kit_request, email: "foo@elkjadf")
+        kit_request = FactoryBot.build(:kit_request, :smarty_streets_disabled, email: "foo@elkjadf")
 
         expect(kit_request).to_not be_valid
       end
