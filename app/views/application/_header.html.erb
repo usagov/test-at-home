@@ -4,20 +4,20 @@
     <div class="covidtest-logo">
       <em class="covidtest-logo__text">
         <img src="images/covidtest/wecandothis-logo.svg" alt="<%= t('shared.header.title') %>" width="98" height="98" />
-        <a href="/"><%= t('shared.header.title') %></a>
+        <%= link_to t('shared.header.title'), root_path %>
       </em>
     </div>
     <nav aria-label="<%= t('shared.header.primary') %>" class="covidtest-nav">
       <!-- Desktop Nav -->
       <ul class="covidtest-nav__primary">
         <li class="covidtest-nav__primary-item">
-          <span><%= t('shared.languages.en') %></span>
+          <span><%= link_to t('shared.languages.en'), root_path(locale: 'en') %></span>
         </li>
         <li class="covidtest-nav__primary-item">
-          <a href="/"><%= t('shared.languages.es') %></a>
+          <span><%= link_to t('shared.languages.es'), root_path(locale: 'es') %></span>
         </li>
         <li class="covidtest-nav__primary-item">
-          <a href="/"><%= t('shared.languages.zh') %></a>
+          <span><%= link_to t('shared.languages.zh'), root_path(locale: 'zh') %></span>
         </li>
       </ul>
 
@@ -28,14 +28,14 @@
             class="usa-accordion__button"
             aria-expanded="false"
             aria-controls="covidtest-languages">
-            <span><%= t('shared.languages.en') %></span>
+            <span><%= link_to t('shared.languages.en'), root_path(locale: 'en') %></span>
           </button>
           <ul id="covidtest-languages" class="covidtest-nav__primary-submenu usa-accordion__content">
             <li class="covidtest-nav__primary-submenu-item">
-              <a href="/"><%= t('shared.languages.es') %></a>
+              <span><%= link_to t('shared.languages.es'), root_path(locale: 'es') %></span>
             </li>
             <li class="covidtest-nav__primary-submenu-item">
-              <a href="/"><%= t('shared.languages.zh') %></a>
+              <span><%= link_to t('shared.languages.zh'), root_path(locale: 'zh') %></span>
             </li>
           </ul>
         </li>

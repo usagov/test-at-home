@@ -10,12 +10,16 @@ RSpec.describe "Viewing site in multiple languages", type: :system do
 
     expect(page).to have_content("Place your pre-order")
 
-    # click_on 'Español'
+    page.all('a', text: "Español").first.click
 
-    # expect(page).to have_content(t('kit_requests.new.title'))
+    expect(page).to have_content("Ordene por adelantado")
 
-    # click_on '中文'
+    page.all('a', text: '中文').first.click
 
-    # expect(page).to have_content(t('kit_requests.new.title'))
+    expect(page).to have_content("获得4份免费的家用COVID-19检测试剂")
+
+    page.all('a', text: 'English').first.click
+
+    expect(page).to have_content("Place your pre-order")
   end
 end
