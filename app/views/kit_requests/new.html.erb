@@ -45,7 +45,7 @@
           </p>
 
           <div id="address-err-cntr" class="error-message" tabindex="-1" hidden></div>
-                
+
           <%= form.label :mailing_address_1, class: "usa-label" do %>
           <%= t('activerecord.attributes.mailing_address_1') %>
             <span class="text-magenta">*</span>
@@ -86,6 +86,7 @@
           <% end %>
           <%= form.email_field :email, class: "usa-input" %>
         <% end %>
+      </div>
 
       <%= render "application/review" %>
 
