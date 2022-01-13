@@ -2,3 +2,4 @@ env: prod
 rails_env: production
 web_instances: 20
 web_memory: 512M
+smarty_streets_public_key: TKTK
