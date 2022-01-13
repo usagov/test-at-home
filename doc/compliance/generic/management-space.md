@@ -26,6 +26,10 @@ Deployment_Node(cloudgov, "cloud.gov", "Cloud Foundry PaaS") {
     }
 }
 
+Boundary(gsa_saas, "GSA-authorized SaaS") {
+    System_Ext(newrelic, "New Relic", "Monitoring and Logging SaaS")
+}
+
 Deployment_Node(gsa_boundary, "GSA Boundary") {
     Container_Ext(gsa_soc, "GSA SOC", "ELK", "Ingests, stores, monitors, and   alerts on logs")
 }
@@ -43,5 +47,6 @@ Rel_Right(cloudgov_loggregator, cloudgov_logs, "drain logs")
 'Log shipping
 Rel(log_drain, log_bucket, "export logs", "https GET/POST (443)")
 Rel(gsa_soc, log_bucket, "ingest logs", "https GET/POST (443)")
+Rel(log_drain, newrelic, "export logs", "https GET/POST (443)")
 @enduml
 ```
