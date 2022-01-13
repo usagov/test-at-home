@@ -52,11 +52,8 @@ en:
       us_flag: U.S. Flag
     header:
       title: COVIDtests.gov
-      menu: Menu
       primary: Primary navigation
-      close: Close
     footer:
-      return_top: Return to top
       links:
         hhs: U.S. Department of Health & Human Services
         usps: USPS.com
@@ -111,14 +108,17 @@ en:
           <p class="font-body-xs">You are not required to provide your name and address; however, not providing it will prevent USPS from shipping COVID tests to you. You are not required to provide your email address; however, not providing it will prevent USPS from emailing you shipment information.</p>
 
           <p class="font-body-xs">Any information you provide when placing your order will be shared with USPS and may also be disclosed as described in the published Privacy Act <a href="https://www.federalregister.gov/documents/2016/07/18/2016-16868/privacy-act-of-1974-notice-of-an-updated-system-of-records">System of Records Notice, usa.gov</a>.</p>
-      js:
-        review: Review your order
-        submit: Place your order
-        empty: Not provided
-        invalid:
-          address_not_found: Address must be a valid USPS delivery address
-          address_incorrect: Address seems to be incorrect. Please check for missing information
-          address_error: There was an error while validating your address
-          zip_code: Please provide a valid zip code
     confirmation:
       title: Thank you, your pre-order has been placed.
+  js:
+    review: Review your order
+    submit: Place your order
+    empty: Not provided
+    invalid:
+      address_not_found: Address must be a valid USPS delivery address
+      address_incorrect: Address seems to be incorrect. Please check for missing information
+      address_error: There was an error while validating your address
+      missing_select: Please select a value
+      missing_default: Please fill out this field
+      email: Please enter a valid email address
+      zip_code: Please provide a valid zip code

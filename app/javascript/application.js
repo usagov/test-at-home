@@ -15,9 +15,9 @@ const editButton = document.getElementById("edit-btn");
 const addressErrorContainer = document.getElementById("address-err-cntr");
 
 // i18n strings
-const reviewText = I18n.t("kit_requests.new.js.review");
-const submitText = I18n.t("kit_requests.new.js.submit");
-const emptyText = I18n.t("kit_requests.new.js.empty");
+const reviewText = I18n.t("js.review");
+const submitText = I18n.t("js.submit");
+const emptyText = I18n.t("js.empty");
 
 let isFormValid = false;
 
