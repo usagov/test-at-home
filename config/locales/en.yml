@@ -1,86 +1,27 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
+---
 en:
-  shared:
-    languages:
-      language: Language
-      en: English
-      es: Español
-      zh: 中文
-    banner:
-      gov_description_html:
-        A <strong>.gov</strong> website belongs to an official
-        government organization in the United States.
-      gov_heading: Official websites use .gov
-      how: Here’s how you know
-      official_site: An official website of the United States government
-      secure_description_html: A <strong>lock</strong> (%{lock_icon}) or
-        <strong>https://</strong> means you’ve safely connected to the .gov
-        website. Share sensitive information only on official, secure websites.
-      secure_heading: Secure .gov websites use HTTPS
-      lock: Lock
-      locked_padlock: A locked padlock
-      us_flag: U.S. Flag
-    header:
-      title: COVIDtests.gov
-      primary: Primary navigation
-    footer:
-      links:
-        hhs: U.S. Department of Health & Human Services
-        usps: USPS.com
-        covid: We Can Do This
-    skip_link: Skip to main content
   activerecord:
-    errors:
-      messages:
-        blank: can't be blank
-        address_not_found: must be a valid USPS delivery address
-        address_incorrect: seems to be incorrect. Please check for missing information
-        invalid_email: must be valid format
     attributes:
+      city: City
+      email: Email address
       first_name: First name
       last_name: Last name
-      email: Email address
       mailing_address_1: Mailing address 1
       mailing_address_2: Mailing address 2
-      city: City
       state: State, Territory, Military Base
       zip_code: Zip code
+    errors:
+      messages:
+        address_incorrect: seems to be incorrect. Please check for missing information
+        address_not_found: must be a valid USPS delivery address
+        blank: can't be blank
+        invalid_email: must be valid format
   kit_requests:
+    confirmation:
+      title: Thank you, your pre-order has been placed.
     new:
-      title: Place your pre-order for free COVID-19 at-home test
-      body_html: >
+      body_html: |
         <p class="usa-intro">Fill in this form to request a free at-home testing kit. Testing kits will include one set of 4 individual rapid antigen tests.</p>
-
         <p class="text-bold margin-bottom-4">Testing kits will ship late January.</p>
       contact_heading: Contact information
       contact_html: >
@@ -95,30 +36,46 @@ en:
       error_header: "Couldn't process your request because of errors:"
       submit: Place your order
       review:
-        title: Review your order
         contact_heading: Contact information
-        ship_to: Ship to
-        tracking_to: Send tracking to
         edit: Edit
-      privacy:
-        heading: Privacy Statement
-        html: >
-          <p class="font-body-xs">usa.gov is asking for your name and address so that the United States Postal Service (“USPS”) can ship you four at-home rapid COVID tests for free. If you provide an email address, USPS will send you an email that includes a number to track shipment. This collection of information is authorized by the E-Government Act of 2002 (44 U.S.C. § 3501).</p>
+        ship_to: Ship to
+        title: Review your order
+        tracking_to: Send tracking to
+      shipping_heading: Shipping address
+      shipping_html: '<span class="text-magenta">*</span><span class="text-italic">Required</span>
 
-          <p class="font-body-xs">You are not required to provide your name and address; however, not providing it will prevent USPS from shipping COVID tests to you. You are not required to provide your email address; however, not providing it will prevent USPS from emailing you shipment information.</p>
+        '
+      submit: Place your order
+      title: Place your pre-order for free COVID-19 at-home test
+      tracking_heading: Order tracking
+      tracking_html: 'To receive updates on the status of your order from USPS, please provide an email address. <span class="text-italic text-blue">This step is optional, but we will not be able to provide tracking without an email.</span>
 
-          <p class="font-body-xs">Any information you provide when placing your order will be shared with USPS and may also be disclosed as described in the published Privacy Act <a href="https://www.federalregister.gov/documents/2016/07/18/2016-16868/privacy-act-of-1974-notice-of-an-updated-system-of-records">System of Records Notice, usa.gov</a>.</p>
-    confirmation:
-      title: Thank you, your pre-order has been placed.
-  js:
-    review: Review your order
-    submit: Place your order
-    empty: Not provided
-    invalid:
-      address_not_found: Address must be a valid USPS delivery address
-      address_incorrect: Address seems to be incorrect. Please check for missing information
-      address_error: There was an error while validating your address
-      missing_select: Please select a value
-      missing_default: Please fill out this field
-      email: Please enter a valid email address
-      zip_code: Please provide a valid zip code
+        '
+  shared:
+    banner:
+      gov_description_html: A <strong>.gov</strong> website belongs to an official government organization in the United States.
+      gov_heading: Official websites use .gov
+      how: Here’s how you know
+      lock: Lock
+      locked_padlock: A locked padlock
+      official_site: An official website of the United States government
+      secure_description_html: A <strong>lock</strong> (%{lock_icon}) or <strong>https://</strong> means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.
+      secure_heading: Secure .gov websites use HTTPS
+      us_flag: U.S. Flag
+    footer:
+      links:
+        covid: We Can Do This
+        hhs: U.S. Department of Health & Human Services
+        usps: USPS.com
+      return_top: Return to top
+    header:
+      close: Close
+      menu: Menu
+      primary: Primary navigation
+      title: COVIDtest.gov
+    languages:
+      en: English
+      es: Español
+      language: Language
+      zh: 中文
+    skip_link: Skip to main content
