@@ -40,6 +40,8 @@ jobs:
           cache-only-lockfile: false
           cache-version: v2
           pkg-manager: yarn
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m

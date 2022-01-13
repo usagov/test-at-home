@@ -14,8 +14,7 @@ class KitRequest < ApplicationRecord
   def valid_mailing_address
     begin
       validation_results = UsStreetAddressValidator.new(self).run
-    rescue UsStreetAddressValidator::ServiceIssueError => err
-      puts err
+    rescue UsStreetAddressValidator::ServiceIssueError
       return true
     end
 
