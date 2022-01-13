@@ -11,7 +11,8 @@ const addressError = I18n.t("kit_requests.new.js.invalid.address_error");
 const SmartyStreetsCore = SmartyStreetsSDK.core;
 const Lookup = SmartyStreetsSDK.usStreet.Lookup;
 
-const key = "115004691467527133"; // Embedded key for client side only
+// Embedded key for client side only
+const key = process.env.SMARTY_STREETS_EMBEDDED_KEY;
 const credentials = new SmartyStreetsCore.SharedCredentials(key);
 
 const clientBuilder = new SmartyStreetsCore.ClientBuilder(credentials)
@@ -53,6 +54,9 @@ async function handleResponse(lookup) {
 }
 
 const validateAddress = async address => {
+  // If DISABLE_SMARTY_STREETS=true, skip address validation
+  if (process.env.DISABLE_SMARTY_STREETS === "true") return { status: "valid" };
+
   let lookup = new Lookup();
 
   lookup.street = address.mailing_address_1;
