@@ -43,10 +43,15 @@ variable "recursive_delete" {
 variable "cdn_plan_name" {
   type        = string
   description = "name of the service plan name to create"
-  default     = "domain-with-cdn"
+  default     = "domain"
 }
 
-variable "public_domain_name" {
+variable "regional_domain_name" {
   type        = string
-  description = "publicly routable DNS name for app"
+  description = "routable DNS name for entire region"
+}
+
+variable "foundation_domain_name" {
+  type        = string
+  description = "routable DNS name for this foundation"
 }

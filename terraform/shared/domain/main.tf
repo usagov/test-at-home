@@ -11,18 +11,31 @@ data "cloudfoundry_space" "space" {
 # Route mapping and CDN instance
 ###
 
-resource "cloudfoundry_domain" "url" {
-  name = var.public_domain_name
-  org  = var.cf_org_name
-}
-
 data "cloudfoundry_app" "tah" {
   name_or_id = "test_at_home-${var.env}"
   space      = data.cloudfoundry_space.space.id
 }
 
-resource "cloudfoundry_route" "external_route" {
-  domain = resource.cloudfoundry_domain.url.id
+resource "cloudfoundry_domain" "regional_url" {
+  name = var.regional_domain_name
+  org  = var.cf_org_name
+}
+
+resource "cloudfoundry_route" "regional_route" {
+  domain = resource.cloudfoundry_domain.regional_url.id
+  space  = data.cloudfoundry_space.space.id
+  target {
+    app = data.cloudfoundry_app.tah.id
+  }
+}
+
+resource "cloudfoundry_domain" "foundation_url" {
+  name = var.foundation_domain_name
+  org  = var.cf_org_name
+}
+
+resource "cloudfoundry_route" "foundation_route" {
+  domain = resource.cloudfoundry_domain.foundation_url.id
   space  = data.cloudfoundry_space.space.id
   target {
     app = data.cloudfoundry_app.tah.id
@@ -38,5 +51,5 @@ resource "cloudfoundry_service_instance" "external_domain_instance" {
   space            = data.cloudfoundry_space.space.id
   service_plan     = data.cloudfoundry_service.external_domain.service_plans[var.cdn_plan_name]
   recursive_delete = var.recursive_delete
-  json_params      = "{\"domains\": \"${var.public_domain_name}\"}"
+  json_params      = "{\"domains\": \"${var.regional_domain_name},${var.foundation_domain_name}\"}"
 }
