@@ -5,6 +5,7 @@
 # CF_FOUNDRY_API: hostname for API login
 # CF_USER: space deployer username
 # CF_PASSWORD_NAME: name of ENV variable holding space deployer password
+# CF_ORG: organization to deploy to
 # CF_SPACE: space to deploy to
 # VARS_FILE: filename for variables
 # RAILS_MASTER_KEY_NAME: name of ENV variable holding key to decrypt the credentials file(s)
@@ -14,7 +15,7 @@
 set -e
 
 # login to the given foundry, and target the correct space
-cf login -a $CF_FOUNDRY_API -u $CF_USER -p ${!CF_PASSWORD_NAME} -o tts-usps-test-at-home -s $CF_SPACE
+cf login -a $CF_FOUNDRY_API -u $CF_USER -p ${!CF_PASSWORD_NAME} -o $CF_ORG -s $CF_SPACE
 
 # do the deploy
 cf push --strategy rolling --vars-file $VARS_FILE \
