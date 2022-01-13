@@ -1,4 +1,7 @@
+import i18n from "i18n-js";
 import Bouncer from "formbouncerjs";
+
+const invalidZipText = I18n.t("kit_requests.new.js.invalid.zip_code");
 
 const validateForm = new Bouncer("#form", {
   disableSubmit: true,
@@ -11,7 +14,7 @@ const validateForm = new Bouncer("#form", {
     }
   },
   messages: {
-    isValidZip: "Please provide a valid zip code"
+    isValidZip: invalidZipText
   }
 });
 

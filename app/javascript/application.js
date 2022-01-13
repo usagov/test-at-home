@@ -18,7 +18,6 @@ const addressErrorContainer = document.getElementById("address-err-cntr");
 const reviewText = I18n.t("kit_requests.new.js.review");
 const submitText = I18n.t("kit_requests.new.js.submit");
 const emptyText = I18n.t("kit_requests.new.js.empty");
-const invalidZipText = I18n.t("kit_requests.new.js.invalid.zip_code");
 
 let isFormValid = false;
 
