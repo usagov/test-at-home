@@ -46,6 +46,11 @@ variable "cdn_plan_name" {
   default     = "domain"
 }
 
+variable "global_domain_name" {
+  type        = string
+  description = "DNS name users will be accessing site"
+}
+
 variable "regional_domain_name" {
   type        = string
   description = "routable DNS name for entire region"

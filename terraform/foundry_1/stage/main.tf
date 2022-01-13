@@ -32,8 +32,9 @@ module "domain" {
   cf_space_name          = local.cf_space_name
   env                    = local.env
   recursive_delete       = local.recursive_delete
-  regional_domain_name   = "TKTK $regional_name"
-  foundation_domain_name = "TKTK $foundation_name"
+  global_domain_name     = "staging-covidtest.usa.gov"
+  regional_domain_name   = "west.staging-covidtest.usa.gov"
+  foundation_domain_name = "westb.staging-covidtest.usa.gov"
 }
 
 #######
@@ -54,5 +55,5 @@ resource "cloudfoundry_service_instance" "cdn_instance" {
   space            = data.cloudfoundry_space.space.id
   service_plan     = data.cloudfoundry_service.external_domain.service_plans["domain-with-cdn"]
   recursive_delete = local.recursive_delete
-  json_params      = "{\"domains\": \"staging-covidtest.usa.gov\", \"origin\": \"TKTK-global-name\"}"
+  json_params      = "{\"domains\": \"staging-covidtest.usa.gov\", \"origin\": \"rte.staging-covidtest.usa.gov\"}"
 }
