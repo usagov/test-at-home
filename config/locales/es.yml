@@ -12,9 +12,9 @@ es:
       zip_code: Código postal
     errors:
       messages:
-        address_incorrect: "<TODO>"
-        address_not_found: "<TODO>"
-        blank: "<TODO>"
+        address_incorrect: TODO
+        address_not_found: TODO
+        blank: TODO
         invalid_email: Por favor, escriba el correo electrónico en el formato nombre@ejemplo.com
   kit_requests:
     confirmation:
@@ -25,13 +25,13 @@ es:
         <p class="text-bold margin-bottom-4">Las órdenes incluirán 4 pruebas de antígeno individuales, que se enviarán a partir de finales de enero.</p>
       contact_heading: Información de contacto
       contact_html: Datos de contacto de la persona que recibe el pedido. <span class="text-magenta">*</span><span class="text-italic">Elementos obligatorios</span>
-      error_header: "<TODO>"
+      error_header: TODO
       js:
-        empty: "<TODO>"
+        empty: TODO
         invalid:
-          address_error: "<TODO>"
-          address_incorrect: "<TODO>"
-          address_not_found: "<TODO>"
+          address_error: TODO
+          address_incorrect: TODO
+          address_not_found: TODO
           city: Por favor, escriba una ciudad válida
           email: Por favor, escriba el correo electrónico en el formato nombre@ejemplo.com
           first_name: Por favor, escriba el nombre
@@ -72,18 +72,18 @@ es:
       us_flag: Bandera de Estados Unidos
     footer:
       links:
-        covid: "<TODO>"
-        hhs: "<TODO>"
+        covid: TODO
+        hhs: TODO
         usps: USPS.com
-      return_top: "<TODO>"
+      return_top: TODO
     header:
-      close: "<TODO>"
-      menu: "<TODO>"
-      primary: "<TODO>"
+      close: TODO
+      menu: TODO
+      primary: TODO
       title: COVIDtest.gov
     languages:
       en: English
       es: Español
-      language: "<TODO>"
+      language: TODO
       zh: 中文
     skip_link: Salte al contenido principal
