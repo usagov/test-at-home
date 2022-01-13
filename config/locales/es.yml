@@ -37,6 +37,7 @@ es:
         <p class="text-bold margin-bottom-4">Las órdenes incluirán 4 pruebas de antígeno individuales, que se enviarán a partir de finales de enero.</p>
       contact_heading: Información de contacto
       contact_html: Datos de contacto de la persona que recibe el pedido. <span class="text-magenta">*</span><span class="text-italic">Elementos obligatorios</span>
+      email_optional: Este paso es opcional, pero sin un correo electrónico no podemos ofrecerle el rastreo de su pedido.
       error_header: TODO
       privacy:
         heading: Política de privacidad
@@ -54,8 +55,8 @@ es:
       shipping_html: <span class="text-magenta">*</span><span class="text-italic">Elementos obligatorios</span>
       submit: Haga su pedido
       title: Ordene por adelantado un kit gratuito de pruebas caseras de COVID-19
+      tracking: Para recibir información actualizada sobre el estado de su pedido del kit de pruebas, proporcione una dirección de correo electrónico.
       tracking_heading: Rastreo del pedido
-      tracking_html: Para recibir información actualizada sobre el estado de su pedido del kit de pruebas, proporcione una dirección de correo electrónico. <span class="text-italic text-blue">Este paso es opcional, pero sin un correo electrónico no podemos ofrecerle el rastreo de su pedido.</span>
   shared:
     banner:
       gov_description_html: Un sitio web <strong>.gov</strong> pertenece a una organización oficial del Gobierno de Estados Unidos.

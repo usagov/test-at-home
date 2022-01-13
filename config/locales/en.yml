@@ -37,6 +37,7 @@ en:
         <p class="text-bold margin-bottom-4">Testing kits will ship late January.</p>
       contact_heading: Contact information
       contact_html: Contact information for the person receiving the order. <span class="text-magenta">*</span><span class="text-italic">Required</span>
+      email_optional: This step is optional, but we will not be able to provide tracking without an email.
       error_header: Couldn't process your request because of errors
       privacy:
         heading: Privacy Statement
@@ -54,8 +55,8 @@ en:
       shipping_html: <span class="text-magenta">*</span><span class="text-italic">Required</span>
       submit: Place your order
       title: Place your pre-order for free COVID-19 at-home test
+      tracking: To receive updates on the status of your order from USPS, please provide an email address.
       tracking_heading: Order tracking
-      tracking_html: To receive updates on the status of your order from USPS, please provide an email address. <span class="text-italic text-blue">This step is optional, but we will not be able to provide tracking without an email.</span>
   shared:
     banner:
       gov_description_html: A <strong>.gov</strong> website belongs to an official government organization in the United States.

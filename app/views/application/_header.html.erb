@@ -3,7 +3,7 @@
   <div class="covidtest-header__container covidtest-container">
     <div class="covidtest-logo">
       <em class="covidtest-logo__text">
-        <img src="images/covidtest/wecandothis-logo.svg" alt="<%= t('shared.header.title') %>" width="98" height="98" />
+        <%= image_tag("covidtest/wecandothis-logo-#{I18n.locale || I18n.default_locale}.svg", alt: t('shared.header.title'), width: "98", height: "98") %>
         <%= link_to t('shared.header.title'), root_path %>
       </em>
     </div>
