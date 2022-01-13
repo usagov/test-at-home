@@ -102,7 +102,13 @@ search:
 #   # deepl_version: "v2"
 
 ## Do not consider these keys missing:
-# ignore_missing:
+ignore_missing:
+- 'ee'
+- 'gos'
+- 'handle'
+- 'id'
+- 'loader'
+- 'wrap-function'
 # - 'errors.messages.{accepted,blank,invalid,too_short,too_long}'
 # - '{devise,simple_form}.*'
 

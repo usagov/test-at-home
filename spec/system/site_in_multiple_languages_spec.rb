@@ -14,9 +14,9 @@ RSpec.describe "Viewing site in multiple languages", type: :system do
 
     expect(page).to have_content("Ordene por adelantado")
 
-    page.all('a', text: '中文').first.click
+    # page.all('a', text: '中文').first.click
 
-    expect(page).to have_content("获得4份免费的家用COVID-19检测试剂")
+    # expect(page).to have_content("获得4份免费的家用COVID-19检测试剂")
 
     page.all('a', text: 'English').first.click
 
