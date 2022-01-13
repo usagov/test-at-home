@@ -66,17 +66,20 @@ a.covidtest-button {
     display: inline-block;
     font-weight: 700;
     background: $color-cyan;
-    color: $color-dark-blue;
     border-radius: 90px;
     padding: units("205") units(4);
-    text-transform: uppercase;
-    text-decoration: none;
     text-align: center;
+
+    &,
+    &:visited {
+      color: #1b1b1b;
+      text-decoration: none;
+    }
 
     &:focus,
     &:hover {
-      color: $color-dark-blue;
-      text-decoration: underline;
+      color: #1b1b1b;
+      background: #28a0cb;
     }
   }
 }
@@ -97,20 +100,17 @@ a.covidtest-button {
 }
 
 .covidtest-logo {
-  margin-top: px-to-rem(10);
-  margin-bottom: px-to-rem(10);
+  @include at-media-max("tablet-lg") {
+    margin-top: px-to-rem(5);
+    margin-bottom: px-to-rem(5);
+  }
 
   @include at-media("mobile-lg") {
     @include covidtest-font(19);
   }
 
-  @include at-media("tablet") {
-    @include covidtest-font(24);
-  }
-
-  @include at-media("desktop") {
+  @include at-media("tablet-lg") {
     @include covidtest-font(37);
-    margin-top: 2px;
   }
 
   @include at-media("widescreen") {
@@ -133,6 +133,12 @@ a.covidtest-button {
     a {
       color: $color-blue;
       text-decoration: none;
+      border-left: 1px solid rgb(165, 173, 179);
+      padding-left: units(1);
+
+      @include at-media("desktop") {
+        padding-left: units(2);
+      }
     }
   }
 }
@@ -301,20 +307,17 @@ a.covidtest-button {
   }
 
   a {
-    position: relative;
-    color: $color-blue;
-    text-decoration: underline;
-    // text-decoration: none;
-    // background-image: linear-gradient(currentColor, currentColor);
-    // background-position: 0% 100%;
-    // background-repeat: no-repeat;
-    // background-size: 0% 1px;
-    transition: all 0.2s ease;
+    &,
+    &:visited {
+      position: relative;
+      color: $color-blue;
+      text-decoration: underline;
+      transition: all 0.2s ease;
+    }
 
     &:focus,
     &:hover {
       color: $color-magenta;
-      // background-size: 100% 1px;
     }
   }
 }
@@ -366,8 +369,8 @@ a.covidtest-button {
     }
     &-img {
       display: block;
-      max-width: 50px;
-      max-height: 50px;
+      max-width: 75px;
+      max-height: 75px;
 
       @include at-media("tablet") {
         max-width: 100px;
@@ -536,38 +539,13 @@ a.covidtest-button {
     }
 
     ul {
-      @include unstyled-list;
+      @include at-media("desktop") {
+        @include unstyled-list;
+      }
     }
 
     li {
-      a {
-        display: block;
-        @include covidtest-font(22, 30);
-        font-weight: 700;
-        text-decoration: none;
-        color: $color-dark-blue;
-
-        &::after {
-          content: "";
-          background: center / contain no-repeat
-            url("../img/covidtest/arrow.svg");
-          display: inline-block;
-          width: 29px;
-          height: 12px;
-          margin-left: units(1);
-          transition: transform 0.2s ease;
-        }
-
-        &:focus,
-        &:hover {
-          color: $color-blue;
-          text-decoration: underline;
-
-          &::after {
-            transform: translateX(units(1));
-          }
-        }
-      }
+      @include covidtest-font(22, 30);
 
       @include at-media("desktop") {
         margin-top: units(2px);
@@ -578,18 +556,43 @@ a.covidtest-button {
 
         a {
           display: flex;
-          justify-content: space-between;
           align-items: center;
           background-color: rgba($color-white, 0.94);
+          font-weight: 700;
           @include u-padding(2);
 
-          &::after {
+          &,
+          &:visited {
+            color: $color-dark-blue;
+            text-decoration: none;
+          }
+
+          &::before {
+            content: "";
+            order: 2;
+            flex-grow: 1;
+            background: center right / contain no-repeat
+              url("../img/covidtest/arrow.svg");
+            width: 29px;
+            height: 12px;
             margin-right: units(1);
+            margin-left: units(1);
+            transition: transform 0.2s ease;
+          }
+
+          &::after {
+            order: 1;
           }
 
           &:focus,
           &:hover {
+            color: $color-blue;
+            text-decoration: underline;
             background-color: $color-white;
+
+            &::before {
+              transform: translateX(units(1));
+            }
           }
         }
       }
