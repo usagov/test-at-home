@@ -48,8 +48,8 @@ Boundary(gsa_saas, "GSA-authorized SaaS") {
     System_Ext(newrelic, "New Relic", "Monitoring SaaS")
 }
 browser -> dap : **reports usage** \n//[https (443)]//
-Rel(app, newrelic, "reports telemetry (javascript agent)", "tcp (443)")
-Rel(browser, newrelic, "reports ux metrics", "https (443)")
+Rel(app, newrelic, "reports telemetry (ruby agent)", "tcp (443)")
+Rel(browser, newrelic, "reports ux metrics (javascript agent)", "https (443)")
 Rel(browser, aws_cf, "request info, submit request for test kit", "https GET/POST (443)")
 Rel(aws_cf, aws_alb, "proxies requests", "https GET/POST (443)")
 Rel(aws_alb, cloudgov_router, "proxies requests", "https GET/POST (443)")
