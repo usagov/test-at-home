@@ -1,11 +1,11 @@
 .error {
-  border: 1px solid color("secondary");
+  border: 2px solid $color-magenta;
 }
 
 .error-message {
   align-items: center;
-  background: color("secondary-lightest");
-  border-left: 8px solid color("secondary");
+  background: $color-light-magenta;
+  border-left: 8px solid $color-magenta;
   display: flex;
   flex-direction: row;
   font-style: italic;
