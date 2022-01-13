@@ -31,4 +31,30 @@ RSpec.describe UsStreetAddressValidator, type: :model do
       end
     end
   end
+
+  describe ".smarty_disabled?" do
+    context "when env var not set" do
+      it "returns false" do
+        ClimateControl.modify DISABLE_SMARTY_STREETS: nil do
+          expect(UsStreetAddressValidator.smarty_disabled?).to eq(false)
+        end
+      end
+    end
+
+    context "when env var set to something that is not true" do
+      it "returns false" do
+        ClimateControl.modify DISABLE_SMARTY_STREETS: "alsdkj" do
+          expect(UsStreetAddressValidator.smarty_disabled?).to eq(false)
+        end
+      end
+    end
+
+    context "when env var set to true" do
+      it "returns true" do
+        ClimateControl.modify DISABLE_SMARTY_STREETS: "true" do
+          expect(UsStreetAddressValidator.smarty_disabled?).to eq(true)
+        end
+      end
+    end
+  end
 end
