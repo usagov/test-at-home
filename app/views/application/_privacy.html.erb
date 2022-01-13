@@ -1,5 +1,5 @@
 <div id="privacy-cntr" class="text-dark-blue">
-  <%= render :layout => 'card' do %>
+  <%= render :layout => 'card', :locals => {:is_fieldset => false} do %>
     <h2 class="text-dark-blue"><%= t('kit_requests.new.privacy.heading') %></h2>
     <div class="text-dark-blue"><%= t('kit_requests.new.privacy.html') %></div>
   <% end %>

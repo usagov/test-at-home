@@ -1,4 +1,5 @@
-h1 {
+h1,
+.h1 {
   @include covidtest-font(24, 32);
 
   @include at-media("desktop") {
@@ -15,7 +16,8 @@ h1 {
   }
 }
 
-h2 {
+h2,
+.h2 {
   font-weight: 400;
   @include covidtest-font($font-size, $line-height);
   text-transform: uppercase;
@@ -31,11 +33,13 @@ h2 {
   }
 }
 
-h3 {
+h3,
+.h3 {
   @include covidtest-font(18, 32);
 }
 
-h4 {
+h4,
+.h4 {
   @include covidtest-font($font-size, $line-height);
   border-bottom: 1px solid color("base-lightest");
   margin: units(2) 0;

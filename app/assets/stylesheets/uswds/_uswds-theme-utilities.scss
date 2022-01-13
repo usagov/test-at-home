@@ -670,7 +670,9 @@ $display-manual-values: ();
 // .flex
 
 $flex-palettes: ("palette-flex-default");
-$flex-manual-values: ();
+$flex-manual-values: (
+  none: "none"
+);
 
 // .flex-direction
 

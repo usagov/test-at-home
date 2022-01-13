@@ -30,7 +30,65 @@ en:
     submit: Place your order
   kit_requests:
     confirmation:
-      title: Thank you, your pre-order has been placed.
+      about:
+        alt: COVID-19 test swabs developing
+        body_html: |
+          <ul>
+            <li>Can be taken anywhere</li>
+            <li>Give results within 30 minutes</li>
+            <li>Work whether or not you have COVID-19 symptoms</li>
+            <li>Work whether or not you are up to date on your COVID-19 vaccines</li>
+            <li>Are also referred to self-tests or over-the-counter (OTC) tests</li>
+          </ul>
+        heading: About At-Home COVID-19 Tests
+        sub_heading: 'At-home tests:'
+      body_html: |
+        <p>
+          You will receive a follow up confirmation email* from the US Postal Service (USPS) and another email with a tracking number when the tests ship. <span class="text-italic">*If you provided your email address.</span>
+        </p> <p class="text-bold">Tests will be sent out in late January.</p>
+      instructions:
+        body_html: |
+          <ul>
+            <li>If you begin having COVID-19 symptoms like fever, sore throat, runny nose, or loss of taste or smell, or</li>
+            <li>At least 5 days after you come into close contact with someone with COVID-19, or</li>
+            <li>When you’re going to gather with a group of people, especially those who are at risk of severe disease or may not be <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/stay-up-to-date.html" rel="noopener">up to date on their COVID-19 vaccines</a>.</li>
+          </ul>
+        heading: Once you receive your tests
+        sub_heading: 'Take an at-home test if you:'
+      other:
+        alt: Mask-wearing young child using hand sanitizer
+        body_html: |
+          <ul>
+            <li>Get up to date with their COVID-19 vaccinations. Visit <a class="usa-link usa-link--external" href="https://vaccines.gov" rel="noopener">vaccines.gov</a> to find a vaccine or booster near you.</li>
+            <li>Wear a well-fitted mask when gathering indoors.</li>
+            <li>Maintain 6 feet of distance between people.</li>
+          </ul>
+        heading: Vaccination, Masking and Social Distancing
+        sub_heading: 'Testing is only one step you can take to protect yourself, friends, family, and others. Everyone is encouraged to:
+
+          '
+      resources:
+        alt: Adult receiving a COVID-19 test
+        body_html: |
+          <ul>
+            <li><a href="https://www.hhs.gov/coronavirus/community-based-testing-sites/index.html" rel="noopener">State resources</a></li>
+            <li><a href="https://doineedacovid19test.com/" rel="noreferrer noopener">Local independent pharmacies</a></li>
+            <li><a href="https://www.cms.gov/how-to-get-your-at-home-OTC-COVID-19-test-for-free" rel="noopener">Insurance reimbursement program</a></li>
+          </ul>
+        heading: Other Testing Resources
+        sub_heading: 'Free COVID tests are also available through:'
+      sub_heading: What to expect next
+      title: Thank you, your order has been placed.
+      whatif_negative:
+        body_html: 'A <strong>negative</strong> at-home test result means that the test did not find the COVID-19 virus, and you may have a lower risk of spreading the disease to others. If you test negative, you should generally test again 2 to 3 days after the first test. Check your test kit’s instructions for specific next steps.</p> <p>For more information on what to do if you test negative, visit the <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html# anchor_1620925514532" rel="noopener">CDC Self-Testing webpage</a>.
+
+          '
+        heading: What if you test <em>Negative?</em>
+      whatif_positive:
+        body_html: 'A <strong>positive</strong> at-home test result means that the test found the COVID-19 virus, and you are very likely infected with COVID-19. If you test positive on your at-home test, follow the <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html" rel="noopener">latest CDC guidance for isolation</a>.
+
+          '
+        heading: What if you test <em>Positive?</em>
     new:
       body_html: |
         <p class="usa-intro">Fill in this form to request a free at-home testing kit. Testing kits will include one set of 4 individual rapid antigen tests.</p>
