@@ -36,8 +36,7 @@ class UsStreetAddressValidator
       client.send_lookup(lookup)
     # Possible exceptions: https://github.com/smartystreets/smartystreets-ruby-sdk/blob/master/lib/smartystreets_ruby_sdk/exceptions.rb
     rescue Net::OpenTimeout, SmartyStreets::SmartyError => err
-      puts err
-      # Send to New Relic
+      NewRelic::Agent.notice_error(err)
       raise ServiceIssueError
     end
 
