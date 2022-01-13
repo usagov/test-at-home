@@ -47,12 +47,12 @@
           <div id="address-err-cntr" class="error-message" tabindex="-1" hidden></div>
 
           <%= form.label :mailing_address_1, class: "usa-label" do %>
-          <%= t('activerecord.attributes.mailing_address_1') %>
+            <%= t('activerecord.attributes.mailing_address_1') %>
             <span class="text-magenta">*</span>
           <% end %>
           <%= form.text_field :mailing_address_1, class: "usa-input", required: true %>
 
-          <%= form.label :mailing_address_2, class: "usa-label" %>
+          <%= form.label :mailing_address_2, t('activerecord.attributes.mailing_address_2'), class: "usa-label" %>
           <%= form.text_field :mailing_address_2, class: "usa-input" %>
 
           <%= form.label :city, class: "usa-label" do %>

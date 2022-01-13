@@ -1,0 +1,83 @@
+---
+es:
+  activerecord:
+    attributes:
+      city: Ciudad
+      email: Dirección de correo electrónico
+      first_name: Nombre
+      last_name: Apellido
+      mailing_address_1: Dirección 1
+      mailing_address_2: Dirección 2
+      state: Estado / Territorio
+      zip_code: Código postal
+    errors:
+      messages:
+        address_incorrect: TODO
+        address_not_found: TODO
+        blank: TODO
+        invalid_email: Por favor, escriba el correo electrónico en el formato nombre@ejemplo.com
+  js:
+    empty: TODO
+    invalid:
+      address_error: TODO
+      address_incorrect: TODO
+      address_not_found: TODO
+      email: Por favor, escriba el correo electrónico en el formato nombre@ejemplo.com
+      missing_default: Please fill out this field
+      missing_select: Please select a value
+      zip_code: Por favor, escriba un código postal válido
+    review: Revise su orden
+    submit: Haga su pedido
+  kit_requests:
+    confirmation:
+      title: Gracias, su pedido ha sido completado.
+    new:
+      body_html: |
+        <p class="usa-intro">Complete este formulario para solicitar que se le envíe a su dirección un kit con pruebas caseras gratuitas.</p>
+        <p class="text-bold margin-bottom-4">Las órdenes incluirán 4 pruebas de antígeno individuales, que se enviarán a partir de finales de enero.</p>
+      contact_heading: Información de contacto
+      contact_html: Datos de contacto de la persona que recibe el pedido. <span class="text-magenta">*</span><span class="text-italic">Elementos obligatorios</span>
+      email_optional: Este paso es opcional, pero sin un correo electrónico no podemos ofrecerle el rastreo de su pedido.
+      error_header: TODO
+      privacy:
+        heading: Política de privacidad
+        html: |
+          <p class="font-body-xs">USA.gov le pide su nombre y dirección para que el Servicio Postal de EE.UU. (USPS, sigla en inglés) pueda enviarle gratuitamente cuatro pruebas caseras de COVID-19. Si da una dirección de correo electrónico, USPS le enviará un correo electrónico que incluye un número para rastrear el envío. Esta recopilación de información está autorizada por la Ley de Gobierno Electrónico de 2002 (Pub. L. 107–347, 44 USC 3501 nota).</p>
+          <p class="font-body-xs">Si no proporciona un nombre y una dirección USPS no le podrá enviar las pruebas caseras de COVID-19. Usted no está obligado a proporcionar su dirección de correo electrónico; sin embargo, no proporcionarlo impedirá que USPS le envíe por correo electrónico información sobre el envío.</p>
+          <p class="font-body-xs">ALa información que proporcione al realizar su pedido se compartirá con USPS y también puede ser divulgada como se describe en el <a href="https://www.federalregister.gov/documents/2016/07/18/2016-16868/privacy-act-of-1974-notice-of-an-updated-system-of-records">Aviso del Sistema de Registros de la Ley de Privacidad (en inglés)</a>.</p>
+      review:
+        contact_heading: Información de contacto
+        edit: Edición
+        ship_to: Enviar a
+        title: Revise su orden
+        tracking_to: 'Enviar información de rastreo a:'
+      shipping_heading: Información para el envío
+      shipping_html: <span class="text-magenta">*</span><span class="text-italic">Elementos obligatorios</span>
+      submit: Haga su pedido
+      title: Ordene por adelantado un kit gratuito de pruebas caseras de COVID-19
+      tracking: Para recibir información actualizada sobre el estado de su pedido del kit de pruebas, proporcione una dirección de correo electrónico.
+      tracking_heading: Rastreo del pedido
+  shared:
+    banner:
+      gov_description_html: Un sitio web <strong>.gov</strong> pertenece a una organización oficial del Gobierno de Estados Unidos.
+      gov_heading: Los sitios web oficiales usan .gov
+      how: Así es como usted puede verificarlo
+      lock: Candado
+      locked_padlock: Candado cerrado
+      official_site: Un sitio oficial del Gobierno de Estados Unidos
+      secure_description_html: Un <strong>candado</strong> (%{lock_icon}) o <strong>https://</strong> significa que usted se conectó de forma segura a un sitio web .gov. Comparta información sensible sólo en sitios web oficiales y seguros.
+      secure_heading: Los sitios web seguros .gov usan HTTPS
+      us_flag: Bandera de Estados Unidos
+    footer:
+      links:
+        covid: TODO
+        hhs: TODO
+        usps: USPS.com
+    header:
+      primary: TODO
+      title: COVIDtest.gov
+    languages:
+      en: English
+      es: Español
+      zh: 中文
+    skip_link: Salte al contenido principal

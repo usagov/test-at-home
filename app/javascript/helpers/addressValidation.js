@@ -2,11 +2,11 @@ import * as SmartyStreetsSDK from "smartystreets-javascript-sdk";
 import i18n from "i18n-js";
 
 // i18n strings
-const addressNotFound = I18n.t("kit_requests.new.js.invalid.address_not_found");
+const addressNotFound = I18n.t("js.invalid.address_not_found");
 const addressIncorrect = I18n.t(
-  "kit_requests.new.js.invalid.address_incorrect"
+  "js.invalid.address_incorrect"
 );
-const addressError = I18n.t("kit_requests.new.js.invalid.address_error");
+const addressError = I18n.t("js.invalid.address_error");
 
 const SmartyStreetsCore = SmartyStreetsSDK.core;
 const Lookup = SmartyStreetsSDK.usStreet.Lookup;
