@@ -72,15 +72,11 @@ es:
         covid: TODO
         hhs: TODO
         usps: USPS.com
-      return_top: TODO
     header:
-      close: TODO
-      menu: TODO
       primary: TODO
       title: COVIDtest.gov
     languages:
       en: English
       es: Español
-      language: TODO
       zh: 中文
     skip_link: Salte al contenido principal

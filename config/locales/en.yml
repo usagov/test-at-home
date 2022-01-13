@@ -72,15 +72,11 @@ en:
         covid: We Can Do This
         hhs: U.S. Department of Health & Human Services
         usps: USPS.com
-      return_top: Return to top
     header:
-      close: Close
-      menu: Menu
       primary: Primary navigation
       title: COVIDtest.gov
     languages:
       en: English
       es: Español
-      language: Language
       zh: 中文
     skip_link: Skip to main content
