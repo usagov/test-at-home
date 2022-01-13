@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>COVIDtest.gov</title>
+    <title><%= t('shared.header.title') %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -28,9 +28,9 @@
         {
           "@context": "https://schema.org",
           "@type": "Organization",
-          "name":"COVIDtest.gov",
-          "url": "https://www.covidtest.gov/",
-          "logo": "https://www.covidtest.gov/favicon-196.png",
+          "name":"<%= t('shared.header.title') %>",
+          "url": "https://www.covidtests.gov/",
+          "logo": "https://www.covidtests.gov/favicon.ico",
           "parentOrganization": [
             {
               "@type": "Organization",
@@ -42,8 +42,8 @@
         {
           "@context": "https://schema.org",
           "@type": "WebSite",
-          "name": "COVIDtest.gov",
-          "url": "https://www.covidtest.gov/"
+          "name": "<%= t('shared.header.title') %>",
+          "url": "https://www.covidtests.gov/"
         }
       ]
     <% end %>

@@ -12,6 +12,7 @@ applications:
     NEW_RELIC_LOG: stdout
     DISABLE_SMARTY_STREETS: ((disable_smarty_streets))
     SMARTY_STREETS_EMBEDDED_KEY: ((smarty_streets_public_key))
+    RAILS_MAX_THREADS: 10
   processes:
   - type: web
     instances: ((web_instances))
