@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="922px" preserveAspectRatio="none" style="width:1113px;height:922px;background:#FFFFFF;" version="1.1" viewBox="0 0 1113 922" width="1113px" zoomAndPan="magnify"><defs><filter height="300%" id="f1o9sp1vkt1ixj" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="280" x="410" y="16.708">management space interactions</text><!--MD5=[1882a77a351c382316da64f5bec32f3f]
+cluster cloudgov--><rect fill="#FFFFFF" height="737" style="stroke:#A2A2A2;stroke-width:1.5;" width="594" x="253" y="27.9531"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="85" x="507.5" y="44.8047">cloud.gov</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="135" x="482.5" y="59.7168">[Cloud Foundry PaaS]</text><!--MD5=[bfe4f767bb11f22a1eaa0d90d17cf673]
+cluster atob--><rect fill="#FFFFFF" height="497" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="546" x="277" y="243.9531"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="126" x="487" y="260.8047">ATO boundary</text><!--MD5=[4c55b2e2938314fe7430e1980dbbe371]
+cluster organization--><rect fill="#FFFFFF" height="428" style="stroke:#A2A2A2;stroke-width:1.5;" width="498" x="301" y="288.9531"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="108" x="496" y="305.8047">organization</text><!--MD5=[2437d47e3f66315c5516728bb2ca4988]
+cluster management_space--><rect fill="#FFFFFF" height="359" style="stroke:#A2A2A2;stroke-width:1.5;" width="236" x="325" y="333.9531"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="173" x="356.5" y="350.8047">management space</text><!--MD5=[5898cabc76f98c7cd7adc9d4a2ac51e7]
+cluster target_space--><rect fill="#FFFFFF" height="124" style="stroke:#A2A2A2;stroke-width:1.5;" width="190" x="585" y="340.9531"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="114" x="623" y="357.8047">target space</text><!--MD5=[6b3f55f5e25f8d17d2bba6efeb9558e0]
+cluster gsa_saas--><rect fill="#FFFFFF" height="141" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="222" x="7" y="540.9531"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="185" x="25.5" y="557.8047">GSA-authorized SaaS</text><!--MD5=[6a6d211c03d892cab918bb18e9eaf5f0]
+cluster gsa_boundary--><rect fill="#FFFFFF" height="154" style="stroke:#A2A2A2;stroke-width:1.5;" width="236" x="871" y="325.9531"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="126" x="926" y="342.8047">GSA Boundary</text><!--MD5=[c4b7e62cae6397d845183545b8b2fe24]
+entity cloudgov_loggregator--><rect fill="#999999" height="89.8438" style="stroke:#8A8A8A;stroke-width:1.5;" width="180" x="367" y="78.9531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="154" x="377" y="103.8047">cloud.gov logging</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="65" x="424.5" y="122.4297">system</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="459" y="139.1982"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="417" y="155.4951">Loggregator</text><!--MD5=[d3041eb08a4e9fb0b313440e852b4629]
+entity cloudgov_logs--><rect fill="#999999" height="71.2188" style="stroke:#8A8A8A;stroke-width:1.5;" width="168" x="655" y="88.4531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="148" x="665" y="113.3047">logs.fr.cloud.gov</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="741" y="130.0732"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="25" x="728.5" y="146.3701">ELK</text><!--MD5=[ca7677ebfa697c9f34545e1b084a2493]
+entity log_drain--><rect fill="#438DD5" height="85.1875" style="stroke:#3C7FC0;stroke-width:1.5;" width="205" x="340.5" y="370.9531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="98" x="394" y="395.8047">log shipper</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="68" x="409" y="410.7168">[LogStash]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="445" y="426.542"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="181" x="354.5" y="442.8389">drains logs from cloud.gov</text><!--MD5=[dedfe25f333c744aac2d60d65ac8bf54]
+entity log_bucket--><path d="M377.5,576.9531 C377.5,566.9531 443,566.9531 443,566.9531 C443,566.9531 508.5,566.9531 508.5,576.9531 L508.5,667.4375 C508.5,677.4375 443,677.4375 443,677.4375 C443,677.4375 377.5,677.4375 377.5,667.4375 L377.5,576.9531 " fill="#438DD5" style="stroke:#3C7FC0;stroke-width:1.5;"/><path d="M377.5,576.9531 C377.5,586.9531 443,586.9531 443,586.9531 C443,586.9531 508.5,586.9531 508.5,576.9531 " fill="none" style="stroke:#3C7FC0;stroke-width:1.5;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="84" x="401" y="605.8047">log cache</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="57" x="414.5" y="620.7168">[AWS S3]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="445" y="636.542"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="103" x="391.5" y="652.8389">Stages logs for</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="397.5" y="669.1357">consumption</text><!--MD5=[ae14cfaaf35cc1269b37ff34a1edb29a]
+entity target_app--><rect fill="#999999" height="71.2188" style="stroke:#8A8A8A;stroke-width:1.5;" width="158" x="601" y="377.9531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="94" x="633" y="402.8047">application</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="682" y="419.5732"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="134" x="615" y="435.8701">system component</text><!--MD5=[61e0817949b923cdbd4126e8a8a560b5]
+entity newrelic--><rect fill="#999999" height="87.5156" style="stroke:#8A8A8A;stroke-width:1.5;" width="190" x="23" y="577.9531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="86" x="75" y="602.8047">New Relic</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="120" y="619.5732"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="162" x="37" y="635.8701">Monitoring and Logging</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34" x="101" y="652.167">SaaS</text><!--MD5=[bbb77a3a194a5181f8a38961a6c21fd2]
+entity gsa_soc--><rect fill="#B3B3B3" height="101.4844" style="stroke:#A6A6A6;stroke-width:1.5;" width="204" x="887" y="362.9531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="79" x="949.5" y="387.8047">GSA SOC</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="31" x="973.5" y="402.7168">[ELK]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="991" y="418.542"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="176" x="901" y="434.8389">Ingests, stores, monitors,</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="131" x="923.5" y="451.1357">and   alerts on logs</text><path d="M863,96.4531 L863,151.8516 L1077,151.8516 L1077,106.4531 L1067,96.4531 L863,96.4531 " fill="#FBFB77" filter="url(#f1o9sp1vkt1ixj)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1067,96.4531 L1067,106.4531 L1077,106.4531 L1067,96.4531 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="180" x="873.5" y="113.52">All connections depicted are</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="189" x="869" y="128.6528">encrypted with TLS 1.2 unless</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="912.5" y="143.7856">otherwise noted.</text><!--MD5=[1643cc9ad359d84572af94dc151b80c2]
+reverse link cloudgov_loggregator to target_app--><path d="M511.49,174.9931 C519.27,182.8031 527,190.9431 534,198.9531 C584.95,257.2931 633.53,333.9531 659.8,377.7531 " fill="none" id="cloudgov_loggregator-backto-target_app" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="505.55,169.1031,509.1248,176.8633,513.3459,172.5993,505.55,169.1031" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="22" x="592.5" y="211.0918">log</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="93" x="557" y="225.0605">[stdout/stderr]</text><!--MD5=[c1b3312cbe1ebf0301c367d3465944cc]
+link cloudgov_loggregator to log_drain--><path d="M454.84,169.2431 C452.3,221.5331 448.07,308.2531 445.42,362.7831 " fill="none" id="cloudgov_loggregator-to-log_drain" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="445.02,370.9131,448.4165,363.0732,442.424,362.7731,445.02,370.9131" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="71" x="454" y="218.0918">drain logs</text><!--MD5=[28d0579a0545d750c69c693d0279ed08]
+link cloudgov_loggregator to cloudgov_logs--><path d="M547,123.9531 C578.8,123.9531 614.6,123.9531 646.6,123.9531 " fill="none" id="cloudgov_loggregator-to-cloudgov_logs" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="654.64,123.9531,646.64,120.9531,646.64,126.9531,654.64,123.9531" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="71" x="565.5" y="118.0918">drain logs</text><!--MD5=[8c498a663ab7628c7e5e55e821352f0d]
+link log_drain to log_bucket--><path d="M443,456.2431 C443,485.5731 443,525.3131 443,558.4131 " fill="none" id="log_drain-to-log_bucket" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="443,566.6731,446,558.6731,440,558.6731,443,566.6731" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="80" x="476.5" y="508.0918">export logs</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="145" x="444" y="522.0605">[https GET/POST (443)]</text><!--MD5=[c47b79ef80c9f6b9a8dde160abfb8fcb]
+link gsa_soc to log_bucket--><path d="M886.94,453.0531 C779.06,493.8531 611.57,557.2031 516.14,593.2931 " fill="none" id="gsa_soc-to-log_bucket" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="508.55,596.1631,517.0939,596.1274,514.9637,590.5183,508.55,596.1631" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="79" x="798" y="508.0918">ingest logs</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="145" x="765" y="522.0605">[https GET/POST (443)]</text><!--MD5=[3e1336d35e15e25f7aed84347c238506]
+link log_drain to newrelic--><path d="M358.45,455.9831 C335.22,468.1731 310.29,482.0031 288,495.9531 C250.6,519.3531 210.76,548.4031 179.06,572.6031 " fill="none" id="log_drain-to-newrelic" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="172.42,577.6931,180.592,575.1995,176.9374,570.441,172.42,577.6931" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="80" x="321.5" y="508.0918">export logs</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="145" x="289" y="522.0605">[https GET/POST (443)]</text><rect fill="#FFFFFF" height="128.0781" rx="5" ry="5" style="stroke:#FFFFFF;stroke-width:1.0;" width="144" x="947" y="777.9531"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="59" x="953" y="797.9482">Legend</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="1016" y="797.9482"/><rect fill="#08427B" height="16.2969" style="stroke:none;stroke-width:1.0;" width="132" x="953" y="801.25"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49" x="957" y="814.2451">person</text><rect fill="#1168BD" height="16.2969" style="stroke:none;stroke-width:1.0;" width="132" x="953" y="817.5469"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="957" y="830.542">system</text><rect fill="#438DD5" height="16.2969" style="stroke:none;stroke-width:1.0;" width="132" x="953" y="833.8438"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="957" y="846.8389">container</text><rect fill="#686868" height="16.2969" style="stroke:none;stroke-width:1.0;" width="132" x="953" y="850.1406"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="957" y="863.1357">external person</text><rect fill="#999999" height="16.2969" style="stroke:none;stroke-width:1.0;" width="132" x="953" y="866.4375"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="109" x="957" y="879.4326">external system</text><rect fill="#B3B3B3" height="16.2969" style="stroke:none;stroke-width:1.0;" width="132" x="953" y="882.7344"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="957" y="895.7295">external container</text><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="953" x2="1085" y1="784.9531" y2="784.9531"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="953" x2="1085" y1="801.25" y2="801.25"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="953" x2="1085" y1="817.5469" y2="817.5469"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="953" x2="1085" y1="833.8438" y2="833.8438"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="953" x2="1085" y1="850.1406" y2="850.1406"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="953" x2="1085" y1="866.4375" y2="866.4375"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="953" x2="1085" y1="882.7344" y2="882.7344"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="953" x2="1085" y1="899.0313" y2="899.0313"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="953" x2="953" y1="784.9531" y2="899.0313"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="1085" x2="1085" y1="784.9531" y2="899.0313"/><!--MD5=[59e0042af31177cd71de8198d7c6acae]
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+LAYOUT_WITH_LEGEND()
+title management space interactions
+note as EncryptionNote
+  All connections depicted are encrypted with TLS 1.2 unless otherwise noted.
+end note
+Deployment_Node(cloudgov, "cloud.gov", "Cloud Foundry PaaS") {
+    System_Ext(cloudgov_loggregator, "cloud.gov logging system", "Loggregator")
+    System_Ext(cloudgov_logs, "logs.fr.cloud.gov", "ELK")
+    Boundary(atob, "ATO boundary") {
+        Deployment_Node(organization, "organization") {
+            Deployment_Node(management_space, "management space") {
+                Container(log_drain, "log shipper", "LogStash", "drains logs from cloud.gov")
+                ContainerDb(log_bucket, "log cache", "AWS S3", "Stages logs for consumption")
+            }
+            Deployment_Node(target_space, "target space") {
+                System_Ext(target_app, "application", "system component")
+            }
+        }
+    }
+}
+
+Boundary(gsa_saas, "GSA-authorized SaaS") {
+    System_Ext(newrelic, "New Relic", "Monitoring and Logging SaaS")
+}
+
+Deployment_Node(gsa_boundary, "GSA Boundary") {
+    Container_Ext(gsa_soc, "GSA SOC", "ELK", "Ingests, stores, monitors, and   alerts on logs")
+}
+
+' Logging
+Rel_Up(target_app, cloudgov_loggregator, "log", "stdout/stderr")
+
+' The drains themselves also log, but this just gets confusing if we show it
+'Rel_Up(management_drain, cloudgov_loggregator, "log", "stdout/stderr")
+
+'Log draining
+Rel_Down(cloudgov_loggregator, log_drain, "drain logs")
+Rel_Right(cloudgov_loggregator, cloudgov_logs, "drain logs")
+
+'Log shipping
+Rel(log_drain, log_bucket, "export logs", "https GET/POST (443)")
+Rel(gsa_soc, log_bucket, "ingest logs", "https GET/POST (443)")
+Rel(log_drain, newrelic, "export logs", "https GET/POST (443)")
+@enduml
+
+@startuml
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam LegendBorderColor transparent
+skinparam LegendBackgroundColor transparent
+skinparam LegendFontColor #FFFFFF
+
+skinparam shadowing<<legendArea>> false
+skinparam rectangle<<legendArea>> {
+    backgroundcolor #00000000
+    bordercolor #00000000
+}
+
+skinparam rectangle {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam queue {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 12
+}
+
+skinparam actor {
+    StereotypeFontSize 12
+    shadowing false
+    style awesome
+}
+
+skinparam person {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam package {
+    StereotypeFontSize 6
+    StereotypeFontColor transparent
+    FontStyle plain
+    BackgroundColor transparent
+}
+
+skinparam rectangle<<boundary>> {
+    Shadowing false
+    StereotypeFontSize 6
+    StereotypeFontColor transparent
+    FontColor #444444
+    BorderColor #444444
+    BackgroundColor transparent
+    BorderStyle dashed
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam database<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam queue<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam actor<<person>> {
+    StereotypeFontColor #08427B
+    FontColor #08427B
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam person<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+
+
+skinparam rectangle<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam database<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam queue<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam actor<<external_person>> {
+    StereotypeFontColor #686868
+    FontColor #686868
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam person<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+
+
+skinparam rectangle<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam database<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam queue<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam actor<<system>> {
+    StereotypeFontColor #1168BD
+    FontColor #1168BD
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam person<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+
+skinparam rectangle<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam database<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam queue<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam actor<<external_system>> {
+    StereotypeFontColor #999999
+    FontColor #999999
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam person<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+
+
+
+
+sprite $person [48x48/16] {
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+0000000000000000000049BCCA7200000000000000000000
+0000000000000000006EFFFFFFFFB3000000000000000000
+00000000000000001CFFFFFFFFFFFF700000000000000000
+0000000000000001EFFFFFFFFFFFFFF80000000000000000
+000000000000000CFFFFFFFFFFFFFFFF6000000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+00000000000001FFFFFFFFFFFFFFFFFFF900000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFF00000000000000
+0000000000000BFFFFFFFFFFFFFFFFFFFF40000000000000
+0000000000000EFFFFFFFFFFFFFFFFFFFF70000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000DFFFFFFFFFFFFFFFFFFFF60000000000000
+0000000000000AFFFFFFFFFFFFFFFFFFFF40000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFE00000000000000
+00000000000000EFFFFFFFFFFFFFFFFFF800000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+000000000000000BFFFFFFFFFFFFFFFF5000000000000000
+0000000000000001DFFFFFFFFFFFFFF70000000000000000
+00000000000000000BFFFFFFFFFFFF500000000000000000
+0000000000000000005DFFFFFFFFA1000000000000000000
+0000000000000000000037ABB96100000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000025788300000000005886410000000000000
+000000000007DFFFFFFD9643347BFFFFFFFB400000000000
+0000000004EFFFFFFFFFFFFFFFFFFFFFFFFFFB1000000000
+000000007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFD200000000
+00000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE10000000
+0000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB0000000
+000000BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5000000
+000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD000000
+000009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF200000
+00000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF600000
+00000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF800000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA00000
+00000EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF700000
+000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE100000
+0000008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD3000000
+000000014555555555555555555555555555555300000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+}
+
+sprite $person2 [48x48/16] {
+0000000000000000000049BCCA7200000000000000000000
+0000000000000000006EFFFFFFFFB3000000000000000000
+00000000000000001CFFFFFFFFFFFF700000000000000000
+0000000000000001EFFFFFFFFFFFFFF80000000000000000
+000000000000000CFFFFFFFFFFFFFFFF6000000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+00000000000001FFFFFFFFFFFFFFFFFFF900000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFF00000000000000
+0000000000000BFFFFFFFFFFFFFFFFFFFF40000000000000
+0000000000000EFFFFFFFFFFFFFFFFFFFF70000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000DFFFFFFFFFFFFFFFFFFFF60000000000000
+0000000000000AFFFFFFFFFFFFFFFFFFFF40000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFE00000000000000
+00000000000000EFFFFFFFFFFFFFFFFFF800000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+000000000000000BFFFFFFFFFFFFFFFF5000000000000000
+0000000000000001DFFFFFFFFFFFFFF70000000000000000
+00000000000000000BFFFFFFFFFFFF500000000000000000
+0000000000000000005DFFFFFFFFA1000000000000000000
+0000000000000000000037ABB96100000000000000000000
+000000000002578888300000000005888864100000000000
+0000000007DFFFFFFFFD9643347BFFFFFFFFFB4000000000
+00000004EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB10000000
+0000007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD2000000
+000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE100000
+00003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+0000BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF50000
+0003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD0000
+0009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF2000
+000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6000
+000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA000
+000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6000
+0009FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFF2000
+0003FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFD0000
+0000BFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFF50000
+00003FFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFB00000
+000006FFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFE100000
+0000007FFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFD2000000
+00000004EFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFB10000000
+0000000007DF8FFFFFFFFFFFFFFFFFFFFFF8FB4000000000
+000000000002578888888888888888888864100000000000
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam database<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam queue<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam actor<<container>> {
+    StereotypeFontColor #438DD5
+    FontColor #438DD5
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam person<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+
+skinparam rectangle<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam database<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam queue<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam actor<<external_container>> {
+    StereotypeFontColor #B3B3B3
+    FontColor #B3B3B3
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam person<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<node>> {
+    StereotypeFontColor #000000
+    FontColor #000000
+    BackgroundColor #FFFFFF
+    BorderColor #A2A2A2
+}
+skinparam database<<node>> {
+    StereotypeFontColor #000000
+    FontColor #000000
+    BackgroundColor #FFFFFF
+    BorderColor #A2A2A2
+}
+skinparam queue<<node>> {
+    StereotypeFontColor #000000
+    FontColor #000000
+    BackgroundColor #FFFFFF
+    BorderColor #A2A2A2
+}
+skinparam actor<<node>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #FFFFFF
+    BorderColor #A2A2A2
+}
+skinparam person<<node>> {
+    StereotypeFontColor #000000
+    FontColor #000000
+    BackgroundColor #FFFFFF
+    BorderColor #A2A2A2
+}
+
+
+skinparam rectangle<<node>> {
+    FontStyle normal
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hide stereotype
+legend right
+|<color:#000000>**Legend**</color> |
+|<#08427B> person |
+|<#1168BD> system |
+|<#438DD5> container |
+|<#686868> external person |
+|<#999999> external system |
+|<#B3B3B3> external container |
+endlegend
+title management space interactions
+note as EncryptionNote
+  All connections depicted are encrypted with TLS 1.2 unless otherwise noted.
+end note
+rectangle "==cloud.gov\n<size:12>[Cloud Foundry PaaS]</size>" <<node>> as cloudgov  {
+    rectangle "==cloud.gov logging system\n\n Loggregator" <<external_system>> as cloudgov_loggregator 
+    rectangle "==logs.fr.cloud.gov\n\n ELK" <<external_system>> as cloudgov_logs 
+    rectangle "==ATO boundary" <<boundary>> as atob  {
+        rectangle "==organization" <<node>> as organization  {
+            rectangle "==management space" <<node>> as management_space  {
+                rectangle "==log shipper\n//<size:12>[LogStash]</size>//\n\n drains logs from cloud.gov" <<container>> as log_drain 
+                database "==log cache\n//<size:12>[AWS S3]</size>//\n\n Stages logs for consumption" <<container>> as log_bucket 
+            }
+            rectangle "==target space" <<node>> as target_space  {
+                rectangle "==application\n\n system component" <<external_system>> as target_app 
+            }
+        }
+    }
+}
+
+rectangle "==GSA-authorized SaaS" <<boundary>> as gsa_saas  {
+    rectangle "==New Relic\n\n Monitoring and Logging SaaS" <<external_system>> as newrelic 
+}
+
+rectangle "==GSA Boundary" <<node>> as gsa_boundary  {
+    rectangle "==GSA SOC\n//<size:12>[ELK]</size>//\n\n Ingests, stores, monitors, and   alerts on logs" <<external_container>> as gsa_soc 
+}
+
+target_app -UP->> cloudgov_loggregator : **log**\n//<size:12>[stdout/stderr]</size>//
+
+
+cloudgov_loggregator -DOWN->> log_drain : **drain logs**
+cloudgov_loggregator -RIGHT->> cloudgov_logs : **drain logs**
+
+log_drain - ->> log_bucket : **export logs**\n//<size:12>[https GET/POST (443)]</size>//
+gsa_soc - ->> log_bucket : **ingest logs**\n//<size:12>[https GET/POST (443)]</size>//
+log_drain - ->> newrelic : **export logs**\n//<size:12>[https GET/POST (443)]</size>//
+@enduml
+
+PlantUML version 1.2021.16(Wed Dec 08 09:25:22 PST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>
