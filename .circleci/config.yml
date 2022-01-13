@@ -198,6 +198,9 @@ jobs:
               - equal: [<< pipeline.git.branch >>, "production"]
           steps:
             - ruby/install-deps
+            - run:
+                name: Vendor gems
+                command: bundle cache --all
             - node/install-packages:
                 cache-only-lockfile: false
                 cache-version: v2
