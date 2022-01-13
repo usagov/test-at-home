@@ -12,16 +12,9 @@ es:
       zip_code: Código postal
     errors:
       messages:
-        address_incorrect: TODO
-        address_not_found: TODO
-        blank: TODO
         invalid_email: Por favor, escriba el correo electrónico en el formato nombre@ejemplo.com
   js:
-    empty: TODO
     invalid:
-      address_error: TODO
-      address_incorrect: TODO
-      address_not_found: TODO
       email: Por favor, escriba el correo electrónico en el formato nombre@ejemplo.com
       missing_default: Please fill out this field
       missing_select: Please select a value
@@ -30,34 +23,7 @@ es:
     submit: Haga su pedido
   kit_requests:
     confirmation:
-      about:
-        alt: TODO
-        body_html: TODO
-        heading: TODO
-        sub_heading: TODO
-      body_html: TODO
-      instructions:
-        body_html: TODO
-        heading: TODO
-        sub_heading: TODO
-      other:
-        alt: TODO
-        body_html: TODO
-        heading: TODO
-        sub_heading: TODO
-      resources:
-        alt: TODO
-        body_html: TODO
-        heading: TODO
-        sub_heading: TODO
-      sub_heading: TODO
       title: Gracias, su pedido ha sido completado.
-      whatif_negative:
-        body_html: TODO
-        heading: TODO
-      whatif_positive:
-        body_html: TODO
-        heading: TODO
     new:
       body_html: |
         <p class="usa-intro">Complete este formulario para solicitar que se le envíe a su dirección un kit con pruebas caseras gratuitas.</p>
@@ -65,7 +31,6 @@ es:
       contact_heading: Información de contacto
       contact_html: Datos de contacto de la persona que recibe el pedido. <span class="text-magenta">*</span><span class="text-italic">Elementos obligatorios</span>
       email_optional: Este paso es opcional, pero sin un correo electrónico no podemos ofrecerle el rastreo de su pedido.
-      error_header: TODO
       privacy:
         heading: Política de privacidad
         html: |
@@ -97,11 +62,8 @@ es:
       us_flag: Bandera de Estados Unidos
     footer:
       links:
-        covid: TODO
-        hhs: TODO
         usps: USPS.com
     header:
-      primary: TODO
       title: COVIDtest.gov
     languages:
       en: English

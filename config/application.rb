@@ -34,6 +34,7 @@ module TestAtHome
     # Don't generate system test files.
     config.generators.system_tests = nil
     config.i18n.available_locales = [:en, :es]
+    config.i18n.fallbacks = [:en]
     config.middleware.use I18n::JS::Middleware
   end
 end
