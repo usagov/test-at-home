@@ -13,9 +13,8 @@ Rails.application.configure do
     policy.img_src :self, :data, "https://*.nr-data.net"
     policy.object_src :none
     policy.script_src :self, "https://dap.digitalgov.gov", "https://js-agent.newrelic.com", "https://*.nr-data.net"
-    policy.connect_src :self, "https://dap.digitalgov.gov", "https://*.nr-data.net"
+    policy.connect_src :self, "https://dap.digitalgov.gov", "https://*.nr-data.net", "https://us-street.api.smartystreets.com"
     policy.style_src :self
-    policy.connect_src :self, "https://us-street.api.smartystreets.com"
   end
 
   #
