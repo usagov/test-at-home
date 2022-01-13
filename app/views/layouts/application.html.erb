@@ -62,8 +62,8 @@
     </main>
     <%= render "application/footer" %>
     <%= javascript_tag nonce: true do %>
-      I18n.defaultLocale = "<%= I18n.default_locale %>"
-      I18n.locale = "<%= I18n.locale || I18n.default_locale %>"
+      I18n.defaultLocale = "<%= I18n.default_locale %>";
+      I18n.locale = "<%= I18n.locale || I18n.default_locale %>";
     <% end %>
   </body>
 </html>
