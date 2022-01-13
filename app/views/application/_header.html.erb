@@ -11,14 +11,14 @@
       <!-- Desktop Nav -->
       <ul class="covidtest-nav__primary">
         <li class="covidtest-nav__primary-item">
-          <span><%= link_to t('shared.languages.en'), root_path(locale: 'en') %></span>
-        </li>
-        <li class="covidtest-nav__primary-item">
-          <span><%= link_to t('shared.languages.es'), root_path(locale: 'es') %></span>
-        </li>
-        <li class="covidtest-nav__primary-item">
-          <span><%= link_to t('shared.languages.zh'), '/' %></span>
-        </li>
+            <%= format_active_locale('en') %>
+          </li>
+          <li class="covidtest-nav__primary-item">
+            <%= format_active_locale('es') %>
+          </li>
+          <li class="covidtest-nav__primary-item">
+            <%= link_to t("shared.languages.zh"), '/' %>
+          </li>
       </ul>
 
       <!-- Mobile Nav -->
