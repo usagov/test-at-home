@@ -28,15 +28,16 @@
             class="usa-accordion__button"
             aria-expanded="false"
             aria-controls="covidtest-languages">
-            <span><%= link_to t('shared.languages.en'), root_path(locale: 'en') %></span>
+            <span><%= t("shared.languages.#{I18n.locale}") %></span>
           </button>
           <ul id="covidtest-languages" class="covidtest-nav__primary-submenu usa-accordion__content">
-            <li class="covidtest-nav__primary-submenu-item">
-              <span><%= link_to t('shared.languages.es'), root_path(locale: 'es') %></span>
-            </li>
-            <li class="covidtest-nav__primary-submenu-item">
-              <span><%= link_to t('shared.languages.zh'), '/' %></span>
-            </li>
+            <% I18n.available_locales.each do |l| %>
+              <% if l != I18n.locale %>
+                <li class="covidtest-nav__primary-submenu-item">
+                  <%= link_to t("shared.languages.#{l}"), root_path(locale: l) %>
+                </li>
+              <% end %>
+            <% end %>
           </ul>
         </li>
       </ul>
