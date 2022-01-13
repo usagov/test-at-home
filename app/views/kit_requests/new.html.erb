@@ -39,7 +39,7 @@
           <%= form.text_field :last_name, class: "usa-input", required: true %>
         <% end %>
 
-        <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.shipping_heading')} do %>
+        <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.shipping_heading'), :error_id => 'address-err-cntr' } do %>
           <p class="font-body-xs">
             <%= t('kit_requests.new.shipping_html') %>
           </p>
