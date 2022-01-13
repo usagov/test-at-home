@@ -30,7 +30,34 @@ es:
     submit: Haga su pedido
   kit_requests:
     confirmation:
+      about:
+        alt: TODO
+        body_html: TODO
+        heading: TODO
+        sub_heading: TODO
+      body_html: TODO
+      instructions:
+        body_html: TODO
+        heading: TODO
+        sub_heading: TODO
+      other:
+        alt: TODO
+        body_html: TODO
+        heading: TODO
+        sub_heading: TODO
+      resources:
+        alt: TODO
+        body_html: TODO
+        heading: TODO
+        sub_heading: TODO
+      sub_heading: TODO
       title: Gracias, su pedido ha sido completado.
+      whatif_negative:
+        body_html: TODO
+        heading: TODO
+      whatif_positive:
+        body_html: TODO
+        heading: TODO
     new:
       body_html: |
         <p class="usa-intro">Complete este formulario para solicitar que se le envíe a su dirección un kit con pruebas caseras gratuitas.</p>

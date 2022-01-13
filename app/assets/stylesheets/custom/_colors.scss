@@ -1,3 +1,6 @@
+$color-light-gray: #f3f5f8;
+$color-light-magenta: #ffe5f3;
+
 .bg {
   &-white {
     background-color: $color-white !important;
@@ -16,6 +19,9 @@
   }
   &-light-gray {
     background-color: $color-light-gray !important;
+  }
+  &-light-magenta {
+    background-color: $color-light-magenta !important;
   }
 }
 
@@ -38,6 +44,9 @@
   &-light-gray {
     border-color: $color-light-gray !important;
   }
+  &-light-magenta {
+    border-color: $color-light-magenta !important;
+  }
 }
 
 .text {
@@ -59,6 +68,9 @@
   &-light-gray {
     color: $color-light-gray !important;
   }
+  &-light-magenta {
+    color: $color-light-magenta !important;
+  }
 }
 
 .outline {
@@ -79,5 +91,8 @@
   }
   &-light-gray {
     outline-color: $color-light-gray !important;
+  }
+  &-light-magenta {
+    outline-color: $color-light-magenta !important;
   }
 }

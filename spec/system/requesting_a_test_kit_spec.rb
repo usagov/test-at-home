@@ -94,7 +94,7 @@ RSpec.describe "Person requests a test kit", type: :system do
 
       click_on "Place your order"
 
-      expect(page).to have_content "Thank you, your pre-order has been placed."
+      expect(page).to have_content "Thank you, your order has been placed."
     end
 
     context "when smarty streets disabled" do
@@ -125,7 +125,7 @@ RSpec.describe "Person requests a test kit", type: :system do
 
           click_on "Place your order"
 
-          expect(page).to have_content "Thank you, your pre-order has been placed."
+          expect(page).to have_content "Thank you, your order has been placed."
 
           assert_not_requested :any, /api.smartystreets.com/
         end
@@ -152,7 +152,7 @@ RSpec.describe "Person requests a test kit", type: :system do
 
       click_on "Place your order"
 
-      expect(page).to have_content "Thank you, your pre-order has been placed."
+      expect(page).to have_content "Thank you, your order has been placed."
     end
 
     context "when smarty streets disabled" do
@@ -177,7 +177,7 @@ RSpec.describe "Person requests a test kit", type: :system do
 
           click_on "Place your order"
 
-          expect(page).to have_content "Thank you, your pre-order has been placed."
+          expect(page).to have_content "Thank you, your order has been placed."
 
           assert_not_requested :any, /api.smartystreets.com/
         end
