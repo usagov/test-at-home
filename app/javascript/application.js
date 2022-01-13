@@ -71,7 +71,7 @@ const getSanitizedKey = key => key.match(/\[(.*?)\]/)[1];
 const getFormValues = form => {
   const formData = new FormData(form);
   const entries = formData.entries();
-  const { authenticity_token, ...data } = Object.fromEntries(entries);
+  const { authenticity_token, commit, ...data } = Object.fromEntries(entries);
 
   return data;
 };
@@ -86,7 +86,7 @@ const hideReview = () => {
   isFormValid = false;
 };
 
-const showReview = async event => {
+const showReview = event => {
   event.preventDefault();
 
   if (isFormValid) event.target.submit();
