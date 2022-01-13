@@ -75,7 +75,6 @@ RSpec.describe "Person requests a test kit", type: :system do
       find(:xpath, "//button[contains(@aria-label, 'Toggle the dropdown list')]").click
       find("li", text: "OH - Ohio").click
       fill_in "Zip code", with: "12345"
-      fill_in "Email", with: "fake@example.com"
 
       # Note: client-side address validations are currently silently failing in JS spec
       click_on "Review your order"
@@ -99,13 +98,12 @@ RSpec.describe "Person requests a test kit", type: :system do
     end
 
     context "when smarty streets disabled" do
-      xit "requires email" do
+      it "requires email" do
         ClimateControl.modify DISABLE_SMARTY_STREETS: "true" do
           visit "/"
 
           fill_in "First name", with: "Kewpee"
           fill_in "Last name", with: "Doll"
-          fill_in "Email", with: "fake@example.com"
 
           fill_in "Mailing address 1", with: "1234 Fake St"
           fill_in "Mailing address 2", with: "Apt 2"
@@ -116,7 +114,8 @@ RSpec.describe "Person requests a test kit", type: :system do
 
           click_on "Review your order"
 
-          expect(page).to have_content("Email is required")
+          expect(page).to_not have_content("This step is optional")
+          expect(page).to have_content("Please fill out this field")
 
           fill_in "Email", with: "real@example.com"
 
@@ -127,6 +126,8 @@ RSpec.describe "Person requests a test kit", type: :system do
           click_on "Place your order"
 
           expect(page).to have_content "Thank you, your pre-order has been placed."
+
+          assert_not_requested :any, /api.smartystreets.com/
         end
       end
     end
@@ -177,6 +178,8 @@ RSpec.describe "Person requests a test kit", type: :system do
           click_on "Place your order"
 
           expect(page).to have_content "Thank you, your pre-order has been placed."
+
+          assert_not_requested :any, /api.smartystreets.com/
         end
       end
     end

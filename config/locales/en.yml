@@ -90,8 +90,8 @@ en:
       shipping_html: >
         <span class="text-magenta">*</span><span class="text-italic">Required</span>
       tracking_heading: Order tracking
-      tracking_html: >
-        To receive updates on the status of your order from USPS, please provide an email address. <span class="text-italic text-blue">This step is optional, but we will not be able to provide tracking without an email.</span>
+      tracking: To receive updates on the status of your order from USPS, please provide an email address.
+      email_optional: This step is optional, but we will not be able to provide tracking without an email.
       error_header: "Couldn't process your request because of errors:"
       submit: Place your order
       review:

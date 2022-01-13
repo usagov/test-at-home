@@ -48,6 +48,10 @@ class UsStreetAddressValidator
     DELIVERABLE_MATCH_CODES.include?(candidate.analysis.dpv_match_code)
   end
 
+  def self.smarty_disabled?
+    ENV["DISABLE_SMARTY_STREETS"] == "true"
+  end
+
   private
 
   attr_reader :client, :lookup
