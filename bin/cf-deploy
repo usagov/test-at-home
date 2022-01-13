@@ -18,6 +18,6 @@ set -e
 cf login -a $CF_FOUNDRY_API -u $CF_USER -p ${!CF_PASSWORD_NAME} -o $CF_ORG -s $CF_SPACE
 
 # do the deploy
-cf push --strategy rolling --vars-file $VARS_FILE \
+cf push --strategy rolling --no-wait --vars-file $VARS_FILE \
     --var rails_master_key=${!RAILS_MASTER_KEY_NAME} \
     --var disable_smarty_streets=$DISABLE_SMARTY_STREETS
