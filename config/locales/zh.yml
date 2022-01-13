@@ -63,11 +63,11 @@ zh:
       sub_heading: 下一步
       title: 谢谢，您的订单已下单。
       whatif_negative:
-        body_html: '家用检测结果为阴性，表示检测没有发现COVID-19病毒，您将疾病传播给他人的风险可能比较低。如果您的检测结果为阴性，通常应在第一次检测的2~3天后再次进行检测。请查看检测试剂盒说明，了解具体的操作步骤。 </p> <p> 关于当检测结果为阴性时，应该做什么的详细信息，请访问 <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html# anchor_1620925514532" rel="noopener">CDC自我检测网页</a>. '
-        heading: 如果您的检测结果为阴性
+        body_html: '家用检测结果为<strong>阴性</strong>，表示检测没有发现COVID-19病毒，您将疾病传播给他人的风险可能比较低。如果您的检测结果为阴性，通常应在第一次检测的2~3天后再次进行检测。请查看检测试剂盒说明，了解具体的操作步骤。 </p> <p> 关于当检测结果为阴性时，应该做什么的详细信息，请访问 <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html# anchor_1620925514532" rel="noopener">CDC自我检测网页</a>. '
+        heading: 如果您的检测结果为<strong>阴性</strong>
       whatif_positive:
-        body_html: 家用检测结果为阳性，表示检测发现了COVID-19病毒，您很可能感染了COVID-19。如果您的家用检测结果呈阳性，请遵循<a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html" rel="noopener">l最新的CDC隔离指示</a>.
-        heading: 如果您的检测结果为阳性
+        body_html: 家用检测结果为<strong>阳性</strong>，表示检测发现了COVID-19病毒，您很可能感染了COVID-19。如果您的家用检测结果呈阳性，请遵循<a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html" rel="noopener">l最新的CDC隔离指示</a>.
+        heading: 如果您的检测结果为<strong>阳性</strong>
     new:
       body_html: |
         <p class="usa-intro">请填写此表格申请免费邮寄上门的家用COVID-19检测试剂。此套检测试剂将包括 4 份独立包装的快速抗原检测试剂。</p>
