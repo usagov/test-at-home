@@ -16,6 +16,18 @@ en:
         address_not_found: must be a valid USPS delivery address
         blank: can't be blank
         invalid_email: must be in the format name@example.com
+  js:
+    empty: Not provided
+    invalid:
+      address_error: There was an error while validating your address
+      address_incorrect: Address seems to be incorrect. Please check for missing information
+      address_not_found: Address must be a valid USPS delivery address
+      email: Please enter email in the format name@example.com
+      missing_default: Please fill out this field
+      missing_select: Please select a value
+      zip_code: Please provide a valid zip code
+    review: Review your order
+    submit: Place your order
   kit_requests:
     confirmation:
       title: Thank you, your pre-order has been placed.
@@ -26,18 +38,6 @@ en:
       contact_heading: Contact information
       contact_html: Contact information for the person receiving the order. <span class="text-magenta">*</span><span class="text-italic">Required</span>
       error_header: Couldn't process your request because of errors
-      js:
-        review: Review your order
-        submit: Place your order
-        empty: Not provided
-        invalid:
-          address_not_found: Address must be a valid USPS delivery address
-          address_incorrect: Address seems to be incorrect. Please check for missing information
-          address_error: There was an error while validating your address
-          missing_select: Please select a value
-          missing_default: Please fill out this field
-          email: Please enter email in the format name@example.com
-          zip_code: Please provide a valid zip code
       privacy:
         heading: Privacy Statement
         html: |
