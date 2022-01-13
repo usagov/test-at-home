@@ -6,8 +6,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <% if Rails.env.production? || Rails.env.staging? %>
-      <%= render "new_relic_js" %>
+    <% if Rails.env.production? %>
+      <%= render "new_relic_js_production" %>
+    <% elsif Rails.env.staging? %>
+      <%= render "new_relic_js_staging" %>
     <% end %>
 
     <%= stylesheet_link_tag "application" %>
