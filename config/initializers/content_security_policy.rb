@@ -10,9 +10,10 @@ Rails.application.configure do
     policy.font_src :self
     policy.form_action :self
     policy.frame_ancestors :none
+    policy.frame_src "https://www.google.com/recaptcha/"
     policy.img_src :self, :data, "https://*.nr-data.net"
     policy.object_src :none
-    policy.script_src :self, "https://dap.digitalgov.gov", "https://js-agent.newrelic.com", "https://*.nr-data.net"
+    policy.script_src :self, "https://dap.digitalgov.gov", "https://js-agent.newrelic.com", "https://*.nr-data.net", "https://www.google.com/recaptcha/api.js", "https://www.gstatic.com/recaptcha/"
     policy.connect_src :self, "https://dap.digitalgov.gov", "https://*.nr-data.net"
     policy.style_src :self
     policy.connect_src :self, "https://us-street.api.smartystreets.com"

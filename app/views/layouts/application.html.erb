@@ -52,6 +52,9 @@
     <% if Rails.env.production? %>
       <%= javascript_include_tag "https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=HHS", async: true, id:"_fed_an_ua_tag" %>
     <% end %>
+    <% if ENV["RECAPTCHA_REQUIRED"] == "true" %>
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <% end %>
   </head>
 
   <body>

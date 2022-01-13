@@ -10,6 +10,7 @@
 # VARS_FILE: filename for variables
 # RAILS_MASTER_KEY_NAME: name of ENV variable holding key to decrypt the credentials file(s)
 # DISABLE_SMARTY_STREETS: boolean to disable Smarty API address validation
+# RECAPTCHA_REQUIRED: boolean to disable ReCAPTCHA validation
 
 # exit the script if either step fails
 set -e
@@ -20,4 +21,5 @@ cf login -a $CF_FOUNDRY_API -u $CF_USER -p ${!CF_PASSWORD_NAME} -o $CF_ORG -s $C
 # do the deploy
 cf push --strategy rolling --no-wait --vars-file $VARS_FILE \
     --var rails_master_key=${!RAILS_MASTER_KEY_NAME} \
-    --var disable_smarty_streets=$DISABLE_SMARTY_STREETS
+    --var disable_smarty_streets=$DISABLE_SMARTY_STREETS \
+    --var recaptcha_required=$RECAPTCHA_REQUIRED
