@@ -97,16 +97,6 @@ RSpec.describe KitRequest, type: :model do
           expect(kr.address_validated?).to be_falsey
         end
       end
-
-      context "when smarty streets integration disabled" do
-        it "does not require address validation" do
-          ClimateControl.modify DISABLE_SMARTY_STREETS: "true" do
-            kit_request = FactoryBot.build(:kit_request)
-            expect(kit_request).to be_valid
-            expect(kit_request.save).to be_truthy
-          end
-        end
-      end
     end
 
     context "email" do
@@ -119,6 +109,32 @@ RSpec.describe KitRequest, type: :model do
           expect(FactoryBot.build(:kit_request, email: "asdlfj")).to_not be_valid
           expect(FactoryBot.build(:kit_request, email: "foo@example.com")).to be_valid
         end
+      end
+    end
+
+    context "when smarty streets integration disabled" do
+      around do |example|
+        ClimateControl.modify DISABLE_SMARTY_STREETS: "true" do
+          example.run
+        end
+      end
+
+      it "does not require address validation" do
+        kit_request = FactoryBot.build(:kit_request, email: "foo@example.com")
+        expect(kit_request).to be_valid
+        expect(kit_request.save).to be_truthy
+      end
+
+      it "requires email to be present" do
+        kit_request = FactoryBot.build(:kit_request, email: "")
+
+        expect(kit_request).to_not be_valid
+      end
+
+      it "requires email to be valid" do
+        kit_request = FactoryBot.build(:kit_request, email: "foo@elkjadf")
+
+        expect(kit_request).to_not be_valid
       end
     end
   end
