@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="2027px" preserveAspectRatio="none" style="width:1895px;height:2027px;background:#FFFFFF;" version="1.1" viewBox="0 0 1895 2027" width="1895px" zoomAndPan="magnify"><defs><filter height="300%" id="fboxoy18asxkh" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="234" x="823" y="16.708">application boundary view</text><!--MD5=[405d0ec63eaa964b5569457e2b7115d4]
+cluster device--><rect fill="#FFFFFF" height="138" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="239" x="959" y="465.4531"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="160" x="998.5" y="482.3047">Computing Device</text><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="223" x="967" y="497.2168">[Windows, OS X, Linux, iOS, Android]</text><!--MD5=[235ccde516b117b7ec692cde9981baaa]
+cluster aws_com--><rect fill="#FFFFFF" height="141" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="224" x="1151" y="782.4531"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="149" x="1188.5" y="799.3047">AWS Commercial</text><!--MD5=[c444070a69c905f8781a2e7d91c12e8c]
+cluster aws--><rect fill="#FFFFFF" height="1169" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="641" x="7" y="700.9531"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="130" x="262.5" y="717.8047">AWS GovCloud</text><!--MD5=[1882a77a351c382316da64f5bec32f3f]
+cluster cloudgov--><rect fill="#FFFFFF" height="1100" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="593" x="31" y="745.9531"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="85" x="285" y="762.8047">cloud.gov</text><!--MD5=[80428a0f75122f42312d0b881db9f0f1]
+cluster cg_aws_com--><rect fill="#FFFFFF" height="124" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="236" x="364" y="790.9531"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="149" x="407.5" y="807.8047">AWS Commercial</text><!--MD5=[bfe4f767bb11f22a1eaa0d90d17cf673]
+cluster atob--><rect fill="#FFFFFF" height="470.5" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="545" x="55" y="1351.4531"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="126" x="264.5" y="1368.3047">ATO boundary</text><!--MD5=[6a78d1cb5482b9790f5a9c0df9608706]
+cluster inventory--><rect fill="#FFFFFF" height="401.5" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="497" x="79" y="1396.4531"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="96" x="279.5" y="1413.3047">Application</text><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="55" x="300" y="1428.2168">[System]</text><!--MD5=[6b3f55f5e25f8d17d2bba6efeb9558e0]
+cluster gsa_saas--><rect fill="#FFFFFF" height="124" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="834" x="783" y="1654.4531"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="185" x="1107.5" y="1671.3047">GSA-authorized SaaS</text><!--MD5=[c710d41cac0314b399d6d03e4a6c8f3d]
+cluster cicd--><rect fill="#FFFFFF" height="390" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="218" x="569" y="221.9531"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="123" x="616.5" y="238.8047">CI/CD Pipeline</text><!--MD5=[23555a4f9c8a267cdfd801ad53ceaf15]
+entity browser--><rect fill="#999999" height="71.2188" style="stroke:#8A8A8A;stroke-width:1.5;" width="160" x="998" y="516.4531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="121" x="1017.5" y="541.3047">Web Browser</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="1080" y="558.0732"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="136" x="1012" y="574.3701">any modern version</text><!--MD5=[a11d42c1f8f33462587bbbe46bec6b06]
+entity r53--><rect fill="#999999" height="87.5156" style="stroke:#8A8A8A;stroke-width:1.5;" width="192" x="1167" y="819.4531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="124" x="1201" y="844.3047">AWS R53 DNS</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="1265" y="861.0732"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="164" x="1181" y="877.3701">Provides Latency-based</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138" x="1194" y="893.667">DNS Load Balancing</text><!--MD5=[9c8fcb1bd1da80e3693cc45767793f1b]
+entity cg_api--><rect fill="#999999" height="38.625" style="stroke:#8A8A8A;stroke-width:1.5;" width="141" x="203.5" y="843.9531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="121" x="213.5" y="868.8047">cloud.gov API</text><!--MD5=[8491cd373228f9b8d27ab5bb08d3a023]
+entity aws_alb--><rect fill="#999999" height="89.8438" style="stroke:#8A8A8A;stroke-width:1.5;" width="138" x="390" y="1012.4531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="85" x="413.5" y="1037.3047">cloud.gov</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="118" x="400" y="1055.9297">load-balancer</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="461" y="1072.6982"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="430.5" y="1088.9951">AWS ALB</text><!--MD5=[520c8806735a893833bdb4d742b17895]
+entity cloudgov_router--><rect fill="#999999" height="71.2188" style="stroke:#8A8A8A;stroke-width:1.5;" width="218" x="347" y="1205.4531"/><path d="M368.6667,1219.4115 L368.6667,1224.7448 L374,1224.7448 L374,1219.4115 L368.6667,1219.4115 M375.3333,1222.0781 L375.3333,1226.0781 L371.3333,1226.0781 L371.3333,1227.4115 L376.6667,1227.4115 L376.6667,1222.0781 L375.3333,1222.0781 M378,1224.7448 L378,1228.7448 L374,1228.7448 L374,1230.0781 L379.3333,1230.0781 L379.3333,1224.7448 L378,1224.7448 " fill="#FFFFFF" style="stroke:;stroke-width:0.0;stroke-dasharray:;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="158" x="386.3333" y="1230.3047">cloud.gov routers</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="458" y="1247.0732"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="194" x="361" y="1263.3701">Cloud Foundry traffic service</text><!--MD5=[9a3cdc8b48de0854a7e4935f66506fea]
+entity aws_cf--><rect fill="#999999" height="71.2188" style="stroke:#8A8A8A;stroke-width:1.5;" width="205" x="379.5" y="827.9531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="136" x="414" y="852.8047">cloudfront CDN</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="484" y="869.5732"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="181" x="393.5" y="885.8701">CDN Static Content Cache</text><!--MD5=[4541fb81c80c07473fe4b07432ef0971]
+entity app--><rect fill="#438DD5" height="117.7813" style="stroke:#3C7FC0;stroke-width:1.5;" width="213" x="347.5" y="1447.4531"/><path d="M397.6667,1461.4115 L397.6667,1466.7448 L403,1466.7448 L403,1461.4115 L397.6667,1461.4115 M404.3333,1464.0781 L404.3333,1468.0781 L400.3333,1468.0781 L400.3333,1469.4115 L405.6667,1469.4115 L405.6667,1464.0781 L404.3333,1464.0781 M407,1466.7448 L407,1470.7448 L403,1470.7448 L403,1472.0781 L408.3333,1472.0781 L408.3333,1466.7448 L407,1466.7448 " fill="#FFFFFF" style="stroke:;stroke-width:0.0;stroke-dasharray:;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="96" x="415.3333" y="1472.3047">Application</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="137" x="385.5" y="1487.2168">[Ruby 3.0.3, Rails 7.0]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="456" y="1503.042"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="119" x="394.5" y="1519.3389">Presents a UX for</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="189" x="357.5" y="1535.6357">requesting an at-home test</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="16" x="446" y="1551.9326">kit</text><!--MD5=[e3383e58668a6997120d25ce2b3cfbb8]
+entity app_db--><path d="M94.5,1689.9531 C94.5,1679.9531 201,1679.9531 201,1679.9531 C201,1679.9531 307.5,1679.9531 307.5,1689.9531 L307.5,1764.1406 C307.5,1774.1406 201,1774.1406 201,1774.1406 C201,1774.1406 94.5,1774.1406 94.5,1764.1406 L94.5,1689.9531 " fill="#438DD5" style="stroke:#3C7FC0;stroke-width:1.5;"/><path d="M94.5,1689.9531 C94.5,1699.9531 201,1699.9531 201,1699.9531 C201,1699.9531 307.5,1699.9531 307.5,1689.9531 " fill="none" style="stroke:#3C7FC0;stroke-width:1.5;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="127" x="137.5" y="1718.8047">Application DB</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="152" x="125" y="1733.7168">[AWS RDS (PostgreSQL)]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="203" y="1749.542"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="189" x="108.5" y="1765.8389">Stores data about requests</text><!--MD5=[353f90f47b63126633fe956be126bd3c]
+entity app_s3--><path d="M342.5,1681.9531 C342.5,1671.9531 451,1671.9531 451,1671.9531 C451,1671.9531 559.5,1671.9531 559.5,1681.9531 L559.5,1772.4375 C559.5,1782.4375 451,1782.4375 451,1782.4375 C451,1782.4375 342.5,1782.4375 342.5,1772.4375 L342.5,1681.9531 " fill="#438DD5" style="stroke:#3C7FC0;stroke-width:1.5;"/><path d="M342.5,1681.9531 C342.5,1691.9531 451,1691.9531 451,1691.9531 C451,1691.9531 559.5,1691.9531 559.5,1681.9531 " fill="none" style="stroke:#3C7FC0;stroke-width:1.5;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="126" x="388" y="1710.8047">Export bucket</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="57" x="422.5" y="1725.7168">[AWS S3]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="453" y="1741.542"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="189" x="356.5" y="1757.8389">Stores encrypted export for</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="115" x="393.5" y="1774.1357">retrieval by USPS</text><!--MD5=[7e02d30a59f5a5ba5200e5b7709d2bfb]
+entity dap--><rect fill="#999999" height="71.2188" style="stroke:#8A8A8A;stroke-width:1.5;" width="154" x="1447" y="1691.4531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="37" x="1505.5" y="1716.3047">DAP</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="1526" y="1733.0732"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="130" x="1461" y="1749.3701">Analytics collection</text><!--MD5=[61e0817949b923cdbd4126e8a8a560b5]
+entity newrelic--><rect fill="#999999" height="71.2188" style="stroke:#8A8A8A;stroke-width:1.5;" width="135" x="799.5" y="1691.4531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="86" x="824" y="1716.3047">New Relic</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="869" y="1733.0732"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="813.5" y="1749.3701">Monitoring SaaS</text><!--MD5=[07c93153dfd31f4078341fcc0109ed2a]
+entity recaptcha--><rect fill="#999999" height="71.2188" style="stroke:#8A8A8A;stroke-width:1.5;" width="189" x="969.5" y="1691.4531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="169" x="979.5" y="1716.3047">Google reCAPTCHA</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="1066" y="1733.0732"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="134" x="999" y="1749.3701">reCAPTCHA Service</text><!--MD5=[cb06715405b1af7332f9f967e6d8cf77]
+entity address_api--><rect fill="#999999" height="71.2188" style="stroke:#8A8A8A;stroke-width:1.5;" width="218" x="1194" y="1691.4531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="198" x="1204" y="1716.3047">Address validation API</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="1305" y="1733.0732"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="1256.5" y="1749.3701">SmartyStreets</text><!--MD5=[608d1cc913e673ee5f798ece544755a2]
+entity github--><rect fill="#999999" height="87.5156" style="stroke:#8A8A8A;stroke-width:1.5;" width="170" x="593" y="258.9531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="59" x="648.5" y="283.8047">GitHub</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="680" y="300.5732"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="142" x="607" y="316.8701">GSA-controlled code</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69" x="643.5" y="333.167">repository</text><!--MD5=[aff2002bd77c02f23a3b21ab09e7ab0f]
+entity circleci--><rect fill="#999999" height="87.5156" style="stroke:#8A8A8A;stroke-width:1.5;" width="186" x="585" y="507.9531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="67" x="644.5" y="532.8047">CircleCI</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="680" y="549.5732"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="158" x="599" y="565.8701">Continuous Integration</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="653" y="582.167">Service</text><!--MD5=[06959a3f3cbea176f36acf10396f6fcf]
+entity public--><rect fill="#686868" height="119.2188" style="stroke:#8A8A8A;stroke-width:1.5;" width="184" x="986" y="243.4531"/><image height="48" width="48" x="1054" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAAB6ElEQVR4Xu2YLY+EMBCG9+dWr0aj0Wg0Go1Go0+j8Xdv2uTCvv1gpt0ebHKPuhDaeW4605Z9mJvx4AdXUyTUdd08z+u6flmWZRnHsWkafk9DptAwDPu+f0eAYtu2PEaGWuj5fCIZrBAC2eLBAnRCsEkkxmeaJp7iDJ2QMDdHsLg8SxKFEJaAo8lAXnmuOFIhTMpxxKATebo4UiFknuNo4OniSIXQyRxEA3YsnjGCVEjVXD7yLUAqxBGUyPv/Y4W2beMgGuS7kVQIBycH0fD+oi5pezQETxdHKmQKGk1eQEYldK+jw5GxPfZ9z7Mk0Qnhf1W1m3w//EUn5BDmSZsbR44QQLBEqrBHqOrmSKaQAxdnLArCrxZcM7A7ZKs4ioRq8LFC+NpC3WCBJsvpVw5edm9iEXFuyNfxXAgSwfrFQ1c0iNda8AdejvUgnktOtJQQxmcfFzGglc5WVCj7oDgFqU18boeFSs52CUh8LE8BIVQDT1ABrB0HtgSEYlX5doJnCwv9TXocKCaKbnwhdDKPq4lf3SwU3HLq4V/+WYhHVMa/3b4IlfyikAduCkcBc7mQ3/z/Qq/cTuikhkzB12Ae/mcJC9U+Vo8Ej1gWAtgbeGgFsAMHr50BIWOLCbezvhpBFUdY6EJuJ/QDW0XoMX60zZ0AAAAASUVORK5CYII=" y="253.4531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="52" x="1052" y="316.3047">Public</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="1080" y="333.0732"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="160" x="1000" y="349.3701">A member of the public</text><path d="M1672,59.9531 L1672,115.3516 L1886,115.3516 L1886,69.9531 L1876,59.9531 L1672,59.9531 " fill="#FBFB77" filter="url(#fboxoy18asxkh)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1876,59.9531 L1876,69.9531 L1886,69.9531 L1876,59.9531 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="180" x="1682.5" y="77.02">All connections depicted are</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="189" x="1678" y="92.1528">encrypted with TLS 1.2 unless</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="1721.5" y="107.2856">otherwise noted.</text><!--MD5=[23e4898078453906b079a6bea7d1245c]
+entity developer--><rect fill="#08427B" height="119.2188" style="stroke:#073B6F;stroke-width:1.5;" width="180" x="1457" y="27.9531"/><image height="48" width="48" x="1523" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAACD0lEQVR4Xu2YoU4EMRCGT+4j8Ai8AhaH4QHgAUjQuFMECUgMIUgwJAgMhgQsAYUiJCiQIBBY+EITsjfTdme6V24v4c8vyGbb+ZjOtN0bNcvjQXmkH83WvYBWto6PLm6v7p7uH1/w2fXD+PBycX1Pv2l3IdDm/vn7x+dXQiAubRzoURa7gRZWd0iGRIiJbOnhnfYBQZNJjNbuyY2eJG8fkDE3bbG4ep6MHUAsgYxmE3nVs6VsBWJSGccsOlFPmLIViMzLOB7pCVO2AtHJMohH7Fh6zqitQK7m0rJvAVYgGcEpe//PLdDz65sM4pF9N7ICcXDKIB5Nv6j7tD0NoSdM2QrU9Gg0ewE1LqBhHR3BBdvj2vapnidjHxD/q6vd7Pvhr31AwcY8eXMTXAKECZZJFXuEq27aLgQK5uLMohCenGGuGewOxSjBvYBqeG6B+Nqiblggdjnc+ZXDy+FNFpFzw76O3UBAROuXh6FoiAcf5g9eTvUgzy0nWg6I8cXHRUpg5bOVBCo+KDpFajOf23GgPme7RSQ+lacIENUgJ6gg1k6HjgOlqnLqip4tEuhv0hNEMXUD0clyXE3p6pZA0S2nnvTlXwLJEZWlb7cTQH1+USgTN4VhAenm/wea1OCAOmqo6fE1WCb9WSKBah+rbUWPWAmE2Rvk0ApiB45eOyNAzU8xcTvj8KvkKEoOaIYeHNA3ZuygAvFMUO0AAAAASUVORK5CYII=" y="37.9531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="90" x="1502" y="100.8047">Developer</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="1549" y="117.5732"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156" x="1471" y="133.8701">Application developers</text><!--MD5=[b8cc449290d50de3e7146c51d2b512a8]
+link public to browser--><path d="M1078,362.4931 C1078,407.3331 1078,468.1531 1078,508.4231 " fill="none" id="public-to-browser" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1078,516.4431,1081,508.4431,1075,508.4431,1078,516.4431" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="144" x="1079" y="418.5918">request info, submit</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="56" x="1125" y="432.5605">request</text><!--MD5=[a98a37ad8d1c3c7954841eb3b546c8a6]
+link browser to r53--><path d="M1109.22,587.6431 C1119.6,599.9431 1130.83,614.1631 1140,627.9531 C1180.2,688.3931 1217.6,763.4831 1240.36,812.1631 " fill="none" id="browser-to-r53" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1243.75,819.4431,1243.1002,810.9239,1237.6587,813.4518,1243.75,819.4431" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="103" x="1175" y="661.0918">dns resolution</text><!--MD5=[92cd3aafe44751be5dceea445cf48463]
+link browser to dap--><path d="M1083.54,587.6331 C1094.48,654.5531 1120.46,805.9531 1151,931.4531 C1177.74,1041.3131 1179.63,1071.0331 1223,1175.4531 C1306.41,1376.2731 1442.77,1598.6431 1498.78,1686.8431 " fill="none" id="browser-to-dap" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1501.54,1691.1931,1500.0913,1681.4514,1498.8593,1686.9725,1493.3382,1685.7405,1501.54,1691.1931" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="101" x="1224" y="1151.5918">reports usage</text><text fill="#666666" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="0" x="1329" y="1151.5918"/><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="81" x="1236" y="1165.5605">[https (443)]</text><!--MD5=[30756157ad514735264341608631df9d]
+link app to newrelic--><path d="M492.76,1565.8031 C514.78,1598.2531 539.43,1633.1631 547,1638.4531 C547.32,1638.6831 696.87,1679.5231 791.39,1705.3231 " fill="none" id="app-to-newrelic" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="799.22,1707.4531,792.2889,1702.4572,790.7129,1708.2465,799.22,1707.4531" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="126" x="548" y="1607.5918">reports telemetry</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="125" x="550.5" y="1621.5605">(javascript agent)</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="68" x="579" y="1635.5293">[tcp (443)]</text><!--MD5=[9c0e35e106384c04896d1caa82825dd5]
+link browser to newrelic--><path d="M1034.56,587.6531 C974.13,640.1631 872,746.1031 872,862.4531 C872,862.4531 872,862.4531 872,1507.4531 C872,1568.4131 870.03,1638.9031 868.56,1682.9631 " fill="none" id="browser-to-newrelic" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="868.29,1691.1431,871.5595,1683.2495,865.563,1683.046,868.29,1691.1431" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="129" x="873" y="1151.5918">reports ux metrics</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="81" x="897" y="1165.5605">[https (443)]</text><!--MD5=[bfe67f29ef0fd359e5b0955344fb0370]
+link browser to aws_cf--><path d="M997.99,574.5231 C939.86,589.4231 859.07,608.5431 787,619.9531 C766.95,623.1231 714.2,618.9531 696,627.9531 C608.83,671.0731 540.16,766.1631 505.9,821.0931 " fill="none" id="browser-to-aws_cf" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="501.69,827.9131,508.4463,822.6832,503.3415,819.5303,501.69,827.9131" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="144" x="697" y="647.0918">request info, submit</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="135" x="703.5" y="661.0605">request for test kit</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="145" x="698.5" y="675.0293">[https GET/POST (443)]</text><!--MD5=[be9f0bf3424ec1b056f4b948307d35a7]
+link aws_cf to aws_alb--><path d="M477.83,899.2231 C474.34,928.4131 469.29,970.5631 465.3,1003.8731 " fill="none" id="aws_cf-to-aws_alb" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="464.31,1012.1431,468.2456,1004.5595,462.2887,1003.8417,464.31,1012.1431" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="120" x="485.5" y="958.5918">proxies requests</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="145" x="473" y="972.5605">[https GET/POST (443)]</text><!--MD5=[fb012da969d3c46a1dd0467f85145a85]
+link aws_alb to cloudgov_router--><path d="M458.27,1102.8531 C457.79,1131.6031 457.18,1168.8431 456.71,1197.2431 " fill="none" id="aws_alb-to-cloudgov_router" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="456.57,1205.3831,459.6982,1197.4324,453.6989,1197.3359,456.57,1205.3831" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="120" x="470.5" y="1151.5918">proxies requests</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="145" x="458" y="1165.5605">[https GET/POST (443)]</text><!--MD5=[d69540f16595178a7fba6940ecea24ba]
+link cloudgov_router to app--><path d="M455.74,1276.6731 C455.42,1317.8631 454.9,1387.4431 454.5,1439.0731 " fill="none" id="cloudgov_router-to-app" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="454.44,1447.2031,457.4971,1439.2248,451.4972,1439.1819,454.44,1447.2031" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="120" x="468.5" y="1318.5918">proxies requests</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="145" x="456" y="1332.5605">[https GET/POST (443)]</text><!--MD5=[f6e8de03ac4e655259f7a243c0212f48]
+link app to app_db--><path d="M347.45,1514.1131 C290.87,1523.7231 225.81,1545.7731 190,1595.4531 C174.41,1617.0931 175.41,1646.3031 181.08,1671.5931 " fill="none" id="app-to-app_db" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="183.07,1679.6631,184.0695,1671.1778,178.2437,1672.6128,183.07,1679.6631" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="150" x="191" y="1607.5918">reads/writes dataset</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="69" x="231.5" y="1621.5605">metadata</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="82" x="225" y="1635.5293">[psql (5432)]</text><!--MD5=[73947a684a191a4d8225a1baf4255b0e]
+link app to app_s3--><path d="M374.7,1565.5231 C366.76,1574.6331 359.85,1584.6531 355,1595.4531 C347.17,1612.8831 347.28,1620.9731 355,1638.4531 C359.28,1648.1531 365.23,1657.2431 372.09,1665.6131 " fill="none" id="app-to-app_s3" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="377.5,1671.8731,374.5435,1663.857,370.0016,1667.7776,377.5,1671.8731" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="150" x="356" y="1607.5918">reads/writes dataset</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="71" x="395.5" y="1621.5605">resources</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="81" x="390.5" y="1635.5293">[https (443)]</text><!--MD5=[99e8d3666dd576750eb77da0eb3df4c0]
+link browser to address_api--><path d="M1071.5,587.6231 C1061.38,644.7031 1043,762.1431 1043,862.4531 C1043,862.4531 1043,862.4531 1043,1507.4531 C1043,1533.9631 1171.29,1631.0431 1247.64,1686.4631 " fill="none" id="browser-to-address_api" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1254.4,1691.3731,1249.6825,1684.2496,1246.1617,1689.108,1254.4,1691.3731" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="103" x="1063" y="1144.5918">auto-complete</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="113" x="1060" y="1158.5605">address entries</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="145" x="1044" y="1172.5293">[https GET/POST (443)]</text><!--MD5=[9f69f40c25e6827b98e03f3df8ba509b]
+link browser to recaptcha--><path d="M1158.11,563.5831 C1231.46,578.2831 1334.56,612.7931 1375,692.9531 C1422.75,787.5931 1382.97,825.7531 1375,931.4531 C1366.75,1040.8231 1371.06,1070.8731 1338,1175.4531 C1274.48,1376.3931 1146,1594.7731 1090.51,1684.2131 " fill="none" id="browser-to-recaptcha" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1086.17,1691.1931,1092.9471,1685.9901,1087.8549,1682.8169,1086.17,1691.1931" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="91" x="1376" y="1144.5918">interact with</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="78" x="1384.5" y="1158.5605">reCAPTCHA</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="145" x="1351" y="1172.5293">[https GET/POST (443)]</text><!--MD5=[394aed38be879ffafb7ea7dd70e3f372]
+link app to recaptcha--><path d="M560.68,1544.8531 C648.18,1574.2231 775.79,1614.1031 890,1638.4531 C917.17,1644.2431 926.12,1636.3331 952,1646.4531 C975.94,1655.8131 999.58,1671.3931 1018.93,1686.2931 " fill="none" id="app-to-recaptcha" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1025.32,1691.3031,1020.8778,1684.0047,1017.1742,1688.7252,1025.32,1691.3031" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="121" x="891" y="1607.5918">verify reCAPTCHA</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="67" x="920" y="1621.5605">response</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="117" x="895" y="1635.5293">[https POST (443)]</text><!--MD5=[bac78f217052f89bd88292664b03974d]
+link developer to github--><path d="M1456.86,105.7031 C1342.7,128.0831 1140.21,169.5531 969,213.9531 C902.27,231.2531 827.89,253.8131 771.03,271.7531 " fill="none" id="developer-to-github" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="763.12,274.2531,771.6523,274.6995,769.842,268.9791,763.12,274.2531" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="90" x="1111" y="189.0918">Publish code</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="82" x="1115" y="203.0605">[git ssh (22)]</text><!--MD5=[1f1bcb5df0c8a9d4f08b3a90bc985dd1]
+link github to circleci--><path d="M678,346.9731 C678,389.3931 678,454.2531 678,499.4031 " fill="none" id="github-to-circleci" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="678,507.5931,681,499.5931,675,499.5931,678,507.5931" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="149" x="679" y="404.5918">Commit hook notifies</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="139" x="682" y="418.5605">CircleCI to run CI/CD</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="57" x="725" y="432.5293">pipeline</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="117" x="695" y="446.498">[https POST (443)]</text><!--MD5=[0de9ebdd86b2da178b2c87cae29f32c0]
+link circleci to cg_api--><path d="M584.79,572.0031 C514.53,591.0731 420.87,627.3231 364,692.9531 C325.56,737.3131 297.4,800.8931 283.58,836.2331 " fill="none" id="circleci-to-cg_api" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="280.69,843.7431,286.3602,837.3518,280.7596,835.1994,280.69,843.7431" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="80" x="474" y="640.0918">Deploy App</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="136" x="444" y="654.0605">[Auth: SpaceDeployer</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="45" x="491.5" y="668.0293">Service</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="135" x="446.5" y="681.998">Account, https (443)]</text><!--MD5=[e2fae27d9e26e375c7b9ca6c2ba129a8]
+link developer to dap--><path d="M1607.59,147.0231 C1642.29,186.9631 1679,243.1231 1679,301.9531 C1679,301.9531 1679,301.9531 1679,1507.4531 C1679,1580.3031 1620.97,1645.8031 1575.93,1685.6731 " fill="none" id="developer-to-dap" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1569.67,1691.1331,1577.6712,1688.1363,1573.7277,1683.6142,1569.67,1691.1331" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="150" x="1680" y="958.5918">View traffic statistics</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="109" x="1700.5" y="972.5605">[https GET (443)]</text><!--MD5=[efa051dd45dbcb73848347bd8428331b]
+link developer to newrelic--><path d="M1547,147.3531 C1547,190.2331 1547,249.6931 1547,301.9531 C1547,301.9531 1547,301.9531 1547,1058.4531 C1547,1376.4131 1137.22,1481.1231 952,1646.4531 C938.01,1658.9431 923,1672.8131 909.54,1685.4431 " fill="none" id="developer-to-newrelic" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="903.47,1691.1431,911.356,1687.8551,907.2495,1683.4805,903.47,1691.1431" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="57" x="1562.5" y="951.5918">Manage</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="90" x="1548" y="965.5605">performance</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="81" x="1552.5" y="979.5293">[https (443)]</text><rect fill="#FFFFFF" height="128.0781" rx="5" ry="5" style="stroke:#FFFFFF;stroke-width:1.0;" width="144" x="1727" y="1882.9531"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="59" x="1733" y="1902.9482">Legend</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="1796" y="1902.9482"/><rect fill="#08427B" height="16.2969" style="stroke:none;stroke-width:1.0;" width="132" x="1733" y="1906.25"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49" x="1737" y="1919.2451">person</text><rect fill="#1168BD" height="16.2969" style="stroke:none;stroke-width:1.0;" width="132" x="1733" y="1922.5469"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="1737" y="1935.542">system</text><rect fill="#438DD5" height="16.2969" style="stroke:none;stroke-width:1.0;" width="132" x="1733" y="1938.8438"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="1737" y="1951.8389">container</text><rect fill="#686868" height="16.2969" style="stroke:none;stroke-width:1.0;" width="132" x="1733" y="1955.1406"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="1737" y="1968.1357">external person</text><rect fill="#999999" height="16.2969" style="stroke:none;stroke-width:1.0;" width="132" x="1733" y="1971.4375"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="109" x="1737" y="1984.4326">external system</text><rect fill="#B3B3B3" height="16.2969" style="stroke:none;stroke-width:1.0;" width="132" x="1733" y="1987.7344"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="1737" y="2000.7295">external container</text><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="1733" x2="1865" y1="1889.9531" y2="1889.9531"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="1733" x2="1865" y1="1906.25" y2="1906.25"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="1733" x2="1865" y1="1922.5469" y2="1922.5469"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="1733" x2="1865" y1="1938.8438" y2="1938.8438"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="1733" x2="1865" y1="1955.1406" y2="1955.1406"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="1733" x2="1865" y1="1971.4375" y2="1971.4375"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="1733" x2="1865" y1="1987.7344" y2="1987.7344"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="1733" x2="1865" y1="2004.0313" y2="2004.0313"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="1733" x2="1733" y1="1889.9531" y2="2004.0313"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="1865" x2="1865" y1="1889.9531" y2="2004.0313"/><!--MD5=[a5eaba685214524fe83bd18f093a5c07]
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+' uncomment the following line and comment the first to use locally
+' !include C4_Container.puml
+LAYOUT_WITH_LEGEND()
+title application boundary view
+
+Person_Ext(public, "Public", "A member of the public")
+
+Boundary(device, "Computing Device", "Windows, OS X, Linux, iOS, Android"){
+    System_Ext(browser, "Web Browser", "any modern version")
+}
+Rel(public, browser, "request info, submit request", "")
+Boundary(aws_com, "AWS Commercial") {
+    System_Ext(r53, "AWS R53 DNS", "Provides Latency-based DNS Load Balancing")
+}
+Rel(browser, r53, "dns resolution")
+
+note as EncryptionNote
+All connections depicted are encrypted with TLS 1.2 unless otherwise noted.
+end note
+Boundary(aws, "AWS GovCloud") {
+    Boundary(cloudgov, "cloud.gov") {
+        System_Ext(cg_api, "cloud.gov API")
+        Boundary(cg_aws_com, "AWS Commercial") {
+            System_Ext(aws_cf, "cloudfront CDN", "CDN Static Content Cache")
+        }
+        System_Ext(aws_alb, "cloud.gov load-balancer", "AWS ALB")
+        System_Ext(cloudgov_router, "<&layers> cloud.gov routers", "Cloud Foundry traffic service")
+        Boundary(atob, "ATO boundary") {
+            System_Boundary(inventory, "Application") {
+                Container(app, "<&layers> Application", "Ruby 3.0.3, Rails 7.0", "Presents a UX for requesting an at-home test kit")
+                ContainerDb(app_db, "Application DB", "AWS RDS (PostgreSQL)", "Stores data about requests")
+                ContainerDb(app_s3, "Export bucket", "AWS S3", "Stores encrypted export for retrieval by USPS")
+            }
+        }
+    }
+}
+
+
+Boundary(gsa_saas, "GSA-authorized SaaS") {
+    System_Ext(dap, "DAP", "Analytics collection")
+    System_Ext(newrelic, "New Relic", "Monitoring SaaS")
+    System_Ext(recaptcha, "Google reCAPTCHA", "reCAPTCHA Service")
+    System_Ext(address_api, "Address validation API", "SmartyStreets")
+}
+browser -> dap : **reports usage** \n//[https (443)]//
+Rel(app, newrelic, "reports telemetry (javascript agent)", "tcp (443)")
+Rel(browser, newrelic, "reports ux metrics", "https (443)")
+Rel(browser, aws_cf, "request info, submit request for test kit", "https GET/POST (443)")
+Rel(aws_cf, aws_alb, "proxies requests", "https GET/POST (443)")
+Rel(aws_alb, cloudgov_router, "proxies requests", "https GET/POST (443)")
+Rel(cloudgov_router, app, "proxies requests", "https GET/POST (443)")
+Rel(app, app_db, "reads/writes dataset metadata", "psql (5432)")
+Rel(app, app_s3, "reads/writes dataset resources", "https (443)")
+
+Rel(browser, address_api, "auto-complete address entries", "https GET/POST (443)")
+Rel(browser, recaptcha, "interact with reCAPTCHA", "https GET/POST (443)")
+Rel(app, recaptcha, "verify reCAPTCHA response", "https POST (443)")
+
+Person(developer, "Developer", "Application developers")
+Boundary(cicd, "CI/CD Pipeline") {
+    System_Ext(github, "GitHub", "GSA-controlled code repository")
+    System_Ext(circleci, "CircleCI", "Continuous Integration Service")
+}
+Rel(developer, github, "Publish code", "git ssh (22)")
+Rel(github, circleci, "Commit hook notifies CircleCI to run CI/CD pipeline", "https POST (443)")
+Rel(circleci, cg_api, "Deploy App", "Auth: SpaceDeployer Service Account, https (443)")
+Rel(developer, dap, "View traffic statistics", "https GET (443)")
+Rel(developer, newrelic, "Manage performance", "https (443)")
+
+
+@enduml
+
+@startuml
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam LegendBorderColor transparent
+skinparam LegendBackgroundColor transparent
+skinparam LegendFontColor #FFFFFF
+
+skinparam shadowing<<legendArea>> false
+skinparam rectangle<<legendArea>> {
+    backgroundcolor #00000000
+    bordercolor #00000000
+}
+
+skinparam rectangle {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam queue {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 12
+}
+
+skinparam actor {
+    StereotypeFontSize 12
+    shadowing false
+    style awesome
+}
+
+skinparam person {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam package {
+    StereotypeFontSize 6
+    StereotypeFontColor transparent
+    FontStyle plain
+    BackgroundColor transparent
+}
+
+skinparam rectangle<<boundary>> {
+    Shadowing false
+    StereotypeFontSize 6
+    StereotypeFontColor transparent
+    FontColor #444444
+    BorderColor #444444
+    BackgroundColor transparent
+    BorderStyle dashed
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam database<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam queue<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam actor<<person>> {
+    StereotypeFontColor #08427B
+    FontColor #08427B
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam person<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+
+
+skinparam rectangle<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam database<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam queue<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam actor<<external_person>> {
+    StereotypeFontColor #686868
+    FontColor #686868
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam person<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+
+
+skinparam rectangle<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam database<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam queue<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam actor<<system>> {
+    StereotypeFontColor #1168BD
+    FontColor #1168BD
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam person<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+
+skinparam rectangle<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam database<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam queue<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam actor<<external_system>> {
+    StereotypeFontColor #999999
+    FontColor #999999
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam person<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+
+
+
+
+sprite $person [48x48/16] {
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+0000000000000000000049BCCA7200000000000000000000
+0000000000000000006EFFFFFFFFB3000000000000000000
+00000000000000001CFFFFFFFFFFFF700000000000000000
+0000000000000001EFFFFFFFFFFFFFF80000000000000000
+000000000000000CFFFFFFFFFFFFFFFF6000000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+00000000000001FFFFFFFFFFFFFFFFFFF900000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFF00000000000000
+0000000000000BFFFFFFFFFFFFFFFFFFFF40000000000000
+0000000000000EFFFFFFFFFFFFFFFFFFFF70000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000DFFFFFFFFFFFFFFFFFFFF60000000000000
+0000000000000AFFFFFFFFFFFFFFFFFFFF40000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFE00000000000000
+00000000000000EFFFFFFFFFFFFFFFFFF800000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+000000000000000BFFFFFFFFFFFFFFFF5000000000000000
+0000000000000001DFFFFFFFFFFFFFF70000000000000000
+00000000000000000BFFFFFFFFFFFF500000000000000000
+0000000000000000005DFFFFFFFFA1000000000000000000
+0000000000000000000037ABB96100000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000025788300000000005886410000000000000
+000000000007DFFFFFFD9643347BFFFFFFFB400000000000
+0000000004EFFFFFFFFFFFFFFFFFFFFFFFFFFB1000000000
+000000007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFD200000000
+00000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE10000000
+0000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB0000000
+000000BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5000000
+000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD000000
+000009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF200000
+00000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF600000
+00000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF800000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA00000
+00000EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF700000
+000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE100000
+0000008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD3000000
+000000014555555555555555555555555555555300000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+}
+
+sprite $person2 [48x48/16] {
+0000000000000000000049BCCA7200000000000000000000
+0000000000000000006EFFFFFFFFB3000000000000000000
+00000000000000001CFFFFFFFFFFFF700000000000000000
+0000000000000001EFFFFFFFFFFFFFF80000000000000000
+000000000000000CFFFFFFFFFFFFFFFF6000000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+00000000000001FFFFFFFFFFFFFFFFFFF900000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFF00000000000000
+0000000000000BFFFFFFFFFFFFFFFFFFFF40000000000000
+0000000000000EFFFFFFFFFFFFFFFFFFFF70000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000DFFFFFFFFFFFFFFFFFFFF60000000000000
+0000000000000AFFFFFFFFFFFFFFFFFFFF40000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFE00000000000000
+00000000000000EFFFFFFFFFFFFFFFFFF800000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+000000000000000BFFFFFFFFFFFFFFFF5000000000000000
+0000000000000001DFFFFFFFFFFFFFF70000000000000000
+00000000000000000BFFFFFFFFFFFF500000000000000000
+0000000000000000005DFFFFFFFFA1000000000000000000
+0000000000000000000037ABB96100000000000000000000
+000000000002578888300000000005888864100000000000
+0000000007DFFFFFFFFD9643347BFFFFFFFFFB4000000000
+00000004EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB10000000
+0000007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD2000000
+000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE100000
+00003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+0000BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF50000
+0003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD0000
+0009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF2000
+000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6000
+000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA000
+000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6000
+0009FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFF2000
+0003FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFD0000
+0000BFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFF50000
+00003FFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFB00000
+000006FFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFE100000
+0000007FFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFD2000000
+00000004EFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFB10000000
+0000000007DF8FFFFFFFFFFFFFFFFFFFFFF8FB4000000000
+000000000002578888888888888888888864100000000000
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam database<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam queue<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam actor<<container>> {
+    StereotypeFontColor #438DD5
+    FontColor #438DD5
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam person<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+
+skinparam rectangle<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam database<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam queue<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam actor<<external_container>> {
+    StereotypeFontColor #B3B3B3
+    FontColor #B3B3B3
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam person<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hide stereotype
+legend right
+|<color:#000000>**Legend**</color> |
+|<#08427B> person |
+|<#1168BD> system |
+|<#438DD5> container |
+|<#686868> external person |
+|<#999999> external system |
+|<#B3B3B3> external container |
+endlegend
+title application boundary view
+
+rectangle "<$person>\n==Public\n\n A member of the public" <<external_person>> as public 
+
+rectangle "==Computing Device\n<size:12>[Windows, OS X, Linux, iOS, Android]</size>" <<boundary>> as device {
+    rectangle "==Web Browser\n\n any modern version" <<external_system>> as browser 
+}
+public - ->> browser : **request info, submit request**
+rectangle "==AWS Commercial" <<boundary>> as aws_com  {
+    rectangle "==AWS R53 DNS\n\n Provides Latency-based DNS Load Balancing" <<external_system>> as r53 
+}
+browser - ->> r53 : **dns resolution**
+
+note as EncryptionNote
+All connections depicted are encrypted with TLS 1.2 unless otherwise noted.
+end note
+rectangle "==AWS GovCloud" <<boundary>> as aws  {
+    rectangle "==cloud.gov" <<boundary>> as cloudgov  {
+        rectangle "==cloud.gov API" <<external_system>> as cg_api 
+        rectangle "==AWS Commercial" <<boundary>> as cg_aws_com  {
+            rectangle "==cloudfront CDN\n\n CDN Static Content Cache" <<external_system>> as aws_cf 
+        }
+        rectangle "==cloud.gov load-balancer\n\n AWS ALB" <<external_system>> as aws_alb 
+        rectangle "==<&layers> cloud.gov routers\n\n Cloud Foundry traffic service" <<external_system>> as cloudgov_router 
+        rectangle "==ATO boundary" <<boundary>> as atob  {
+rectangle "==Application\n<size:12>[System]</size>" <<boundary>> as inventory  {
+                rectangle "==<&layers> Application\n//<size:12>[Ruby 3.0.3, Rails 7.0]</size>//\n\n Presents a UX for requesting an at-home test kit" <<container>> as app 
+                database "==Application DB\n//<size:12>[AWS RDS (PostgreSQL)]</size>//\n\n Stores data about requests" <<container>> as app_db 
+                database "==Export bucket\n//<size:12>[AWS S3]</size>//\n\n Stores encrypted export for retrieval by USPS" <<container>> as app_s3 
+            }
+        }
+    }
+}
+
+
+rectangle "==GSA-authorized SaaS" <<boundary>> as gsa_saas  {
+    rectangle "==DAP\n\n Analytics collection" <<external_system>> as dap 
+    rectangle "==New Relic\n\n Monitoring SaaS" <<external_system>> as newrelic 
+    rectangle "==Google reCAPTCHA\n\n reCAPTCHA Service" <<external_system>> as recaptcha 
+    rectangle "==Address validation API\n\n SmartyStreets" <<external_system>> as address_api 
+}
+browser -> dap : **reports usage** \n//[https (443)]//
+app - ->> newrelic : **reports telemetry (javascript agent)**\n//<size:12>[tcp (443)]</size>//
+browser - ->> newrelic : **reports ux metrics**\n//<size:12>[https (443)]</size>//
+browser - ->> aws_cf : **request info, submit request for test kit**\n//<size:12>[https GET/POST (443)]</size>//
+aws_cf - ->> aws_alb : **proxies requests**\n//<size:12>[https GET/POST (443)]</size>//
+aws_alb - ->> cloudgov_router : **proxies requests**\n//<size:12>[https GET/POST (443)]</size>//
+cloudgov_router - ->> app : **proxies requests**\n//<size:12>[https GET/POST (443)]</size>//
+app - ->> app_db : **reads/writes dataset metadata**\n//<size:12>[psql (5432)]</size>//
+app - ->> app_s3 : **reads/writes dataset resources**\n//<size:12>[https (443)]</size>//
+
+browser - ->> address_api : **auto-complete address entries**\n//<size:12>[https GET/POST (443)]</size>//
+browser - ->> recaptcha : **interact with reCAPTCHA**\n//<size:12>[https GET/POST (443)]</size>//
+app - ->> recaptcha : **verify reCAPTCHA response**\n//<size:12>[https POST (443)]</size>//
+
+rectangle "<$person>\n==Developer\n\n Application developers" <<person>> as developer 
+rectangle "==CI/CD Pipeline" <<boundary>> as cicd  {
+    rectangle "==GitHub\n\n GSA-controlled code repository" <<external_system>> as github 
+    rectangle "==CircleCI\n\n Continuous Integration Service" <<external_system>> as circleci 
+}
+developer - ->> github : **Publish code**\n//<size:12>[git ssh (22)]</size>//
+github - ->> circleci : **Commit hook notifies CircleCI to run CI/CD pipeline**\n//<size:12>[https POST (443)]</size>//
+circleci - ->> cg_api : **Deploy App**\n//<size:12>[Auth: SpaceDeployer Service</size>//\n//<size:12>Account, https (443)]</size>//
+developer - ->> dap : **View traffic statistics**\n//<size:12>[https GET (443)]</size>//
+developer - ->> newrelic : **Manage performance**\n//<size:12>[https (443)]</size>//
+
+
+@enduml
+
+PlantUML version 1.2021.16(Wed Dec 08 09:25:22 PST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>

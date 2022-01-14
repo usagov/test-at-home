@@ -1,3 +1,13 @@
+.usa-combo-box__list {
+  padding-left: 0 !important;
+
+  &-option {
+    font-size: inherit !important;
+    line-height: inherit !important;
+    margin: 0 !important;
+  }
+}
+
 .error {
   border: 2px solid $color-magenta;
 }

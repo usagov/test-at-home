@@ -1,7 +1,10 @@
 import i18n from "i18n-js";
 import Bouncer from "formbouncerjs";
 
-const invalidZipText = I18n.t("kit_requests.new.js.invalid.zip_code");
+const invalidZipText = I18n.t("js.invalid.zip_code");
+const missingSelect = I18n.t("js.invalid.missing_select");
+const missingDefault = I18n.t("js.invalid.missing_default");
+const invalidEmail = I18n.t("js.invalid.email");
 
 const validateForm = new Bouncer("#form", {
   disableSubmit: true,
@@ -14,7 +17,14 @@ const validateForm = new Bouncer("#form", {
     }
   },
   messages: {
-    isValidZip: invalidZipText
+    isValidZip: invalidZipText,
+    missingValue: {
+      select: missingSelect,
+      default: missingDefault
+    },
+    patternMismatch: {
+      email: invalidEmail
+    }
   }
 });
 

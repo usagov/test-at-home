@@ -1,9 +1,11 @@
-$color-light-gray: #f3f5f8;
-$color-light-magenta: #ffe5f3;
-
+// Shared must be first
 @import "shared";
 
+// ...and then colors
 @import "colors";
+
+// everything else
 @import "fonts";
 @import "form";
-@import "headings";
+@import "typography";
+@import "misc";

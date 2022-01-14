@@ -3,22 +3,22 @@
   <div class="covidtest-header__container covidtest-container">
     <div class="covidtest-logo">
       <em class="covidtest-logo__text">
-        <img src="images/covidtest/wecandothis-logo.svg" alt="<%= t('shared.header.title') %>" width="98" height="98" />
-        <a href="/"><%= t('shared.header.title') %></a>
+        <%= image_tag("covidtest/wecandothis-logo-#{I18n.locale || I18n.default_locale}.svg", alt: t('shared.header.title'), width: "98", height: "98") %>
+        <%= link_to t('shared.header.title'), root_path %>
       </em>
     </div>
     <nav aria-label="<%= t('shared.header.primary') %>" class="covidtest-nav">
       <!-- Desktop Nav -->
       <ul class="covidtest-nav__primary">
         <li class="covidtest-nav__primary-item">
-          <span><%= t('shared.languages.en') %></span>
-        </li>
-        <li class="covidtest-nav__primary-item">
-          <a href="/"><%= t('shared.languages.es') %></a>
-        </li>
-        <li class="covidtest-nav__primary-item">
-          <a href="/"><%= t('shared.languages.zh') %></a>
-        </li>
+            <%= format_active_locale('en') %>
+          </li>
+          <li class="covidtest-nav__primary-item">
+            <%= format_active_locale('es') %>
+          </li>
+          <li class="covidtest-nav__primary-item">
+            <%= link_to t("shared.languages.zh"), '/' %>
+          </li>
       </ul>
 
       <!-- Mobile Nav -->
@@ -28,15 +28,16 @@
             class="usa-accordion__button"
             aria-expanded="false"
             aria-controls="covidtest-languages">
-            <span><%= t('shared.languages.en') %></span>
+            <span><%= t("shared.languages.#{I18n.locale}") %></span>
           </button>
           <ul id="covidtest-languages" class="covidtest-nav__primary-submenu usa-accordion__content">
-            <li class="covidtest-nav__primary-submenu-item">
-              <a href="/"><%= t('shared.languages.es') %></a>
-            </li>
-            <li class="covidtest-nav__primary-submenu-item">
-              <a href="/"><%= t('shared.languages.zh') %></a>
-            </li>
+            <% I18n.available_locales.each do |l| %>
+              <% if l != I18n.locale %>
+                <li class="covidtest-nav__primary-submenu-item">
+                  <%= link_to t("shared.languages.#{l}"), root_path(locale: l) %>
+                </li>
+              <% end %>
+            <% end %>
           </ul>
         </li>
       </ul>

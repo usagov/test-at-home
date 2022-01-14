@@ -47,12 +47,12 @@
           <div id="address-err-cntr" class="error-message" tabindex="-1" hidden></div>
 
           <%= form.label :mailing_address_1, class: "usa-label" do %>
-          <%= t('activerecord.attributes.mailing_address_1') %>
+            <%= t('activerecord.attributes.mailing_address_1') %>
             <span class="text-magenta">*</span>
           <% end %>
           <%= form.text_field :mailing_address_1, class: "usa-input", required: true %>
 
-          <%= form.label :mailing_address_2, class: "usa-label" %>
+          <%= form.label :mailing_address_2, t('activerecord.attributes.mailing_address_2'), class: "usa-label" %>
           <%= form.text_field :mailing_address_2, class: "usa-input" %>
 
           <%= form.label :city, class: "usa-label" do %>
@@ -79,12 +79,18 @@
 
         <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.tracking_heading') } do %>
           <p class="font-body-xs">
-            <%= t('kit_requests.new.tracking_html') %>
+            <%= t('kit_requests.new.tracking') %>
+            <% unless UsStreetAddressValidator.smarty_disabled? %>
+              <span class="text-italic text-blue"> <%= t('kit_requests.new.email_optional') %></span>
+            <% end %>
           </p>
           <%= form.label :email, class: "usa-label" do %>
-            <%= t('activerecord.attributes.email') %>
+            <%= t('activerecord.attributes.email') %> 
+            <% if UsStreetAddressValidator.smarty_disabled? %>
+              <span class="text-magenta">*</span>
+            <% end %>
           <% end %>
-          <%= form.email_field :email, class: "usa-input" %>
+          <%= form.email_field :email, class: "usa-input", required: UsStreetAddressValidator.smarty_disabled? ? true : false %>
         <% end %>
       </div>
 

@@ -75,4 +75,5 @@ group :development, :test do
   gem "selenium-webdriver", "~> 4.1"
   gem "rails-controller-testing", "~> 1.0"
   gem "climate_control", "~> 1.0"
+  gem "i18n-tasks", "~> 0.9.37"
 end
