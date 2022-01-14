@@ -19,9 +19,8 @@ en:
   js:
     empty: Not provided
     invalid:
-      address_error: There was an error while validating your address
-      address_incorrect: Address seems to be incorrect. Please check for missing information
-      address_not_found: Address must be a valid USPS delivery address
+      address_incorrect: USPS cannot deliver to this address
+      address_not_found: We don’t recognize this address
       email: Please enter email in the format name@example.com
       missing_default: Please fill out this field
       missing_select: Please select a value

@@ -6,8 +6,6 @@ const addressNotFound = I18n.t("js.invalid.address_not_found");
 const addressIncorrect = I18n.t(
   "js.invalid.address_incorrect"
 );
-const addressError = I18n.t("js.invalid.address_error");
-
 const SmartyStreetsCore = SmartyStreetsSDK.core;
 const Lookup = SmartyStreetsSDK.usStreet.Lookup;
 
