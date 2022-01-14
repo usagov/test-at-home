@@ -1,4 +1,6 @@
 locals {
+  aws_region       = "us-gov-east-1"
+  cf_api_url       = "https://api.fr.ea.cloud.gov"
   cf_org_name      = "gsa-tts-test-kits"
   cf_space_name    = "staging"
   env              = "stage"
@@ -8,8 +10,8 @@ locals {
 # module "database" {
 #   source = "../../shared/database"
 #
-#   aws_region       = var.aws_region
-#   cf_api_url       = var.cf_api_url
+#   aws_region       = local.aws_region
+#   cf_api_url       = local.cf_api_url
 #   cf_user          = var.cf_user
 #   cf_password      = var.cf_password
 #   cf_org_name      = local.cf_org_name
