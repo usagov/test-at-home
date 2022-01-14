@@ -39,5 +39,13 @@ module TestAtHome
     # Don't bother with sessions or CSRF
     config.session_store :disabled
     config.action_controller.allow_forgery_protection = false
+
+    # Remove unnecessary middleware
+    config.middleware.delete ActionDispatch::HostAuthorization
+    config.middleware.delete Rack::Sendfile
+    config.middleware.delete Rack::MethodOverride
+    config.middleware.delete ActionDispatch::Cookies
+    config.middleware.delete ActionDispatch::Session::CookieStore
+    config.middleware.delete ActionDispatch::Flash
   end
 end
