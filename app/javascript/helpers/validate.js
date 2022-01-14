@@ -1,6 +1,8 @@
 import i18n from "i18n-js";
 import Bouncer from "formbouncerjs";
 
+const addressFullContainer = document.getElementById("address-full-cntr");
+
 export const validate = new Bouncer("#form", {
   disableSubmit: true,
   messageTarget: "bouncerTarget",

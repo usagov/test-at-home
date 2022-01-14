@@ -17,16 +17,19 @@ const client = clientBuilder.buildUsAutocompleteProClient();
 
 const element = document.querySelector("#address-autocomplete");
 
-const handleConfirm = ({ city, secondary, state, streetLine, zipcode }) => {
-  document.getElementById("kit_request_mailing_address_1").value = streetLine;
-  document.getElementById("kit_request_mailing_address_2").value = secondary;
-  document.getElementById("kit_request_city").value = city;
-  document.getElementById("kit_request_state").value = state;
-  document.querySelector("select[name='kit_request[state]']").value = state;
-  document.getElementById("kit_request_zip_code").value = zipcode;
+const handleConfirm = async value => {
+  document.getElementById("kit_request_mailing_address_1").value =
+    value.streetLine;
+  document.getElementById("kit_request_mailing_address_2").value =
+    value.secondary;
+  document.getElementById("kit_request_city").value = value.city;
+  document.getElementById("kit_request_state").value = value.state;
+  document.querySelector("select[name='kit_request[state]']").value =
+    value.state;
+  document.getElementById("kit_request_zip_code").value = value.zipcode;
 };
 
-const handleRequest = async (lookup, lookupType) => {
+const handleRequest = async lookup => {
   try {
     const res = await client.send(lookup);
 
@@ -51,6 +54,9 @@ export const autoComplete =
     required: true,
     source: async (query, populateResults) => {
       const lookup = new Lookup(query);
+      lookup.maxResults = 4;
+      lookup.source = "all";
+
       const res = await handleRequest(lookup);
 
       populateResults(res);
