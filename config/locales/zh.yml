@@ -10,15 +10,29 @@ zh:
       mailing_address_2: 详细地址 - 第 2 行
       state: 州/地区
       zip_code: 邮政编码
+    errors:
+      messages:
+        address_incorrect: 美国邮政无法送达这一地址
+        address_not_found: 我们无法识别这一地址
+        blank: 请填写此栏
+        invalid_email: 错误：请输入格式为 name@example.com 的电子邮件地址
+  errors:
+    format: "%{message}"
   js:
+    empty: 未提供
     invalid:
+      address_incorrect: 美国邮政无法送达这一地址
+      address_not_found: 我们无法识别这一地址
       email: 请输入格式为 name@example.com 的电子邮件地址
+      missing_default: 请填写此栏
+      missing_select: 请选择一项
       zip_code: 请输入有效的 5 位邮政编码
     review: 查看您的订单
     submit: 下订单
   kit_requests:
     confirmation:
       about:
+        alt: COVID-19检测拭子的开发
         body_html: |
           <ul>
             <li>可在任何地点进行检测</li>
@@ -27,6 +41,7 @@ zh:
             <li>是否完成COVID-19疫苗或加强针接种均可使用</li>
             <li>也称为自助检测或非处方类（OTC）检测</li>
           </ul>
+        heading: 家用COVID-19检测试剂说明
         sub_heading: 家用检测试剂：
       body_html: |
         <p>
@@ -36,14 +51,16 @@ zh:
       instructions:
         body_html: |
           <ul>
-            <li>If you begin having COVID-19 symptoms like fever, sore throat, runny nose, or loss of taste or smell, or</li>
+            <li>如果您开始出现发烧、喉咙痛、流鼻涕，或味觉或嗅觉丧失等COVID-19的症状，或者</li>
             <li>当您开始有COVID-19症状，如喉咙痛、流鼻涕、发烧、味觉或嗅觉丧失，或</li>
             <li>在您与COVID-19患者密切接触的5天后，或 当您要参加多人聚会时，特别是如果您有重症风险或
                 <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/stay-up-to-date.html" rel="noopener">没有完成疫苗或加强针接种</a>
             </li>
           </ul>
+        heading: 在您收到检测试剂后
         sub_heading: 使用家用检测试剂的适用情况：
       other:
+        alt: 佩戴口罩的儿童在使用洗手液
         body_html: |
           <ul>
             <li>及时接种COVID-19疫苗。请访问 <a class="usa-link usa-link--external" href="https://vaccines.gov" rel="noopener">vaccines.gov</a> 可以查找到您附近的疫苗或加强针接种点。</li>
@@ -53,12 +70,14 @@ zh:
         heading: 疫苗接种、佩戴口罩和保持社交距离
         sub_heading: 检测只是您保护自己、朋友、家人和他人的一项措施。我们鼓励每个人都要：
       resources:
+        alt: 成年人在接受COVID-19检测
         body_html: |
           <ul>
             <li><a href="https://www.hhs.gov/coronavirus/community-based-testing-sites/index.html" rel="noopener">州政府资源</a></li>
             <li><a href="https://doineedacovid19test.com/" rel="noreferrer noopener">本地社区独立药店</a></li>
             <li><a href="https://www.cms.gov/how-to-get-your-at-home-OTC-COVID-19-test-for-free" rel="noopener">医疗保险补偿计划</a></li>
           </ul>
+        heading: 其他检测资源
         sub_heading: 还可以通过以下途径获得免费的COVID检测：
       sub_heading: 下一步
       title: 谢谢，您的订单已下单。
@@ -99,3 +118,21 @@ zh:
       title: 免费预订一套家用COVID-19检测试剂。
       tracking: 如果想接收您的检测试剂订单状态更新消息，请提供电子邮件地址。
       tracking_heading: 订单跟踪
+  shared:
+    banner:
+      gov_description_html: <strong>“.gov”</strong>网站为美国官方政府组织机构网站。
+      gov_heading: 官方网站使用“.gov”
+      how: 这里是了解途径
+      lock: 锁
+      locked_padlock: 上锁的挂锁
+      official_site: 美国政府的官方网站
+      secure_description_html: <strong>锁形图标</strong> (%{lock_icon}) 或 <strong>“https://”</strong>表示您已安全连接到.gov网站。仅在安全的官方网站上分享敏感信息。
+      secure_heading: 安全的.gov网站使用HTTPS
+      us_flag: 美国国旗
+    footer:
+      links:
+        covid: 我们可以这样做
+        hhs: 美国卫生与公众服务部
+    header:
+      primary: 主导航
+    skip_link: 跳转到主要内容
