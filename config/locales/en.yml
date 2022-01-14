@@ -92,8 +92,11 @@ en:
         heading: What if you test <em>Positive?</em>
     new:
       body_html: |
-        <p class="usa-intro">Fill in this form to request a free at-home testing kit. Testing kits will include one set of 4 individual rapid antigen tests.</p>
-        <p class="text-bold margin-bottom-4">Testing kits will ship late January.</p>
+        <p class="usa-intro">
+          Fill in this form to request free at-home tests to be delivered to you. Orders will include 
+          <strong>4 individual rapid antigen tests.</strong>
+        </p>
+        <p class="text-bold margin-bottom-4">The tests will ship late January.</p>
       contact_heading: Contact information
       contact_html: Contact information for the person receiving the order. <span class="text-magenta">*</span><span class="text-italic">Required</span>
       email_optional: This step is optional, but we will not be able to provide tracking without an email.
@@ -107,6 +110,7 @@ en:
       review:
         contact_heading: Contact information
         edit: Edit
+        please_confirm: Please confirm we have your delivery information correct.
         ship_to: Ship to
         title: Review your order
         tracking_to: Send tracking to
