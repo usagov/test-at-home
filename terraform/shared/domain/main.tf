@@ -51,5 +51,5 @@ resource "cloudfoundry_service_instance" "external_domain_instance" {
   space            = data.cloudfoundry_space.space.id
   service_plan     = data.cloudfoundry_service.external_domain.service_plans[var.cdn_plan_name]
   recursive_delete = var.recursive_delete
-  json_params      = "{\"domains\": \"${var.global_domain_name},${var.regional_domain_name},${var.foundation_domain_name}\"}"
+  json_params      = "{\"domains\": \"${var.global_domain_name},${var.regional_route_name},${var.foundation_domain_name}\"}"
 }

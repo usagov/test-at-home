@@ -51,9 +51,9 @@ variable "global_domain_name" {
   description = "DNS name users will be accessing site"
 }
 
-variable "regional_domain_name" {
+variable "regional_route_name" {
   type        = string
-  description = "routable DNS name for entire region"
+  description = "DNS name directing traffic from to each region"
 }
 
 variable "foundation_domain_name" {

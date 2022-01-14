@@ -1,8 +1,10 @@
 locals {
-  cf_org_name      = "gsa-tts-test-kits"
-  cf_space_name    = "staging"
-  env              = "stage"
-  recursive_delete = true
+  cf_org_name         = "gsa-tts-test-kits"
+  cf_space_name       = "staging"
+  env                 = "stage"
+  recursive_delete    = true
+  global_domain_name  = "staging-covidtest.usa.gov"
+  regional_route_name = "route.staging-covidtest.usa.gov"
 }
 
 module "database" {
@@ -32,8 +34,8 @@ module "domain" {
   cf_space_name          = local.cf_space_name
   env                    = local.env
   recursive_delete       = local.recursive_delete
-  global_domain_name     = "staging-covidtest.usa.gov"
-  regional_domain_name   = "west.staging-covidtest.usa.gov"
+  global_domain_name     = local.global_domain_name
+  regional_route_name    = local.regional_route_name
   foundation_domain_name = "westb.staging-covidtest.usa.gov"
 }
 
@@ -55,5 +57,5 @@ resource "cloudfoundry_service_instance" "cdn_instance" {
   space            = data.cloudfoundry_space.space.id
   service_plan     = data.cloudfoundry_service.external_domain.service_plans["domain-with-cdn"]
   recursive_delete = local.recursive_delete
-  json_params      = "{\"domains\": \"staging-covidtest.usa.gov\", \"origin\": \"rte.staging-covidtest.usa.gov\"}"
+  json_params      = "{\"domains\": \"${local.global_domain_name}\", \"origin\": \"${local.regional_route_name}\"}"
 }
