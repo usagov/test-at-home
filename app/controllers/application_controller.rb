@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  skip_forgery_protection
+
   around_action :switch_locale
 
   def switch_locale(&action)

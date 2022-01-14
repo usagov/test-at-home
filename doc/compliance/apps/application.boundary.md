@@ -46,6 +46,8 @@ Boundary(aws, "AWS GovCloud") {
 Boundary(gsa_saas, "GSA-authorized SaaS") {
     System_Ext(dap, "DAP", "Analytics collection")
     System_Ext(newrelic, "New Relic", "Monitoring SaaS")
+    System_Ext(recaptcha, "Google reCAPTCHA", "reCAPTCHA Service")
+    System_Ext(address_api, "Address validation API", "SmartyStreets")
 }
 browser -> dap : **reports usage** \n//[https (443)]//
 Rel(app, newrelic, "reports telemetry (ruby agent)", "tcp (443)")
@@ -57,10 +59,6 @@ Rel(cloudgov_router, app, "proxies requests", "https GET/POST (443)")
 Rel(app, app_db, "reads/writes dataset metadata", "psql (5432)")
 Rel(app, app_s3, "reads/writes dataset resources", "https (443)")
 
-Boundary(other_saas, "SaaS") {
-    System_Ext(recaptcha, "Google reCAPTCHA", "reCAPTCHA Service")
-    System_Ext(address_api, "Address validation API", "SmartyStreets")
-}
 Rel(browser, address_api, "auto-complete address entries", "https GET/POST (443)")
 Rel(browser, recaptcha, "interact with reCAPTCHA", "https GET/POST (443)")
 Rel(app, recaptcha, "verify reCAPTCHA response", "https POST (443)")
