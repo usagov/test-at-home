@@ -8,12 +8,12 @@ RSpec.describe I18n do
   let(:unused_keys) { i18n.unused_keys }
   let(:inconsistent_interpolations) { i18n.inconsistent_interpolations }
 
-  it "does not have missing keys", pending: true do
+  xit "does not have missing keys" do
     expect(missing_keys).to be_empty,
       "Missing #{missing_keys.leaves.count} i18n keys, run `i18n-tasks missing' to show them"
   end
 
-  it "files are normalized", pending: true do
+  xit "files are normalized" do
     non_normalized = i18n.non_normalized_paths
     error_message = "The following files need to be normalized:\n" \
                     "#{non_normalized.map { |path| "  #{path}" }.join("\n")}\n" \
