@@ -1,0 +1,101 @@
+---
+zh:
+  activerecord:
+    attributes:
+      city: 城市
+      email: 电子邮件地址
+      first_name: 名
+      last_name: 姓
+      mailing_address_1: 详细地址 - 第 1 行
+      mailing_address_2: 详细地址 - 第 2 行
+      state: 州/地区
+      zip_code: 邮政编码
+  js:
+    invalid:
+      email: 请输入格式为 name@example.com 的电子邮件地址
+      zip_code: 请输入有效的 5 位邮政编码
+    review: 查看您的订单
+    submit: 下订单
+  kit_requests:
+    confirmation:
+      about:
+        body_html: |
+          <ul>
+            <li>可在任何地点进行检测</li>
+            <li>30分钟内显示检测结果</li>
+            <li>有无COVID-19症状均可使用</li>
+            <li>是否完成COVID-19疫苗或加强针接种均可使用</li>
+            <li>也称为自助检测或非处方类（OTC）检测</li>
+          </ul>
+        sub_heading: 家用检测试剂：
+      body_html: |
+        <p>
+          您会收到美国邮政服务 (USPS) 的后续确认电子邮件* 并在检测试剂开始发送时收到另一封带有邮件追踪编号的电子邮件。
+          <span class="text-italic">*I如果您已输入您的电子邮件地址。</span>
+        </p>
+      instructions:
+        body_html: |
+          <ul>
+            <li>If you begin having COVID-19 symptoms like fever, sore throat, runny nose, or loss of taste or smell, or</li>
+            <li>当您开始有COVID-19症状，如喉咙痛、流鼻涕、发烧、味觉或嗅觉丧失，或</li>
+            <li>在您与COVID-19患者密切接触的5天后，或 当您要参加多人聚会时，特别是如果您有重症风险或
+                <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/stay-up-to-date.html" rel="noopener">没有完成疫苗或加强针接种</a>
+            </li>
+          </ul>
+        sub_heading: 使用家用检测试剂的适用情况：
+      other:
+        body_html: |
+          <ul>
+            <li>及时接种COVID-19疫苗。请访问 <a class="usa-link usa-link--external" href="https://vaccines.gov" rel="noopener">vaccines.gov</a> 可以查找到您附近的疫苗或加强针接种点。</li>
+            <li>在室内聚会时戴上贴合的口罩。</li>
+            <li>人与人之间保持6英尺的距离。</li>
+          </ul>
+        heading: 疫苗接种、佩戴口罩和保持社交距离
+        sub_heading: 检测只是您保护自己、朋友、家人和他人的一项措施。我们鼓励每个人都要：
+      resources:
+        body_html: |
+          <ul>
+            <li><a href="https://www.hhs.gov/coronavirus/community-based-testing-sites/index.html" rel="noopener">州政府资源</a></li>
+            <li><a href="https://doineedacovid19test.com/" rel="noreferrer noopener">本地社区独立药店</a></li>
+            <li><a href="https://www.cms.gov/how-to-get-your-at-home-OTC-COVID-19-test-for-free" rel="noopener">医疗保险补偿计划</a></li>
+          </ul>
+        sub_heading: 还可以通过以下途径获得免费的COVID检测：
+      sub_heading: 下一步
+      title: 谢谢，您的订单已下单。
+      whatif_negative:
+        body_html: '家用检测结果为<strong>阴性</strong>，表示检测没有发现COVID-19病毒，您将疾病传播给他人的风险可能比较低。如果您的检测结果为阴性，通常应在第一次检测的2~3天后再次进行检测。请查看检测试剂盒说明，了解具体的操作步骤。 </p> <p> 关于当检测结果为阴性时，应该做什么的详细信息，请访问 <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">CDC自我检测网页</a>. '
+        heading: 如果您的检测结果为<strong>阴性</strong>
+      whatif_positive:
+        body_html: 家用检测结果为<strong>阳性</strong>，表示检测发现了COVID-19病毒，您很可能感染了COVID-19。如果您的家用检测结果呈阳性，请遵循<a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html" rel="noopener">l最新的CDC隔离指示</a>.
+        heading: 如果您的检测结果为<strong>阳性</strong>
+    new:
+      body_html: |
+        <p class="usa-intro">请填写此表格申请免费邮寄上门的家用COVID-19检测试剂。此套检测试剂将包括 4 份独立包装的快速抗原检测试剂。</p>
+        <p class="text-bold margin-bottom-4">检测试剂将在一月下旬发货。</p>
+      contact_heading: 联系信息
+      contact_html: 收件人的联系信息。<span class="text-magenta">*</span><span class="text-italic">必填项</span>
+      email_optional: 这一步是可选的，但如果没有电子邮件地址，我们将无法提供相关信息跟订单追踪。
+      privacy:
+        heading: 隐私声明
+        html: |
+          <p class="font-body-xs">
+            usa.gov 需获知您的姓名和地址，以便通过美国邮政服务 (“USPS”) 免费向您邮寄 4 份家用快速 COVID 检测试剂。如果您提供电子邮件地址，USPS 将向您发送一封包含您订单追踪编号的电子邮件。此信息收集由 2002 年《电子政务法》（44 U.S.C. § 3501）授权。
+          </p>
+          <p class="font-body-xs">
+            您无需提供您的姓名和地址；但是，如您拒绝提供此信息，USPS 无法向您邮寄 COVID 检测试剂。您也无需提供您的电子邮件地址；但是，如您拒绝提供电子邮件地址，USPS 无法向您发送发货信息。
+          </p>
+          <p class="font-body-xs">
+            您在下单时提供的所有信息都将与 USPS 共享，并且还可能按照已发布的 <a href="https://www.federalregister.gov/documents/2016/07/18/2016-16868/privacy-act-of-1974-notice-of-an-updated-system-of-records">《隐私法记录系统通知》</a> 中的说明进行披露。
+          </p>
+      review:
+        contact_heading: 联系信息
+        edit: 编辑
+        ship_to: 收件人
+        title: 查看您的订单
+        tracking_to: 将订单追踪编号发送至：
+      shipping_heading: 发货信息
+      shipping_html: <span class="text-magenta">*</span><span class="text-italic">Required</span>
+      submit: 下订单
+      title: 免费预订一套家用COVID-19检测试剂。
+      tracking: 如果想接收您的检测试剂订单状态更新消息，请提供电子邮件地址。
+      tracking_heading: 订单跟踪

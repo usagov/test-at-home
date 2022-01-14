@@ -10,54 +10,64 @@ es:
       mailing_address_2: Dirección 2
       state: Estado / Territorio
       zip_code: Código postal
-    errors:
-      messages:
-        address_incorrect: TODO
-        address_not_found: TODO
-        blank: TODO
-        invalid_email: Por favor, escriba el correo electrónico en el formato nombre@ejemplo.com
   js:
-    empty: TODO
     invalid:
-      address_error: TODO
-      address_incorrect: TODO
-      address_not_found: TODO
       email: Por favor, escriba el correo electrónico en el formato nombre@ejemplo.com
-      missing_default: Please fill out this field
-      missing_select: Please select a value
       zip_code: Por favor, escriba un código postal válido
     review: Revise su orden
     submit: Haga su pedido
   kit_requests:
     confirmation:
       about:
-        alt: TODO
-        body_html: TODO
-        heading: TODO
-        sub_heading: TODO
-      body_html: TODO
+        body_html: |
+          <ul>
+            <li>Se pueden hacer en cualquier lugar</li>
+            <li>Dan resultados en 30 minutos</li>
+            <li>Funcionan independientemente de que tenga o no síntomas de COVID-19</li>
+            <li>Funcionan independientemente de que esté vacunado</li>
+            <li>También se denominan pruebas caseras (“self-tests”) o pruebas de venta libre (“over-the-counter”)</li>
+          </ul>
+        sub_heading: 'Las pruebas caseras:'
+      body_html: |
+        <p>
+          Recibirá un correo electrónico de confirmación* del Servicio Postal de Estados Unidos (USPS, sigla en inglés) y otro correo electrónico con un número de rastreo cuando se envíen las pruebas.
+          <span class="text-italic">*Si compartió su dirección de correo electrónico.</span>
+        </p>
+        <p class="text-bold">Las pruebas se enviarán a partir de finales de enero.</p>
       instructions:
-        body_html: TODO
-        heading: TODO
-        sub_heading: TODO
+        body_html: |
+          <ul>
+            <li>si empieza a presentar síntomas de COVID-19 como fiebre, dolor de garganta, moqueo,  o pérdida del gusto o del olfato,</li>
+            <li>al menos 5 días después de entrar en contacto cercano con alguien con COVID-19, o</li>
+            <li>cuando vaya a reunirse con un grupo de personas, especialmente con aquellas que corren riesgo de padecer una enfermedad grave o que pueden   <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/stay-up-to-date.html" rel="noopener">no estar al día con sus vacunas de COVID-19</a>.</li>
+          </ul>
+        heading: Una vez que obtenga pruebas
+        sub_heading: 'Hágase una prueba casera:'
       other:
-        alt: TODO
-        body_html: TODO
-        heading: TODO
-        sub_heading: TODO
+        body_html: |
+          <ul>
+            <li>Ponerse al día con sus vacunas de COVID-19. Visite <a class="usa-link usa-link--external" href="https://vacunas.gov" rel="noopener">vacunas.gov</a> para encontrar una vacuna o una dosis de refuerzo cerca de usted.</li>
+            <li>Usar una mascarilla si asiste a reuniones en espacios cerrados.</li>
+            <li>Mantener 6 pies de distancia con otras personas.</li>
+          </ul>
+        heading: Vacunación, uso de mascarillas y distanciamiento social
+        sub_heading: 'Las pruebas son solo una medida que puede tomar para protegerse a sí mismo, a sus amigos y a su familia. Se les recomienda a todas las personas:'
       resources:
-        alt: TODO
-        body_html: TODO
-        heading: TODO
-        sub_heading: TODO
-      sub_heading: TODO
+        body_html: |
+          <ul>
+            <li><a href="https://www.hhs.gov/coronavirus/community-based-testing-sites/index.html" rel="noopener">Recursos de ayuda en su estado (en inglés)</a></li>
+            <li><a href="https://doineedacovid19test.com/" rel="noreferrer noopener">Farmacias locales (en inglés)</a></li>
+            <li><a href="https://www.cms.gov/how-to-get-your-at-home-OTC-COVID-19-test-for-free" rel="noopener">Programa de reembolso del seguro médico (en inglés)</a></li>
+          </ul>
+        sub_heading: 'Las pruebas de COVID-19 gratuitas también están disponibles a través de:'
+      sub_heading: Qué puede esperar a continuación
       title: Gracias, su pedido ha sido completado.
       whatif_negative:
-        body_html: TODO
-        heading: TODO
+        body_html: Un resultado <strong>negativo</strong> en la prueba casera significa que la prueba no encontró el virus COVID-19 y usted podría tener un menor riesgo de contagiar a otras personas con la enfermedad. Si el resultado es negativo, por lo general debe volver a hacerse la prueba 2 o 3 días después de la primera. Consulte las instrucciones de su kit de pruebas caseras para averiguar cuáles son los siguientes pasos a seguir.</p> <p>Para obtener más información sobre qué hacer si su prueba es negativa, visite la <a class="usa-link usa-link--external" href="https://espanol.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">página sobre la prueba en casa de los CDC</a>.
+        heading: Si el resultado de su prueba es <strong>negativo</strong>
       whatif_positive:
-        body_html: TODO
-        heading: TODO
+        body_html: Un resultado <strong>positivo</strong> en la prueba casera significa que la prueba encontró el virus de COVID-19 y es muy probable que usted esté infectado con COVID-19. Si el resultado de la prueba casera es positivo, siga las <a class="usa-link usa-link--external" href="https://espanol.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html" rel="noopener">las recomendaciones más recientes de los CDC sobre el aislamiento</a>.
+        heading: Si el resultado de su prueba es <strong>positivo</strong>
     new:
       body_html: |
         <p class="usa-intro">Complete este formulario para solicitar que se le envíe a su dirección un kit con pruebas caseras gratuitas.</p>
@@ -65,7 +75,6 @@ es:
       contact_heading: Información de contacto
       contact_html: Datos de contacto de la persona que recibe el pedido. <span class="text-magenta">*</span><span class="text-italic">Elementos obligatorios</span>
       email_optional: Este paso es opcional, pero sin un correo electrónico no podemos ofrecerle el rastreo de su pedido.
-      error_header: TODO
       privacy:
         heading: Política de privacidad
         html: |
@@ -97,12 +106,8 @@ es:
       us_flag: Bandera de Estados Unidos
     footer:
       links:
-        covid: TODO
-        hhs: TODO
-        usps: USPS.com
     header:
-      primary: TODO
-      title: COVIDtest.gov
+      primary: Primary navigation
     languages:
       en: English
       es: Español

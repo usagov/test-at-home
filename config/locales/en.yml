@@ -21,9 +21,8 @@ en:
   js:
     empty: Not provided
     invalid:
-      address_error: There was an error while validating your address
-      address_incorrect: Address seems to be incorrect. Please check for missing information
-      address_not_found: Address must be a valid USPS delivery address
+      address_incorrect: USPS cannot deliver to this address
+      address_not_found: We don’t recognize this address
       email: Please enter email in the format name@example.com
       missing_default: Please fill out this field
       missing_select: Please select a value
@@ -82,7 +81,7 @@ en:
       sub_heading: What to expect next
       title: Thank you, your order has been placed.
       whatif_negative:
-        body_html: 'A <strong>negative</strong> at-home test result means that the test did not find the COVID-19 virus, and you may have a lower risk of spreading the disease to others. If you test negative, you should generally test again 2 to 3 days after the first test. Check your test kit’s instructions for specific next steps.</p> <p>For more information on what to do if you test negative, visit the <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html# anchor_1620925514532" rel="noopener">CDC Self-Testing webpage</a>.
+        body_html: 'A <strong>negative</strong> at-home test result means that the test did not find the COVID-19 virus, and you may have a lower risk of spreading the disease to others. If you test negative, you should generally test again 2 to 3 days after the first test. Check your test kit’s instructions for specific next steps.</p> <p>For more information on what to do if you test negative, visit the <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">CDC Self-Testing webpage</a>.
 
           '
         heading: What if you test <em>Negative?</em>
