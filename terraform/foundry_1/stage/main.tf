@@ -43,19 +43,19 @@ module "domain" {
 # Set up CDN, only exists in this foundation
 #######
 
-data "cloudfoundry_space" "space" {
-  org_name = local.cf_org_name
-  name     = local.cf_space_name
-}
-
-data "cloudfoundry_service" "external_domain" {
-  name = "external-domain"
-}
-
-resource "cloudfoundry_service_instance" "cdn_instance" {
-  name             = "cdn-${local.env}"
-  space            = data.cloudfoundry_space.space.id
-  service_plan     = data.cloudfoundry_service.external_domain.service_plans["domain-with-cdn"]
-  recursive_delete = local.recursive_delete
-  json_params      = "{\"domains\": \"${local.global_domain_name}\", \"origin\": \"${local.regional_route_name}\"}"
-}
+# data "cloudfoundry_space" "space" {
+#   org_name = local.cf_org_name
+#   name     = local.cf_space_name
+# }
+#
+# data "cloudfoundry_service" "external_domain" {
+#   name = "external-domain"
+# }
+#
+# resource "cloudfoundry_service_instance" "cdn_instance" {
+#   name             = "cdn-${local.env}"
+#   space            = data.cloudfoundry_space.space.id
+#   service_plan     = data.cloudfoundry_service.external_domain.service_plans["domain-with-cdn"]
+#   recursive_delete = local.recursive_delete
+#   json_params      = "{\"domains\": \"${local.global_domain_name}\", \"origin\": \"${local.regional_route_name}\"}"
+# }

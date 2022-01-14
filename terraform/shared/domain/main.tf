@@ -16,26 +16,31 @@ data "cloudfoundry_app" "tah" {
   space      = data.cloudfoundry_space.space.id
 }
 
-resource "cloudfoundry_domain" "global_url" {
+###########################################################################
+# Routes must be manually created by an OrgManager before terraform is run:
+#
+# cf create-domain gsa-tts-test-kits staging-covidtest.usa.gov
+# cf create-domain gsa-tts-test-kits $foundation_domain_name
+###########################################################################
+
+data "cloudfoundry_domain" "global_url" {
   name = var.global_domain_name
-  org  = var.cf_org_name
+}
+
+data "cloudfoundry_domain" "foundation_url" {
+  name = var.foundation_domain_name
 }
 
 resource "cloudfoundry_route" "global_route" {
-  domain = resource.cloudfoundry_domain.global_url.id
+  domain = data.cloudfoundry_domain.global_url.id
   space  = data.cloudfoundry_space.space.id
   target {
     app = data.cloudfoundry_app.tah.id
   }
 }
 
-resource "cloudfoundry_domain" "foundation_url" {
-  name = var.foundation_domain_name
-  org  = var.cf_org_name
-}
-
 resource "cloudfoundry_route" "foundation_route" {
-  domain = resource.cloudfoundry_domain.foundation_url.id
+  domain = data.cloudfoundry_domain.foundation_url.id
   space  = data.cloudfoundry_space.space.id
   target {
     app = data.cloudfoundry_app.tah.id
