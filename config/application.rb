@@ -35,5 +35,9 @@ module TestAtHome
     config.generators.system_tests = nil
     config.i18n.available_locales = [:en, :es]
     config.middleware.use I18n::JS::Middleware
+
+    # Don't bother with sessions or CSRF
+    config.session_store :disabled
+    config.action_controller.allow_forgery_protection = false
   end
 end
