@@ -3,4 +3,3 @@
 /* restart your server or run `yarn build:css` when changing other files */
 
 @import "./uswds/styles.scss";
-@import "accessible-autocomplete/dist/accessible-autocomplete.min.css";
