@@ -113,7 +113,7 @@ zh:
         title: 查看您的订单
         tracking_to: 将订单追踪编号发送至：
       shipping_heading: 发货信息
-      shipping_html: <span class="text-magenta">*</span><span class="text-italic">Required</span>
+      shipping_html: <span class="text-magenta">*</span><span class="text-italic">必填项</span>
       submit: 下订单
       title: 免费预订一套家用COVID-19检测试剂。
       tracking: 如果想接收您的检测试剂订单状态更新消息，请提供电子邮件地址。
