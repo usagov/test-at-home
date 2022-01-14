@@ -19,6 +19,15 @@ en:
   errors:
     format: "%{message}"
   js:
+    autocomplete:
+      are: are
+      assistive_hint: When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.
+      is: is
+      no_results: No results found
+      query_too_short: Type in %(minQueryLength) or more characters for results
+      result: result
+      results: results
+      selected_option: "%(selectedOption) %(index) of %(length) is highlighted"
     empty: Not provided
     invalid:
       address_incorrect: USPS cannot deliver to this address

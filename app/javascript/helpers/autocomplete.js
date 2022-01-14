@@ -1,3 +1,5 @@
+import i18n from "i18n-js";
+
 import * as SmartyStreetsSDK from "smartystreets-javascript-sdk";
 import accessibleAutocomplete from "accessible-autocomplete";
 
@@ -57,5 +59,27 @@ export const autoComplete =
     templates: {
       inputValue: value => (value ? formatAddress(value) : ""),
       suggestion: value => (value ? formatAddress(value) : "")
+    },
+    tQueryTooShort: minQueryLength =>
+      I18n.t("js.autocomplete.query_too_shot", { minQueryLength }),
+    tNoResults: () => I18n.t("js.autocomplete.no_results"),
+    tAssistiveHint: () => I18n.t("js.autocomplete.assistive_hint"),
+    tSelectedOption: (selectedOption, length, index) =>
+      I18n.t("js.autocomplete.selected_option", {
+        selectedOption,
+        length,
+        index: index + 1
+      }),
+    tResults: (length, contentSelectedOption) => {
+      const words = {
+        result:
+          length === 1
+            ? I18n.t("js.autocomplete.result")
+            : I18n.t("js.autocomplete.results"),
+        is:
+          length === 1
+            ? I18n.t("js.autocomplete.is")
+            : I18n.t("js.autocomplete.are")
+      };
     }
   });
