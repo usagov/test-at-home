@@ -12,7 +12,7 @@ const formContainer = document.getElementById("form-cntr");
 const reviewContainer = document.getElementById("review-cntr");
 const privacyContainer = document.getElementById("privacy-cntr");
 const editButton = document.getElementById("edit-btn");
-const addressErrorContainer = document.getElementById("address-err-cntr");
+const addressErrorContainer = document.getElementById("kit_request_mailing_address_error"); // Generated from Rails
 
 // i18n strings
 const reviewText = I18n.t("js.review");

@@ -171,7 +171,7 @@ RSpec.describe "Person requests a test kit", type: :system do
 
           click_on "Place your order"
 
-          expect(page).to have_content("email can't be blank")
+          expect(page).to have_content("Please fill out this field")
           fill_in "Email", with: "foo@example.com"
           select "OH", from: "State" # Re-select for now
 
