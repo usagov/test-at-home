@@ -12,10 +12,12 @@ en:
       zip_code: Zip code
     errors:
       messages:
-        address_incorrect: seems to be incorrect. Please check for missing information
-        address_not_found: must be a valid USPS delivery address
-        blank: can't be blank
-        invalid_email: must be in the format name@example.com
+        address_incorrect: USPS cannot deliver to this address
+        address_not_found: We don’t recognize this address
+        blank: Please fill out this field
+        invalid_email: Please enter email in the format name@example.com
+  errors:
+    format: "%{message}"
   js:
     empty: Not provided
     invalid:

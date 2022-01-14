@@ -8,49 +8,39 @@
 
         <%= t('kit_requests.new.body_html') %>
 
-        <% if @kit_request.errors.any? %>
-          <div id="error_explanation">
-            <h2>
-              <%= t('kit_requests.new.error_header') %>
-            </h2>
-            <ul>
-              <% @kit_request.errors.full_messages.each do |message| %>
-                <li><%= message.downcase %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-
         <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.contact_heading')} do %>
           <p class="font-body-xs">
             <%= t('kit_requests.new.contact_html') %>
           </p>
 
           <%= form.label :first_name, class: "usa-label" do %>
-          <%= t('activerecord.attributes.first_name') %>
+            <%= t('activerecord.attributes.first_name') %>
             <span class="text-magenta">*</span>
           <% end %>
-          <%= form.text_field :first_name, class: "usa-input", required: true %>
-
+          <%= form.text_field :first_name, class: "usa-input", required: true, **error_options(@kit_request, :first_name) %>
+          <%= accessible_errors(@kit_request, :first_name) %>
+          
           <%= form.label :last_name, class: "usa-label" do %>
-          <%= t('activerecord.attributes.last_name') %>
+            <%= t('activerecord.attributes.last_name') %>
             <span class="text-magenta">*</span>
           <% end %>
-          <%= form.text_field :last_name, class: "usa-input", required: true %>
+          <%= form.text_field :last_name, class: "usa-input", required: true,  **error_options(@kit_request, :last_name) %>
+          <%= accessible_errors(@kit_request, :last_name) %>
         <% end %>
 
-        <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.shipping_heading'), :error_id => 'address-err-cntr' } do %>
+        <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.shipping_heading'), :error_id => accessible_error_id(@kit_request, :mailing_address) } do %>
           <p class="font-body-xs">
             <%= t('kit_requests.new.shipping_html') %>
           </p>
 
-          <div id="address-err-cntr" class="error-message" tabindex="-1" hidden></div>
+          <%= accessible_errors(@kit_request, :mailing_address, class: "error-message", tabindex: "-1") %>
 
           <%= form.label :mailing_address_1, class: "usa-label" do %>
             <%= t('activerecord.attributes.mailing_address_1') %>
             <span class="text-magenta">*</span>
           <% end %>
-          <%= form.text_field :mailing_address_1, class: "usa-input", required: true %>
+          <%= form.text_field :mailing_address_1, class: "usa-input", required: true, **error_options(@kit_request, :mailing_address_1) %>
+          <%= accessible_errors(@kit_request, :mailing_address_1) %>
 
           <%= form.label :mailing_address_2, t('activerecord.attributes.mailing_address_2'), class: "usa-label" %>
           <%= form.text_field :mailing_address_2, class: "usa-input" %>
@@ -59,7 +49,8 @@
           <%= t('activerecord.attributes.city') %>
             <span class="text-magenta">*</span>
           <% end %>
-          <%= form.text_field :city, class: "usa-input", required: true %>
+          <%= form.text_field :city, class: "usa-input", required: true, **error_options(@kit_request, :city) %>
+          <%= accessible_errors(@kit_request, :city) %>
 
           <%= form.label :state, class: "usa-label" do %>
           <%= t('activerecord.attributes.state') %>
@@ -74,7 +65,8 @@
           <%= t('activerecord.attributes.zip_code') %>
             <span class="text-magenta">*</span>
           <% end %>
-          <%= form.text_field :zip_code, class: "usa-input usa-input--medium", data: {'bouncer-is-valid-zip': true}, required: true %>
+          <%= form.text_field :zip_code, class: "usa-input usa-input--medium", data: {'bouncer-is-valid-zip': true}, required: true, **error_options(@kit_request, :zip_code) %>
+          <%= accessible_errors(@kit_request, :zip_code) %>
         <% end %>
 
         <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.tracking_heading') } do %>
@@ -90,7 +82,8 @@
               <span class="text-magenta">*</span>
             <% end %>
           <% end %>
-          <%= form.email_field :email, class: "usa-input", required: UsStreetAddressValidator.smarty_disabled? ? true : false %>
+          <%= form.email_field :email, class: "usa-input", required: UsStreetAddressValidator.smarty_disabled? ? true : false, **error_options(@kit_request, :email) %>
+          <%= accessible_errors(@kit_request, :email) %>
         <% end %>
       </div>
 
