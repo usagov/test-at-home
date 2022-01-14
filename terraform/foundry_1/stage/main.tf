@@ -1,6 +1,6 @@
 locals {
   cf_org_name      = "gsa-tts-test-kits"
-  cf_space_name    = "tah-stage"
+  cf_space_name    = "staging"
   env              = "stage"
   recursive_delete = true
 }

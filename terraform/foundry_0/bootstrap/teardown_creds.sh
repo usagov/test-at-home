@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cf target -s tah-prod
+cf target -s prod
 
 # destroy service key
 cf delete-service-key config-bootstrap-deployer space-deployer-key -f

@@ -26,7 +26,7 @@ variable "cf_org_name" {
 
 variable "cf_space_name" {
   type        = string
-  description = "cloud.gov space name (tah-<env>)"
+  description = "cloud.gov space name (staging or prod)"
 }
 
 variable "recursive_delete" {

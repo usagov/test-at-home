@@ -6,7 +6,7 @@ module "s3" {
   cf_user         = var.cf_user
   cf_password     = var.cf_password
   cf_org_name     = "gsa-tts-test-kits"
-  cf_space_name   = "tah-prod"
+  cf_space_name   = "prod"
   s3_service_name = "tah-shared-config"
   s3_plan_name    = "basic"
 }
