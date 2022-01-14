@@ -15,6 +15,9 @@ case $1 in
   3)
     hostname="api.fr.wc.cloud.gov"
     ;;
+  4)
+    hostname="api.fr.eb.cloud.gov"
+    ;;
   *)
     hostname="api.fr.cloud.gov"
     ;;
