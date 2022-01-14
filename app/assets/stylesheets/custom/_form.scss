@@ -8,6 +8,16 @@
   }
 }
 
+.autocomplete__menu {
+  padding-left: 0 !important;
+
+  li {
+    font-size: inherit !important;
+    line-height: inherit !important;
+    margin: 0 !important;
+  }
+}
+
 .error {
   border: 2px solid $color-magenta;
 }

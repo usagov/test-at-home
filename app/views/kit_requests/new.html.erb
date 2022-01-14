@@ -19,7 +19,7 @@
           <% end %>
           <%= form.text_field :first_name, class: "usa-input", required: true, **error_options(@kit_request, :first_name) %>
           <%= accessible_errors(@kit_request, :first_name) %>
-          
+
           <%= form.label :last_name, class: "usa-label" do %>
             <%= t('activerecord.attributes.last_name') %>
             <span class="text-magenta">*</span>
@@ -33,17 +33,23 @@
             <%= t('kit_requests.new.shipping_html') %>
           </p>
 
-          <%= accessible_errors(@kit_request, :mailing_address, class: "error-message", tabindex: "-1") %>
+          <div id="address-simple-cntr" hidden>
+            <label for="address-autocomplete">Address</label>
+            <div id="address-autocomplete"></div>
+          </div>
 
-          <%= form.label :mailing_address_1, class: "usa-label" do %>
-            <%= t('activerecord.attributes.mailing_address_1') %>
-            <span class="text-magenta">*</span>
-          <% end %>
-          <%= form.text_field :mailing_address_1, class: "usa-input", required: true, **error_options(@kit_request, :mailing_address_1) %>
-          <%= accessible_errors(@kit_request, :mailing_address_1) %>
+          <div id="address-full-cntr">
+            <%= accessible_errors(@kit_request, :mailing_address, class: "error-message", tabindex: "-1") %>
 
-          <%= form.label :mailing_address_2, t('activerecord.attributes.mailing_address_2'), class: "usa-label" %>
-          <%= form.text_field :mailing_address_2, class: "usa-input" %>
+            <%= form.label :mailing_address_1, class: "usa-label" do %>
+              <%= t('activerecord.attributes.mailing_address_1') %>
+              <span class="text-magenta">*</span>
+            <% end %>
+            <%= form.text_field :mailing_address_1, class: "usa-input", required: true, **error_options(@kit_request, :mailing_address_1) %>
+            <%= accessible_errors(@kit_request, :mailing_address_1) %>
+
+            <%= form.label :mailing_address_2, t('activerecord.attributes.mailing_address_2'), class: "usa-label" %>
+            <%= form.text_field :mailing_address_2, class: "usa-input" %>
 
           <%= form.label :city, class: "usa-label" do %>
           <%= t('activerecord.attributes.city') %>
@@ -52,14 +58,14 @@
           <%= form.text_field :city, class: "usa-input", required: true, **error_options(@kit_request, :city) %>
           <%= accessible_errors(@kit_request, :city) %>
 
-          <%= form.label :state, class: "usa-label" do %>
-          <%= t('activerecord.attributes.state') %>
-            <span class="text-magenta">*</span>
-          <% end %>
-          <div class="usa-combo-box" data-bouncer-target="#error-state">
-            <%= form.select :state, options_for_select(us_states), {}, { class: 'usa-select', required: true } %>
-          </div>
-          <div id="error-state"></div>
+            <%= form.label :state, class: "usa-label" do %>
+            <%= t('activerecord.attributes.state') %>
+              <span class="text-magenta">*</span>
+            <% end %>
+            <div class="usa-combo-box" data-bouncer-target="#error-state">
+              <%= form.select :state, options_for_select(us_states), {}, { class: 'usa-select', required: true } %>
+            </div>
+            <div id="error-state"></div>
 
           <%= form.label :zip_code, class: "usa-label" do %>
           <%= t('activerecord.attributes.zip_code') %>
@@ -77,7 +83,7 @@
             <% end %>
           </p>
           <%= form.label :email, class: "usa-label" do %>
-            <%= t('activerecord.attributes.email') %> 
+            <%= t('activerecord.attributes.email') %>
             <% if UsStreetAddressValidator.smarty_disabled? %>
               <span class="text-magenta">*</span>
             <% end %>
