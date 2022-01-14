@@ -10,15 +10,29 @@ es:
       mailing_address_2: Dirección 2
       state: Estado / Territorio
       zip_code: Código postal
+    errors:
+      messages:
+        address_incorrect: USPS no puede entregar en esta dirección
+        address_not_found: No reconocemos esta dirección
+        blank: Por favor, rellene este campo
+        invalid_email: Por favor, escriba el correo electrónico en el formato nombre@ejemplo.com
+  errors:
+    format: "%{message}"
   js:
+    empty: No se ha proporcionado la información
     invalid:
+      address_incorrect: USPS no puede entregar en esta dirección
+      address_not_found: No reconocemos esta dirección
       email: Por favor, escriba el correo electrónico en el formato nombre@ejemplo.com
+      missing_default: Por favor, rellene este campo
+      missing_select: Por favor, seleccione el valor
       zip_code: Por favor, escriba un código postal válido
     review: Revise su orden
     submit: Haga su pedido
   kit_requests:
     confirmation:
       about:
+        alt: Hisopos de pruebas de COVID-19
         body_html: |
           <ul>
             <li>Se pueden hacer en cualquier lugar</li>
@@ -27,6 +41,7 @@ es:
             <li>Funcionan independientemente de que esté vacunado</li>
             <li>También se denominan pruebas caseras (“self-tests”) o pruebas de venta libre (“over-the-counter”)</li>
           </ul>
+        heading: Sobre las pruebas caseras de COVID-19
         sub_heading: 'Las pruebas caseras:'
       body_html: |
         <p>
@@ -44,6 +59,7 @@ es:
         heading: Una vez que obtenga pruebas
         sub_heading: 'Hágase una prueba casera:'
       other:
+        alt: Niño pequeño con mascarilla usando desinfectante de manos
         body_html: |
           <ul>
             <li>Ponerse al día con sus vacunas de COVID-19. Visite <a class="usa-link usa-link--external" href="https://vacunas.gov" rel="noopener">vacunas.gov</a> para encontrar una vacuna o una dosis de refuerzo cerca de usted.</li>
@@ -53,12 +69,14 @@ es:
         heading: Vacunación, uso de mascarillas y distanciamiento social
         sub_heading: 'Las pruebas son solo una medida que puede tomar para protegerse a sí mismo, a sus amigos y a su familia. Se les recomienda a todas las personas:'
       resources:
+        alt: Adulto que recibe una prueba de COVID-19
         body_html: |
           <ul>
             <li><a href="https://www.hhs.gov/coronavirus/community-based-testing-sites/index.html" rel="noopener">Recursos de ayuda en su estado (en inglés)</a></li>
             <li><a href="https://doineedacovid19test.com/" rel="noreferrer noopener">Farmacias locales (en inglés)</a></li>
             <li><a href="https://www.cms.gov/how-to-get-your-at-home-OTC-COVID-19-test-for-free" rel="noopener">Programa de reembolso del seguro médico (en inglés)</a></li>
           </ul>
+        heading: Otros recursos sobre pruebas de COVID-19
         sub_heading: 'Las pruebas de COVID-19 gratuitas también están disponibles a través de:'
       sub_heading: Qué puede esperar a continuación
       title: Gracias, su pedido ha sido completado.
@@ -106,10 +124,8 @@ es:
       us_flag: Bandera de Estados Unidos
     footer:
       links:
+        covid: Juntos sí podemos
+        hhs: Departamento de Salud y Servicios humanos de EE. UU.
     header:
-      primary: Primary navigation
-    languages:
-      en: English
-      es: Español
-      zh: 中文
+      primary: Navegacion primaria
     skip_link: Salte al contenido principal
