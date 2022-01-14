@@ -109,6 +109,7 @@ zh:
       review:
         contact_heading: 联系信息
         edit: 编辑
+        please_confirm: 请确认您的收货信息正确无误。
         ship_to: 收件人
         title: 查看您的订单
         tracking_to: 将订单追踪编号发送至：

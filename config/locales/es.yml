@@ -102,6 +102,7 @@ es:
       review:
         contact_heading: Información de contacto
         edit: Edición
+        please_confirm: Por favor, confirme que su información esté correcta.
         ship_to: Enviar a
         title: Revise su orden
         tracking_to: 'Enviar información de rastreo a:'
