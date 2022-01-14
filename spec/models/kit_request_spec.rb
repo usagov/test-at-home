@@ -83,11 +83,15 @@ RSpec.describe KitRequest, type: :model do
           allow(UsStreetAddressValidator).to receive(:new).and_raise(UsStreetAddressValidator::ServiceIssueError)
         end
 
-        it "skips validation" do
-          kr = FactoryBot.build(:kit_request)
-          kr.valid?
+        it "requires additional address fields" do
+          expect(FactoryBot.build(:kit_request, :smarty_streets_disabled, mailing_address_1: "")).not_to be_valid
+          expect(FactoryBot.build(:kit_request, :smarty_streets_disabled, city: "")).not_to be_valid
+          expect(FactoryBot.build(:kit_request, :smarty_streets_disabled, state: "")).not_to be_valid
+          expect(FactoryBot.build(:kit_request, :smarty_streets_disabled, zip_code: "")).not_to be_valid
+        end
 
-          expect(kr).to be_valid
+        it "can be valid with address fields supplied (doesn't require email)" do
+          expect(FactoryBot.build(:kit_request, :smarty_streets_disabled, email: "")).to be_valid
         end
 
         it "keeps address_validated as false" do
