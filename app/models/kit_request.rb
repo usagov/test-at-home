@@ -4,8 +4,10 @@ class KitRequest < ApplicationRecord
   validates_presence_of :first_name, :last_name
   validates :email, email: {message: I18n.t("activerecord.errors.messages.invalid_email")}, allow_blank: true
 
-  validates_presence_of :mailing_address_1, :city, :state, :zip_code, :email, if: -> { UsStreetAddressValidator.smarty_disabled? }
+  # Ordering is important here, since we need first validation to run before others
   validate :valid_mailing_address, unless: -> { UsStreetAddressValidator.smarty_disabled? }
+  validates_presence_of :mailing_address_1, :city, :state, :zip_code, if: :address_validation_service_errored
+  validates_presence_of :mailing_address_1, :city, :state, :zip_code, :email, if: -> { UsStreetAddressValidator.smarty_disabled? }
 
   after_validation :store_smarty_response
 
@@ -17,6 +19,7 @@ class KitRequest < ApplicationRecord
     begin
       validation_results = UsStreetAddressValidator.new(self).run
     rescue UsStreetAddressValidator::ServiceIssueError
+      @address_validation_service_errored = true
       return true
     end
 
@@ -42,4 +45,8 @@ class KitRequest < ApplicationRecord
   def store_smarty_response
     self.smarty_response = @smarty_response_json
   end
+
+  private
+
+  attr_reader :address_validation_service_errored
 end
