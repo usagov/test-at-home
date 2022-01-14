@@ -26,7 +26,12 @@ variable "cf_org_name" {
 
 variable "cf_space_name" {
   type        = string
-  description = "cloud.gov space name (staging or prod)"
+  description = "cloud.gov space name (tah-<env>)"
+}
+
+variable "env" {
+  type        = string
+  description = "deployment environment in shortened form (stage, prod)"
 }
 
 variable "recursive_delete" {
@@ -35,12 +40,23 @@ variable "recursive_delete" {
   default     = false
 }
 
-variable "s3_service_name" {
+variable "cdn_plan_name" {
   type        = string
-  description = "name for the cloud.gov managed service"
+  description = "name of the service plan name to create"
+  default     = "domain"
 }
 
-variable "s3_plan_name" {
+variable "global_domain_name" {
   type        = string
-  description = "name of the service plan to create"
+  description = "DNS name users will be accessing site"
+}
+
+variable "regional_route_name" {
+  type        = string
+  description = "DNS name directing traffic from to each region"
+}
+
+variable "foundation_domain_name" {
+  type        = string
+  description = "routable DNS name for this foundation"
 }
