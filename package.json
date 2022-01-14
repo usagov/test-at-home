@@ -3,6 +3,7 @@
   "private": "true",
   "dependencies": {
     "@csstools/postcss-sass": "https://github.com/sinankeskin/postcss-sass",
+    "accessible-autocomplete": "^2.0.3",
     "autoprefixer": "^10.4.1",
     "dotenv-webpack": "^7.0.3",
     "formbouncerjs": "^1.4.6",

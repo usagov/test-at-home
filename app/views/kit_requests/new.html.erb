@@ -43,38 +43,10 @@
           <p class="font-body-xs">
             <%= t('kit_requests.new.shipping_html') %>
           </p>
-
-          <div id="address-err-cntr" class="error-message" tabindex="-1" hidden></div>
-
-          <%= form.label :mailing_address_1, class: "usa-label" do %>
-            <%= t('activerecord.attributes.mailing_address_1') %>
-            <span class="text-magenta">*</span>
+          <%= form.label :address, class: "usa-label" do %>
+            Address<span class="text-magenta">*</span>
           <% end %>
-          <%= form.text_field :mailing_address_1, class: "usa-input", required: true %>
-
-          <%= form.label :mailing_address_2, t('activerecord.attributes.mailing_address_2'), class: "usa-label" %>
-          <%= form.text_field :mailing_address_2, class: "usa-input" %>
-
-          <%= form.label :city, class: "usa-label" do %>
-          <%= t('activerecord.attributes.city') %>
-            <span class="text-magenta">*</span>
-          <% end %>
-          <%= form.text_field :city, class: "usa-input", required: true %>
-
-          <%= form.label :state, class: "usa-label" do %>
-          <%= t('activerecord.attributes.state') %>
-            <span class="text-magenta">*</span>
-          <% end %>
-          <div class="usa-combo-box" data-bouncer-target="#error-state">
-            <%= form.select :state, options_for_select(us_states), {}, { class: 'usa-select', required: true } %>
-          </div>
-          <div id="error-state"></div>
-
-          <%= form.label :zip_code, class: "usa-label" do %>
-          <%= t('activerecord.attributes.zip_code') %>
-            <span class="text-magenta">*</span>
-          <% end %>
-          <%= form.text_field :zip_code, class: "usa-input usa-input--medium", data: {'bouncer-is-valid-zip': true}, required: true %>
+          <div id="address-cntr"></div>
         <% end %>
 
         <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.tracking_heading') } do %>
@@ -85,7 +57,7 @@
             <% end %>
           </p>
           <%= form.label :email, class: "usa-label" do %>
-            <%= t('activerecord.attributes.email') %> 
+            <%= t('activerecord.attributes.email') %>
             <% if UsStreetAddressValidator.smarty_disabled? %>
               <span class="text-magenta">*</span>
             <% end %>

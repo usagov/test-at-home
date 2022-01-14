@@ -2,6 +2,7 @@
 import "uswds";
 import i18n from "i18n-js";
 
+import "./helpers/addressAutocomplete";
 import { validateAddress } from "./helpers/addressValidation";
 import { validateForm } from "./helpers/formValidation";
 
