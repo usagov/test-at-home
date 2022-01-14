@@ -12,6 +12,7 @@ if [[ $# -eq 0 ]]; then
 fi
 
 export RAILS_ENV=ci
+export DISABlE_SMARTY_STREETS=true
 
 # ensure assets are properly compiled for CI environment
 bundle exec rake assets:clobber
