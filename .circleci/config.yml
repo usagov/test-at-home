@@ -226,7 +226,7 @@ jobs:
                   CF_USER: a14eb22f-a73b-4cdc-afbd-e3198203b95d
                   CF_PASSWORD_NAME: CF_FOUNDRY_0_STAGE_PASS
                   CF_ORG: tts-usps-test-at-home
-                  CF_SPACE: tah-stage
+                  CF_SPACE: staging
                   VARS_FILE: config/deployment/stage-small.yml
                   RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: false
@@ -238,7 +238,7 @@ jobs:
                   CF_USER: 3a12ee9a-6986-4947-8611-9176f99a6181
                   CF_PASSWORD_NAME: CF_FOUNDRY_1_STAGE_PASS
                   CF_ORG: gsa-tts-test-kits
-                  CF_SPACE: tah-stage
+                  CF_SPACE: staging
                   VARS_FILE: config/deployment/stage.yml
                   RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: true

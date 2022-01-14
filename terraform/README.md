@@ -14,7 +14,7 @@ The below steps rely on you first configuring access to the Terraform state in s
     # select the desired cloud.gov org and environment space
 
     # create a space deployer service instance that can log in with just a username and password
-    # the value of < SPACE-NAME > should be `tah-stage` or `tah-prod` depending on where you are working
+    # the value of < SPACE-NAME > should be `staging` or `prod` depending on where you are working
     # the value for < SERVICE-NAME > can be anything, although we recommend
     # something that communicates the purpose of the deployer
     # for example: circleci-deployer for the credentials CircleCI uses to
@@ -89,7 +89,7 @@ In the environment-specific modules:
 
 In the bootstrap module:
 - `providers.tf` lists the required providers
-- `main.tf` sets up s3 bucket to be shared across all environments. It lives in `tah-prod` to communicate that it should not be deleted
+- `main.tf` sets up s3 bucket to be shared across all environments. It lives in `prod` to communicate that it should not be deleted
 - `variables.tf` lists the variables that will be needed. Most values are hard-coded in this module
 - `run.sh` Helper script to set up a space deployer and run terraform. The terraform action (`show`/`plan`/`apply`/`destroy`) is passed as an argument
 - `teardown_creds.sh` Helper script to remove the space deployer setup as part of `run.sh`
