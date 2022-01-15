@@ -35,6 +35,7 @@ module "domain" {
   env                    = local.env
   recursive_delete       = local.recursive_delete
   global_domain_name     = "staging-covidtest.usa.gov"
-  regional_route_name    = "route.staging-covidtest.usa.gov"
+  origin_domain_name     = "route.staging-covidtest.usa.gov"
+  regional_domain_name   = "west.staging-covidtest.usa.gov"
   foundation_domain_name = "westb.staging-covidtest.usa.gov"
 }

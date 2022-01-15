@@ -51,9 +51,14 @@ variable "global_domain_name" {
   description = "DNS name users will be accessing site"
 }
 
-variable "regional_route_name" {
+variable "origin_domain_name" {
   type        = string
   description = "DNS name directing traffic from to each region"
+}
+
+variable "regional_domain_name" {
+  type        = string
+  description = "DNS name splitting traffic among a single region"
 }
 
 variable "foundation_domain_name" {
