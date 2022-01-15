@@ -88,17 +88,17 @@ es:
         heading: Si el resultado de su prueba es <strong>positivo</strong>
     new:
       body_html: |
-        <p class="usa-intro">Complete este formulario para solicitar que se le envíe a su dirección un kit con pruebas caseras gratuitas.</p>
-        <p class="text-bold margin-bottom-4">Las órdenes incluirán 4 pruebas de antígeno individuales, que se enviarán a partir de finales de enero.</p>
+        <p class="usa-intro margin-bottom-4">Complete este formulario para solicitar que se le envíe a su dirección un kit con pruebas caseras gratuitas.</p>
+        <p class="text-bold margin-bottom-4 bullet">Las órdenes incluirán 4 pruebas de antígeno individuales, que se enviarán a partir de finales de enero.</p>
       contact_heading: Información de contacto
       contact_html: Datos de contacto de la persona que recibe el pedido. <span class="text-magenta">*</span><span class="text-italic">Elementos obligatorios</span>
       email_optional: Este paso es opcional, pero sin un correo electrónico no podemos ofrecerle el rastreo de su pedido.
       privacy:
         heading: Política de privacidad
         html: |
-          <p class="font-body-xs">USA.gov le pide su nombre y dirección para que el Servicio Postal de EE.UU. (USPS, sigla en inglés) pueda enviarle gratuitamente cuatro pruebas caseras de COVID-19. Si da una dirección de correo electrónico, USPS le enviará un correo electrónico que incluye un número para rastrear el envío. Esta recopilación de información está autorizada por la Ley de Gobierno Electrónico de 2002 (Pub. L. 107–347, 44 USC 3501 nota).</p>
-          <p class="font-body-xs">Si no proporciona un nombre y una dirección USPS no le podrá enviar las pruebas caseras de COVID-19. Usted no está obligado a proporcionar su dirección de correo electrónico; sin embargo, no proporcionarlo impedirá que USPS le envíe por correo electrónico información sobre el envío.</p>
-          <p class="font-body-xs">ALa información que proporcione al realizar su pedido se compartirá con USPS y también puede ser divulgada como se describe en el <a href="https://www.federalregister.gov/documents/2016/07/18/2016-16868/privacy-act-of-1974-notice-of-an-updated-system-of-records">Aviso del Sistema de Registros de la Ley de Privacidad (en inglés)</a>.</p>
+          <p class="font-body-2xs">USA.gov le pide su nombre y dirección para que el Servicio Postal de EE.UU. (USPS, sigla en inglés) pueda enviarle gratuitamente cuatro pruebas caseras de COVID-19. Si da una dirección de correo electrónico, USPS le enviará un correo electrónico que incluye un número para rastrear el envío. Esta recopilación de información está autorizada por la Ley de Gobierno Electrónico de 2002 (Pub. L. 107–347, 44 USC 3501 nota).</p>
+          <p class="font-body-2xs">Si no proporciona un nombre y una dirección USPS no le podrá enviar las pruebas caseras de COVID-19. Usted no está obligado a proporcionar su dirección de correo electrónico; sin embargo, no proporcionarlo impedirá que USPS le envíe por correo electrónico información sobre el envío.</p>
+          <p class="font-body-2xs">ALa información que proporcione al realizar su pedido se compartirá con USPS y también puede ser divulgada como se describe en el <a href="https://www.federalregister.gov/documents/2016/07/18/2016-16868/privacy-act-of-1974-notice-of-an-updated-system-of-records">Aviso del Sistema de Registros de la Ley de Privacidad (en inglés)</a>.</p>
       review:
         edit: Edición
         please_confirm: Por favor, confirme que su información esté correcta.

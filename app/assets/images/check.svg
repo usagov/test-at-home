@@ -7,13 +7,13 @@
     <g id="Draft-3---English" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Confirmation-alt-Copy" transform="translate(-28.000000, -196.000000)">
             <g id="Group-3" transform="translate(29.000000, 197.000000)">
-                <circle id="Oval" stroke="#FFFFFF" stroke-width="2" cx="11" cy="11" r="11"></circle>
+                <circle id="Oval" stroke="#8BE0F6" stroke-width="2" cx="11" cy="11" r="11"></circle>
                 <g id="Icons/checkmark" transform="translate(5.823529, 7.117647)">
                     <mask id="mask-2" fill="white">
                         <use xlink:href="#path-1"></use>
                     </mask>
-                    <use id="color" fill="#0E4C73" xlink:href="#path-1"></use>
-                    <g id="fill" mask="url(#mask-2)" fill="#FFFFFF">
+                    <use id="color" fill="#8BE0F6" xlink:href="#path-1"></use>
+                    <g id="fill" mask="url(#mask-2)" fill="#8BE0F6">
                         <g transform="translate(-3.384615, -5.047059)" id="Rectangle">
                             <polygon points="0 0 18.6153846 0 18.6153846 17.6647059 0 17.6647059"></polygon>
                         </g>

@@ -90,21 +90,21 @@ zh:
         heading: 如果您的检测结果为<strong>阳性</strong>
     new:
       body_html: |
-        <p class="usa-intro">请填写此表格申请免费邮寄上门的家用COVID-19检测试剂。此套检测试剂将包括 4 份独立包装的快速抗原检测试剂。</p>
-        <p class="text-bold margin-bottom-4">检测试剂将在一月下旬发货。</p>
+        <p class="usa-intro margin-bottom-4">请填写此表格申请免费邮寄上门的家用COVID-19检测试剂。此套检测试剂将包括 4 份独立包装的快速抗原检测试剂。</p>
+        <p class="text-bold margin-bottom-4 bullet">检测试剂将在一月下旬发货。</p>
       contact_heading: 联系信息
       contact_html: 收件人的联系信息。<span class="text-magenta">*</span><span class="text-italic">必填项</span>
       email_optional: 这一步是可选的，但如果没有电子邮件地址，我们将无法提供相关信息跟订单追踪。
       privacy:
         heading: 隐私声明
         html: |
-          <p class="font-body-xs">
+          <p class="font-body-2xs">
             usa.gov 需获知您的姓名和地址，以便通过美国邮政服务 (“USPS”) 免费向您邮寄 4 份家用快速 COVID 检测试剂。如果您提供电子邮件地址，USPS 将向您发送一封包含您订单追踪编号的电子邮件。此信息收集由 2002 年《电子政务法》（44 U.S.C. § 3501）授权。
           </p>
-          <p class="font-body-xs">
+          <p class="font-body-2xs">
             您无需提供您的姓名和地址；但是，如您拒绝提供此信息，USPS 无法向您邮寄 COVID 检测试剂。您也无需提供您的电子邮件地址；但是，如您拒绝提供电子邮件地址，USPS 无法向您发送发货信息。
           </p>
-          <p class="font-body-xs">
+          <p class="font-body-2xs">
             您在下单时提供的所有信息都将与 USPS 共享，并且还可能按照已发布的 <a href="https://www.federalregister.gov/documents/2016/07/18/2016-16868/privacy-act-of-1974-notice-of-an-updated-system-of-records">《隐私法记录系统通知》</a> 中的说明进行披露。
           </p>
       review:

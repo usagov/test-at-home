@@ -63,7 +63,7 @@ The following palettes will be added to
 ----------------------------------------
 */
 
-$global-color-palettes: ("palette-color-default");
+$global-color-palettes: ();
 
 /*
 ----------------------------------------
@@ -72,7 +72,7 @@ Settings
 */
 
 $add-aspect-settings: (
-  output: true,
+  output: false,
   responsive: false,
   active: false,
   focus: false,
@@ -81,7 +81,7 @@ $add-aspect-settings: (
 );
 
 $add-list-reset-settings: (
-  output: true,
+  output: false,
   responsive: false,
   active: false,
   focus: false,
@@ -99,7 +99,7 @@ $align-items-settings: (
 );
 
 $align-self-settings: (
-  output: true,
+  output: false,
   responsive: false,
   active: false,
   focus: false,
@@ -414,7 +414,7 @@ $opacity-settings: (
 );
 
 $order-settings: (
-  output: true,
+  output: false,
   responsive: true,
   active: false,
   focus: false,
@@ -459,7 +459,7 @@ $padding-settings: (
 );
 
 $pin-settings: (
-  output: true,
+  output: false,
   responsive: false,
   active: false,
   focus: false,
