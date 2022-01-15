@@ -1,5 +1,7 @@
+$color-gray: #d8d8d8;
 $color-light-gray: #f3f5f8;
 $color-light-magenta: #ffe5f3;
+$color-light-blue: #8be0f6;
 
 .bg {
   &-white {
@@ -17,11 +19,17 @@ $color-light-magenta: #ffe5f3;
   &-dark-blue {
     background-color: $color-dark-blue !important;
   }
+  &-gray {
+    background-color: $color-gray !important;
+  }
   &-light-gray {
     background-color: $color-light-gray !important;
   }
   &-light-magenta {
     background-color: $color-light-magenta !important;
+  }
+  &-light-blue {
+    background-color: $color-light-blue !important;
   }
 }
 
@@ -41,11 +49,17 @@ $color-light-magenta: #ffe5f3;
   &-dark-blue {
     border-color: $color-dark-blue !important;
   }
+  &-gray {
+    border-color: $color-gray !important;
+  }
   &-light-gray {
     border-color: $color-light-gray !important;
   }
   &-light-magenta {
     border-color: $color-light-magenta !important;
+  }
+  &-light-blue {
+    border-color: $color-light-blue !important;
   }
 }
 
@@ -65,11 +79,17 @@ $color-light-magenta: #ffe5f3;
   &-dark-blue {
     color: $color-dark-blue !important;
   }
+  &-gray {
+    color: $color-gray !important;
+  }
   &-light-gray {
     color: $color-light-gray !important;
   }
   &-light-magenta {
     color: $color-light-magenta !important;
+  }
+  &-light-blue {
+    color: $color-light-blue !important;
   }
 }
 
@@ -89,10 +109,16 @@ $color-light-magenta: #ffe5f3;
   &-dark-blue {
     outline-color: $color-dark-blue !important;
   }
+  &-gray {
+    outline-color: $color-gray !important;
+  }
   &-light-gray {
     outline-color: $color-light-gray !important;
   }
   &-light-magenta {
     outline-color: $color-light-magenta !important;
+  }
+  &-light-blue {
+    outline-color: $color-light-blue !important;
   }
 }

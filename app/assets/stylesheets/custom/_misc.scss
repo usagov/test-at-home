@@ -1,3 +1,18 @@
+.bullet {
+  align-items: center;
+  display: flex;
+
+  &::before {
+    background: $color-light-blue;
+    border-radius: 9999px;
+    content: "";
+    display: block;
+    height: 10px;
+    margin-right: units(1);
+    width: 10px;
+  }
+}
+
 .content-none {
   &::before,
   &::after {

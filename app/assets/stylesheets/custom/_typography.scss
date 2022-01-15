@@ -2,9 +2,11 @@ h1,
 .h1 {
   @include covidtest-font(24, 32);
 
-  @include at-media("desktop") {
-    @include covidtest-font(30);
+  @include at-media("tablet") {
+    @include covidtest-font(45, 54);
   }
+
+  outline: none !important;
 
   &::before {
     content: "";
@@ -12,36 +14,50 @@ h1,
     margin-bottom: units(2);
     height: 4px;
     width: 30px;
-    background: $color-magenta;
+    background: $color-light-blue;
   }
 }
 
 h2,
 .h2 {
-  font-weight: 400;
-  @include covidtest-font($font-size, $line-height);
+  @include covidtest-font(18, 32);
+
+  @include at-media("tablet") {
+    @include covidtest-font(22, 32);
+  }
+
+  border-bottom: 1px solid $color-gray;
+  margin: units(2) 0;
+}
+
+h3,
+.h3 {
+  font-weight: 400 !important;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+
+  @include covidtest-font(14, 32);
+
+  @include at-media("tablet") {
+    @include covidtest-font(16, 32);
+  }
 
   &::after {
     content: "";
     display: block;
-    margin-top: units(2);
     height: 4px;
     width: 30px;
     background: $color-magenta;
   }
 }
 
-h3,
-.h3 {
-  @include covidtest-font(18, 32);
-}
+legend {
+  @include covidtest-font(24, 32);
 
-h4,
-.h4 {
-  @include covidtest-font($font-size, $line-height);
-  border-bottom: 1px solid color("base-lightest");
-  margin: units(2) 0;
-  padding-bottom: units(1);
+  @include at-media("tablet") {
+    @include covidtest-font(32, 32);
+  }
+
+  font-weight: 700;
+  margin: 0;
 }
