@@ -16,6 +16,7 @@ es:
         address_not_found: No reconocemos esta dirección
         blank: Por favor, rellene este campo
         email_invalid: Por favor, escriba el correo electrónico en el formato nombre@ejemplo.com
+        email_too_long: Su correo electrónico no puede tener más de %{count} caracteres
   errors:
     format: "%{message}"
   js:
@@ -24,6 +25,7 @@ es:
       address_incorrect: USPS no puede entregar en esta dirección
       address_not_found: No reconocemos esta dirección
       email: Por favor, escriba el correo electrónico en el formato nombre@ejemplo.com
+      email_too_long: Su correo electrónico no puede tener más de 50 caracteres
       missing_default: Por favor, rellene este campo
       missing_select: Por favor, seleccione el valor
       zip_code: Por favor, escriba un código postal válido
