@@ -1,4 +1,6 @@
 class KitRequestsController < ApplicationController
+  caches_page :new
+
   def new
     @kit_request = KitRequest.new
   end

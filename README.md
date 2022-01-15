@@ -34,6 +34,8 @@ guide for an introduction to the framework.
 * Run the server: `./bin/dev`
 * Visit the site: http://localhost:3000
 
+In staging and production environments, we cache pages. To mimic this in development, you can toggle caching by running `bin/rails dev:cache`. Page caching is off by default.
+
 #### Local Configuration
 
 Environment variables can be set in development using the [dotenv](https://github.com/bkeepers/dotenv) gem.
@@ -104,7 +106,6 @@ on a daily basis.
 
 
 ### Deployment
-
 
 Each environment has dependencies on a PostgreSQL RDS instance managed by cloud.gov.
 See [cloud.gov docs](https://cloud.gov/docs/services/relational-database/) for information on RDS.
