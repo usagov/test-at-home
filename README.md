@@ -34,6 +34,15 @@ guide for an introduction to the framework.
 * Run the server: `./bin/dev`
 * Visit the site: http://localhost:3000
 
+For performance, we cache the root page using the `Cache-Control` header. By default, the form should be cached for:
+
+| env | max cache age |
+| --- | ------------- |
+| dev/test/ci | 10 seconds |
+| stage-small | 1 minute |
+| stage | 10 minutes |
+| prod | 1 hour |
+
 #### Local Configuration
 
 Environment variables can be set in development using the [dotenv](https://github.com/bkeepers/dotenv) gem.
@@ -104,7 +113,6 @@ on a daily basis.
 
 
 ### Deployment
-
 
 Each environment has dependencies on a PostgreSQL RDS instance managed by cloud.gov.
 See [cloud.gov docs](https://cloud.gov/docs/services/relational-database/) for information on RDS.

@@ -2,6 +2,12 @@ require "rails_helper"
 require "selenium/webdriver"
 
 RSpec.describe "Person requests a test kit", type: :system do
+  around do |example|
+    ClimateControl.modify CACHE_FORM_AGE: "0" do
+      example.run
+    end
+  end
+
   let(:smarty_response) do
     # San Francisco DMV
     [

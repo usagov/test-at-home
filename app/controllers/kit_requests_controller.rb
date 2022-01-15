@@ -1,6 +1,7 @@
 class KitRequestsController < ApplicationController
   def new
     @kit_request = KitRequest.new
+    response.set_header("Cache-Control", "public, max-age=#{ENV["CACHE_FORM_AGE"]}")
   end
 
   def create
@@ -11,10 +12,6 @@ class KitRequestsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def error
-    raise StandardError
   end
 
   private
