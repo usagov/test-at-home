@@ -93,7 +93,7 @@ en:
     new:
       body_html: |
         <p class="usa-intro">
-          Fill in this form to request free at-home tests to be delivered to you. Orders will include 
+          Fill in this form to request free at-home tests to be delivered to you. Orders will include
           <strong>4 individual rapid antigen tests.</strong>
         </p>
         <p class="text-bold margin-bottom-4">The tests will ship late January.</p>
@@ -138,7 +138,7 @@ en:
         usps: USPS.com
     header:
       primary: Primary navigation
-      title: COVIDtest.gov
+      title: COVIDtests.gov
     languages:
       en: English
       es: Español
