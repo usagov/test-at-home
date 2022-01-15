@@ -100,6 +100,7 @@ en:
           '
         heading: What if you test <em>Positive?</em>
     new:
+      autocomplete_label: Address
       body_html: |
         <p class="usa-intro">Fill in this form to request a free at-home testing kit. Testing kits will include one set of 4 individual rapid antigen tests.</p>
         <p class="text-bold margin-bottom-4">Testing kits will ship late January.</p>

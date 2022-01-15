@@ -33,14 +33,14 @@
             <%= t('kit_requests.new.shipping_html') %>
           </p>
 
+          <%= accessible_errors(@kit_request, :mailing_address, class: "error-message", tabindex: "-1") %>
+
           <div id="address-simple-cntr" hidden>
-            <label for="address-autocomplete">Address</label>
+            <label for="address-autocomplete"><%= t('kit_requests.new.autocomplete_label') %></label>
             <div id="address-autocomplete"></div>
           </div>
 
           <div id="address-full-cntr">
-            <%= accessible_errors(@kit_request, :mailing_address, class: "error-message", tabindex: "-1") %>
-
             <%= form.label :mailing_address_1, class: "usa-label" do %>
               <%= t('activerecord.attributes.mailing_address_1') %>
               <span class="text-magenta">*</span>

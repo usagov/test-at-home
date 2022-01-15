@@ -67,19 +67,19 @@ const handleFormValidation = async ({ target }) => {
 
         isFormValid = false;
       }
+    } else {
+      values.forEach(
+        ([key, value]) =>
+          (getElement(key).innerHTML =
+            key === "kit_request[email]" && !value
+              ? `<span class="text-italic">${emptyText}</span>`
+              : value)
+      );
+
+      toggleContainer();
+
+      isFormValid = true;
     }
-
-    values.forEach(
-      ([key, value]) =>
-        (getElement(key).innerHTML =
-          key === "kit_request[email]" && !value
-            ? `<span class="text-italic">${emptyText}</span>`
-            : value)
-    );
-
-    toggleContainer();
-
-    isFormValid = true;
   } else {
     isFormValid = false;
   }
