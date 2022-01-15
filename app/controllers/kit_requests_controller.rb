@@ -13,9 +13,6 @@ class KitRequestsController < ApplicationController
     end
   end
 
-  def confirmation
-  end
-
   def error
     raise StandardError
   end
