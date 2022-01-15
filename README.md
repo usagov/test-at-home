@@ -121,13 +121,13 @@ See [cloud.gov docs](https://cloud.gov/docs/services/relational-database/) for i
 
 First time only: create DB service with `cf create-service aws-rds micro-psql test_at_home-rds-stage`
 
-`cf push --strategy rolling --vars-file config/deployment/stage.yml --var rails_master_key=$(cat config/master.key)`
+`cf push --strategy rolling --vars-file config/deployment/stage.yml --var rails_master_key=$(cat config/credentials/production.key)`
 
 #### Production
 
 First time only: create DB service with `cf create-service aws-rds <<SERVICE_PLAN_NAME>> test_at_home-rds-prod`
 
-`cf push --strategy rolling --vars-file config/deployment/prod.yml --var rails_master_key=$(cat config/master.key)`
+`cf push --strategy rolling --vars-file config/deployment/prod.yml --var prod_rails_master_key=$(cat config/master.key)`
 
 ### Configuring ENV variables in cloud.gov
 

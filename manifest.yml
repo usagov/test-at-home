@@ -10,6 +10,7 @@ applications:
     RAILS_SERVE_STATIC_FILES: true
     RAILS_LOG_TO_STDOUT: true
     NEW_RELIC_LOG: stdout
+    CACHE_CONFIRMATION: true
     CACHE_FORM_AGE: ((cache_form_age))
     DISABLE_SMARTY_STREETS: ((disable_smarty_streets))
     SMARTY_STREETS_EMBEDDED_KEY: ((smarty_streets_public_key))
