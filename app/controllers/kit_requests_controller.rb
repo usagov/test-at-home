@@ -18,10 +18,6 @@ class KitRequestsController < ApplicationController
   def confirmation
   end
 
-  def error
-    raise StandardError
-  end
-
   private
 
   def kit_request_params
