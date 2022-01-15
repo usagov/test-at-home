@@ -43,7 +43,6 @@ gem "smartystreets_ruby_sdk", "~> 5.14"
 gem "valid_email", "~> 0.1"
 
 gem "newrelic_rpm", "~> 8.3"
-gem "actionpack-page_caching", "~> 1.2"
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]

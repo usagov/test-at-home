@@ -34,7 +34,14 @@ guide for an introduction to the framework.
 * Run the server: `./bin/dev`
 * Visit the site: http://localhost:3000
 
-In staging and production environments, we cache pages. To mimic this in development, you can toggle caching by running `bin/rails dev:cache`. Page caching is off by default.
+For performance, we cache the root page using the `Cache-Control` header. By default, the form should be cached for:
+
+| env | max cache age |
+| --- | ------------- |
+| dev/test/ci | 10 seconds |
+| stage-small | 1 minute |
+| stage | 10 minutes |
+| prod | 1 hour |
 
 #### Local Configuration
 

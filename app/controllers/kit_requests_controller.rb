@@ -1,8 +1,7 @@
 class KitRequestsController < ApplicationController
-  caches_page :new
-
   def new
     @kit_request = KitRequest.new
+    response.set_header("Cache-Control", "public, max-age=#{ENV["CACHE_FORM_AGE"]}")
   end
 
   def create

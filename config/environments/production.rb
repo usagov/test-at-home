@@ -76,7 +76,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  # Enable page caching
-  config.action_controller.perform_caching = true
 end
