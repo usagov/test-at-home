@@ -108,7 +108,6 @@ zh:
             您在下单时提供的所有信息都将与 USPS 共享，并且还可能按照已发布的 <a href="https://www.federalregister.gov/documents/2016/07/18/2016-16868/privacy-act-of-1974-notice-of-an-updated-system-of-records">《隐私法记录系统通知》</a> 中的说明进行披露。
           </p>
       review:
-        contact_heading: 联系信息
         edit: 编辑
         please_confirm: 请确认您的收货信息正确无误。
         ship_to: 收件人
@@ -117,7 +116,7 @@ zh:
       shipping_heading: 发货信息
       shipping_html: <span class="text-magenta">*</span><span class="text-italic">必填项</span>
       submit: 下订单
-      title: 免费预订一套家用COVID-19检测试剂。
+      title_html: 免费预订一套家用COVID-19检测试剂。
       tracking: 如果想接收您的检测试剂订单状态更新消息，请提供电子邮件地址。
       tracking_heading: 订单跟踪
   shared:
