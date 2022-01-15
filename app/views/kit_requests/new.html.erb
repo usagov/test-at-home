@@ -88,7 +88,7 @@
               <span class="text-magenta">*</span>
             <% end %>
           <% end %>
-          <%= form.email_field :email, class: "usa-input", required: UsStreetAddressValidator.smarty_disabled? ? true : false, **error_options(@kit_request, :email) %>
+          <%= form.email_field :email, class: "usa-input", data: {'bouncer-email-length': true}, required: UsStreetAddressValidator.smarty_disabled? ? true : false, **error_options(@kit_request, :email) %>
           <%= accessible_errors(@kit_request, :email) %>
         <% end %>
       </div>

@@ -15,7 +15,7 @@ es:
         address_incorrect: USPS no puede entregar en esta dirección
         address_not_found: No reconocemos esta dirección
         blank: Por favor, rellene este campo
-        invalid_email: Por favor, escriba el correo electrónico en el formato nombre@ejemplo.com
+        email_invalid: Por favor, escriba el correo electrónico en el formato nombre@ejemplo.com
   errors:
     format: "%{message}"
   js:
