@@ -16,6 +16,21 @@ class KitRequestsController < ApplicationController
 
   private
 
+  def render_confirmation
+    filename = Rails.root.join("tmp/cache/confirmation_#{I18n.locale}.html")
+    if File.exist?(filename)
+      render file: filename, layout: false
+    else
+      html = render_to_string :confirmation
+      if ENV["CACHE_CONFIRMATION"] == "true"
+        File.open(filename, "wb") do |file|
+          file << html
+        end
+      end
+      render html: html
+    end
+  end
+
   def kit_request_params
     params.require(:kit_request).permit(
       :first_name,
