@@ -2,36 +2,72 @@
 import "uswds";
 import i18n from "i18n-js";
 
-import { validateAddress } from "./helpers/addressValidation";
-import { validateForm } from "./helpers/formValidation";
+import { autocomplete } from "./helpers/addressAutocomplete";
+import { verifyAddress } from "./helpers/addressVerification";
+import { validate } from "./helpers/validate";
 
 // DOM elements
 const form = document.getElementById("form");
-const submitButton = document.getElementById("submit-btn");
 const formContainer = document.getElementById("form-cntr");
+
+const addressAutocomplete = document.getElementById("address-autocomplete");
+const addressErrorContainer = document.getElementById(
+  "kit_request_mailing_address_error"
+); // Generated from Rails
+const addressFullContainer = document.getElementById("address-full-cntr");
+const addressSimpleContainer = document.getElementById("address-simple-cntr");
+
 const reviewContainer = document.getElementById("review-cntr");
 const privacyContainer = document.getElementById("privacy-cntr");
-const editButton = document.getElementById("edit-btn");
-const addressErrorContainer = document.getElementById("kit_request_mailing_address_error"); // Generated from Rails
 
-// i18n strings
+const editButton = document.getElementById("edit-btn");
+const submitButton = document.getElementById("submit-btn");
+
+// I18n strings
 const reviewText = I18n.t("js.review");
 const submitText = I18n.t("js.submit");
 const emptyText = I18n.t("js.empty");
 
+// Initial form state
 let isFormValid = false;
 
-const handleFormValidation = async e => {
-  if (validateForm.validateAll(e.target)) {
-    const values = Object.entries(getFormValues(e.target));
-    const address = getAddressValues(values);
-    const res = await validateAddress(address);
+const clearValues = () => {
+  addressFullContainer
+    .querySelectorAll("input")
+    .forEach(input => (input.value = ""));
+};
 
-    if (res.status === "valid") {
-      addressErrorContainer.setAttribute("hidden", "");
+const handleFormValidation = async ({ target }) => {
+  if (validate.validateAll(target)) {
+    const values = Object.entries(getFormValues(target));
 
-      toggleContainer();
+    // If DISABLE_SMARTY_STREETS=true, skip address verification
+    if (process.env.DISABLE_SMARTY_STREETS !== "true") {
+      const address = getAddressValues(values);
+      const res = await verifyAddress(address);
 
+      if (res.status === "valid") {
+        addressErrorContainer.setAttribute("hidden", "");
+
+        toggleContainer();
+
+        values.forEach(
+          ([key, value]) =>
+            (getElement(key).innerHTML =
+              key === "kit_request[email]" && !value
+                ? `<span class="text-italic">${emptyText}</span>`
+                : value)
+        );
+
+        isFormValid = true;
+      } else {
+        addressErrorContainer.innerHTML = res.message;
+        addressErrorContainer.removeAttribute("hidden", "");
+        addressErrorContainer.focus();
+
+        isFormValid = false;
+      }
+    } else {
       values.forEach(
         ([key, value]) =>
           (getElement(key).innerHTML =
@@ -40,13 +76,9 @@ const handleFormValidation = async e => {
               : value)
       );
 
-      isFormValid = true;
-    } else {
-      addressErrorContainer.innerHTML = res.message;
-      addressErrorContainer.removeAttribute("hidden", "");
-      addressErrorContainer.focus();
+      toggleContainer();
 
-      isFormValid = false;
+      isFormValid = true;
     }
   } else {
     isFormValid = false;
@@ -60,18 +92,20 @@ const getAddressValues = values =>
     return accum;
   }, {});
 
-const getElement = key => {
-  const id = getSanitizedKey(key);
-
-  return document.getElementById(`review-${id}`);
-};
+const getElement = key =>
+  document.getElementById(`review-${getSanitizedKey(key)}`);
 
 const getSanitizedKey = key => key.match(/\[(.*?)\]/)[1];
 
 const getFormValues = form => {
   const formData = new FormData(form);
   const entries = formData.entries();
-  const { authenticity_token, commit, ...data } = Object.fromEntries(entries);
+  const {
+    authenticity_token,
+    commit,
+    "input-autocomplete": autocomplete,
+    ...data
+  } = Object.fromEntries(entries);
 
   return data;
 };
@@ -86,13 +120,8 @@ const hideReview = () => {
   isFormValid = false;
 };
 
-const showReview = event => {
-  event.preventDefault();
-
-  if (isFormValid) event.target.submit();
-
-  handleFormValidation(event);
-};
+const showReview = event =>
+  isFormValid ? event.target.submit() : handleFormValidation(event);
 
 const toggleContainer = () => {
   // Scroll page to top to emulate page refresh
@@ -118,16 +147,22 @@ const toggleContainer = () => {
   }
 };
 
-// Check if JavaScript is enabled and form is present on page
-if (window.uswdsPresent && form) {
+if (form) {
+  // Set up user interface
+  submitButton.value = reviewText;
+  privacyContainer.setAttribute("hidden", "");
+
+  // If DISABLE_SMARTY_STREETS_AUTOCOMPLETE=true, remove autocomplete
+  if (process.env.DISABLE_SMARTY_STREETS_AUTOCOMPLETE !== "true") {
+    addressFullContainer.setAttribute("hidden", "");
+    addressSimpleContainer.removeAttribute("hidden", "");
+    addressAutocomplete.addEventListener("input", clearValues, false);
+  } else {
+    addressAutocomplete.remove();
+  }
+
   // Detect a successful form validation
   form.addEventListener("bouncerFormValid", showReview, false);
-
-  // Update value of submit button to reflect review step
-  submitButton.value = reviewText;
-
-  // Hide privacy notice until review step
-  privacyContainer.setAttribute("hidden", "");
 
   // Add listener to edit button
   editButton.addEventListener("click", hideReview, false);
