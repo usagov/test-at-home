@@ -86,7 +86,7 @@ RSpec.describe "Person requests a test kit", type: :system do
         # Note: client-side address validations are currently silently failing in JS spec
         click_on "Review your order"
 
-        expect(page).to have_content("Contact information")
+        expect(page).to have_content("Ship to")
         expect(page).to have_content("1234 Fake St")
         expect(page).to have_content("Apt 2")
         expect(page).to have_content("Lima, OH 12345")
