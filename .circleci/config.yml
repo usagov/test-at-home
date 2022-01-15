@@ -242,6 +242,30 @@ jobs:
                   VARS_FILE: config/deployment/stage.yml
                   RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "true"
+            - run:
+                name: Deploy to foundry 2 staging
+                command: ./bin/cf-deploy
+                environment:
+                  CF_FOUNDRY_API: api.fr.wc.cloud.gov
+                  CF_USER: 9a110e9c-e42a-47b2-b281-9672fc8bcf79
+                  CF_PASSWORD_NAME: CF_FOUNDRY_2_STAGE_PASS
+                  CF_ORG: gsa-tts-test-kits
+                  CF_SPACE: staging
+                  VARS_FILE: config/deployment/stage.yml
+                  RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
+                  DISABLE_SMARTY_STREETS: "true"
+            - run:
+                name: Deploy to foundry 4 staging
+                command: ./bin/cf-deploy
+                environment:
+                  CF_FOUNDRY_API: api.fr.eb.cloud.gov
+                  CF_USER: 0c1293e1-b167-49b3-9b5a-29878e2af429
+                  CF_PASSWORD_NAME: CF_FOUNDRY_4_STAGE_PASS
+                  CF_ORG: gsa-tts-test-kits
+                  CF_SPACE: staging
+                  VARS_FILE: config/deployment/stage.yml
+                  RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
+                  DISABLE_SMARTY_STREETS: "true"
 
 workflows:
   version: 2.1
