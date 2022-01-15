@@ -16,7 +16,7 @@ class UsStreetAddressValidator
     credentials = SmartyStreets::StaticCredentials.new(auth_id, auth_token)
 
     @client = SmartyStreets::ClientBuilder.new(credentials)
-      .with_licenses(["us-core-cloud"])
+      .with_licenses(["us-core-custom-enterprise-cloud"])
       .with_max_timeout(MAX_TIMEOUT)
       .retry_at_most(MAX_RETRY)
       .build_us_street_api_client

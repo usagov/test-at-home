@@ -11,7 +11,7 @@ const credentials = new SmartyStreetsCore.SharedCredentials(key);
 
 const clientBuilder = new SmartyStreetsCore.ClientBuilder(
   credentials
-).withLicenses(["us-core-cloud"]);
+).withLicenses(["us-core-custom-enterprise-cloud"]);
 
 const client = clientBuilder.buildUsStreetApiClient();
 
