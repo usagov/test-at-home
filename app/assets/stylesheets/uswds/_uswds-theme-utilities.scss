@@ -742,11 +742,17 @@ $line-height-manual-values: ();
 // .margin
 
 $margin-palettes: ("palette-margin-default");
-$margin-manual-values: ();
+$margin-manual-values: (
+  12: 100px
+);
 $margin-vertical-palettes: ("palette-margin-vertical-default");
-$margin-vertical-manual-values: ();
+$margin-vertical-manual-values: (
+  12: 100px
+);
 $margin-horizontal-palettes: ("palette-margin-horizontal-default");
-$margin-horizontal-manual-values: ();
+$margin-horizontal-manual-values: (
+  12: 100px
+);
 
 // .max-height
 
@@ -801,7 +807,9 @@ $overflow-manual-values: ();
 // .padding
 
 $padding-palettes: ("palette-padding-default");
-$padding-manual-values: ();
+$padding-manual-values: (
+  12: 100px
+);
 
 // .position
 

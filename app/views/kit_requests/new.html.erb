@@ -1,15 +1,20 @@
 <div class="bg-light-gray">
-  <div class="covidtest-container usa-section">
-    <%= form_with model: @kit_request, class: "usa-form usa-form--large", id: "form" do |form| %>
-      <div id="form-cntr">
-        <h1 tabindex="-1">
-          <%= t('kit_requests.new.title') %>
-        </h1>
+  <%= form_with model: @kit_request, class: "usa-form usa-form--large maxw-none", id: "form" do |form| %>
+    <div id="form-cntr">
+      <div class="bg-blue text-white">
+        <div class="covidtest-container usa-section padding-bottom-12">
+          <div class="maxw-tablet">
+            <h1 tabindex="-1">
+              <%= t('kit_requests.new.title_html') %>
+            </h1>
 
-        <%= t('kit_requests.new.body_html') %>
-
+            <%= t('kit_requests.new.body_html') %>
+          </div>
+        </div>
+      </div>
+      <div class="covidtest-container usa-section maxw-tablet margin-x-auto margin-top-neg-15 padding-top-4 padding-bottom-0">
         <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.contact_heading')} do %>
-          <p class="font-body-xs">
+          <p class="font-body-xs margin-top-0">
             <%= t('kit_requests.new.contact_html') %>
           </p>
 
@@ -29,7 +34,7 @@
         <% end %>
 
         <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.shipping_heading'), :error_id => accessible_error_id(@kit_request, :mailing_address) } do %>
-          <p class="font-body-xs">
+          <p class="font-body-xs margin-top-0">
             <%= t('kit_requests.new.shipping_html') %>
           </p>
 
@@ -76,7 +81,7 @@
         <% end %>
 
         <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.tracking_heading') } do %>
-          <p class="font-body-xs">
+          <p class="font-body-xs margin-top-0">
             <%= t('kit_requests.new.tracking') %>
             <% unless UsStreetAddressValidator.smarty_disabled? %>
               <span class="text-italic text-blue"> <%= t('kit_requests.new.email_optional') %></span>
@@ -92,12 +97,14 @@
           <%= accessible_errors(@kit_request, :email) %>
         <% end %>
       </div>
+    </div>
 
-      <%= render "application/review" %>
+    <%= render "application/review" %>
 
+    <div class="covidtest-container usa-section maxw-tablet margin-x-auto padding-top-0">
       <%= render "application/privacy" %>
 
       <%= form.submit t('kit_requests.new.submit'), class: "usa-button radius-pill font-ui-lg width-full margin-top-0", id:"submit-btn" %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>

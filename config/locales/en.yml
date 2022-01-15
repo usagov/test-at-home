@@ -21,7 +21,7 @@ en:
   js:
     autocomplete:
       are: are
-      assistive_hint: When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.
+      assistive_hint: When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.
       is: is
       no_results: No results found
       query_too_short: Type in %(minQueryLength) or more characters for results
@@ -51,7 +51,7 @@ en:
             <li>Are also referred to self-tests or over-the-counter (OTC) tests</li>
           </ul>
         heading: About At-Home COVID-19 Tests
-        sub_heading: 'At-home tests:'
+        sub_heading: "At-home tests:"
       body_html: |
         <p>
           You will receive a follow up confirmation email* from the US Postal Service (USPS) and another email with a tracking number when the tests ship. <span class="text-italic">*If you provided your email address.</span>
@@ -64,7 +64,7 @@ en:
             <li>When you’re going to gather with a group of people, especially those who are at risk of severe disease or may not be <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/stay-up-to-date.html" rel="noopener">up to date on their COVID-19 vaccines</a>.</li>
           </ul>
         heading: Once you receive your tests
-        sub_heading: 'Take an at-home test if you:'
+        sub_heading: "Take an at-home test if you:"
       other:
         alt: Mask-wearing young child using hand sanitizer
         body_html: |
@@ -74,9 +74,10 @@ en:
             <li>Maintain 6 feet of distance between people.</li>
           </ul>
         heading: Vaccination, Masking and Social Distancing
-        sub_heading: 'Testing is only one step you can take to protect yourself, friends, family, and others. Everyone is encouraged to:
+        sub_heading:
+          "Testing is only one step you can take to protect yourself, friends, family, and others. Everyone is encouraged to:
 
-          '
+          "
       resources:
         alt: Adult receiving a COVID-19 test
         body_html: |
@@ -86,27 +87,29 @@ en:
             <li><a href="https://www.cms.gov/how-to-get-your-at-home-OTC-COVID-19-test-for-free" rel="noopener">Insurance reimbursement program</a></li>
           </ul>
         heading: Other Testing Resources
-        sub_heading: 'Free COVID tests are also available through:'
+        sub_heading: "Free COVID tests are also available through:"
       sub_heading: What to expect next
       title: Thank you, your order has been placed.
       whatif_negative:
-        body_html: 'A <strong>negative</strong> at-home test result means that the test did not find the COVID-19 virus, and you may have a lower risk of spreading the disease to others. If you test negative, you should generally test again 2 to 3 days after the first test. Check your test kit’s instructions for specific next steps.</p> <p>For more information on what to do if you test negative, visit the <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">CDC Self-Testing webpage</a>.
+        body_html:
+          'A <strong>negative</strong> at-home test result means that the test did not find the COVID-19 virus, and you may have a lower risk of spreading the disease to others. If you test negative, you should generally test again 2 to 3 days after the first test. Check your test kit’s instructions for specific next steps.</p> <p>For more information on what to do if you test negative, visit the <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">CDC Self-Testing webpage</a>.
 
           '
         heading: What if you test <em>Negative?</em>
       whatif_positive:
-        body_html: 'A <strong>positive</strong> at-home test result means that the test found the COVID-19 virus, and you are very likely infected with COVID-19. If you test positive on your at-home test, follow the <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html" rel="noopener">latest CDC guidance for isolation</a>.
+        body_html:
+          'A <strong>positive</strong> at-home test result means that the test found the COVID-19 virus, and you are very likely infected with COVID-19. If you test positive on your at-home test, follow the <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html" rel="noopener">latest CDC guidance for isolation</a>.
 
           '
         heading: What if you test <em>Positive?</em>
     new:
       autocomplete_label: Address
       body_html: |
-        <p class="usa-intro">
-          Fill in this form to request free at-home tests to be delivered to you. Orders will include 
+        <p class="usa-intro margin-bottom-4">
+          Fill in this form to request free at-home tests to be delivered to you. Orders will include
           <strong>4 individual rapid antigen tests.</strong>
         </p>
-        <p class="text-bold margin-bottom-4">The tests will ship late January.</p>
+        <p class="text-bold margin-bottom-4 bullet">Testing kits will ship in late January.</p>
       contact_heading: Contact information
       contact_html: Contact information for the person receiving the order. <span class="text-magenta">*</span><span class="text-italic">Required</span>
       email_optional: This step is optional, but we will not be able to provide tracking without an email.
@@ -114,11 +117,10 @@ en:
       privacy:
         heading: Privacy Statement
         html: |
-          <p class="font-body-xs">usa.gov is asking for your name and address so that the United States Postal Service (“USPS”) can ship you four at-home rapid COVID tests for free. If you provide an email address, USPS will send you an email that includes a number to track shipment. This collection of information is authorized by the E-Government Act of 2002 (44 U.S.C. § 3501).</p>
-          <p class="font-body-xs">You are not required to provide your name and address; however, not providing it will prevent USPS from shipping COVID tests to you. You are not required to provide your email address; however, not providing it will prevent USPS from emailing you shipment information.</p>
-          <p class="font-body-xs">Any information you provide when placing your order will be shared with USPS and may also be disclosed as described in the published Privacy Act <a href="https://www.federalregister.gov/documents/2016/07/18/2016-16868/privacy-act-of-1974-notice-of-an-updated-system-of-records">System of Records Notice</a>.</p>
+          <p class="font-body-2xs">usa.gov is asking for your name and address so that the United States Postal Service (“USPS”) can ship you four at-home rapid COVID tests for free. If you provide an email address, USPS will send you an email that includes a number to track shipment. This collection of information is authorized by the E-Government Act of 2002 (44 U.S.C. § 3501).</p>
+          <p class="font-body-2xs">You are not required to provide your name and address; however, not providing it will prevent USPS from shipping COVID tests to you. You are not required to provide your email address; however, not providing it will prevent USPS from emailing you shipment information.</p>
+          <p class="font-body-2xs">Any information you provide when placing your order will be shared with USPS and may also be disclosed as described in the published Privacy Act <a href="https://www.federalregister.gov/documents/2016/07/18/2016-16868/privacy-act-of-1974-notice-of-an-updated-system-of-records">System of Records Notice</a>.</p>
       review:
-        contact_heading: Contact information
         edit: Edit
         please_confirm: Please confirm we have your delivery information correct.
         ship_to: Ship to
@@ -127,7 +129,7 @@ en:
       shipping_heading: Shipping address
       shipping_html: <span class="text-magenta">*</span><span class="text-italic">Required</span>
       submit: Place your order
-      title: Place your pre-order for free COVID-19 at-home test
+      title_html: Place your pre-order for <span class="text-light-blue">free COVID-19 at-home test</span>
       tracking: To receive updates on the status of your order from USPS, please provide an email address.
       tracking_heading: Order tracking
   shared:
@@ -148,7 +150,7 @@ en:
         usps: USPS.com
     header:
       primary: Primary navigation
-      title: COVIDtest.gov
+      title: COVIDtests.gov
     languages:
       en: English
       es: Español
