@@ -120,12 +120,4 @@ RSpec.describe "KitRequests", type: :request do
       end
     end
   end
-
-  describe "GET /kit_requests" do
-    it "renders a confirmation page" do
-      get "/kit_requests"
-      expect(response).to have_http_status(200)
-      expect(response).to render_template(:confirmation)
-    end
-  end
 end
