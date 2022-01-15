@@ -64,42 +64,44 @@ RSpec.describe "Person requests a test kit", type: :system do
     end
 
     it "can request test and edit kit" do
-      visit "/"
+      ClimateControl.modify DISABLE_SMARTY_STREETS_AUTOCOMPLETE: "true" do
+        visit "/"
 
-      fill_in "First name", with: "Kewpee"
-      fill_in "Last name", with: "Doll"
+        fill_in "First name", with: "Kewpee"
+        fill_in "Last name", with: "Doll"
 
-      fill_in "Mailing address 1", with: "1234 Fake St"
-      fill_in "Mailing address 2", with: "Apt 2"
-      fill_in "City", with: "Lima"
-      find(:xpath, "//button[contains(@aria-label, 'Toggle the dropdown list')]").click
-      find("li", text: "OH - Ohio").click
-      fill_in "Zip code", with: "12345"
+        fill_in "Mailing address 1", with: "1234 Fake St"
+        fill_in "Mailing address 2", with: "Apt 2"
+        fill_in "City", with: "Lima"
+        find(:xpath, "//button[contains(@aria-label, 'Toggle the dropdown list')]").click
+        find("li", text: "OH - Ohio").click
+        fill_in "Zip code", with: "12345"
 
-      # Note: client-side address validations are currently silently failing in JS spec
-      click_on "Review your order"
+        # Note: client-side address validations are currently silently failing in JS spec
+        click_on "Review your order"
 
-      expect(page).to have_content("Contact information")
-      expect(page).to have_content("1234 Fake St")
-      expect(page).to have_content("Apt 2")
-      expect(page).to have_content("Lima, OH 12345")
+        expect(page).to have_content("Contact information")
+        expect(page).to have_content("1234 Fake St")
+        expect(page).to have_content("Apt 2")
+        expect(page).to have_content("Lima, OH 12345")
 
-      click_on "Edit"
+        click_on "Edit"
 
-      fill_in "Email", with: "real@example.com"
+        fill_in "Email", with: "real@example.com"
 
-      click_on "Review your order"
+        click_on "Review your order"
 
-      expect(page).to have_content("real@example.com")
+        expect(page).to have_content("real@example.com")
 
-      click_on "Place your order"
+        click_on "Place your order"
 
-      expect(page).to have_content "Thank you, your order has been placed."
+        expect(page).to have_content "Thank you, your order has been placed."
+      end
     end
 
     context "when smarty streets disabled" do
       it "requires email" do
-        ClimateControl.modify DISABLE_SMARTY_STREETS: "true" do
+        ClimateControl.modify DISABLE_SMARTY_STREETS: "true", DISABLE_SMARTY_STREETS_AUTOCOMPLETE: "true" do
           visit "/"
 
           fill_in "First name", with: "Kewpee"

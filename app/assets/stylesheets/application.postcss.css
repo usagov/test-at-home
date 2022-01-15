@@ -2,4 +2,4 @@
 /* KNOWN ISSUE: only changes to application.postcss.css will trigger an automatic rebuild */
 /* restart your server or run `yarn build:css` when changing other files */
 
-@import "uswds/styles.scss";
+@import "./uswds/styles.scss";

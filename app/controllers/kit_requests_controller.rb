@@ -15,9 +15,6 @@ class KitRequestsController < ApplicationController
     end
   end
 
-  def confirmation
-  end
-
   private
 
   def kit_request_params

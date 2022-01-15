@@ -1,11 +1,7 @@
-import * as SmartyStreetsSDK from "smartystreets-javascript-sdk";
 import i18n from "i18n-js";
 
-// i18n strings
-const addressNotFound = I18n.t("js.invalid.address_not_found");
-const addressIncorrect = I18n.t(
-  "js.invalid.address_incorrect"
-);
+import * as SmartyStreetsSDK from "smartystreets-javascript-sdk";
+
 const SmartyStreetsCore = SmartyStreetsSDK.core;
 const Lookup = SmartyStreetsSDK.usStreet.Lookup;
 
@@ -13,11 +9,15 @@ const Lookup = SmartyStreetsSDK.usStreet.Lookup;
 const key = process.env.SMARTY_STREETS_EMBEDDED_KEY;
 const credentials = new SmartyStreetsCore.SharedCredentials(key);
 
-const clientBuilder = new SmartyStreetsCore.ClientBuilder(credentials)
-  .withBaseUrl("https://us-street.api.smartystreets.com/street-address")
-  .withLicenses(["us-core-cloud"]);
+const clientBuilder = new SmartyStreetsCore.ClientBuilder(
+  credentials
+).withLicenses(["us-core-cloud"]);
 
 const client = clientBuilder.buildUsStreetApiClient();
+
+// i18n strings
+const addressNotFound = I18n.t("js.invalid.address_not_found");
+const addressIncorrect = I18n.t("js.invalid.address_incorrect");
 
 function handleSuccess(response) {
   if (response.lookups[0].result.length) {
@@ -51,7 +51,7 @@ async function handleResponse(lookup) {
   }
 }
 
-const validateAddress = async address => {
+export const verifyAddress = async address => {
   // If DISABLE_SMARTY_STREETS=true, skip address validation
   if (process.env.DISABLE_SMARTY_STREETS === "true") return { status: "valid" };
 
@@ -67,5 +67,3 @@ const validateAddress = async address => {
 
   return await handleResponse(lookup);
 };
-
-export { validateAddress };
