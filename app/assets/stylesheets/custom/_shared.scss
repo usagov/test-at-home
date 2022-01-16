@@ -1,0 +1,412 @@
+/*
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+* * * * * ==============================
+========================================
+========================================
+========================================
+----------------------------------------
+USWDS THEME CUSTOM STYLES
+----------------------------------------
+!! Copy this file to your project's
+  sass root. Don't edit the version
+  in node_modules.
+----------------------------------------
+Custom project SASS goes here.
+
+i.e.
+@include u-padding-right('05');
+----------------------------------------
+*/
+$max-width: "desktop-lg";
+
+$font-family: "Noto Sans";
+$font-stack: #{$font-family}, sans;
+$font-size: 16;
+$line-height: 22;
+
+$color-white: #ffffff; // white on blue, magenta, or dark blue
+$color-blue: #0057b7; // blue on white
+$color-cyan: #00d1f0; // cyan on dark blue
+$color-magenta: #e01782; // magenta on white
+$color-dark-blue: #00426b; // dark blue on cyan or white
+
+@mixin covidtest-font($font-size-px, $line-height-px: false) {
+  font-size: px-to-rem($font-size-px);
+  @if $line-height-px {
+    line-height: divide($line-height-px, $font-size-px);
+  }
+}
+
+@mixin covidtest-font-base() {
+  font-family: $font-stack;
+  font-display: swap;
+  color: $color-dark-blue;
+  @include covidtest-font($font-size, $line-height);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.sr-only {
+  @include sr-only;
+}
+
+.covidtest-container {
+  @include u-padding-x($theme-site-margins-mobile-width);
+
+  @include at-media("desktop") {
+    @include u-padding-x($theme-site-margins-width);
+  }
+
+  @include at-media($max-width) {
+    @include grid-container($max-width);
+  }
+}
+
+a.covidtest-button {
+  &,
+  .covidtest-main & {
+    display: inline-block;
+    font-weight: 700;
+    background: $color-cyan;
+    border-radius: 90px;
+    padding: units("205") units(4);
+    text-align: center;
+
+    &,
+    &:visited {
+      color: #1b1b1b;
+      text-decoration: none;
+    }
+
+    &:focus,
+    &:hover {
+      color: #1b1b1b;
+      background: #28a0cb;
+    }
+  }
+}
+
+.covidtest-header {
+  @include covidtest-font-base;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+
+    @include u-padding-x($theme-site-margins-mobile-width);
+
+    @include at-media("desktop") {
+      @include u-padding-x($theme-site-margins-width);
+    }
+  }
+}
+
+.covidtest-logo {
+  @include at-media-max("tablet-lg") {
+    margin-top: px-to-rem(5);
+    margin-bottom: px-to-rem(5);
+  }
+
+  @include at-media("mobile-lg") {
+    @include covidtest-font(19);
+  }
+
+  @include at-media("tablet-lg") {
+    @include covidtest-font(37);
+  }
+
+  @include at-media("widescreen") {
+    margin-left: -98px; // Logo img width
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+    font-style: normal;
+    font-weight: 700;
+
+    img {
+      @include at-media-max("tablet-lg") {
+        max-width: 50px;
+        max-height: 50px;
+      }
+    }
+
+    a {
+      color: $color-blue;
+      text-decoration: none;
+      border-left: 1px solid rgb(165, 173, 179);
+      padding-left: units(1);
+
+      @include at-media("desktop") {
+        padding-left: units(2);
+      }
+    }
+  }
+}
+
+.covidtest-nav {
+  display: flex;
+  margin-left: units(2);
+
+  &__primary,
+  &__primary-mobile,
+  &__primary-submenu {
+    @include unstyled-list;
+  }
+  &__primary {
+    display: flex;
+    @include at-media-max("tablet-lg") {
+      display: none;
+    }
+
+    &-item {
+      button,
+      span,
+      a {
+        transition: color 0.2s ease;
+
+        &::before {
+          position: absolute;
+          content: "";
+          top: 0;
+          left: units(2);
+          right: units(2);
+          height: 4px;
+          background-color: transparent;
+        }
+      }
+
+      button,
+      span {
+        &::before {
+          background-color: $color-magenta;
+        }
+      }
+
+      a:focus,
+      a:hover {
+        color: $color-magenta;
+      }
+    }
+  }
+  &__primary-mobile {
+    display: flex;
+
+    &,
+    button {
+      @include covidtest-font-base(); // Override usa-accordion
+    }
+
+    @include at-media("tablet-lg") {
+      display: none;
+    }
+  }
+
+  &__primary-item,
+  &__primary-mobile-item,
+  &__primary-submenu-item {
+    button,
+    span,
+    a {
+      @include u-padding(1);
+      font-weight: 400;
+      text-decoration: none;
+      color: $color-dark-blue;
+    }
+  }
+  &__primary-item,
+  &__primary-mobile-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    @include u-padding-x(1);
+
+    button {
+      white-space: nowrap;
+
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: px-to-rem(8) px-to-rem(5) 0 px-to-rem(5);
+        border-color: transparent;
+        margin-left: units(0.5);
+        transition: transform 0.2s ease;
+      }
+
+      &,
+      &[aria-expanded="false"],
+      &[aria-expanded="false"]:hover {
+        background: transparent;
+        background-image: none;
+
+        span {
+          color: $color-dark-blue;
+        }
+
+        &::after {
+          border-top-color: $color-magenta;
+        }
+      }
+
+      &[aria-expanded="true"] {
+        background: $color-dark-blue;
+        background-image: none;
+
+        span {
+          color: $color-white;
+        }
+
+        &::after {
+          transform: rotate(-180deg);
+          border-top-color: $color-white;
+        }
+      }
+    }
+  }
+  &__primary-submenu {
+    position: absolute;
+    top: 50%;
+    right: units(1);
+    margin-top: px-to-rem(18);
+    @include u-padding(1);
+    min-width: 200%;
+    background: $color-dark-blue;
+    z-index: 10;
+
+    &-item {
+      a {
+        color: $color-white;
+        display: block;
+      }
+
+      a:focus,
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.covidtest-main {
+  @include covidtest-font-base;
+  border-top: 5px solid rgba(#eaf0f1, 0.72);
+
+  h1,
+  h2,
+  h3 {
+    font-weight: 700;
+    margin: units(2) 0;
+  }
+
+  // Desktop styles
+  p,
+  li {
+    @include covidtest-font(20, 27);
+    margin: units(2) 0;
+  }
+
+  ul {
+    padding-left: 1.1em;
+  }
+
+  a {
+    &,
+    &:visited {
+      position: relative;
+      color: $color-blue;
+      text-decoration: underline;
+      transition: all 0.2s ease;
+    }
+
+    &:focus,
+    &:hover {
+      color: $color-magenta;
+    }
+  }
+}
+
+.covidtest-footer {
+  @include covidtest-font-base;
+  padding-top: units(2);
+  padding-bottom: units(5);
+
+  @include at-media("tablet-lg") {
+    padding-bottom: units(10);
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+
+    @include at-media-max("tablet-lg") {
+      flex-direction: column;
+
+      > * + * {
+        margin-top: units(2);
+      }
+    }
+
+    @include at-media("tablet-lg") {
+      justify-content: space-between;
+    }
+  }
+
+  &__logos {
+    display: flex;
+    align-items: center;
+
+    > * + * {
+      margin-left: units(1);
+    }
+  }
+
+  &__logo {
+    &-link {
+      display: block;
+      text-decoration: none;
+
+      margin-left: units(2);
+      &:first-child {
+        margin-left: 0;
+      }
+
+      width: 75px;
+      &--hhs {
+        width: #{75px * 0.6};
+      }
+
+      @include at-media("tablet") {
+        width: 100px;
+        &--hhs {
+          width: #{100px * 0.6};
+        }
+      }
+
+      @include at-media("tablet-lg") {
+        margin-left: units(3);
+
+        width: 140px;
+        &--hhs {
+          width: #{140px * 0.6};
+        }
+      }
+    }
+    &-img {
+      display: block;
+      height: auto;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

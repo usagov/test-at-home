@@ -22,12 +22,11 @@ variable "cf_password" {
 variable "cf_org_name" {
   type        = string
   description = "cloud.gov organization name"
-  default     = "tts-usps-test-at-home"
 }
 
 variable "cf_space_name" {
   type        = string
-  description = "cloud.gov space name (tah-<env>)"
+  description = "cloud.gov space name (staging or prod)"
 }
 
 variable "env" {

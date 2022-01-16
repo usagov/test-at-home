@@ -1,4 +1,6 @@
 env: prod
 rails_env: production
-web_instances: 2
-web_memory: 512M
+web_instances: 20
+web_memory: 256M
+smarty_streets_public_key: 114809815293488434
+cache_form_age: 3600

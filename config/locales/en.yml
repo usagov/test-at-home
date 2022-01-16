@@ -1,110 +1,182 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
+---
 en:
-  shared:
-    languages:
-      language: Language
-      en: English
-    banner:
-      fake_site: A DEMO website of the United States government
-      gov_description_html:
-        A <strong>.gov</strong> website belongs to an official
-        government organization in the United States.
-      gov_heading: Official websites use .gov
-      how: Here’s how you know
-      official_site: An official website of the United States government
-      secure_description_html: A <strong>lock</strong> (%{lock_icon}) or
-        <strong>https://</strong> means you’ve safely connected to the .gov
-        website. Share sensitive information only on official, secure websites.
-      secure_heading: Secure .gov websites use HTTPS
-      lock: Lock
-      locked_padlock: A locked padlock
-      us_flag: U.S. Flag
-    header:
-      title: COVIDtest.gov
-      menu: Menu
-      primary: Primary navigation
-      close: Close
-    footer:
-      return_top: Return to top
-    skip_link: Skip to main content
   activerecord:
-    errors:
-      messages:
-        blank: can't be blank
     attributes:
+      city: City
+      email: Email address
       first_name: First name
       last_name: Last name
-      email: Email address
       mailing_address_1: Mailing address 1
       mailing_address_2: Mailing address 2
-      city: City
       state: State, Territory, Military Base
       zip_code: Zip code
+    errors:
+      messages:
+        address_incorrect: USPS cannot deliver to this address
+        address_not_found: We don’t recognize this address
+        blank: Please fill out this field
+        email_invalid: Please enter email in the format name@example.com
+        email_too_long: Please limit email to %{count} characters
+  errors:
+    format: "%{message}"
+  js:
+    autocomplete:
+      are: are
+      assistive_hint: When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.
+      is: is
+      no_results: No results found
+      query_too_short: Type in %(minQueryLength) or more characters for results
+      result: result
+      results: results
+      selected_option: "%(selectedOption) %(index) of %(length) is highlighted"
+    empty: Not provided
+    invalid:
+      address_incorrect: USPS cannot deliver to this address
+      address_not_found: We don’t recognize this address
+      email: Please enter email in the format name@example.com
+      email_too_long: Please limit email to 50 characters
+      missing_default: Please fill out this field
+      missing_select: Please select a value
+      zip_code: Please provide a valid zip code
+    review: Review your order
+    submit: Place your order
   kit_requests:
-    new:
-      title: Place your pre-order for free COVID-19 at-home test
-      body_html: >
-        <p class="usa-intro">Fill in this form to request a free at-home testing kit. Testing kits will include one set of 4 individual rapid antigen tests.</p>
+    confirmation:
+      about:
+        body_html: |
+          <ul>
+            <li>Are antigen tests, not PCR</li>
+            <li>Can be taken anywhere</li>
+            <li>Give results within 30 minutes (no lab drop-off required)</li>
+            <li>Work whether or not you have COVID-19 symptoms</li>
+            <li>Work whether or not you are up to date on your COVID-19 vaccines</li>
+            <li>Are also referred to self-tests or over-the-counter (OTC) tests</li>
+          </ul>
+        heading: About At-Home Tests
+      body_html: |
+        <p class="text-bold margin-top-0">Tests will be sent out in late January.</p>
+        <p class="margin-bottom-0">
+          You will receive <strong>4</strong> individual at-home antigen tests to the address you provided.
+        </p>
+      body_secondary_html: |
+        You will receive a follow up confirmation email* from the US Postal Service (USPS) and another email with a tracking number when the tests ship.<br /><span class="text-italic font-body-xs">*If you provided your email address.</span>
+      instructions:
+        body_html: |
+          <ul>
+            <li>If you begin having COVID-19 symptoms like a fever, sore throat, runny nose, fever, or loss of taste or smell, or</li>
+            <li>5 days after you come into close contact with someone with COVID-19, or</li>
+            <li>When you’re going to gather with a group of people, especially those who are at risk of severe disease or may not be <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/stay-up-to-date.html" rel="noopener">up to date on their COVID-19 vaccines</a>.</li>
+          </ul>
+        heading: Once you receive your tests
+        sub_heading: "Take an at-home test:"
+      resources:
+        alt: Mask-wearing young child using hand sanitizer
+        body_html: |
+          <ul>
+            <li><a href="https://www.hhs.gov/coronavirus/community-based-testing-sites/index.html" rel="noopener">State resources</a></li>
+            <li><a href="https://doineedacovid19test.com/" rel="noreferrer noopener">Local independent pharmacies</a></li>
+            <li><a href="https://www.cms.gov/how-to-get-your-at-home-OTC-COVID-19-test-for-free" rel="noopener">Insurance reimbursement program</a></li>
+          </ul>
+        heading: Other testing resources
+        sub_heading: "Free COVID tests are also available through:"
+      tests:
+        body_html: |
+          <p><strong>If you have more than four people in your household,</strong> prioritize administering tests to members who are unvaccinated, over age 65, or medical conditions that increase risk and currently have symptoms of COVID-19 or have come in close contact with someone with COVID-19.</p>
 
-        <p class="text-bold">Testing kits will ship late January.</p>
+          <p>For more information on who should get tested for COVID-19, visit <a href="https://www.cdc.gov/coronavirus/2019-ncov/testing/diagnostic-testing.html" rel="noopener">CDC’s Test for Current Infection resource</a>.</p>
+        heading: If you need more tests
+      other:
+        body_html: |
+          <h4>Everyone is encouraged to:</h4>
+          <ul>
+            <li>Get up to date with their COVID-19 vaccinations. Visit <a href="https://vaccines.gov" rel="noopener">vaccines.gov</a> to find a vaccine or booster near you.</li>
+            <li>Wear a well-fitted mask when gathering indoors.</li>
+            <li>Maintain 6 feet of distance between people.</li>
+          </ul>
+        heading: Vaccination, Masking and Social Distancing
+        sub_heading: "Testing is only one step you can take to protect yourself, friends, family, and others."
+      nav:
+        body_html: |
+          <ul class="add-list-reset">
+            <li><a href="#receive">Once you receive your tests</a>
+              <ul class="add-list-reset margin-left-4">
+                <li><a class="text-normal" href="#instructions">At-home tests</a></li>
+                <li><a class="text-normal" href="#tests">If you need more tests</a></li>
+              </ul>
+            </li>
+            <li><a href="#whatif_positive">If you test positive</a></li>
+            <li><a href="#whatif_negative">If you test negative</a></li>
+            <li><a href="#other">Other ways to stay safe</a></li>
+          </ul>
+        heading: COVID-19 testing advice and resources
+        sub_heading: On this page
+      sub_heading: What to expect next
+      title: Thank you, your order has been placed.
+      whatif_negative:
+        body_html: |
+          <p><strong>A negative at-home test result means that the test did not find the COVID-19 virus,</strong> and you may have a lower risk of spreading the disease to others. Check your test kit’s instructions for specific next steps.</p>
+
+          <p>If you test negative, you should <strong>test again within a few days</strong> with at least 24 hours between tests.</p>
+
+          <p>If you test negative, visit the <a class="text-white desktop:text-dark-blue" href="https://www.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">CDC Self-Testing webpage</a>.</p>
+        heading: If you test negative
+      whatif_positive:
+        body_html: |
+          <p><strong>A positive rapid at-home test result means that the test detected the COVID-19 virus,</strong> and you are very likely infected with COVID-19.</p>
+
+          <p>If you test positive on your at-home test, follow the <a class="text-white desktop:text-dark-blue" href="https://www.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html" rel="noopener">latest CDC guidance for isolation</a>.</p>
+        heading: If you test positive
+    new:
+      autocomplete_label: Address
+      body_html: |
+        <p class="margin-bottom-4">
+          Fill in this form to request free at-home tests to be delivered to you. Orders will include
+          <strong>4 individual rapid antigen tests.</strong>
+        </p>
+        <p class="text-bold margin-bottom-4 bullet">Testing kits will ship in late January.</p>
       contact_heading: Contact information
-      contact_html: >
-        Contact information for the person receiving the order.
-        <span class="text-secondary">*</span><span class="text-italic">Required</span>
-      shipping_heading: Shipping address
-      shipping_html: >
-        <span class="text-secondary">*</span><span class="text-italic">Required</span>
-      tracking_heading: Order tracking
-      tracking_html: >
-        To receive updates on the status of your order from USPS, please provide an email address. <span class="text-italic text-primary">This step is optional, but we will not be able to provide tracking without an email.</span>
-      error_header: "Couldn't process your request because of errors:"
-      submit: Place your order
-      review:
-        title: Review your order
-        contact_heading: Contact information
-        ship_to: Ship to
-        tracking_to: Send tracking to
+      contact_html: Contact information for the person receiving the order. <span class="text-magenta">*</span><span class="text-italic">Required</span>
+      email_optional: This step is optional, but we will not be able to provide tracking without an email.
+      error_header: Couldn't process your request because of errors
       privacy:
         heading: Privacy Statement
-        html: >
-          <p>usa.gov is asking for your name and address so that the United States Postal Service (“USPS”) can ship you four at-home rapid COVID tests for free. If you provide an email address, USPS will send you an email that includes a number to track shipment. This collection of information is authorized by the E-Government Act of 2002 (44 U.S.C. § 3501).</p>
-
-          <p>You are not required to provide your name and address; however, not providing it will prevent USPS from shipping COVID tests to you. You are not required to provide your email address; however, not providing it will prevent USPS from emailing you shipment information.</p>
-
-          <p>Any information you provide when placing your order will be shared with USPS and may also be disclosed as described in the published Privacy Act System of Records Notice, usa.gov.</p>
-      js:
-        review: Review your order
-        submit: Place your order
-        empty: Not provided
-    confirmation:
-      title: Thank you, your pre-order has been placed.
+        html: |
+          <p class="font-body-3xs">usa.gov is asking for your name and address so that the United States Postal Service (“USPS”) can ship you four at-home rapid COVID tests for free. If you provide an email address, USPS will send you an email that includes a number to track shipment. This collection of information is authorized by the E-Government Act of 2002 (44 U.S.C. § 3501).</p>
+          <p class="font-body-3xs">You are not required to provide your name and address; however, not providing it will prevent USPS from shipping COVID tests to you. You are not required to provide your email address; however, not providing it will prevent USPS from emailing you shipment information.</p>
+          <p class="font-body-3xs">Any information you provide when placing your order will be shared with USPS and may also be disclosed as described in the published Privacy Act <a href="https://www.federalregister.gov/documents/2016/07/18/2016-16868/privacy-act-of-1974-notice-of-an-updated-system-of-records">System of Records Notice</a>.</p>
+      review:
+        edit: Edit
+        please_confirm: Please confirm we have your delivery information correct.
+        ship_to: Ship to
+        title: Review your order
+        tracking_to: Send tracking to
+      shipping_heading: Shipping address
+      shipping_html: <span class="text-magenta">*</span><span class="text-italic">Required</span>
+      submit: Place your order
+      title_html: Place your pre-order for <span class="text-light-blue">free COVID-19 at-home test</span>
+      tracking: To receive updates on the status of your order from USPS, please provide an email address.
+      tracking_heading: Order tracking
+  shared:
+    banner:
+      gov_description_html: A <strong>.gov</strong> website belongs to an official government organization in the United States.
+      gov_heading: Official websites use .gov
+      how: Here’s how you know
+      lock: Lock
+      locked_padlock: A locked padlock
+      official_site: An official website of the United States government
+      secure_description_html: A <strong>lock</strong> (%{lock_icon}) or <strong>https://</strong> means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.
+      secure_heading: Secure .gov websites use HTTPS
+      us_flag: U.S. Flag
+    footer:
+      links:
+        covid: We Can Do This
+        hhs: U.S. Department of Health & Human Services
+        usps: United States Postal Service
+    header:
+      primary: Primary navigation
+      title: COVIDtests.gov
+    languages:
+      en: English
+      es: Español
+      zh: 中文
+    skip_link: Skip to main content

@@ -1,16 +1,15 @@
-<footer class="usa-footer usa-footer--slim">
-  <div class="grid-container usa-footer__return-to-top">
-    <a href="#"><%= t('shared.footer.return_top') %></a>
-  </div>
-  <div class="usa-footer__secondary-section bg-white">
-    <div class="grid-container">
-      <div class="usa-footer__logo grid-row grid-gap-2">
-        <div class="grid-col-auto">
-        </div>
-        <div class="grid-col-auto">
-          <p class="usa-footer__logo-heading"></p>
-        </div>
-      </div>
+<footer class="covidtest-footer padding-top-4 border-top border-gray">
+  <div class="covidtest-footer__container covidtest-container">
+    <div class="covidtest-footer__logos">
+      <a class="covidtest-footer__logo-link covidtest-footer__logo-link--hhs" href="https://www.hhs.gov/" rel="noopener">
+        <%= image_tag("covidtest/hhs-logo.png", alt: t('shared.footer.links.hhs'), width: "146", height: "151", loading: "lazy", class: "covidtest-footer__logo-img") %>
+      </a>
+      <a class="covidtest-footer__logo-link" href="https://wecandothis.hhs.gov/" rel="noopener">
+        <%= image_tag("covidtest/wecandothis-logo-#{I18n.locale || I18n.default_locale}.svg", alt: t('shared.footer.links.covid'), width: "155", height: "155", loading: "lazy", class: "covidtest-footer__logo-img") %>
+      </a>
+      <a class="covidtest-footer__logo-link" href="https://www.usps.com/" rel="noreferrer noopener">
+        <%= image_tag("covidtest/usps-logo.svg", alt: t('shared.footer.links.usps'), width: "288", height: "144", loading: "lazy", class: "covidtest-footer__logo-img") %>
+      </a>
     </div>
   </div>
 </footer>

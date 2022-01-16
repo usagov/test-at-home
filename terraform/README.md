@@ -9,13 +9,12 @@ The below steps rely on you first configuring access to the Terraform state in s
 1. Set up a service key
     ```bash
     # login to the appropriate foundry
-    # foundry_0 = api.fr.cloud.gov
-    cf login -a <FOUNDRY_API_URL> --sso
+    ./switch_foundation.sh <FOUNDRY_NUMBER>
     # follow temporary authorization code prompts
     # select the desired cloud.gov org and environment space
 
     # create a space deployer service instance that can log in with just a username and password
-    # the value of < SPACE-NAME > should be `tah-stage` or `tah-prod` depending on where you are working
+    # the value of < SPACE-NAME > should be `staging` or `prod` depending on where you are working
     # the value for < SERVICE-NAME > can be anything, although we recommend
     # something that communicates the purpose of the deployer
     # for example: circleci-deployer for the credentials CircleCI uses to
@@ -90,7 +89,7 @@ In the environment-specific modules:
 
 In the bootstrap module:
 - `providers.tf` lists the required providers
-- `main.tf` sets up s3 bucket to be shared across all environments. It lives in `tah-prod` to communicate that it should not be deleted
+- `main.tf` sets up s3 bucket to be shared across all environments. It lives in `prod` to communicate that it should not be deleted
 - `variables.tf` lists the variables that will be needed. Most values are hard-coded in this module
 - `run.sh` Helper script to set up a space deployer and run terraform. The terraform action (`show`/`plan`/`apply`/`destroy`) is passed as an argument
 - `teardown_creds.sh` Helper script to remove the space deployer setup as part of `run.sh`
@@ -102,13 +101,13 @@ The bootstrap module is used to create an s3 bucket for later terraform runs to 
 
 ### Retrieving existing bucket credentials
 
-1. login to the appropriate foundry with `cf login -a <FOUNDRY_API_HOSTNAME> --sso`
+1. login to the appropriate foundry with `./switch_foundation.sh <FOUNDRY_NUMBER>`
 1. Run `./run.sh show`
 1. Follow instructions under `Use bootstrap credentials`
 
 ### Bootstrapping the state storage s3 buckets
 
-1. login to the appropriate foundry with `cf login -a <FOUNDRY_API_HOSTNAME> --sso`
+1. login to the appropriate foundry with `./switch_foundation.sh <FOUNDRY_NUMBER>`
 1. Run `terraform init`
 1. Run `./run.sh plan` to verify that the changes are what you expect
 1. Run `./run.sh apply` to set up the bucket and retrieve credentials
@@ -118,7 +117,7 @@ The bootstrap module is used to create an s3 bucket for later terraform runs to 
 
 ### To make changes to the bootstrap module
 
-1. login to the appropriate foundry with `cf login -a <FOUNDRY_API_HOSTNAME> --sso`
+1. login to the appropriate foundry with `./switch_foundation.sh <FOUNDRY_NUMBER>`
 1. Run `terraform init`
 1. If you don't have terraform state locally:
   1. run `./import.sh`

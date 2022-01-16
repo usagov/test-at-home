@@ -1,0 +1,106 @@
+#!/bin/bash
+
+usage="
+$0: Revoke a role across a set of spaces in a set of target orgs.
+
+Usage:
+   cf-offboard -h
+   cf-offboard user [role [spaces [targets]]]
+
+Note that you must be an OrgManager in all of the target orgs
+
+Options:
+-h:      show help and exit
+user:    email address of the user
+role:    name of the role to revoke
+spaces:  comma-separated list of spaces where the role should be revoked
+targets: comma-separated list of targets where the role should be revoked
+
+If the environment variable DRYRUN is set, then commands will be echoed rather
+than invoked. For example:
+   DRYRUN=1 $0 someone somerole space1,space2,space3 target1,target2,target3
+"
+
+if [[ "$1" == "-h" ]]; then
+    echo "${usage}"
+    exit 1
+fi
+
+set -e
+set -o pipefail
+
+user=$1
+
+defaultrole="SpaceDeveloper"
+defaultspaces="management,prod,prod-egress,staging,dev"
+defaulttargets="tah-ea,tah-eb,tah-wa,tah-wb,tah-wc"
+
+if [ -z "${user}" ]; then
+    echo "ERROR: You must supply at least a username."
+    echo "${usage}"
+    exit 1;
+fi
+
+role=${2:-$defaultrole}
+spaces=${3:-$defaultspaces}
+targets=${4:-$defaulttargets}
+
+spacelist="${spaces//,/ }"
+targetlist="${targets//,/ }"
+
+# Check to see if they've already set up targets or not
+cf targets --help > /dev/null 2>&1 || 
+    ( echo "ERROR: cf targets plugin not installed!
+
+Install it with:
+    cf install-plugin Targets -r CF-Community
+" && exit 1 )
+
+# Check for all of the targets
+existingtargetlist=$(cf targets | cut -d ' ' -f 1)
+
+# diff --left-column <( echo $targetlist | sed "s/\ /\n/g" | sort ) <( echo $existingtargetlist | sed "s/\ /\n/g" | sort ) | grep '^<'
+difference=$(diff --left-column <( echo "$targetlist" | sed "s/\ /\n/g" | sort ) <( echo "$existingtargetlist" | sed "s/\ /\n/g" | sort ) | grep '^<' || true)
+
+if [ -n "${difference}" ]; then
+    echo "ERROR - These targets don't exist:"
+    echo "$difference"  
+
+    cat << EOF
+
+To set up a target:
+    cf api ENDPOINT; cf login --sso
+    cf t -o ORG
+    cf save-target TARGET
+EOF
+    exit 1
+fi
+
+# If DRYRUN is set
+if [ -n "${DRYRUN}" ]; then
+    # Just echo the commands, don't run them.
+    output="echo"
+fi
+
+function pushtarget() {
+    startingtarget=$1
+    cf save-target -f "$startingtarget" > /dev/null 2>&1 
+}
+
+function poptarget() {
+    cf set-target "$startingtarget"     > /dev/null 2>&1 
+    cf delete-target "$startingtarget"  > /dev/null 2>&1 
+}
+
+pushtarget $(uuidgen)
+trap poptarget exit
+
+for target in $targetlist ; do
+    cf set-target "$target"
+    org=$(cf target | grep org: | cut -d : -f 2 | sed s/\ //g)
+    for space in $spacelist ; do
+        $output cf unset-space-role "$user" "$org" "$space" "$role"
+    done
+done
+cf set-target "$startingtarget"     > /dev/null 2>&1 
+cf delete-target "$startingtarget"  > /dev/null 2>&1 

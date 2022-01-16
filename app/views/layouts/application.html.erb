@@ -1,29 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>TestAtHome</title>
+    <title><%= t('shared.header.title') %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <% if Rails.env.production? %>
+      <%= render "new_relic_js_production" %>
+    <% elsif Rails.env.staging? %>
+      <%= render "new_relic_js_staging" %>
+    <% end %>
+
     <%= stylesheet_link_tag "application" %>
+
     <%= javascript_include_tag "i18n" %>
     <%= javascript_include_tag "translations", skip_pipeline: true %>
+
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+    <!-- Favicons -->
+    <%= favicon_link_tag asset_path('favicon.ico') %>
+
+    <!-- Structured Data -->
+    <%= javascript_tag nonce: true, type: "application/ld+json" do %>
+      [
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name":"<%= t('shared.header.title') %>",
+          "url": "https://www.covidtests.gov/",
+          "logo": "https://www.covidtests.gov/favicon.ico",
+          "parentOrganization": [
+            {
+              "@type": "Organization",
+              "name": "U.S. Department of Health & Human Services",
+              "url": "https://www.hhs.gov/"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "<%= t('shared.header.title') %>",
+          "url": "https://www.covidtests.gov/"
+        }
+      ]
+    <% end %>
+
+    <!-- We participate in the US government's analytics program. See the data at analytics.usa.gov. -->
+    <% if Rails.env.production? %>
+      <%= javascript_include_tag "https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA", async: true, id:"_fed_an_ua_tag" %>
+    <% end %>
   </head>
 
-  <body class="bg-primary-lighter">
+  <body>
     <%= render "application/usa_banner" %>
     <%= render "application/header" %>
-    <main id="main-content" class="text-primary-dark">
-      <div class="grid-container usa-section">
-        <%= yield %>
-      </div>
+    <main id="main-content" class="covidtest-main font-noto-sans border-top-0">
+      <%= yield %>
     </main>
     <%= render "application/footer" %>
     <%= javascript_tag nonce: true do %>
-      I18n.defaultLocale = "<%= I18n.default_locale %>"
-      I18n.locale = "<%= I18n.locale || I18n.default_locale %>"
+      I18n.defaultLocale = "<%= I18n.default_locale %>";
+      I18n.locale = "<%= I18n.locale || I18n.default_locale %>";
     <% end %>
   </body>
 </html>

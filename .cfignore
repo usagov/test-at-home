@@ -4,8 +4,12 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+# Ignore .git
+.git
+
 # Ignore bundler config.
 /.bundle
+/vendor/bundle
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -35,3 +39,5 @@ spec/examples.txt
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
+
+/terraform

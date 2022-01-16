@@ -34,6 +34,15 @@ guide for an introduction to the framework.
 * Run the server: `./bin/dev`
 * Visit the site: http://localhost:3000
 
+For performance, we cache the root page using the `Cache-Control` header. By default, the form should be cached for:
+
+| env | max cache age |
+| --- | ------------- |
+| dev/test/ci | 10 seconds |
+| stage-small | 1 minute |
+| stage | 10 minutes |
+| prod | 1 hour |
+
 #### Local Configuration
 
 Environment variables can be set in development using the [dotenv](https://github.com/bkeepers/dotenv) gem.
@@ -59,6 +68,28 @@ configuration. Use `<%= javascript_tag nonce: true %>` for inline javascript.
 See the [CSP compliant script tag helpers](./doc/adr/0004-rails-csp-compliant-script-tag-helpers.md) ADR for
 more information on setting these up successfully.
 
+## Managing translation files
+
+We use the gem `i18n-tasks` to manage translation files. Here are a few common tasks:
+
+Add missing keys across locales:
+```
+$ i18n-tasks add-missing
+```
+
+Key sorting:
+```
+$ i18n-tasks normalize
+```
+
+Removing unused keys:
+```
+$ i18n-tasks unused
+$ i18n-tasks remove-unused
+```
+
+For more information on usage and helpful rake tasks to manage translation files, see [the documentation](https://github.com/glebm/i18n-tasks#usage).
+
 
 ### Testing
 
@@ -83,7 +114,6 @@ on a daily basis.
 
 ### Deployment
 
-
 Each environment has dependencies on a PostgreSQL RDS instance managed by cloud.gov.
 See [cloud.gov docs](https://cloud.gov/docs/services/relational-database/) for information on RDS.
 
@@ -91,13 +121,13 @@ See [cloud.gov docs](https://cloud.gov/docs/services/relational-database/) for i
 
 First time only: create DB service with `cf create-service aws-rds micro-psql test_at_home-rds-stage`
 
-`cf push --strategy rolling --vars-file config/deployment/stage.yml --var rails_master_key=$(cat config/master.key)`
+`cf push --strategy rolling --vars-file config/deployment/stage.yml --var rails_master_key=$(cat config/credentials/production.key)`
 
 #### Production
 
 First time only: create DB service with `cf create-service aws-rds <<SERVICE_PLAN_NAME>> test_at_home-rds-prod`
 
-`cf push --strategy rolling --vars-file config/deployment/prod.yml --var rails_master_key=$(cat config/master.key)`
+`cf push --strategy rolling --vars-file config/deployment/prod.yml --var prod_rails_master_key=$(cat config/master.key)`
 
 ### Configuring ENV variables in cloud.gov
 

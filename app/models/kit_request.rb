@@ -1,5 +1,54 @@
 class KitRequest < ApplicationRecord
-  encrypts :first_name, :last_name, :email, :mailing_address_1, :mailing_address_2
+  encrypts :first_name, :last_name, :email, :mailing_address_1, :mailing_address_2, :smarty_response
 
-  validates_presence_of :first_name, :last_name, :mailing_address_1, :state, :zip_code
+  validates_presence_of :first_name, :last_name
+  validates :email,
+    email: {message: I18n.t("activerecord.errors.messages.email_invalid")},
+    length: {maximum: 50, message: I18n.t("activerecord.errors.messages.email_too_long", count: 50)},
+    allow_blank: true
+
+  # Ordering is important here, since we need first validation to run before others
+  validates_presence_of :mailing_address_1, :city, :state, :zip_code
+  validate :valid_mailing_address, if: :require_smarty_validation?
+  validates_presence_of :email, if: -> { UsStreetAddressValidator.smarty_disabled? }
+
+  after_validation :store_smarty_response
+
+  attr_accessor :mailing_address, :js_smarty_status
+
+  private
+
+  def require_smarty_validation?
+    js_smarty_status != "pass" && !UsStreetAddressValidator.smarty_disabled? && errors.empty?
+  end
+
+  def valid_mailing_address
+    begin
+      validation_results = UsStreetAddressValidator.new(self).run
+    rescue UsStreetAddressValidator::ServiceIssueError
+      return true
+    end
+
+    # No matches
+    unless validation_results
+      errors.add :mailing_address, :address_not_found
+      return false
+    end
+
+    deliverable_results = validation_results.select { |result| UsStreetAddressValidator.deliverable?(result) }
+    # A deliverable match
+    if deliverable_results.any?
+      @smarty_response_json = deliverable_results.first.to_json
+      self.address_validated = true
+      true
+    # A match that is undeliverable (eg missing apartment number)
+    else
+      errors.add :mailing_address, :address_incorrect
+      false
+    end
+  end
+
+  def store_smarty_response
+    self.smarty_response = @smarty_response_json
+  end
 end

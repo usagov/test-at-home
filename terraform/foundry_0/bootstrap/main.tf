@@ -5,7 +5,8 @@ module "s3" {
   cf_api_url      = "https://api.fr.cloud.gov"
   cf_user         = var.cf_user
   cf_password     = var.cf_password
-  cf_space_name   = "tah-prod"
+  cf_org_name     = "tts-usps-test-at-home"
+  cf_space_name   = "prod"
   s3_service_name = "tah-shared-config"
   s3_plan_name    = "basic-sandbox"
 }

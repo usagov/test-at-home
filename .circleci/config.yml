@@ -14,6 +14,7 @@ jobs:
       - ruby/install-deps
       - node/install-packages:
           cache-only-lockfile: false
+          cache-version: v2
           pkg-manager: yarn
 
   test:
@@ -37,7 +38,10 @@ jobs:
       - ruby/install-deps
       - node/install-packages:
           cache-only-lockfile: false
+          cache-version: v2
           pkg-manager: yarn
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -83,6 +87,7 @@ jobs:
       - ruby/install-deps
       - node/install-packages:
           cache-only-lockfile: false
+          cache-version: v2
           pkg-manager: yarn
       - run:
           name: Bundle audit
@@ -104,7 +109,7 @@ jobs:
             - gems-v1-{{ checksum "Gemfile.lock"  }}-{{ .Branch }}
       - restore_cache:
           keys:
-            - node-deps-{{ arch }}-v1-{{ .Branch }}-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+            - node-deps-{{ arch }}-v2-{{ .Branch }}-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
 
       - run:
           name: Start up local server
@@ -141,6 +146,7 @@ jobs:
       - ruby/install-deps
       - node/install-packages:
           cache-only-lockfile: false
+          cache-version: v2
           pkg-manager: yarn
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
@@ -182,35 +188,228 @@ jobs:
           name: Run pa11y-ci
           command: yarn run pa11y-ci
 
-  deploy:
+  deploy_foundry_1:
     docker:
-      - image: cimg/node:16.13.1
+      - image: cimg/ruby:3.0.3-node
     steps:
       - checkout
       - when:
           condition:
-            and:
-              - equal: [<< pipeline.project.git_url >>, "https://github.com/usagov/test-at-home"]
+            or:
               - equal: [<< pipeline.git.branch >>, "main"]
+              - equal: [<< pipeline.git.branch >>, "production"]
           steps:
+            - ruby/install-deps
+            - run:
+                name: Vendor gems
+                command: bundle cache --all
             - node/install-packages:
                 cache-only-lockfile: false
+                cache-version: v2
                 pkg-manager: yarn
             - run:
                 name: Install Cloud Foundry CLI
                 command: |
                   curl -v -L -o cf-cli_amd64.deb 'https://packages.cloudfoundry.org/stable?release=debian64&version=v7&source=github'
                   sudo dpkg -i cf-cli_amd64.deb
+      - when:
+          condition:
+            and:
+              - equal: [<< pipeline.project.git_url >>, "https://github.com/usagov/test-at-home"]
+              - equal: [<< pipeline.git.branch >>, "main"]
+          steps:
             - run:
-                name: Deploy to staging
+                name: Deploy to foundry 1 staging
                 command: ./bin/cf-deploy
                 environment:
-                  CF_FOUNDRY_API: api.fr.cloud.gov
-                  CF_USER: a14eb22f-a73b-4cdc-afbd-e3198203b95d
-                  CF_PASSWORD_NAME: CF_FOUNDRY_0_STAGE_PASS
-                  CF_SPACE: tah-stage
+                  CF_FOUNDRY_API: api.fr.wb.cloud.gov
+                  CF_USER: 3a12ee9a-6986-4947-8611-9176f99a6181
+                  CF_PASSWORD_NAME: CF_FOUNDRY_1_STAGE_PASS
+                  CF_ORG: gsa-tts-test-kits
+                  CF_SPACE: staging
                   VARS_FILE: config/deployment/stage.yml
                   RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
+                  DISABLE_SMARTY_STREETS: "false"
+      - when:
+          condition:
+            and:
+              - equal: [<< pipeline.project.git_url >>, "https://github.com/usagov/test-at-home"]
+              - equal: [<< pipeline.git.branch >>, "production"]
+          steps:
+            - run:
+                name: Deploy to foundry 1 prod
+                command: ./bin/cf-deploy
+                environment:
+                  CF_FOUNDRY_API: api.fr.wb.cloud.gov
+                  CF_USER: b714c36d-f931-4b0c-bcfe-03eb27a1c58e
+                  CF_PASSWORD_NAME: CF_FOUNDRY_1_PROD_PASS
+                  CF_ORG: gsa-tts-test-kits
+                  CF_SPACE: prod
+                  VARS_FILE: config/deployment/prod.yml
+                  RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
+                  DISABLE_SMARTY_STREETS: "false"
+  deploy_foundry_2:
+    docker:
+      - image: cimg/ruby:3.0.3-node
+    steps:
+      - checkout
+      - when:
+          condition:
+            or:
+              - equal: [<< pipeline.git.branch >>, "main"]
+              - equal: [<< pipeline.git.branch >>, "production"]
+          steps:
+            - ruby/install-deps
+            - run:
+                name: Vendor gems
+                command: bundle cache --all
+            - node/install-packages:
+                cache-only-lockfile: false
+                cache-version: v2
+                pkg-manager: yarn
+            - run:
+                name: Install Cloud Foundry CLI
+                command: |
+                  curl -v -L -o cf-cli_amd64.deb 'https://packages.cloudfoundry.org/stable?release=debian64&version=v7&source=github'
+                  sudo dpkg -i cf-cli_amd64.deb
+      - when:
+          condition:
+            and:
+              - equal: [<< pipeline.project.git_url >>, "https://github.com/usagov/test-at-home"]
+              - equal: [<< pipeline.git.branch >>, "main"]
+          steps:
+            - run:
+                name: Deploy to foundry 2 staging
+                command: ./bin/cf-deploy
+                environment:
+                  CF_FOUNDRY_API: api.fr.wc.cloud.gov
+                  CF_USER: 9a110e9c-e42a-47b2-b281-9672fc8bcf79
+                  CF_PASSWORD_NAME: CF_FOUNDRY_2_STAGE_PASS
+                  CF_ORG: gsa-tts-test-kits
+                  CF_SPACE: staging
+                  VARS_FILE: config/deployment/stage.yml
+                  RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
+                  DISABLE_SMARTY_STREETS: "false"
+      - when:
+          condition:
+            and:
+              - equal: [<< pipeline.project.git_url >>, "https://github.com/usagov/test-at-home"]
+              - equal: [<< pipeline.git.branch >>, "production"]
+          steps:
+            - run:
+                name: Deploy to foundry 2 prod
+                command: ./bin/cf-deploy
+                environment:
+                  CF_FOUNDRY_API: api.fr.wc.cloud.gov
+                  CF_USER: 13119234-66b2-4cd6-87ab-ec0e04001a50
+                  CF_PASSWORD_NAME: CF_FOUNDRY_2_PROD_PASS
+                  CF_ORG: gsa-tts-test-kits
+                  CF_SPACE: prod
+                  VARS_FILE: config/deployment/prod.yml
+                  RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
+                  DISABLE_SMARTY_STREETS: "false"
+  deploy_foundry_3:
+    docker:
+      - image: cimg/ruby:3.0.3-node
+    steps:
+      - checkout
+      - when:
+          condition:
+            or:
+              - equal: [<< pipeline.git.branch >>, "main"]
+              - equal: [<< pipeline.git.branch >>, "production"]
+          steps:
+            - ruby/install-deps
+            - run:
+                name: Vendor gems
+                command: bundle cache --all
+            - node/install-packages:
+                cache-only-lockfile: false
+                cache-version: v2
+                pkg-manager: yarn
+            - run:
+                name: Install Cloud Foundry CLI
+                command: |
+                  curl -v -L -o cf-cli_amd64.deb 'https://packages.cloudfoundry.org/stable?release=debian64&version=v7&source=github'
+                  sudo dpkg -i cf-cli_amd64.deb
+      - when:
+          condition:
+            and:
+              - equal: [<< pipeline.project.git_url >>, "https://github.com/usagov/test-at-home"]
+              - equal: [<< pipeline.git.branch >>, "production"]
+          steps:
+            - run:
+                name: Deploy to foundry 3 prod
+                command: ./bin/cf-deploy
+                environment:
+                  CF_FOUNDRY_API: api.fr.ea.cloud.gov
+                  CF_USER: a4b5dfa2-5a83-4a69-a83d-2a314e42663e
+                  CF_PASSWORD_NAME: CF_FOUNDRY_3_PROD_PASS
+                  CF_ORG: gsa-tts-test-kits
+                  CF_SPACE: prod
+                  VARS_FILE: config/deployment/prod.yml
+                  RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
+                  DISABLE_SMARTY_STREETS: "false"
+  deploy_foundry_4:
+    docker:
+      - image: cimg/ruby:3.0.3-node
+    steps:
+      - checkout
+      - when:
+          condition:
+            or:
+              - equal: [<< pipeline.git.branch >>, "main"]
+              - equal: [<< pipeline.git.branch >>, "production"]
+          steps:
+            - ruby/install-deps
+            - run:
+                name: Vendor gems
+                command: bundle cache --all
+            - node/install-packages:
+                cache-only-lockfile: false
+                cache-version: v2
+                pkg-manager: yarn
+            - run:
+                name: Install Cloud Foundry CLI
+                command: |
+                  curl -v -L -o cf-cli_amd64.deb 'https://packages.cloudfoundry.org/stable?release=debian64&version=v7&source=github'
+                  sudo dpkg -i cf-cli_amd64.deb
+      - when:
+          condition:
+            and:
+              - equal: [<< pipeline.project.git_url >>, "https://github.com/usagov/test-at-home"]
+              - equal: [<< pipeline.git.branch >>, "main"]
+          steps:
+            - run:
+                name: Deploy to foundry 4 staging
+                command: ./bin/cf-deploy
+                environment:
+                  CF_FOUNDRY_API: api.fr.eb.cloud.gov
+                  CF_USER: 0c1293e1-b167-49b3-9b5a-29878e2af429
+                  CF_PASSWORD_NAME: CF_FOUNDRY_4_STAGE_PASS
+                  CF_ORG: gsa-tts-test-kits
+                  CF_SPACE: staging
+                  VARS_FILE: config/deployment/stage.yml
+                  RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
+                  DISABLE_SMARTY_STREETS: "false"
+      - when:
+          condition:
+            and:
+              - equal: [<< pipeline.project.git_url >>, "https://github.com/usagov/test-at-home"]
+              - equal: [<< pipeline.git.branch >>, "production"]
+          steps:
+            - run:
+                name: Deploy to foundry 4 prod
+                command: ./bin/cf-deploy
+                environment:
+                  CF_FOUNDRY_API: api.fr.eb.cloud.gov
+                  CF_USER: 57e67907-7715-4172-a085-53d0bd94ee2d
+                  CF_PASSWORD_NAME: CF_FOUNDRY_4_PROD_PASS
+                  CF_ORG: gsa-tts-test-kits
+                  CF_SPACE: prod
+                  VARS_FILE: config/deployment/prod.yml
+                  RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
+                  DISABLE_SMARTY_STREETS: "false"
 
 workflows:
   version: 2.1
@@ -232,7 +431,28 @@ workflows:
       - a11y_scan:
           requires:
             - build
-      - deploy:
+      - deploy_foundry_1:
+          requires:
+            - test
+            - brakeman
+            - dependency_audits
+            - owasp_scan
+            - a11y_scan
+      - deploy_foundry_2:
+          requires:
+            - test
+            - brakeman
+            - dependency_audits
+            - owasp_scan
+            - a11y_scan
+      - deploy_foundry_3:
+          requires:
+            - test
+            - brakeman
+            - dependency_audits
+            - owasp_scan
+            - a11y_scan
+      - deploy_foundry_4:
           requires:
             - test
             - brakeman
@@ -246,6 +466,7 @@ workflows:
           filters:
             branches:
               only:
+                - dev
                 - main
                 - production
     jobs:

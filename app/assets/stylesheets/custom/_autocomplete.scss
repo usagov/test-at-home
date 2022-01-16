@@ -1,0 +1,48 @@
+.autocomplete {
+  &__wrapper {
+    position: relative;
+  }
+
+  &__hint,
+  &__input {
+    @extend .usa-input;
+  }
+
+  &__input {
+    background-color: transparent;
+    position: relative;
+  }
+
+  &__hint {
+    position: absolute;
+  }
+
+  &__menu {
+    @extend .usa-combo-box__list;
+  }
+
+  &__menu--visible {
+    display: block;
+  }
+
+  &__menu--hidden {
+    display: none;
+  }
+
+  &__menu--inline {
+    position: relative;
+  }
+
+  &__option {
+    @extend .usa-combo-box__list-option;
+  }
+
+  &__option--focused,
+  &__option:hover {
+    @extend .usa-combo-box__list-option--selected;
+  }
+
+  &__option--no-results {
+    cursor: not-allowed;
+  }
+}
