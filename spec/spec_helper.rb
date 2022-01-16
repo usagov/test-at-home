@@ -124,5 +124,7 @@ RSpec.configure do |config|
   config.before(:all) do
     WebMock.disable_net_connect!(allow_localhost: true)
     WebMock.allow_net_connect!(net_http_connect_on_start: true)
+
+    Capybara.default_max_wait_time = 5
   end
 end
