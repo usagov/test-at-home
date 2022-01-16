@@ -188,7 +188,7 @@ jobs:
           name: Run pa11y-ci
           command: yarn run pa11y-ci
 
-  deploy:
+  deploy_foundry_1:
     docker:
       - image: cimg/ruby:3.0.3-node
     steps:
@@ -219,18 +219,6 @@ jobs:
               - equal: [<< pipeline.git.branch >>, "main"]
           steps:
             - run:
-                name: Deploy to foundry 0 staging
-                command: ./bin/cf-deploy
-                environment:
-                  CF_FOUNDRY_API: api.fr.cloud.gov
-                  CF_USER: a14eb22f-a73b-4cdc-afbd-e3198203b95d
-                  CF_PASSWORD_NAME: CF_FOUNDRY_0_STAGE_PASS
-                  CF_ORG: tts-usps-test-at-home
-                  CF_SPACE: staging
-                  VARS_FILE: config/deployment/stage-small.yml
-                  RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
-                  DISABLE_SMARTY_STREETS: "false"
-            - run:
                 name: Deploy to foundry 1 staging
                 command: ./bin/cf-deploy
                 environment:
@@ -242,6 +230,36 @@ jobs:
                   VARS_FILE: config/deployment/stage.yml
                   RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
+  deploy_foundry_2:
+    docker:
+      - image: cimg/ruby:3.0.3-node
+    steps:
+      - checkout
+      - when:
+          condition:
+            or:
+              - equal: [<< pipeline.git.branch >>, "main"]
+              - equal: [<< pipeline.git.branch >>, "production"]
+          steps:
+            - ruby/install-deps
+            - run:
+                name: Vendor gems
+                command: bundle cache --all
+            - node/install-packages:
+                cache-only-lockfile: false
+                cache-version: v2
+                pkg-manager: yarn
+            - run:
+                name: Install Cloud Foundry CLI
+                command: |
+                  curl -v -L -o cf-cli_amd64.deb 'https://packages.cloudfoundry.org/stable?release=debian64&version=v7&source=github'
+                  sudo dpkg -i cf-cli_amd64.deb
+      - when:
+          condition:
+            and:
+              - equal: [<< pipeline.project.git_url >>, "https://github.com/usagov/test-at-home"]
+              - equal: [<< pipeline.git.branch >>, "main"]
+          steps:
             - run:
                 name: Deploy to foundry 2 staging
                 command: ./bin/cf-deploy
@@ -254,6 +272,36 @@ jobs:
                   VARS_FILE: config/deployment/stage.yml
                   RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
+  deploy_foundry_4:
+    docker:
+      - image: cimg/ruby:3.0.3-node
+    steps:
+      - checkout
+      - when:
+          condition:
+            or:
+              - equal: [<< pipeline.git.branch >>, "main"]
+              - equal: [<< pipeline.git.branch >>, "production"]
+          steps:
+            - ruby/install-deps
+            - run:
+                name: Vendor gems
+                command: bundle cache --all
+            - node/install-packages:
+                cache-only-lockfile: false
+                cache-version: v2
+                pkg-manager: yarn
+            - run:
+                name: Install Cloud Foundry CLI
+                command: |
+                  curl -v -L -o cf-cli_amd64.deb 'https://packages.cloudfoundry.org/stable?release=debian64&version=v7&source=github'
+                  sudo dpkg -i cf-cli_amd64.deb
+      - when:
+          condition:
+            and:
+              - equal: [<< pipeline.project.git_url >>, "https://github.com/usagov/test-at-home"]
+              - equal: [<< pipeline.git.branch >>, "main"]
+          steps:
             - run:
                 name: Deploy to foundry 4 staging
                 command: ./bin/cf-deploy
@@ -287,7 +335,21 @@ workflows:
       - a11y_scan:
           requires:
             - build
-      - deploy:
+      - deploy_foundry_1:
+          requires:
+            - test
+            - brakeman
+            - dependency_audits
+            - owasp_scan
+            - a11y_scan
+      - deploy_foundry_2:
+          requires:
+            - test
+            - brakeman
+            - dependency_audits
+            - owasp_scan
+            - a11y_scan
+      - deploy_foundry_4:
           requires:
             - test
             - brakeman
