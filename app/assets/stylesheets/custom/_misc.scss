@@ -18,4 +18,16 @@
   &::after {
     content: none !important;
   }
+
+  &--after {
+    &::after {
+      content: none !important;
+    }
+  }
+
+  &--before {
+    &::before {
+      content: none !important;
+    }
+  }
 }

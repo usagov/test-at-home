@@ -18,6 +18,16 @@ en:
         email_invalid: Please enter email in the format name@example.com
         email_too_long: Please limit email to %{count} characters
   errors:
+    404:
+      code: 404
+      title: Page not found
+      body_html: |
+        If you are looking to order a set of rapid at-home COVID tests, please visit <a class="text-white" href="https://covidtests.gov" rel="noopener">COVIDtests.gov</a>.
+    500:
+      code: 500
+      title: We're sorry, but something went wrong.
+      body_html: |
+        If you are looking to order a set of rapid at-home COVID tests, please visit <a class="text-white" href="https://covidtests.gov" rel="noopener">COVIDtests.gov</a>.
     format: "%{message}"
   js:
     autocomplete:
