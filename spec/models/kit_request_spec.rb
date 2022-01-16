@@ -113,6 +113,17 @@ RSpec.describe KitRequest, type: :model do
           expect(FactoryBot.build(:kit_request, email: "asdlfj")).to_not be_valid
           expect(FactoryBot.build(:kit_request, email: "foo@example.com")).to be_valid
         end
+
+        it "limits to less than 50 characters" do
+          long_string = ""
+          60.times.each { |i| long_string += "a" }
+
+          less_long_string = ""
+          38.times.each { |i| less_long_string += "b" }
+
+          expect(FactoryBot.build(:kit_request, email: "#{long_string}@example.com")).not_to be_valid
+          expect(FactoryBot.build(:kit_request, email: "#{less_long_string}@example.com")).to be_valid
+        end
       end
     end
 

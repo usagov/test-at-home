@@ -2,7 +2,10 @@ class KitRequest < ApplicationRecord
   encrypts :first_name, :last_name, :email, :mailing_address_1, :mailing_address_2, :smarty_response
 
   validates_presence_of :first_name, :last_name
-  validates :email, email: {message: I18n.t("activerecord.errors.messages.invalid_email")}, allow_blank: true
+  validates :email,
+    email: {message: I18n.t("activerecord.errors.messages.email_invalid")},
+    length: {maximum: 50, message: I18n.t("activerecord.errors.messages.email_too_long", count: 50)},
+    allow_blank: true
 
   # Ordering is important here, since we need first validation to run before others
   validate :valid_mailing_address, unless: -> { UsStreetAddressValidator.smarty_disabled? }

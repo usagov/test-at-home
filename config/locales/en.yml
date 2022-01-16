@@ -15,7 +15,8 @@ en:
         address_incorrect: USPS cannot deliver to this address
         address_not_found: We don’t recognize this address
         blank: Please fill out this field
-        invalid_email: Please enter email in the format name@example.com
+        email_invalid: Please enter email in the format name@example.com
+        email_too_long: Please limit email to %{count} characters
   errors:
     format: "%{message}"
   js:
@@ -33,6 +34,7 @@ en:
       address_incorrect: USPS cannot deliver to this address
       address_not_found: We don’t recognize this address
       email: Please enter email in the format name@example.com
+      email_too_long: Please limit email to 50 characters
       missing_default: Please fill out this field
       missing_select: Please select a value
       zip_code: Please provide a valid zip code
