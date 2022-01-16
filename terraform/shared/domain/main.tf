@@ -12,7 +12,7 @@ data "cloudfoundry_space" "space" {
 ###
 
 data "cloudfoundry_app" "tah" {
-  name_or_id = "test_at_home-${var.env}"
+  name_or_id = "test_at_home-${var.env}-0"
   space      = data.cloudfoundry_space.space.id
 }
 
@@ -23,6 +23,10 @@ data "cloudfoundry_app" "tah" {
 # cf create-domain gsa-tts-test-kits route.staging-covidtest.usa.gov
 # cf create-domain gsa-tts-test-kits $region.staging-covidtest.usa.gov
 # cf create-domain gsa-tts-test-kits $foundation_domain_name
+#
+#
+# this makes sure the first app is routed properly.
+# /foundry_<x>/<env>/map-routes.sh is used to connect the rest of the apps
 ###########################################################################
 
 data "cloudfoundry_domain" "global_url" {
@@ -41,7 +45,7 @@ data "cloudfoundry_domain" "foundation_url" {
   name = var.foundation_domain_name
 }
 
-resource "cloudfoundry_route" "global_route" {
+resource "cloudfoundry_route" "global_route-n" {
   domain = data.cloudfoundry_domain.global_url.id
   space  = data.cloudfoundry_space.space.id
   target {
@@ -49,7 +53,7 @@ resource "cloudfoundry_route" "global_route" {
   }
 }
 
-resource "cloudfoundry_route" "origin_route" {
+resource "cloudfoundry_route" "origin_route-n" {
   domain = data.cloudfoundry_domain.origin_url.id
   space  = data.cloudfoundry_space.space.id
   target {
@@ -57,7 +61,7 @@ resource "cloudfoundry_route" "origin_route" {
   }
 }
 
-resource "cloudfoundry_route" "regional_route" {
+resource "cloudfoundry_route" "regional_route-n" {
   domain = data.cloudfoundry_domain.regional_url.id
   space  = data.cloudfoundry_space.space.id
   target {
@@ -65,7 +69,7 @@ resource "cloudfoundry_route" "regional_route" {
   }
 }
 
-resource "cloudfoundry_route" "foundation_route" {
+resource "cloudfoundry_route" "foundation_route-n" {
   domain = data.cloudfoundry_domain.foundation_url.id
   space  = data.cloudfoundry_space.space.id
   target {
