@@ -349,7 +349,7 @@ workflows:
             - dependency_audits
             - owasp_scan
             - a11y_scan
-      - deploy_foundry_3:
+      - deploy_foundry_4:
           requires:
             - test
             - brakeman
