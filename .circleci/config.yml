@@ -363,6 +363,7 @@ workflows:
           filters:
             branches:
               only:
+                - dev
                 - main
                 - production
     jobs:
