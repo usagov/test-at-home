@@ -14,6 +14,9 @@ applications:
     CACHE_FORM_AGE: ((cache_form_age))
     DISABLE_SMARTY_STREETS: ((disable_smarty_streets))
     SMARTY_STREETS_EMBEDDED_KEY: ((smarty_streets_public_key))
+    RECAPTCHA_REQUIRED: ((recaptcha_required))
+    RECAPTCHA_SITE_KEY: ((recaptcha_site_key))
+    RECAPTCHA_PROJECT_ID: ((recaptcha_project_id))
     RAILS_MAX_THREADS: 10
   processes:
   - type: web
