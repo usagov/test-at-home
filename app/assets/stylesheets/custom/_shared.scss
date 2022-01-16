@@ -21,7 +21,8 @@ i.e.
 */
 $max-width: "desktop-lg";
 
-$font-family: "Noto Sans", sans;
+$font-family: "Noto Sans";
+$font-stack: #{$font-family}, sans;
 $font-size: 16;
 $line-height: 22;
 
@@ -39,9 +40,18 @@ $color-dark-blue: #00426b; // dark blue on cyan or white
 }
 
 @mixin covidtest-font-base() {
-  font-family: $font-family;
+  font-family: $font-stack;
+  font-display: swap;
   color: $color-dark-blue;
   @include covidtest-font($font-size, $line-height);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.sr-only {
+  @include sr-only;
 }
 
 .covidtest-container {
@@ -54,10 +64,6 @@ $color-dark-blue: #00426b; // dark blue on cyan or white
   @include at-media($max-width) {
     @include grid-container($max-width);
   }
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 a.covidtest-button {
@@ -366,547 +372,41 @@ a.covidtest-button {
     &-link {
       display: block;
       text-decoration: none;
-    }
-    &-text {
+
+      margin-left: units(2);
+      &:first-child {
+        margin-left: 0;
+      }
+
+      width: 75px;
+      &--hhs {
+        width: #{75px * 0.6};
+      }
+
+      @include at-media("tablet") {
+        width: 100px;
+        &--hhs {
+          width: #{100px * 0.6};
+        }
+      }
+
       @include at-media("tablet-lg") {
-        @include covidtest-font(28);
+        margin-left: units(3);
+
+        width: 140px;
+        &--hhs {
+          width: #{140px * 0.6};
+        }
       }
     }
     &-img {
       display: block;
-      max-width: 75px;
-      max-height: 75px;
-
-      @include at-media("tablet") {
-        max-width: 100px;
-        max-height: 100px;
-      }
-
-      @include at-media("tablet-lg") {
-        max-width: 140px;
-        max-height: 140px;
-      }
+      height: auto;
     }
   }
 
   &__links {
     display: flex;
     flex-wrap: wrap;
-  }
-}
-
-.covidtest-hero {
-  position: relative;
-  margin-top: units(5);
-
-  &__container {
-    @include at-media("desktop") {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: -18px;
-    }
-  }
-
-  &__content {
-    @include at-media("desktop") {
-      flex-basis: 55%;
-      margin-bottom: units(3);
-    }
-
-    h1 {
-      @include covidtest-font(30, 41);
-      margin: units(3) 0;
-
-      @include at-media("mobile-lg") {
-        @include covidtest-font(36);
-      }
-
-      @include at-media("tablet") {
-        @include covidtest-font(40);
-      }
-
-      @include at-media("desktop") {
-        @include covidtest-font(54);
-      }
-
-      &::after {
-        content: "";
-        display: block;
-        margin-top: units(3);
-        height: 6px;
-        width: 45px;
-        background: $color-magenta;
-      }
-    }
-
-    p {
-      margin: units(3) 0;
-    }
-  }
-
-  &__images {
-    position: relative;
-    width: 100%;
-    max-width: 504px;
-    margin: units(2) auto;
-
-    @include at-media("desktop") {
-      flex: 0 0 45%;
-      margin: 0 0 0 units(2);
-    }
-  }
-
-  &__images-container {
-    height: 0;
-    padding-bottom: 128%;
-  }
-
-  &__image {
-    position: absolute;
-    max-width: 65%;
-    border: 18px solid $color-white;
-    z-index: 1;
-
-    img {
-      display: block;
-      height: auto;
-    }
-
-    &--1 {
-      top: 0;
-      right: 0;
-      border-right: 0;
-    }
-
-    &--2 {
-      bottom: 0;
-      left: 0;
-      @include at-media-max("desktop") {
-        border-left: 0;
-      }
-    }
-  }
-}
-
-.covidtest-resources {
-  position: relative;
-  background-color: $color-dark-blue;
-
-  &__bg {
-    position: absolute;
-    object-fit: cover;
-    object-position: 68% center;
-    width: 100%;
-    height: 100%;
-  }
-
-  &__container {
-    position: relative;
-    padding-top: 560px;
-    padding-bottom: units(2);
-
-    @include at-media("desktop") {
-      padding-top: 140px;
-      padding-bottom: 170px;
-    }
-  }
-
-  &__content {
-    background-color: $color-white;
-    @include u-padding(2);
-
-    @include at-media("desktop") {
-      @include u-padding(0);
-      background-color: transparent;
-      color: $color-white;
-      width: 45%;
-    }
-
-    h2 {
-      font-weight: 400;
-      @include covidtest-font($font-size, $line-height);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-
-      &::after {
-        content: "";
-        display: block;
-        margin-top: units(2);
-        height: 4px;
-        width: 30px;
-        background: $color-magenta;
-      }
-    }
-
-    p {
-      @include covidtest-font(24, 32);
-      font-weight: 700;
-    }
-
-    ul {
-      @include at-media("desktop") {
-        @include unstyled-list;
-      }
-    }
-
-    li {
-      @include covidtest-font(22, 30);
-
-      @include at-media("desktop") {
-        margin-top: units(2px);
-
-        &:first-child {
-          margin-top: 0;
-        }
-
-        a {
-          display: flex;
-          align-items: center;
-          background-color: rgba($color-white, 0.94);
-          font-weight: 700;
-          @include u-padding(2);
-
-          &,
-          &:visited {
-            color: $color-dark-blue;
-            text-decoration: none;
-          }
-
-          &::before {
-            content: "";
-            order: 2;
-            flex-grow: 1;
-            background: center right / contain no-repeat
-              url("images/covidtest/arrow.svg");
-            width: 29px;
-            height: 12px;
-            margin-right: units(1);
-            margin-left: units(1);
-            transition: transform 0.2s ease;
-          }
-
-          &::after {
-            order: 1;
-          }
-
-          &:focus,
-          &:hover {
-            color: $color-blue;
-            text-decoration: underline;
-            background-color: $color-white;
-
-            &::before {
-              transform: translateX(units(1));
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-.covidtest-about {
-  @include at-media("desktop") {
-    background: #f3f5f8;
-    padding-top: 88px;
-    padding-bottom: 106px;
-  }
-
-  &__container {
-    display: flex;
-    align-items: stretch;
-    flex-direction: column;
-
-    @include at-media("desktop") {
-      align-items: center;
-      flex-direction: row;
-      background: $color-white;
-    }
-  }
-
-  &__image {
-    @include u-padding(5);
-
-    @include at-media("desktop") {
-      flex: 0 0 45%;
-    }
-
-    img {
-      width: 100%;
-      max-width: 300px;
-      height: auto;
-      display: block;
-      margin: auto;
-    }
-  }
-
-  &__content {
-    @include at-media("desktop") {
-      @include u-padding(2);
-      flex-basis: 55%;
-    }
-
-    @include at-media("desktop-lg") {
-      @include u-padding-y(10);
-      padding-left: units(10);
-      padding-right: 0;
-    }
-
-    h2 {
-      font-weight: 400;
-      @include covidtest-font($font-size, $line-height);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-
-      &::after {
-        content: "";
-        display: block;
-        margin-top: units(2);
-        height: 4px;
-        width: 30px;
-        background: $color-magenta;
-      }
-    }
-
-    p {
-      @include covidtest-font(24, 32);
-      font-weight: 700;
-    }
-  }
-}
-
-.covidtest-instructions {
-  position: relative;
-  background-color: $color-dark-blue;
-
-  &__bg {
-    position: absolute;
-    object-fit: cover;
-    object-position: 76% center;
-    width: 100%;
-    height: 100%;
-  }
-
-  &__container {
-    position: relative;
-    padding-top: 500px;
-    padding-bottom: units(2);
-
-    @include at-media("desktop") {
-      padding-top: 112px;
-      padding-bottom: 148px;
-    }
-  }
-
-  &__content {
-    background-color: $color-white;
-    @include u-padding(2);
-
-    @include at-media("desktop") {
-      padding-top: 40px;
-      padding-bottom: 40px;
-      @include u-padding-x(2);
-      width: 45%;
-    }
-
-    @include at-media("desktop-lg") {
-      padding-top: 80px;
-      padding-bottom: 80px;
-      @include u-padding-x(10);
-    }
-
-    h2 {
-      @include covidtest-font(24, 32);
-
-      @include at-media("desktop") {
-        @include covidtest-font(30);
-      }
-    }
-  }
-}
-
-.covidtest-whatif {
-  position: relative;
-  @include at-media("desktop") {
-    display: flex;
-  }
-
-  &__positive,
-  &__negative {
-    color: $color-white;
-
-    .covidtest-whatif__content {
-      @include u-padding-y(5);
-      @include u-padding-x(2);
-    }
-
-    @include at-media("desktop") {
-      display: flex;
-      align-items: center;
-      @include u-padding-y(15);
-
-      .covidtest-whatif__content {
-        @include u-padding(0);
-        margin-left: units(2);
-        margin-right: units(2);
-      }
-    }
-
-    @include at-media("desktop-lg") {
-      .covidtest-whatif__content {
-        margin-left: units(10);
-        margin-right: units(10);
-      }
-    }
-  }
-  &__positive {
-    background: #c01b6c;
-
-    .covidtest-whatif__content {
-      h2 em {
-        background-color: #db297f;
-      }
-
-      a:focus,
-      a:hover {
-        text-decoration-color: #db297f;
-      }
-    }
-
-    @include at-media("desktop") {
-      flex: 0 0 45%;
-      margin-top: units(-4);
-      margin-bottom: units(-4);
-      z-index: 1;
-    }
-
-    @include at-media("desktop-lg") {
-      flex-basis: calc((100vw - 1200px) / 2 + (1200px * 0.45));
-
-      .covidtest-whatif__content {
-        margin-left: calc((100vw - 1200px) / 2 + units("205") + units(10));
-      }
-    }
-  }
-  &__negative {
-    background: $color-dark-blue
-      linear-gradient(230.49deg, #1f59b1 -103.44%, #01426c 72.6%);
-
-    .covidtest-whatif__content {
-      h2 em {
-        background-color: rgba(#4293bd, 0.59);
-      }
-
-      a:focus,
-      a:hover {
-        text-decoration-color: rgba(#4293bd, 0.59);
-      }
-    }
-
-    @include at-media("desktop") {
-      flex-basis: 55%;
-    }
-
-    @include at-media("desktop-lg") {
-      flex-basis: calc((100vw - 1200px) / 2 + (1200px * 0.55));
-
-      .covidtest-whatif__content {
-        margin-right: calc((100vw - 1200px) / 2 + units("205"));
-      }
-    }
-  }
-
-  &__content {
-    h2 {
-      @include covidtest-font(24, 36);
-
-      em {
-        font-style: normal;
-        padding: units("05");
-      }
-    }
-
-    a {
-      color: $color-white;
-      text-decoration-thickness: 2px;
-
-      &:focus,
-      &:hover {
-        color: $color-white;
-      }
-    }
-
-    p.covidtest-whatif__note {
-      @include covidtest-font(17, 26);
-    }
-  }
-}
-
-.covidtest-other {
-  position: relative;
-  background: #f3f5f8;
-  @include u-padding-y(2);
-
-  @include at-media("desktop") {
-    padding-top: 88px; // fix
-    padding-bottom: 106px; // fix
-  }
-
-  &__container {
-    display: flex;
-    align-items: stretch;
-    flex-direction: column;
-
-    @include at-media("desktop") {
-      align-items: center;
-      flex-direction: row;
-    }
-  }
-
-  &__image {
-    @include at-media("desktop") {
-      flex: 0 0 45%;
-    }
-
-    img {
-      width: 100%;
-      max-width: 555px;
-      height: auto;
-      display: block;
-      margin: auto;
-    }
-  }
-
-  &__content {
-    @include at-media("desktop") {
-      @include u-padding-x(2);
-      flex-basis: 55%;
-    }
-
-    @include at-media("desktop-lg") {
-      padding-left: units(10);
-      padding-right: 0;
-    }
-
-    h2 {
-      font-weight: 400;
-      @include covidtest-font($font-size, $line-height);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-
-      &::after {
-        content: "";
-        display: block;
-        margin-top: units(2);
-        height: 4px;
-        width: 30px;
-        background: $color-magenta;
-      }
-    }
-
-    p {
-      @include covidtest-font(24, 32);
-      font-weight: 700;
-    }
   }
 }

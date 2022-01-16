@@ -1,14 +1,5 @@
+.autocomplete__menu,
 .usa-combo-box__list {
-  padding-left: 0 !important;
-
-  &-option {
-    font-size: inherit !important;
-    line-height: inherit !important;
-    margin: 0 !important;
-  }
-}
-
-.autocomplete__menu {
   padding-left: 0 !important;
 
   li {
@@ -20,31 +11,31 @@
 
 .error {
   border: 2px solid $color-magenta;
-}
 
-.error-message {
-  align-items: center;
-  background: $color-light-magenta;
-  border-left: 8px solid $color-magenta;
-  display: flex;
-  flex-direction: row;
-  font-style: italic;
-  margin-top: units(1);
-  padding: units(1);
-  width: 100%;
+  &-message {
+    align-items: center;
+    background: $color-light-magenta;
+    border-left: 8px solid $color-magenta;
+    display: flex;
+    flex-direction: row;
+    font-style: italic;
+    margin-top: units(1);
+    padding: units(1);
+    width: 100%;
 
-  &[hidden] {
-    display: none;
-  }
+    &[hidden] {
+      display: none;
+    }
 
-  &:before {
-    display: block;
-    content: " ";
-    background-image: url("images/error.svg");
-    background-size: 16px 16px;
-    flex: none;
-    height: 16px;
-    margin-right: units(1);
-    width: 16px;
+    &:before {
+      display: block;
+      content: " ";
+      background-image: url("images/error.svg");
+      background-size: 16px 16px;
+      flex: none;
+      height: 16px;
+      margin-right: units(1);
+      width: 16px;
+    }
   }
 }
