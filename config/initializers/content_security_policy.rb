@@ -6,18 +6,17 @@
 
 Rails.application.configure do
   config.content_security_policy do |policy|
-    policy.default_src :self
+    policy.default_src :self, "https://www.google.com"
     policy.font_src :self
     policy.form_action :self
     policy.frame_ancestors :none
     policy.img_src :self, :data, "https://*.nr-data.net"
     policy.object_src :none
-    policy.script_src :self, "https://dap.digitalgov.gov", "https://js-agent.newrelic.com", "https://*.nr-data.net"
-    policy.connect_src :self, "https://dap.digitalgov.gov", "https://*.nr-data.net", "https://*.api.smartystreets.com"
+    policy.script_src :self, "https://dap.digitalgov.gov", "https://js-agent.newrelic.com", "https://*.nr-data.net", "https://www.google.com"
+    policy.connect_src :self, "https://dap.digitalgov.gov", "https://*.nr-data.net", "https://*.api.smartystreets.com"#, "https://www.google.com"
     policy.style_src :self
   end
 
-  #
   #   # Generate session nonces for permitted importmap and inline scripts
   config.content_security_policy_nonce_generator = ->(request) { SecureRandom.base64(16) }
   config.content_security_policy_nonce_directives = %w[script-src]
