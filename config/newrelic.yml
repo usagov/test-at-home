@@ -54,3 +54,4 @@ staging:
 
 production:
   <<: *default_settings
+  app_name: CTUSA (Production)

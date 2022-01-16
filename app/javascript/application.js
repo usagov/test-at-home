@@ -30,6 +30,7 @@ const emptyText = I18n.t("js.empty");
 
 // Initial form state
 let isFormValid = false;
+let prevAddress;
 
 const clearValues = () => {
   addressFullContainer
@@ -40,16 +41,17 @@ const clearValues = () => {
 const handleFormValidation = async ({ target }) => {
   if (validate.validateAll(target)) {
     const values = Object.entries(getFormValues(target));
+    const address = getAddressValues(values);
 
     // If DISABLE_SMARTY_STREETS=true, skip address verification
-    if (process.env.DISABLE_SMARTY_STREETS !== "true") {
-      const address = getAddressValues(values);
+    if (
+      process.env.DISABLE_SMARTY_STREETS !== "true" &&
+      JSON.stringify(address) !== prevAddress
+    ) {
       const res = await verifyAddress(address);
 
       if (res.status === "valid") {
         addressErrorContainer.setAttribute("hidden", "");
-
-        toggleContainer();
 
         values.forEach(
           ([key, value]) =>
@@ -59,7 +61,10 @@ const handleFormValidation = async ({ target }) => {
                 : value)
         );
 
+        toggleContainer();
+
         isFormValid = true;
+        prevAddress = JSON.stringify(address);
       } else {
         addressErrorContainer.innerHTML = res.message;
         addressErrorContainer.removeAttribute("hidden", "");
@@ -87,7 +92,19 @@ const handleFormValidation = async ({ target }) => {
 
 const getAddressValues = values =>
   values.reduce((accum, [key, value]) => {
-    accum[getSanitizedKey(key)] = value;
+    const newKey = getSanitizedKey(key);
+
+    if (
+      [
+        "mailing_address_1",
+        "mailing_address_2",
+        "city",
+        "state",
+        "zip_code"
+      ].includes(newKey)
+    ) {
+      accum[getSanitizedKey(key)] = value;
+    }
 
     return accum;
   }, {});
@@ -158,6 +175,8 @@ if (form) {
     addressSimpleContainer.removeAttribute("hidden", "");
     addressAutocomplete.addEventListener("input", clearValues, false);
   } else {
+    // Removes autocomplete input entirely so that it is not included
+    // in form validation
     addressAutocomplete.remove();
   }
 
