@@ -46,11 +46,6 @@ variable "cdn_plan_name" {
   default     = "domain"
 }
 
-variable "app_count" {
-  type        = number
-  description = "Number of apps in space using this domain"
-}
-
 variable "global_domain_name" {
   type        = string
   description = "DNS name users will be accessing site"
