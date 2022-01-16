@@ -45,6 +45,7 @@ en:
       about:
         body_html: |
           <ul>
+            <li>Are antigen tests, not PCR</li>
             <li>Can be taken anywhere</li>
             <li>Give results within 30 minutes (no lab drop-off required)</li>
             <li>Work whether or not you have COVID-19 symptoms</li>
@@ -59,6 +60,7 @@ en:
         </p>
       body_secondary_html: |
         You will receive a follow up confirmation email* from the US Postal Service (USPS) and another email with a tracking number when the tests ship.<br /><span class="text-italic font-body-xs">*If you provided your email address.</span>
+      heading: What to expect next
       instructions:
         body_html: |
           <ul>
@@ -110,7 +112,7 @@ en:
           </ul>
         heading: COVID-19 Testing Advice and Resources
         sub_heading: On this page
-      sub_heading: What to expect next
+      sub_heading: Qué puede esperar a continuación
       title: Thank you, your order has been placed.
       whatif_negative:
         body_html: |
