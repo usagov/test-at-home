@@ -1,7 +1,7 @@
 <div class="bg-light-gray">
   <%= form_with model: @kit_request, class: "usa-form usa-form--large maxw-none", id: "form" do |form| %>
     <div id="form-cntr">
-      <div class="bg-blue text-white">
+      <div class="bg-blue">
         <div class="covidtest-container usa-section padding-bottom-12">
           <div class="maxw-tablet">
             <h1 tabindex="-1">
@@ -104,7 +104,7 @@
     <div class="covidtest-container usa-section maxw-tablet margin-x-auto padding-top-0">
       <%= render "application/privacy" %>
 
-      <%= form.submit t('kit_requests.new.submit'), class: "usa-button radius-pill font-ui-lg width-full margin-top-0", id:"submit-btn" %>
+      <%= form.submit t('kit_requests.new.submit'), class: "usa-button radius-pill font-ui-lg width-full desktop:width-auto margin-top-0 padding-x-4", id:"submit-btn" %>
     </div>
   <% end %>
 </div>

@@ -54,7 +54,7 @@ es:
           <ul>
             <li>si empieza a presentar síntomas de COVID-19 como fiebre, dolor de garganta, moqueo,  o pérdida del gusto o del olfato,</li>
             <li>al menos 5 días después de entrar en contacto cercano con alguien con COVID-19, o</li>
-            <li>cuando vaya a reunirse con un grupo de personas, especialmente con aquellas que corren riesgo de padecer una enfermedad grave o que pueden   <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/stay-up-to-date.html" rel="noopener">no estar al día con sus vacunas de COVID-19</a>.</li>
+            <li>cuando vaya a reunirse con un grupo de personas, especialmente con aquellas que corren riesgo de padecer una enfermedad grave o que pueden   <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/stay-up-to-date.html" rel="noopener">no estar al día con sus vacunas de COVID-19</a>.</li>
           </ul>
         heading: Una vez que obtenga pruebas
         sub_heading: "Hágase una prueba casera:"
@@ -62,7 +62,7 @@ es:
         alt: Niño pequeño con mascarilla usando desinfectante de manos
         body_html: |
           <ul>
-            <li>Ponerse al día con sus vacunas de COVID-19. Visite <a class="usa-link usa-link--external" href="https://vacunas.gov" rel="noopener">vacunas.gov</a> para encontrar una vacuna o una dosis de refuerzo cerca de usted.</li>
+            <li>Ponerse al día con sus vacunas de COVID-19. Visite <a href="https://vacunas.gov" rel="noopener">vacunas.gov</a> para encontrar una vacuna o una dosis de refuerzo cerca de usted.</li>
             <li>Usar una mascarilla si asiste a reuniones en espacios cerrados.</li>
             <li>Mantener 6 pies de distancia con otras personas.</li>
           </ul>
@@ -81,10 +81,10 @@ es:
       sub_heading: Qué puede esperar a continuación
       title: Gracias, su pedido ha sido completado.
       whatif_negative:
-        body_html: Un resultado <strong>negativo</strong> en la prueba casera significa que la prueba no encontró el virus COVID-19 y usted podría tener un menor riesgo de contagiar a otras personas con la enfermedad. Si el resultado es negativo, por lo general debe volver a hacerse la prueba 2 o 3 días después de la primera. Consulte las instrucciones de su kit de pruebas caseras para averiguar cuáles son los siguientes pasos a seguir.</p> <p>Para obtener más información sobre qué hacer si su prueba es negativa, visite la <a class="usa-link usa-link--external" href="https://espanol.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">página sobre la prueba en casa de los CDC</a>.
+        body_html: Un resultado <strong>negativo</strong> en la prueba casera significa que la prueba no encontró el virus COVID-19 y usted podría tener un menor riesgo de contagiar a otras personas con la enfermedad. Si el resultado es negativo, por lo general debe volver a hacerse la prueba 2 o 3 días después de la primera. Consulte las instrucciones de su kit de pruebas caseras para averiguar cuáles son los siguientes pasos a seguir.</p> <p>Para obtener más información sobre qué hacer si su prueba es negativa, visite la <a href="https://espanol.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">página sobre la prueba en casa de los CDC</a>.
         heading: Si el resultado de su prueba es <strong>negativo</strong>
       whatif_positive:
-        body_html: Un resultado <strong>positivo</strong> en la prueba casera significa que la prueba encontró el virus de COVID-19 y es muy probable que usted esté infectado con COVID-19. Si el resultado de la prueba casera es positivo, siga las <a class="usa-link usa-link--external" href="https://espanol.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html" rel="noopener">las recomendaciones más recientes de los CDC sobre el aislamiento</a>.
+        body_html: Un resultado <strong>positivo</strong> en la prueba casera significa que la prueba encontró el virus de COVID-19 y es muy probable que usted esté infectado con COVID-19. Si el resultado de la prueba casera es positivo, siga las <a href="https://espanol.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html" rel="noopener">las recomendaciones más recientes de los CDC sobre el aislamiento</a>.
         heading: Si el resultado de su prueba es <strong>positivo</strong>
     new:
       body_html: |
