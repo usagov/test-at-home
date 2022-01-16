@@ -12,7 +12,8 @@ data "cloudfoundry_space" "space" {
 ###
 
 data "cloudfoundry_app" "tah" {
-  name_or_id = "test_at_home-${var.env}"
+  count      = var.app_count
+  name_or_id = "test_at_home-${var.env}-${count.index}"
   space      = data.cloudfoundry_space.space.id
 }
 
@@ -41,35 +42,39 @@ data "cloudfoundry_domain" "foundation_url" {
   name = var.foundation_domain_name
 }
 
-resource "cloudfoundry_route" "global_route" {
+resource "cloudfoundry_route" "global_route-n" {
+  count  = var.app_count
   domain = data.cloudfoundry_domain.global_url.id
   space  = data.cloudfoundry_space.space.id
   target {
-    app = data.cloudfoundry_app.tah.id
+    app = data.cloudfoundry_app.tah[count.index].id
   }
 }
 
-resource "cloudfoundry_route" "origin_route" {
+resource "cloudfoundry_route" "origin_route-n" {
+  count  = var.app_count
   domain = data.cloudfoundry_domain.origin_url.id
   space  = data.cloudfoundry_space.space.id
   target {
-    app = data.cloudfoundry_app.tah.id
+    app = data.cloudfoundry_app.tah[count.index].id
   }
 }
 
-resource "cloudfoundry_route" "regional_route" {
+resource "cloudfoundry_route" "regional_route-n" {
+  count  = var.app_count
   domain = data.cloudfoundry_domain.regional_url.id
   space  = data.cloudfoundry_space.space.id
   target {
-    app = data.cloudfoundry_app.tah.id
+    app = data.cloudfoundry_app.tah[count.index].id
   }
 }
 
-resource "cloudfoundry_route" "foundation_route" {
+resource "cloudfoundry_route" "foundation_route-n" {
+  count  = var.app_count
   domain = data.cloudfoundry_domain.foundation_url.id
   space  = data.cloudfoundry_space.space.id
   target {
-    app = data.cloudfoundry_app.tah.id
+    app = data.cloudfoundry_app.tah[count.index].id
   }
 }
 

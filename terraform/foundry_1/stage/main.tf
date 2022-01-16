@@ -48,6 +48,7 @@ module "domain" {
   cf_org_name            = local.cf_org_name
   cf_space_name          = local.cf_space_name
   env                    = local.env
+  app_count              = 10
   recursive_delete       = local.recursive_delete
   global_domain_name     = "staging-covidtest.usa.gov"
   origin_domain_name     = "route.staging-covidtest.usa.gov"
