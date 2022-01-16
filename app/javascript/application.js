@@ -147,7 +147,7 @@ const showReview = event => {
 
     if (process.env.RECAPTCHA_REQUIRED === "true") {
       grecaptcha.enterprise.ready(function() {
-        grecaptcha.enterprise.execute(process.env.RECAPTCHA_SITE_KEY, {action: 'login'}).then(function(token) {
+        grecaptcha.enterprise.execute(process.env.RECAPTCHA_SITE_KEY, {action: 'submit'}).then(function(token) {
             recaptchaField.value = token;
             event.target.submit();
           });

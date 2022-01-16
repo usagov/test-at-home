@@ -107,9 +107,8 @@
 
       <% if ENV["RECAPTCHA_REQUIRED"] == "true" %>
         <input autocomplete="off" type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
-      <% else %>
-        <%= form.submit t('kit_requests.new.submit'), class: "usa-button radius-pill font-ui-lg width-full desktop:width-auto margin-top-0 padding-x-4", id:"submit-btn" %>
       <% end %>
+      <%= form.submit t('kit_requests.new.submit'), class: "usa-button radius-pill font-ui-lg width-full margin-top-0", id:"submit-btn" %>
     </div>
   <% end %>
 </div>
