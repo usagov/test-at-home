@@ -15,8 +15,8 @@ zh:
         address_incorrect: 美国邮政无法送达这一地址
         address_not_found: 我们无法识别这一地址
         blank: 请填写此栏
-        email_invalid: 错误：请输入格式为 name@example.com 的电子邮件地址
-        email_too_long: 请将电子邮件地址限制为50个字符 （包含字母、数字、符号）
+        email_invalid: 请输入格式为 name@example.com 的电子邮件地址
+        email_too_long: 请将电子邮件地址限制为 %{count} 个字符 （包含字母、数字、符号）
   errors:
     format: "%{message}"
   js:
@@ -25,6 +25,7 @@ zh:
       address_incorrect: 美国邮政无法送达这一地址
       address_not_found: 我们无法识别这一地址
       email: 请输入格式为 name@example.com 的电子邮件地址
+      email_too_long: 请将电子邮件地址限制为50个字符 （包含字母、数字、符号）
       missing_default: 请填写此栏
       missing_select: 请选择一项
       zip_code: 请输入有效的 5 位邮政编码
