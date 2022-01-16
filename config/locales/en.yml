@@ -137,7 +137,6 @@ en:
       contact_heading: Contact information
       contact_html: Contact information for the person receiving the order. <span class="text-magenta">*</span><span class="text-italic">Required</span>
       email_optional: This step is optional, but we will not be able to provide tracking without an email.
-      error_header: Couldn't process your request because of errors
       privacy:
         heading: Privacy Statement
         html: |

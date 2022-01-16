@@ -67,7 +67,7 @@ export const autoComplete =
       suggestion: value => (value ? formatAddress(value) : "")
     },
     tQueryTooShort: minQueryLength =>
-      I18n.t("js.autocomplete.query_too_shot", { minQueryLength }),
+      I18n.t("js.autocomplete.query_too_short", { minQueryLength }),
     tNoResults: () => I18n.t("js.autocomplete.no_results"),
     tAssistiveHint: () => I18n.t("js.autocomplete.assistive_hint"),
     tSelectedOption: (selectedOption, length, index) =>
