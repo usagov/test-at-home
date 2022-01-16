@@ -1,23 +1,49 @@
-$color-gray: #d8d8d8;
-$color-light-gray: #f3f5f8;
-$color-light-magenta: #ffe5f3;
-$color-light-blue: #8be0f6;
-
 .bg {
   &-white {
     background-color: $color-white !important;
+
+    a {
+      color: $color-dark-blue !important;
+    }
   }
   &-blue {
     background-color: $color-blue !important;
+    color: $color-white !important;
+
+    a {
+      color: $color-white;
+    }
+    .accent-after::after,
+    .accent-before::before {
+      background-color: $color-white;
+    }
   }
   &-cyan {
     background-color: $color-cyan !important;
   }
   &-magenta {
     background-color: $color-magenta !important;
+    color: $color-white !important;
+
+    a {
+      color: $color-white;
+    }
+    .accent-after::after,
+    .accent-before::before {
+      background-color: $color-white;
+    }
   }
   &-dark-blue {
     background-color: $color-dark-blue !important;
+    color: $color-white !important;
+
+    a {
+      color: $color-white;
+    }
+    .accent-after::after,
+    .accent-before::before {
+      background-color: $color-white;
+    }
   }
   &-gray {
     background-color: $color-gray !important;
@@ -30,6 +56,22 @@ $color-light-blue: #8be0f6;
   }
   &-light-blue {
     background-color: $color-light-blue !important;
+  }
+  &-lighter-blue {
+    background-color: $color-lighter-blue !important;
+  }
+}
+
+@include at-media("desktop") {
+  .desktop\:bg {
+    &-white {
+      background-color: $color-white !important;
+      color: $color-dark-blue !important;
+
+      a {
+        color: $color-dark-blue !important;
+      }
+    }
   }
 }
 
@@ -61,11 +103,22 @@ $color-light-blue: #8be0f6;
   &-light-blue {
     border-color: $color-light-blue !important;
   }
+  &-lightrt-blue {
+    border-color: $color-lighter-blue !important;
+  }
+}
+
+@include at-media("desktop") {
+  .desktop\:border {
+    &-gray {
+      border-color: $color-gray !important;
+    }
+  }
 }
 
 .text {
   &-white {
-    color: $color-white !important;
+    color: $color-white;
   }
   &-blue {
     color: $color-blue !important;
@@ -90,6 +143,9 @@ $color-light-blue: #8be0f6;
   }
   &-light-blue {
     color: $color-light-blue !important;
+  }
+  &-lighter-blue {
+    color: $color-lighter-blue !important;
   }
 }
 
@@ -120,5 +176,8 @@ $color-light-blue: #8be0f6;
   }
   &-light-blue {
     outline-color: $color-light-blue !important;
+  }
+  &-lighter-blue {
+    outline-color: $color-lighter-blue !important;
   }
 }

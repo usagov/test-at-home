@@ -1,3 +1,29 @@
+.accent-before::before {
+  margin-bottom: units(2);
+  content: "";
+  display: block;
+  height: 4px;
+  width: 30px;
+  background: $color-magenta;
+}
+
+.accent-after::after {
+  margin-top: units(2);
+  content: "";
+  display: block;
+  height: 4px;
+  width: 30px;
+  background: $color-magenta;
+}
+
+.arrow {
+  width: 100px;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 24px solid $color-dark-blue;
+}
+
 .bullet {
   align-items: center;
   display: flex;

@@ -43,71 +43,93 @@ en:
   kit_requests:
     confirmation:
       about:
-        alt: COVID-19 test swabs developing
         body_html: |
           <ul>
+            <li>Are antigen tests, not PCR</li>
             <li>Can be taken anywhere</li>
-            <li>Give results within 30 minutes</li>
+            <li>Give results within 30 minutes (no lab drop-off required)</li>
             <li>Work whether or not you have COVID-19 symptoms</li>
             <li>Work whether or not you are up to date on your COVID-19 vaccines</li>
             <li>Are also referred to self-tests or over-the-counter (OTC) tests</li>
           </ul>
-        heading: About At-Home COVID-19 Tests
-        sub_heading: "At-home tests:"
+        heading: About At-Home Tests
       body_html: |
-        <p>
-          You will receive a follow up confirmation email* from the US Postal Service (USPS) and another email with a tracking number when the tests ship. <span class="text-italic">*If you provided your email address.</span>
-        </p> <p class="text-bold">Tests will be sent out in late January.</p>
+        <p class="text-bold margin-top-0">Tests will be sent out in late January.</p>
+        <p class="margin-bottom-0">
+          You will receive <strong>4</strong> individual at-home antigen tests to the address you provided.
+        </p>
+      body_secondary_html: |
+        You will receive a follow up confirmation email* from the US Postal Service (USPS) and another email with a tracking number when the tests ship.<br /><span class="text-italic font-body-xs">*If you provided your email address.</span>
       instructions:
         body_html: |
           <ul>
-            <li>If you begin having COVID-19 symptoms like fever, sore throat, runny nose, or loss of taste or smell, or</li>
-            <li>At least 5 days after you come into close contact with someone with COVID-19, or</li>
-            <li>When you’re going to gather with a group of people, especially those who are at risk of severe disease or may not be <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/stay-up-to-date.html" rel="noopener">up to date on their COVID-19 vaccines</a>.</li>
+            <li>If you begin having COVID-19 symptoms like a fever, sore throat, runny nose, fever, or loss of taste or smell, or</li>
+            <li>5 days after you come into close contact with someone with COVID-19, or</li>
+            <li>When you’re going to gather with a group of people, especially those who are at risk of severe disease or may not be <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/stay-up-to-date.html" rel="noopener">up to date on their COVID-19 vaccines</a>.</li>
           </ul>
         heading: Once you receive your tests
-        sub_heading: "Take an at-home test if you:"
-      other:
-        alt: Mask-wearing young child using hand sanitizer
-        body_html: |
-          <ul>
-            <li>Get up to date with their COVID-19 vaccinations. Visit <a class="usa-link usa-link--external" href="https://vaccines.gov" rel="noopener">vaccines.gov</a> to find a vaccine or booster near you.</li>
-            <li>Wear a well-fitted mask when gathering indoors.</li>
-            <li>Maintain 6 feet of distance between people.</li>
-          </ul>
-        heading: Vaccination, Masking and Social Distancing
-        sub_heading:
-          "Testing is only one step you can take to protect yourself, friends, family, and others. Everyone is encouraged to:
-
-          "
+        sub_heading: "Take an at-home test:"
       resources:
-        alt: Adult receiving a COVID-19 test
+        alt: Mask-wearing young child using hand sanitizer
         body_html: |
           <ul>
             <li><a href="https://www.hhs.gov/coronavirus/community-based-testing-sites/index.html" rel="noopener">State resources</a></li>
             <li><a href="https://doineedacovid19test.com/" rel="noreferrer noopener">Local independent pharmacies</a></li>
             <li><a href="https://www.cms.gov/how-to-get-your-at-home-OTC-COVID-19-test-for-free" rel="noopener">Insurance reimbursement program</a></li>
           </ul>
-        heading: Other Testing Resources
+        heading: Other testing resources
         sub_heading: "Free COVID tests are also available through:"
+      tests:
+        body_html: |
+          <p><strong>If you have more than four people in your household,</strong> prioritize administering tests to members who are unvaccinated, over age 65, or medical conditions that increase risk and currently have symptoms of COVID-19 or have come in close contact with someone with COVID-19.</p>
+
+          <p>For more information on who should get tested for COVID-19, visit <a href="https://www.cdc.gov/coronavirus/2019-ncov/testing/diagnostic-testing.html" rel="noopener">CDC’s Test for Current Infection resource</a>.</p>
+        heading: If you need more tests
+      other:
+        body_html: |
+          <h4>Everyone is encouraged to:</h4>
+          <ul>
+            <li>Get up to date with their COVID-19 vaccinations. Visit <a href="https://vaccines.gov" rel="noopener">vaccines.gov</a> to find a vaccine or booster near you.</li>
+            <li>Wear a well-fitted mask when gathering indoors.</li>
+            <li>Maintain 6 feet of distance between people.</li>
+          </ul>
+        heading: Vaccination, Masking and Social Distancing
+        sub_heading: "Testing is only one step you can take to protect yourself, friends, family, and others."
+      nav:
+        body_html: |
+          <ul class="add-list-reset">
+            <li><a href="#receive">Once you receive your tests</a>
+              <ul class="add-list-reset margin-left-4">
+                <li><a class="text-normal" href="#instructions">At-home tests</a></li>
+                <li><a class="text-normal" href="#tests">If you need more tests</a></li>
+              </ul>
+            </li>
+            <li><a href="#whatif_positive">If you test positive</a></li>
+            <li><a href="#whatif_negative">If you test negative</a></li>
+            <li><a href="#other">Other ways to stay safe</a></li>
+          </ul>
+        heading: COVID-19 testing advice and resources
+        sub_heading: On this page
       sub_heading: What to expect next
       title: Thank you, your order has been placed.
       whatif_negative:
-        body_html:
-          'A <strong>negative</strong> at-home test result means that the test did not find the COVID-19 virus, and you may have a lower risk of spreading the disease to others. If you test negative, you should generally test again 2 to 3 days after the first test. Check your test kit’s instructions for specific next steps.</p> <p>For more information on what to do if you test negative, visit the <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">CDC Self-Testing webpage</a>.
+        body_html: |
+          <p><strong>A negative at-home test result means that the test did not find the COVID-19 virus,</strong> and you may have a lower risk of spreading the disease to others. Check your test kit’s instructions for specific next steps.</p>
 
-          '
-        heading: What if you test <em>Negative?</em>
+          <p>If you test negative, you should <strong>test again within a few days</strong> with at least 24 hours between tests.</p>
+
+          <p>If you test negative, visit the <a class="text-white desktop:text-dark-blue" href="https://www.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">CDC Self-Testing webpage</a>.</p>
+        heading: If you test negative
       whatif_positive:
-        body_html:
-          'A <strong>positive</strong> at-home test result means that the test found the COVID-19 virus, and you are very likely infected with COVID-19. If you test positive on your at-home test, follow the <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html" rel="noopener">latest CDC guidance for isolation</a>.
+        body_html: |
+          <p><strong>A positive rapid at-home test result means that the test detected the COVID-19 virus,</strong> and you are very likely infected with COVID-19.</p>
 
-          '
-        heading: What if you test <em>Positive?</em>
+          <p>If you test positive on your at-home test, follow the <a class="text-white desktop:text-dark-blue" href="https://www.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html" rel="noopener">latest CDC guidance for isolation</a>.</p>
+        heading: If you test positive
     new:
       autocomplete_label: Address
       body_html: |
-        <p class="usa-intro margin-bottom-4">
+        <p class="margin-bottom-4">
           Fill in this form to request free at-home tests to be delivered to you. Orders will include
           <strong>4 individual rapid antigen tests.</strong>
         </p>
@@ -119,9 +141,9 @@ en:
       privacy:
         heading: Privacy Statement
         html: |
-          <p class="font-body-2xs">usa.gov is asking for your name and address so that the United States Postal Service (“USPS”) can ship you four at-home rapid COVID tests for free. If you provide an email address, USPS will send you an email that includes a number to track shipment. This collection of information is authorized by the E-Government Act of 2002 (44 U.S.C. § 3501).</p>
-          <p class="font-body-2xs">You are not required to provide your name and address; however, not providing it will prevent USPS from shipping COVID tests to you. You are not required to provide your email address; however, not providing it will prevent USPS from emailing you shipment information.</p>
-          <p class="font-body-2xs">Any information you provide when placing your order will be shared with USPS and may also be disclosed as described in the published Privacy Act <a href="https://www.federalregister.gov/documents/2016/07/18/2016-16868/privacy-act-of-1974-notice-of-an-updated-system-of-records">System of Records Notice</a>.</p>
+          <p class="font-body-3xs">usa.gov is asking for your name and address so that the United States Postal Service (“USPS”) can ship you four at-home rapid COVID tests for free. If you provide an email address, USPS will send you an email that includes a number to track shipment. This collection of information is authorized by the E-Government Act of 2002 (44 U.S.C. § 3501).</p>
+          <p class="font-body-3xs">You are not required to provide your name and address; however, not providing it will prevent USPS from shipping COVID tests to you. You are not required to provide your email address; however, not providing it will prevent USPS from emailing you shipment information.</p>
+          <p class="font-body-3xs">Any information you provide when placing your order will be shared with USPS and may also be disclosed as described in the published Privacy Act <a href="https://www.federalregister.gov/documents/2016/07/18/2016-16868/privacy-act-of-1974-notice-of-an-updated-system-of-records">System of Records Notice</a>.</p>
       review:
         edit: Edit
         please_confirm: Please confirm we have your delivery information correct.

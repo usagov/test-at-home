@@ -55,7 +55,7 @@ zh:
             <li>如果您开始出现发烧、喉咙痛、流鼻涕，或味觉或嗅觉丧失等COVID-19的症状，或者</li>
             <li>当您开始有COVID-19症状，如喉咙痛、流鼻涕、发烧、味觉或嗅觉丧失，或</li>
             <li>在您与COVID-19患者密切接触的5天后，或 当您要参加多人聚会时，特别是如果您有重症风险或
-                <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/stay-up-to-date.html" rel="noopener">没有完成疫苗或加强针接种</a>
+                <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/stay-up-to-date.html" rel="noopener">没有完成疫苗或加强针接种</a>
             </li>
           </ul>
         heading: 在您收到检测试剂后
@@ -64,7 +64,7 @@ zh:
         alt: 佩戴口罩的儿童在使用洗手液
         body_html: |
           <ul>
-            <li>及时接种COVID-19疫苗。请访问 <a class="usa-link usa-link--external" href="https://vaccines.gov" rel="noopener">vaccines.gov</a> 可以查找到您附近的疫苗或加强针接种点。</li>
+            <li>及时接种COVID-19疫苗。请访问 <a href="https://vaccines.gov" rel="noopener">vaccines.gov</a> 可以查找到您附近的疫苗或加强针接种点。</li>
             <li>在室内聚会时戴上贴合的口罩。</li>
             <li>人与人之间保持6英尺的距离。</li>
           </ul>
@@ -83,28 +83,28 @@ zh:
       sub_heading: 下一步
       title: 谢谢，您的订单已下单。
       whatif_negative:
-        body_html: '家用检测结果为<strong>阴性</strong>，表示检测没有发现COVID-19病毒，您将疾病传播给他人的风险可能比较低。如果您的检测结果为阴性，通常应在第一次检测的2~3天后再次进行检测。请查看检测试剂盒说明，了解具体的操作步骤。 </p> <p> 关于当检测结果为阴性时，应该做什么的详细信息，请访问 <a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">CDC自我检测网页</a>. '
+        body_html: '家用检测结果为<strong>阴性</strong>，表示检测没有发现COVID-19病毒，您将疾病传播给他人的风险可能比较低。如果您的检测结果为阴性，通常应在第一次检测的2~3天后再次进行检测。请查看检测试剂盒说明，了解具体的操作步骤。 </p> <p> 关于当检测结果为阴性时，应该做什么的详细信息，请访问 <a href="https://www.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">CDC自我检测网页</a>. '
         heading: 如果您的检测结果为<strong>阴性</strong>
       whatif_positive:
-        body_html: 家用检测结果为<strong>阳性</strong>，表示检测发现了COVID-19病毒，您很可能感染了COVID-19。如果您的家用检测结果呈阳性，请遵循<a class="usa-link usa-link--external" href="https://www.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html" rel="noopener">l最新的CDC隔离指示</a>.
+        body_html: 家用检测结果为<strong>阳性</strong>，表示检测发现了COVID-19病毒，您很可能感染了COVID-19。如果您的家用检测结果呈阳性，请遵循<a href="https://www.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html" rel="noopener">l最新的CDC隔离指示</a>.
         heading: 如果您的检测结果为<strong>阳性</strong>
     new:
       body_html: |
-        <p class="usa-intro">请填写此表格申请免费邮寄上门的家用COVID-19检测试剂。此套检测试剂将包括 4 份独立包装的快速抗原检测试剂。</p>
-        <p class="text-bold margin-bottom-4">检测试剂将在一月下旬发货。</p>
+        <p class="usa-intro margin-bottom-4">请填写此表格申请免费邮寄上门的家用COVID-19检测试剂。此套检测试剂将包括 4 份独立包装的快速抗原检测试剂。</p>
+        <p class="text-bold margin-bottom-4 bullet">检测试剂将在一月下旬发货。</p>
       contact_heading: 联系信息
       contact_html: 收件人的联系信息。<span class="text-magenta">*</span><span class="text-italic">必填项</span>
       email_optional: 这一步是可选的，但如果没有电子邮件地址，我们将无法提供相关信息跟订单追踪。
       privacy:
         heading: 隐私声明
         html: |
-          <p class="font-body-xs">
+          <p class="font-body-2xs">
             usa.gov 需获知您的姓名和地址，以便通过美国邮政服务 (“USPS”) 免费向您邮寄 4 份家用快速 COVID 检测试剂。如果您提供电子邮件地址，USPS 将向您发送一封包含您订单追踪编号的电子邮件。此信息收集由 2002 年《电子政务法》（44 U.S.C. § 3501）授权。
           </p>
-          <p class="font-body-xs">
+          <p class="font-body-2xs">
             您无需提供您的姓名和地址；但是，如您拒绝提供此信息，USPS 无法向您邮寄 COVID 检测试剂。您也无需提供您的电子邮件地址；但是，如您拒绝提供电子邮件地址，USPS 无法向您发送发货信息。
           </p>
-          <p class="font-body-xs">
+          <p class="font-body-2xs">
             您在下单时提供的所有信息都将与 USPS 共享，并且还可能按照已发布的 <a href="https://www.federalregister.gov/documents/2016/07/18/2016-16868/privacy-act-of-1974-notice-of-an-updated-system-of-records">《隐私法记录系统通知》</a> 中的说明进行披露。
           </p>
       review:

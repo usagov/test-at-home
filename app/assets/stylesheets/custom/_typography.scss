@@ -1,3 +1,14 @@
+@mixin covidtest-font($font-size-px, $line-height-px: false) {
+  font-size: px-to-rem($font-size-px) !important;
+  @if $line-height-px {
+    line-height: divide($line-height-px, $font-size-px) !important;
+  }
+}
+
+.font-noto-sans {
+  font-family: "Noto Sans", sans !important;
+}
+
 h1,
 .h1 {
   @include covidtest-font(24, 32);
@@ -20,34 +31,85 @@ h1,
 
 h2,
 .h2 {
-  @include covidtest-font(18, 32);
+  @include covidtest-font(24, 32);
 
   @include at-media("tablet") {
-    @include covidtest-font(22, 32);
+    @include covidtest-font(32, 32);
   }
 
   border-bottom: 1px solid $color-gray;
+  content: none;
+  font-weight: 700;
+  letter-spacing: normal;
   margin: units(2) 0;
+  text-transform: none;
 }
 
-h3,
-.h3 {
-  font-weight: 400 !important;
+.h2 {
+  @include covidtest-font(24, 32);
+
+  @include at-media("tablet") {
+    @include covidtest-font(32, 40);
+  }
+
+  border-bottom: 1px solid $color-gray;
+  content: none !important;
+  font-weight: 700 !important;
+  letter-spacing: normal !important;
+  margin: units(2) 0 !important;
+  text-transform: none !important;
+}
+
+h3 {
+  @include covidtest-font(16, 22);
+
+  @include at-media("tablet") {
+    @include covidtest-font(18, 22);
+  }
+
+  border: 0;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 
-  @include covidtest-font(14, 32);
-
-  @include at-media("tablet") {
-    @include covidtest-font(16, 32);
-  }
-
   &::after {
+    margin-top: units(1);
     content: "";
     display: block;
     height: 4px;
     width: 30px;
     background: $color-magenta;
+  }
+}
+
+.h3 {
+  @include covidtest-font(16, 22);
+
+  @include at-media("tablet") {
+    @include covidtest-font(18, 22);
+  }
+
+  border: 0;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+
+  &::after {
+    margin-top: units(1) !important;
+    content: "" !important;
+    display: block !important;
+    height: 4px !important;
+    width: 30px !important;
+    background: $color-magenta !important;
+  }
+}
+
+h4,
+.h4 {
+  @include covidtest-font(18, 32);
+
+  @include at-media("tablet") {
+    @include covidtest-font(20, 32);
   }
 }
 
@@ -60,4 +122,29 @@ legend {
 
   font-weight: 700;
   margin: 0;
+}
+
+.covidtest-main {
+  p,
+  li {
+    font-size: px-to-rem(18);
+    line-height: divide(32, 18);
+    margin: units(2) 0;
+  }
+
+  a {
+    &,
+    &:visited {
+      font-weight: 700;
+      position: relative;
+      color: $color-dark-blue;
+      text-decoration: underline;
+      transition: all 0.2s ease;
+    }
+
+    &:focus,
+    &:hover {
+      color: $color-magenta;
+    }
+  }
 }

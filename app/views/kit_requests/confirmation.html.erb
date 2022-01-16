@@ -1,75 +1,95 @@
-<section id="success" class="bg-light-gray">
-  <div class="covidtest-container usa-section">
-    <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.contact_heading'), :is_fieldset => false, :full_width => true} do %>
-      <div class="bg-blue text-white display-flex flex-align-start padding-2">
-        <%= image_tag("check.svg", alt: '', class: 'flex-none margin-top-1 margin-right-2') %>
-        <h1 class="content-none margin-0"><%= t('kit_requests.confirmation.title') %></h1>
+<div class="bg-light-gray">
+  <section>
+    <div class="bg-blue text-white">
+      <div class="covidtest-container usa-section padding-bottom-12">
+        <div class="display-flex flex-align-center desktop:flex-justify-center">
+          <%= image_tag("check.svg", alt: '', class: 'flex-none margin-right-2', height: 45, width: 45) %>
+          <h1 class="content-none margin-bottom-4" tabindex="-1">
+            <%= t('kit_requests.confirmation.title') %>
+          </h1>
+        </div>
       </div>
-      <div class="padding-x-3 padding-y-2 text-dark-blue maxw-tablet">
-        <h2><%= t('kit_requests.confirmation.sub_heading') %></h2>
-        <%= t('kit_requests.confirmation.body_html') %>
+    </div>
+    <div class="covidtest-container usa-section maxw-tablet margin-x-auto margin-top-neg-15 padding-top-4 padding-bottom-0">
+      <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.contact_heading'), :is_fieldset => false } do %>
+          <h2 class="text-blue border-0 margin-top-0 margin-bottom-4 accent-after">
+            <%= t('kit_requests.confirmation.sub_heading') %>
+          </h2>
+          <div class="bg-lighter-blue padding-3 text-dark-blue">
+            <%= t('kit_requests.confirmation.body_html') %>
+          </div>
+          <p class="text-dark-blue"><%= t('kit_requests.confirmation.body_secondary_html') %></p>
+      <% end %>
+    </div>
+  </section>
+
+  <div class="bg-dark-blue text-white">
+    <div class="covidtest-container usa-section padding-y-1">
+      <h2 class="h1 border-0 desktop:maxw-mobile-lg content-none">
+        <%= t('kit_requests.confirmation.nav.heading') %>
+      </h2>
+    </div>
+  </div>
+</div>
+<div class="covidtest-container">
+  <div class="arrow"></div>
+  <div class="grid-row">
+    <aside class="desktop:grid-col-4">
+      <div class="padding-bottom-4 margin-top-4 border-bottom border-gray desktop:border-0">
+        <h3 class="h3"><%= t('kit_requests.confirmation.nav.sub_heading') %></h3>
+        <%= t('kit_requests.confirmation.nav.body_html') %>
       </div>
-    <% end %>
-  </div>
-</section>
+    </aside>
+    <div class="desktop:grid-col-8 measure-4">
+      <section class="bg-white">
+        <div class="desktop:padding-bottom-6 margin-top-4 desktop:border-bottom desktop:border-gray">
+          <h2 id="receive" class="h3 border-0"><%= t('kit_requests.confirmation.instructions.heading') %></h2>
+          <h3 id="instructions" class="h2 border-0 content-none text-bold text-no-uppercase"><%= t('kit_requests.confirmation.instructions.sub_heading') %></h3>
+          <div class="margin-bottom-4">
+            <%= t('kit_requests.confirmation.instructions.body_html') %>
+          </div>
+          <div class="bg-light-gray padding-3 text-dark-blue shadow-2">
+            <h3 class="margin-bottom-4 margin-top-0"><%=  t('kit_requests.confirmation.about.heading') %></h3>
+            <%= t('kit_requests.confirmation.about.body_html') %>
+          </div>
+        </div>
+      </section>
 
-<section id="instructions">
-  <div class="covidtest-container usa-section">
-    <h2><%= t('kit_requests.confirmation.instructions.heading') %></h2>
-    <h3 class="h1 content-none"><%= t('kit_requests.confirmation.instructions.sub_heading') %></h3>
-    <%= t('kit_requests.confirmation.instructions.body_html') %>
-  </div>
-</section>
+      <section>
+        <div class="desktop:padding-bottom-4 margin-top-4 desktop:border-bottom desktop:border-gray">
+          <h2 id="tests" class="border-0 accent-after">
+            <%= t('kit_requests.confirmation.tests.heading') %>
+          </h2>
+          <div class="margin-bottom-4">
+            <%= t('kit_requests.confirmation.tests.body_html') %>
+          </div>
+          <h3 class="h3"><%= t('kit_requests.confirmation.resources.heading') %></h3>
+          <h4><%= t('kit_requests.confirmation.resources.sub_heading') %></h4>
+          <%= t('kit_requests.confirmation.resources.body_html') %>
+        </div>
+      </section>
 
-<section id="about" class="covidtest-about bg-light-gray">
-  <div class="covidtest-about__container covidtest-container bg-light-gray">
-    <div class="covidtest-about__image">
-      <%= image_tag("covidtest/tests.svg", alt: t('kit_requests.confirmation.about.alt'), width: "284", height: "259", loading: "lazy") %>
-    </div>
-    <div class="covidtest-about__content">
-      <h2><%= t('kit_requests.confirmation.about.heading') %></h2>
-      <p><%= t('kit_requests.confirmation.about.sub_heading') %></p>
-      <%= t('kit_requests.confirmation.about.body_html') %>
-    </div>
-  </div>
-</section>
+      <section class="bg-magenta margin-x-neg-2 padding-x-2 padding-y-4 desktop:bg-white text-white margin-top-4 desktop:padding-y-0">
+        <div class="desktop:padding-bottom-4 desktop:border-bottom desktop:border-gray">
+          <h2 id="whatif_positive" class="border-0 accent-after"><%= t('kit_requests.confirmation.whatif_positive.heading').html_safe %></h2>
+          <%= t('kit_requests.confirmation.whatif_positive.body_html') %>
+        </div>
+      </section>
 
-<section id="resources" class="covidtest-resources">
-  <%= image_tag("covidtest/resources.jpg", alt: "", loading: "lazy") %>
-  <div class="covidtest-resources__container covidtest-container">
-    <div class="covidtest-resources__content">
-      <h2><%= t('kit_requests.confirmation.resources.heading') %></h2>
-      <p><%= t('kit_requests.confirmation.resources.sub_heading') %></p>
-      <%= t('kit_requests.confirmation.resources.body_html') %>
-    </div>
-  </div>
-</section>
+      <section class="bg-dark-blue margin-x-neg-2 padding-x-2 padding-y-4 desktop:bg-white text-white margin-top-0 desktop:margin-top-4 desktop:padding-y-0">
+        <div class="desktop:padding-bottom-4 desktop:border-bottom desktop:border-gray">
+          <h2 id="whatif_negative" class="border-0 accent-after"><%= t('kit_requests.confirmation.whatif_negative.heading').html_safe %></h2>
+          <%= t('kit_requests.confirmation.whatif_negative.body_html') %>
+        </div>
+      </section>
 
-<section id="what-if" class="covidtest-whatif">
-  <div class="covidtest-whatif__positive">
-    <div class="covidtest-whatif__content">
-      <%= image_tag("covidtest/covid.svg", alt: "", width: "70", height: "70", loading: "lazy") %>
-      <h2><%= t('kit_requests.confirmation.whatif_positive.heading').html_safe %></h2>
-      <p><%= t('kit_requests.confirmation.whatif_positive.body_html') %></p>
+      <section>
+        <div class="padding-bottom-4 margin-top-4">
+          <h2 id="other" class="h3 border-0"><%= t('kit_requests.confirmation.other.heading') %></h2>
+          <h3 class="h2 border-0 content-none text-bold text-no-uppercase"><%= t('kit_requests.confirmation.other.sub_heading') %></h3>
+          <%= t('kit_requests.confirmation.other.body_html') %>
+        </div>
+      </section>
     </div>
   </div>
-  <div class="covidtest-whatif__negative">
-    <div class="covidtest-whatif__content">
-      <h2><%= t('kit_requests.confirmation.whatif_negative.heading').html_safe %></h2>
-      <p><%= t('kit_requests.confirmation.whatif_negative.body_html') %></p>
-    </div>
-  </div>
-</section>
-
-<section id="other" class="covidtest-other">
-  <div class="covidtest-other__container covidtest-container">
-    <div class="covidtest-other__image">
-      <%= image_tag("covidtest/other.jpg", alt: t('kit_requests.confirmation.other.alt'), width: "555", height: "620", loading: "lazy") %>
-    </div>
-    <div class="covidtest-other__content">
-      <h2><%= t('kit_requests.confirmation.other.heading') %></h2>
-      <p><%= t('kit_requests.confirmation.other.sub_heading') %></p>
-      <%= t('kit_requests.confirmation.other.body_html') %>
-    </div>
-  </div>
-</section>
+</div>
