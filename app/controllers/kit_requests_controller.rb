@@ -7,7 +7,7 @@ class KitRequestsController < ApplicationController
   def create
     @kit_request = KitRequest.new(kit_request_params)
 
-    if recaptcha_completed?(params["g-recaptcha-response"]) && @kit_request.save
+    if @kit_request.save
       render_confirmation
     else
       render :new
@@ -15,30 +15,6 @@ class KitRequestsController < ApplicationController
   end
 
   private
-
-  def recaptcha_completed?(token)
-    return true unless ENV["RECAPTCHA_REQUIRED"] == "true"
-    return false unless token && token.present?
-
-    # https://cloud.google.com/recaptcha-enterprise/docs/create-assessment#rest-api
-    uri = URI.parse("https://recaptchaenterprise.googleapis.com/v1beta1/projects/#{ENV["RECAPTCHA_PROJECT_ID"]}/assessments?key=#{Rails.application.credentials.recaptcha.api_key}")
-    request_data = {
-      event: {
-        token: token,
-        siteKey: ENV["RECAPTCHA_SITE_KEY"],
-        expectedAction: "submit",
-      }
-    }
-
-    response = Net::HTTP.post(uri, request_data.to_json, "Content-Type" => "application/json; charset=utf-8")
-    json = JSON.parse(response.body)
-    if json['tokenProperties']['valid'] == true && json['tokenProperties']['action'] == "submit"
-      @kit_request.recaptcha_score = json['score']
-      true
-    else
-      false
-    end
-  end
 
   def render_confirmation
     filename = Rails.root.join("tmp/cache/confirmation_#{I18n.locale}.html")
@@ -65,7 +41,8 @@ class KitRequestsController < ApplicationController
       :city,
       :state,
       :zip_code,
-      :js_smarty_status
+      :js_smarty_status,
+      :recaptcha_token
     )
   end
 end

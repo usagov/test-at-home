@@ -124,7 +124,7 @@ const getFormValues = form => {
     commit,
     "input-autocomplete": autocomplete,
     "kit_request[js_smarty_status]": js_smarty_status,
-    "g-recaptcha-response": recaptcha,
+    "kit_request[recaptcha_token]": recaptcha,
     ...data
   } = Object.fromEntries(entries);
 

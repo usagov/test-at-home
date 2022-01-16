@@ -11,10 +11,11 @@ class KitRequest < ApplicationRecord
   validates_presence_of :mailing_address_1, :city, :state, :zip_code
   validate :valid_mailing_address, if: :require_smarty_validation?
   validates_presence_of :email, if: -> { UsStreetAddressValidator.smarty_disabled? }
+  validate :recaptcha_provided, if: -> { ENV["RECAPTCHA_REQUIRED"] == "true" }
 
   after_validation :store_smarty_response
 
-  attr_accessor :mailing_address, :js_smarty_status
+  attr_accessor :mailing_address, :js_smarty_status, :recaptcha_token
 
   private
 
@@ -44,6 +45,42 @@ class KitRequest < ApplicationRecord
     # A match that is undeliverable (eg missing apartment number)
     else
       errors.add :mailing_address, :address_incorrect
+      false
+    end
+  end
+
+  def recaptcha_provided
+    return true unless ENV["RECAPTCHA_REQUIRED"] == "true"
+    unless recaptcha_token&.present?
+      errors.add :recaptcha_token, :recaptcha_not_valid
+      return false
+    end
+
+    # https://cloud.google.com/recaptcha-enterprise/docs/create-assessment#rest-api
+    uri = URI.parse("https://recaptchaenterprise.googleapis.com/v1beta1/projects/#{ENV["RECAPTCHA_PROJECT_ID"]}/assessments?key=#{Rails.application.credentials.recaptcha.api_key}")
+    request_data = {
+      event: {
+        token: recaptcha_token,
+        siteKey: ENV["RECAPTCHA_SITE_KEY"],
+        expectedAction: "submit"
+      }
+    }
+
+    begin
+      response = Net::HTTP.post(uri, request_data.to_json, "Content-Type" => "application/json; charset=utf-8")
+      ::NewRelic::Agent.record_metric("Custom/Recaptcha/success", 1)
+      json = JSON.parse(response.body)
+    rescue Net::OpenTimeout, JSON::ParserError => err
+      ::NewRelic::Agent.record_metric("Custom/Recaptcha/success", 0)
+      NewRelic::Agent.notice_error(err)
+      return true
+    end
+
+    if json["tokenProperties"]["valid"] == true && json["tokenProperties"]["action"] == "submit"
+      self.recaptcha_score = json["score"]
+      true
+    else
+      errors.add :recaptcha_token, :recaptcha_not_valid
       false
     end
   end

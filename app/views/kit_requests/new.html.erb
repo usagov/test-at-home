@@ -19,6 +19,10 @@
             <%= t('kit_requests.new.contact_html') %>
           </p>
 
+          <% if ENV["RECAPTCHA_REQUIRED"] == "true" %>
+            <%= accessible_errors(@kit_request, :recaptcha_token) %>
+          <% end %>
+        
           <%= form.label :first_name, class: "usa-label" do %>
             <%= t('activerecord.attributes.first_name') %>
             <span class="text-magenta">*</span>
@@ -106,8 +110,9 @@
       <%= render "application/privacy" %>
 
       <% if ENV["RECAPTCHA_REQUIRED"] == "true" %>
-        <input autocomplete="off" type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+        <%= form.hidden_field :recaptcha_token, id: "g-recaptcha-response" %>
       <% end %>
+
       <%= form.submit t('kit_requests.new.submit'), class: "usa-button radius-pill font-ui-lg width-full margin-top-0", id:"submit-btn" %>
     </div>
   <% end %>

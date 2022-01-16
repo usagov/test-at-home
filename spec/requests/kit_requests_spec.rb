@@ -11,26 +11,28 @@ RSpec.describe "KitRequests", type: :request do
 
   describe "POST /kit_requests" do
     around do |example|
-      ClimateControl.modify RECAPTCHA_REQUIRED: nil do
+      ClimateControl.modify RECAPTCHA_REQUIRED: "true" do
         example.run
       end
     end
 
     let(:valid_params) do
       {
-        first_name: "Test",
-        last_name: "McTester",
-        email: "foo@example.com",
-        mailing_address_1: "1234 Fake St",
-        mailing_address_2: "Apt A",
-        city: "SF",
-        state: "CA",
-        zip_code: "12345",
+        kit_request: {
+          :first_name => "Test",
+          :last_name => "McTester",
+          :email => "foo@example.com",
+          :mailing_address_1 => "1234 Fake St",
+          :mailing_address_2 => "Apt A",
+          :city => "SF",
+          :state => "CA",
+          :zip_code => "12345",
+          "recaptcha_token" => "asdfasdfasdfasdfasdf"
+        }
       }
     end
 
     context "when data is valid" do
-
       let(:smarty_response) do
         # San Francisco DMV
         [
@@ -86,9 +88,9 @@ RSpec.describe "KitRequests", type: :request do
       before do
         stub_request(:get, /api.smartystreets.com/).to_return(status: 200, body: smarty_response.to_json, headers: {})
       end
-      
+
       it "renders the confirmation page" do
-        post "/kit_requests", params: {kit_request: valid_params}
+        post "/kit_requests", params: valid_params
 
         expect(response).to have_http_status(200)
         expect(response).to render_template(:confirmation)
@@ -96,7 +98,7 @@ RSpec.describe "KitRequests", type: :request do
 
       it "creates a new kit request with correct attributes" do
         expect {
-          post "/kit_requests", params: {kit_request: valid_params}
+          post "/kit_requests", params: valid_params
         }.to change { KitRequest.count }.by(1)
 
         record = KitRequest.last
@@ -109,108 +111,24 @@ RSpec.describe "KitRequests", type: :request do
         expect(record.city).to eq("SF")
         expect(record.state).to eq("CA")
         expect(record.zip_code).to eq("12345")
+        expect(record.recaptcha_score).to eq(0.9)
       end
     end
 
     context "when data is invalid" do
       it "renders errors without creating new record" do
-        kit_request_params = {
-          first_name: ""
+        invalid_params = {
+          kit_request: {
+            first_name: ""
+          }
         }
 
         expect {
-          post "/kit_requests", params: {kit_request: kit_request_params}
+          post "/kit_requests", params: invalid_params
         }.to change { KitRequest.count }.by(0)
 
         expect(response).to have_http_status(200)
         expect(response).to render_template(:new)
-      end
-    end
-
-    context "when recaptcha enabled" do
-      around do |example|
-        ClimateControl.modify RECAPTCHA_REQUIRED: "true", DISABLE_SMARTY_STREETS: "true" do
-          example.run
-        end
-      end
-
-      let(:recaptcha_response) do
-        {
-          "name"=>"projects/asdfasdf/assessments/lkjasdlkfjasldfk",
-          "event"=>
-            {"token"=>
-              "adfasdfasdfasdfasdfasdfasdfasdfsadf",
-            "siteKey"=>"asdfasdfasdf",
-            "userAgent"=>"",
-            "userIpAddress"=>"",
-            "expectedAction"=>"submit",
-            "hashedAccountId"=>""},
-          "score"=>0.9,
-          "tokenProperties"=>
-            {"valid"=>true,
-            "invalidReason"=>"INVALID_REASON_UNSPECIFIED",
-            "hostname"=>"localhost",
-            "action"=>"submit",
-            "createTime"=>"2022-01-16T16:35:44.371Z"},
-          "reasons"=>[]
-        }
-      end
-
-      let(:recaptcha_params) do
-        {
-          kit_request: valid_params,
-          "g-recaptcha-response" => "asdfasdfasdfasdfasdf"
-        }
-      end
-
-      it "saves recaptcha score" do
-        stub_request(:any, /recaptchaenterprise.googleapis.com/).to_return(body: recaptcha_response.to_json)
-
-        expect {
-          post "/kit_requests", params: recaptcha_params
-        }.to change { KitRequest.count }.by(1)
-
-        expect(KitRequest.last.recaptcha_score).to eq(0.9)
-      end
-
-      context "invalid states" do
-        it "requires token in params" do
-          recaptcha_params[:"g-recaptcha-response"] = ""
-
-          expect {
-            post "/kit_requests", params: recaptcha_params
-          }.to change { KitRequest.count }.by(0)
-        end
-        
-        it "requires recaptcha to be valid" do
-          recaptcha_response["tokenProperties"]["valid"] = false
-
-          stub_request(:any, /recaptchaenterprise.googleapis.com/).to_return(body: recaptcha_response.to_json)
-  
-          expect {
-            post "/kit_requests", params: { kit_request: recaptcha_params }
-          }.to change { KitRequest.count }.by(0)
-        end
-
-        it "requires action to be submit" do
-          recaptcha_response["tokenProperties"]["action"] = "asdf"
-
-          stub_request(:any, /recaptchaenterprise.googleapis.com/).to_return(body: recaptcha_response.to_json)
-  
-          expect {
-            post "/kit_requests", params: { kit_request: recaptcha_params }
-          }.to change { KitRequest.count }.by(0)
-        end
-
-        it "requires action to be submit" do
-          recaptcha_response["tokenProperties"]["action"] = "asdf"
-
-          stub_request(:any, /recaptchaenterprise.googleapis.com/).to_return(body: recaptcha_response.to_json)
-  
-          expect {
-            post "/kit_requests", params: { kit_request: recaptcha_params }
-          }.to change { KitRequest.count }.by(0)
-        end
       end
     end
   end
