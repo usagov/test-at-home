@@ -21,7 +21,7 @@ class KitRequestsController < ApplicationController
     return false unless token && token.present?
 
     # https://cloud.google.com/recaptcha-enterprise/docs/create-assessment#rest-api
-    uri = URI.parse("https://recaptchaenterprise.googleapis.com/v1beta1/projects/#{ENV["RECAPTCHA_PROJECT_ID"]}/assessments?key=#{ENV["RECAPTCHA_API_KEY"]}")
+    uri = URI.parse("https://recaptchaenterprise.googleapis.com/v1beta1/projects/#{ENV["RECAPTCHA_PROJECT_ID"]}/assessments?key=#{Rails.application.credentials.recaptcha.api_key}")
     request_data = {
       event: {
         token: token,
