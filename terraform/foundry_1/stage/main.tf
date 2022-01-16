@@ -21,6 +21,21 @@ module "database" {
   rds_plan_name    = "xlarge-gp-psql-redundant"
 }
 
+module "database-n" {
+  source = "../../shared/database-n"
+
+  aws_region       = local.aws_region
+  cf_api_url       = local.cf_api_url
+  cf_user          = var.cf_user
+  cf_password      = var.cf_password
+  cf_org_name      = local.cf_org_name
+  cf_space_name    = local.cf_space_name
+  env              = local.env
+  db_count         = 10
+  recursive_delete = local.recursive_delete
+  rds_plan_name    = "xlarge-gp-psql-redundant"
+}
+
 # The following lines need to be commented out for the initial `terraform apply`
 # and then re-enabled and applied after the app has first been deployed
 module "domain" {

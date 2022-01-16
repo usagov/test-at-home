@@ -35,11 +35,11 @@ class UsStreetAddressValidator
   def run
     begin
       results = client.send_lookup(lookup)
-      ::NewRelic::Agent.record_metric('Custom/Smarty/success', 1)
+      ::NewRelic::Agent.record_metric("Custom/Smarty/success", 1)
       results
     # Possible exceptions: https://github.com/smartystreets/smartystreets-ruby-sdk/blob/master/lib/smartystreets_ruby_sdk/exceptions.rb
     rescue Net::OpenTimeout, SmartyStreets::SmartyError => err
-      ::NewRelic::Agent.record_metric('Custom/Smarty/success', 0)
+      ::NewRelic::Agent.record_metric("Custom/Smarty/success", 0)
       NewRelic::Agent.notice_error(err)
       raise ServiceIssueError
     end
