@@ -127,6 +127,15 @@ RSpec.describe KitRequest, type: :model do
       end
     end
 
+    context "when js_smarty_status is passed" do
+      it "does not require address validation" do
+        expect(UsStreetAddressValidator).to_not receive(:new)
+        kit_request = FactoryBot.build(:kit_request, js_smarty_status: "pass")
+
+        expect(kit_request).to be_valid
+      end
+    end
+
     context "when smarty streets integration disabled" do
       around do |example|
         ClimateControl.modify DISABLE_SMARTY_STREETS: "true" do
