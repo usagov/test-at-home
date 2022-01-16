@@ -40,7 +40,8 @@ class KitRequestsController < ApplicationController
       :mailing_address_2,
       :city,
       :state,
-      :zip_code
+      :zip_code,
+      :js_smarty_status
     )
   end
 end

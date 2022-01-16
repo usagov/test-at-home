@@ -8,15 +8,19 @@ class KitRequest < ApplicationRecord
     allow_blank: true
 
   # Ordering is important here, since we need first validation to run before others
-  validate :valid_mailing_address, unless: -> { UsStreetAddressValidator.smarty_disabled? }
+  validate :valid_mailing_address, if: :require_smarty_validation?
   validates_presence_of :mailing_address_1, :city, :state, :zip_code, if: :address_validation_service_errored
   validates_presence_of :mailing_address_1, :city, :state, :zip_code, :email, if: -> { UsStreetAddressValidator.smarty_disabled? }
 
   after_validation :store_smarty_response
 
-  attr_accessor :mailing_address
+  attr_accessor :mailing_address, :js_smarty_status
 
   private
+
+  def require_smarty_validation?
+    js_smarty_status != "pass" && !UsStreetAddressValidator.smarty_disabled?
+  end
 
   def valid_mailing_address
     begin
