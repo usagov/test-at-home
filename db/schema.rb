@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2022_01_16_161819) do
     t.string "zip_code", null: false
     t.json "smarty_response", default: {}
     t.boolean "address_validated", default: false
-    t.decimal "recaptcha_score"
+    t.decimal "recaptcha_score", default: "-1.0"
   end
 
 end
