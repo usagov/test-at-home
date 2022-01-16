@@ -17,7 +17,14 @@ set -e
 # login to the given foundry, and target the correct space
 cf login -a $CF_FOUNDRY_API -u $CF_USER -p ${!CF_PASSWORD_NAME} -o $CF_ORG -s $CF_SPACE
 
-# do the deploy
-cf push --strategy rolling --no-wait --vars-file $VARS_FILE \
-    --var rails_master_key=${!RAILS_MASTER_KEY_NAME} \
-    --var disable_smarty_streets=$DISABLE_SMARTY_STREETS
+# do the deploys
+app_number=0
+while [ $app_number -lt 10 ]
+do
+  cf push --strategy rolling --no-wait --vars-file $VARS_FILE \
+      --var rails_master_key=${!RAILS_MASTER_KEY_NAME} \
+      --var disable_smarty_streets=$DISABLE_SMARTY_STREETS \
+      --var app_number=$app_number
+
+  ((counter++))
+done
