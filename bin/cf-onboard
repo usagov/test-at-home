@@ -32,7 +32,7 @@ set -o pipefail
 user=$1
 
 defaultrole="SpaceDeveloper"
-defaultspaces="management,prod,staging,dev"
+defaultspaces="management,prod,prod-egress,staging,dev"
 defaulttargets="tah-ea,tah-eb,tah-wa,tah-wb,tah-wc"
 
 if [ -z "${user}" ]; then
