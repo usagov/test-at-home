@@ -3,6 +3,9 @@ module.exports = {
   plugins: [
     require("@csstools/postcss-sass"),
     require("postcss-import"),
-    require("autoprefixer")
+    require("autoprefixer"),
+    require("cssnano")({
+      preset: "default"
+    })
   ]
 };
