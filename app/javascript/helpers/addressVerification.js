@@ -6,7 +6,7 @@ const SmartyStreetsCore = SmartyStreetsSDK.core;
 const Lookup = SmartyStreetsSDK.usStreet.Lookup;
 
 // Embedded key for client side only
-const key = process.env.SMARTY_STREETS_EMBEDDED_KEY;
+const key = SMARTY_STREETS_EMBEDDED_KEY;
 const credentials = new SmartyStreetsCore.SharedCredentials(key);
 
 const clientBuilder = new SmartyStreetsCore.ClientBuilder(
@@ -53,7 +53,7 @@ async function handleResponse(lookup) {
 
 export const verifyAddress = async address => {
   // If DISABLE_SMARTY_STREETS=true, skip address validation
-  if (process.env.DISABLE_SMARTY_STREETS === "true") return { status: "valid" };
+  if (DISABLE_SMARTY_STREETS === "true") return { status: "valid" };
 
   let lookup = new Lookup();
 

@@ -141,6 +141,7 @@ jobs:
       PGUSER: circleci
       PGPASSWORD: ""
       RAILS_ENV: ci
+      DISABLE_SMARTY_STREETS_AUTOCOMPLETE: "true"
     steps:
       - checkout
       - ruby/install-deps
