@@ -26,7 +26,7 @@ module ApplicationHelper
     opts[:hidden] = true if hidden
 
     if errored?(object, method) || hidden
-      content_tag("div", class: "error-message", id: accessible_error_id(object, method), **opts) do
+      content_tag("div", tabindex: -1, class: "error-message", id: accessible_error_id(object, method), **opts) do
         object.errors[method].map { |message| message }.join("<br/>")
       end
     end
