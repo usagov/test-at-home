@@ -7,6 +7,7 @@ applications:
   env:
     RAILS_MASTER_KEY: ((rails_master_key))
     RAILS_ENV: ((rails_env))
+    FEATURE_NAME: ((feature_name))
     RAILS_SERVE_STATIC_FILES: true
     RAILS_LOG_TO_STDOUT: true
     NEW_RELIC_LOG: stdout
