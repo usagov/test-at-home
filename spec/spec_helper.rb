@@ -96,11 +96,35 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 
   config.before(:each) do
+    recaptcha_response = {
+      "name" => "projects/asdfasdf/assessments/lkjasdlkfjasldfk",
+      "event" =>
+        {"token" =>
+          "adfasdfasdfasdfasdfasdfasdfasdfsadf",
+         "siteKey" => "asdfasdfasdf",
+         "userAgent" => "",
+         "userIpAddress" => "",
+         "expectedAction" => "submit",
+         "hashedAccountId" => ""},
+      "score" => 0.9,
+      "tokenProperties" =>
+        {"valid" => true,
+         "invalidReason" => "INVALID_REASON_UNSPECIFIED",
+         "hostname" => "localhost",
+         "action" => "submit",
+         "createTime" => "2022-01-16T16:35:44.371Z"},
+      "reasons" => []
+    }
+
     stub_request(:any, /api.smartystreets.com/)
+    stub_request(:any, /recaptchaenterprise.googleapis.com/).to_return(body: recaptcha_response.to_json)
+    stub_request(:any, /google.com/)
   end
 
   config.before(:all) do
     WebMock.disable_net_connect!(allow_localhost: true)
     WebMock.allow_net_connect!(net_http_connect_on_start: true)
+
+    Capybara.default_max_wait_time = 5
   end
 end

@@ -142,6 +142,13 @@ RSpec.describe "Person requests a test kit", type: :system do
   end
 
   describe "with javascript disabled" do
+    around do |example|
+      # Recaptcha requires Javascript
+      ClimateControl.modify RECAPTCHA_REQUIRED: "false" do
+        example.run
+      end
+    end
+
     before do
       driven_by(:rack_test)
     end
@@ -189,6 +196,32 @@ RSpec.describe "Person requests a test kit", type: :system do
 
           assert_not_requested :any, /api.smartystreets.com/
         end
+      end
+    end
+
+    context "when recaptcha disabled" do
+      around do |example|
+        # Recaptcha requires Javascript
+        ClimateControl.modify RECAPTCHA_REQUIRED: "true" do
+          example.run
+        end
+      end
+
+      it "can still request test kit" do
+        visit "/"
+
+        fill_in "First name", with: "Kewpee"
+        fill_in "Last name", with: "Doll"
+
+        fill_in "Address Line 1", with: "1234 Fake St"
+        fill_in "Address Line 2", with: "Apt 2"
+        fill_in "City", with: "Lima"
+        select "OH", from: "State"
+        fill_in "Zip code", with: "12345"
+
+        click_on "Place your order"
+
+        expect(page).to have_content "Javascript is required. Please enable or try another browser."
       end
     end
   end

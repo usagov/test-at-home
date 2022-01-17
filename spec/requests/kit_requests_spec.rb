@@ -10,20 +10,29 @@ RSpec.describe "KitRequests", type: :request do
   end
 
   describe "POST /kit_requests" do
-    context "when data is valid" do
-      let(:valid_params) do
-        {
-          first_name: "Test",
-          last_name: "McTester",
-          email: "foo@example.com",
-          mailing_address_1: "1234 Fake St",
-          mailing_address_2: "Apt A",
-          city: "SF",
-          state: "CA",
-          zip_code: "12345"
-        }
+    around do |example|
+      ClimateControl.modify RECAPTCHA_REQUIRED: "true" do
+        example.run
       end
+    end
 
+    let(:valid_params) do
+      {
+        kit_request: {
+          :first_name => "Test",
+          :last_name => "McTester",
+          :email => "foo@example.com",
+          :mailing_address_1 => "1234 Fake St",
+          :mailing_address_2 => "Apt A",
+          :city => "SF",
+          :state => "CA",
+          :zip_code => "12345",
+          "recaptcha_token" => "asdfasdfasdfasdfasdf"
+        }
+      }
+    end
+
+    context "when data is valid" do
       let(:smarty_response) do
         # San Francisco DMV
         [
@@ -77,11 +86,11 @@ RSpec.describe "KitRequests", type: :request do
       end
 
       before do
-        stub_request(:get, /us-street.api.smartystreets.com/).to_return(status: 200, body: smarty_response.to_json, headers: {})
+        stub_request(:get, /api.smartystreets.com/).to_return(status: 200, body: smarty_response.to_json, headers: {})
       end
 
       it "renders the confirmation page" do
-        post "/kit_requests", params: {kit_request: valid_params}
+        post "/kit_requests", params: valid_params
 
         expect(response).to have_http_status(200)
         expect(response).to render_template(:confirmation)
@@ -89,7 +98,7 @@ RSpec.describe "KitRequests", type: :request do
 
       it "creates a new kit request with correct attributes" do
         expect {
-          post "/kit_requests", params: {kit_request: valid_params}
+          post "/kit_requests", params: valid_params
         }.to change { KitRequest.count }.by(1)
 
         record = KitRequest.last
@@ -102,17 +111,20 @@ RSpec.describe "KitRequests", type: :request do
         expect(record.city).to eq("SF")
         expect(record.state).to eq("CA")
         expect(record.zip_code).to eq("12345")
+        expect(record.recaptcha_score).to eq(0.9)
       end
     end
 
     context "when data is invalid" do
       it "renders errors without creating new record" do
-        kit_request_params = {
-          first_name: ""
+        invalid_params = {
+          kit_request: {
+            first_name: ""
+          }
         }
 
         expect {
-          post "/kit_requests", params: {kit_request: kit_request_params}
+          post "/kit_requests", params: invalid_params
         }.to change { KitRequest.count }.by(0)
 
         expect(response).to have_http_status(200)

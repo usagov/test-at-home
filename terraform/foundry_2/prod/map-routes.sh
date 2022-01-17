@@ -19,6 +19,7 @@ echo "Mapping routes"
 app_number=0
 while [ $app_number -lt 10 ]
 do
+  cf unmap-route "test_at_home-prod-$app_number" app.wc.cloud.gov --hostname "test_at_home-prod-$app_number"
   cf map-route "test_at_home-prod-$app_number" covidtest.usa.gov
   cf map-route "test_at_home-prod-$app_number" route.covidtest.usa.gov
   cf map-route "test_at_home-prod-$app_number" west.covidtest.usa.gov

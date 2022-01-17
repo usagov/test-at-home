@@ -1,6 +1,7 @@
 // Entry point for the build script in your package.json
 import "uswds";
 import i18n from "i18n-js";
+import "promise-polyfill/src/polyfill";
 
 import { autocomplete } from "./helpers/addressAutocomplete";
 import { verifyAddress } from "./helpers/addressVerification";
@@ -23,6 +24,7 @@ const privacyContainer = document.getElementById("privacy-cntr");
 
 const editButton = document.getElementById("edit-btn");
 const submitButton = document.getElementById("submit-btn");
+const recaptchaField = document.getElementById("g-recaptcha-response");
 
 // I18n strings
 const reviewText = I18n.t("js.review");
@@ -123,6 +125,7 @@ const getFormValues = form => {
     commit,
     "input-autocomplete": autocomplete,
     "kit_request[js_smarty_status]": js_smarty_status,
+    "kit_request[recaptcha_token]": recaptcha,
     ...data
   } = Object.fromEntries(entries);
 
@@ -143,7 +146,16 @@ const showReview = event => {
   if (isFormValid) {
     smartyHidden.value = "pass";
 
-    event.target.submit();
+    if (process.env.RECAPTCHA_REQUIRED === "true") {
+      grecaptcha.enterprise.ready(function() {
+        grecaptcha.enterprise.execute(process.env.RECAPTCHA_SITE_KEY, {action: 'submit'}).then(function(token) {
+            recaptchaField.value = token;
+            event.target.submit();
+          });
+      });
+    } else {
+      event.target.submit();
+    }
   } else {
     handleFormValidation(event);
   }
