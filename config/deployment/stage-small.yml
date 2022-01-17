@@ -1,6 +1,0 @@
-env: stage
-rails_env: staging
-web_instances: 2
-web_memory: 512M
-smarty_streets_public_key: 114809814616057556
-cache_form_age: 60
