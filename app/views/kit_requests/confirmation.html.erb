@@ -1,10 +1,10 @@
 <div class="bg-light-gray">
   <section>
-    <div class="bg-blue text-white">
+    <div class="bg-blue">
       <div class="covidtest-container usa-section padding-bottom-12">
-        <div class="display-flex flex-align-center desktop:flex-justify-center">
+        <div class="display-flex flex-align-center margin-bottom-4">
           <%= image_tag("check.svg", alt: '', class: 'flex-none margin-right-2', height: 45, width: 45) %>
-          <h1 class="content-none margin-bottom-4" tabindex="-1">
+          <h1 class="content-none margin-0" tabindex="-1">
             <%= t('kit_requests.confirmation.title') %>
           </h1>
         </div>
@@ -18,12 +18,13 @@
           <div class="bg-lighter-blue padding-3 text-dark-blue">
             <%= t('kit_requests.confirmation.body_html') %>
           </div>
-          <p class="text-dark-blue"><%= t('kit_requests.confirmation.body_secondary_html') %></p>
+          <p class="text-dark-blue">
+            <%= t('kit_requests.confirmation.body_secondary_html') %>
+          </p>
       <% end %>
     </div>
   </section>
-
-  <div class="bg-dark-blue text-white">
+  <div class="bg-dark-blue">
     <div class="covidtest-container usa-section padding-y-1">
       <h2 class="h1 border-0 desktop:maxw-mobile-lg content-none">
         <%= t('kit_requests.confirmation.nav.heading') %>
@@ -36,20 +37,28 @@
   <div class="grid-row">
     <aside class="desktop:grid-col-4">
       <div class="padding-bottom-4 margin-top-4 border-bottom border-gray desktop:border-0">
-        <h3 class="h3"><%= t('kit_requests.confirmation.nav.sub_heading') %></h3>
+        <h3 class="h3">
+          <%= t('kit_requests.confirmation.nav.sub_heading') %>
+        </h3>
         <%= t('kit_requests.confirmation.nav.body_html') %>
       </div>
     </aside>
     <div class="desktop:grid-col-8 measure-4">
       <section class="bg-white">
         <div class="desktop:padding-bottom-6 margin-top-4 desktop:border-bottom desktop:border-gray">
-          <h2 id="receive" class="h3 border-0"><%= t('kit_requests.confirmation.instructions.heading') %></h2>
-          <h3 id="instructions" class="h2 border-0 content-none text-bold text-no-uppercase"><%= t('kit_requests.confirmation.instructions.sub_heading') %></h3>
+          <h2 id="receive" class="h3 border-0">
+            <%= t('kit_requests.confirmation.instructions.heading') %>
+          </h2>
+          <h3 id="instructions" class="h2 border-0 content-none text-bold text-no-uppercase">
+            <%= t('kit_requests.confirmation.instructions.sub_heading') %>
+          </h3>
           <div class="margin-bottom-4">
             <%= t('kit_requests.confirmation.instructions.body_html') %>
           </div>
           <div class="bg-light-gray padding-3 text-dark-blue shadow-2">
-            <h3 class="margin-bottom-4 margin-top-0"><%=  t('kit_requests.confirmation.about.heading') %></h3>
+            <h3 class="margin-bottom-4 margin-top-0">
+              <%=  t('kit_requests.confirmation.about.heading') %>
+            </h3>
             <%= t('kit_requests.confirmation.about.body_html') %>
           </div>
         </div>
@@ -63,30 +72,42 @@
           <div class="margin-bottom-4">
             <%= t('kit_requests.confirmation.tests.body_html') %>
           </div>
-          <h3 class="h3"><%= t('kit_requests.confirmation.resources.heading') %></h3>
-          <h4><%= t('kit_requests.confirmation.resources.sub_heading') %></h4>
+          <h3 class="h3">
+            <%= t('kit_requests.confirmation.resources.heading') %>
+          </h3>
+          <h4>
+            <%= t('kit_requests.confirmation.resources.sub_heading') %>
+          </h4>
           <%= t('kit_requests.confirmation.resources.body_html') %>
         </div>
       </section>
 
       <section class="bg-magenta margin-x-neg-2 padding-x-2 padding-y-4 desktop:bg-white text-white margin-top-4 desktop:padding-y-0">
         <div class="desktop:padding-bottom-4 desktop:border-bottom desktop:border-gray">
-          <h2 id="whatif_positive" class="border-0 accent-after"><%= t('kit_requests.confirmation.whatif_positive.heading').html_safe %></h2>
+          <h2 id="whatif_positive" class="border-0 accent-after">
+            <%= t('kit_requests.confirmation.whatif_positive.heading').html_safe %>
+          </h2>
           <%= t('kit_requests.confirmation.whatif_positive.body_html') %>
         </div>
       </section>
 
       <section class="bg-dark-blue margin-x-neg-2 padding-x-2 padding-y-4 desktop:bg-white text-white margin-top-0 desktop:margin-top-4 desktop:padding-y-0">
         <div class="desktop:padding-bottom-4 desktop:border-bottom desktop:border-gray">
-          <h2 id="whatif_negative" class="border-0 accent-after"><%= t('kit_requests.confirmation.whatif_negative.heading').html_safe %></h2>
+          <h2 id="whatif_negative" class="border-0 accent-after">
+            <%= t('kit_requests.confirmation.whatif_negative.heading').html_safe %>
+          </h2>
           <%= t('kit_requests.confirmation.whatif_negative.body_html') %>
         </div>
       </section>
 
       <section>
         <div class="padding-bottom-4 margin-top-4">
-          <h2 id="other" class="h3 border-0"><%= t('kit_requests.confirmation.other.heading') %></h2>
-          <h3 class="h2 border-0 content-none text-bold text-no-uppercase"><%= t('kit_requests.confirmation.other.sub_heading') %></h3>
+          <h2 id="other" class="h3 border-0">
+            <%= t('kit_requests.confirmation.other.heading') %>
+          </h2>
+          <h3 class="h2 border-0 content-none text-bold text-no-uppercase">
+            <%= t('kit_requests.confirmation.other.sub_heading') %>
+          </h3>
           <%= t('kit_requests.confirmation.other.body_html') %>
         </div>
       </section>

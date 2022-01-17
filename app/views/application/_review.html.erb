@@ -1,11 +1,8 @@
 <div id="review-cntr" hidden>
-  <div class="bg-blue text-white">
+  <div class="bg-blue">
     <div class="covidtest-container usa-section padding-bottom-12">
       <div class="maxw-tablet">
-        <h1 tabindex="-1">
-          <%= t('kit_requests.new.review.title') %>
-        </h1>
-
+        <h1 tabindex="-1"><%= t('kit_requests.new.review.title') %></h1>
         <p class="margin-bottom-4">
           <%= t('kit_requests.new.review.please_confirm') %>
         </p>
@@ -19,21 +16,28 @@
           <%= t('kit_requests.new.review.ship_to') %>
         </h2>
         <div class="text-bold">
-          <span id="review-first_name"></span> <span id="review-last_name"></span>
+          <span id="review-first_name"></span>
+          <span id="review-last_name"></span>
         </div>
         <div>
           <span class="display-block" id="review-mailing_address_1"></span>
           <span class="display-block" id="review-mailing_address_2"></span>
-          <span id="review-city"></span>, <span id="review-state"></span> <span id="review-zip_code"></span>
+          <span id="review-city"></span>,
+          <span id="review-state"></span>
+          <span id="review-zip_code"></span>
         </div>
       </div>
       <div class="margin-bottom-4">
-        <h2 class="text-blue margin-top-0 padding-bottom-2"><%= t('kit_requests.new.review.tracking_to') %></h2>
+        <h2 class="text-blue margin-top-0 padding-bottom-2">
+          <%= t('kit_requests.new.review.tracking_to') %>
+        </h2>
         <div>
           <span id="review-email"></span>
         </div>
       </div>
-      <button class="usa-button usa-button--outline radius-pill padding-y-1 margin-y-0 width-auto" id="edit-btn" type="button"><%= t('kit_requests.new.review.edit') %></button>
+      <button class="usa-button usa-button--outline radius-pill padding-y-1 margin-y-0 width-auto" id="edit-btn" type="button">
+        <%= t('kit_requests.new.review.edit') %>
+      </button>
     <% end %>
   </div>
 </div>
