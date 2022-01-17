@@ -50,8 +50,7 @@ zh:
         <p class="margin-bottom-0">
           您将会在您提供的地址收到<strong>4</strong>盒独立包装的居家抗原检测试剂。
         </p>
-      body_secondary_html: '您会收到美国邮政服务 (USPS) 的后续确认电子邮件* ，并在检测试剂开始发送时收到另一封带有邮件追踪号码的电子邮件。
-        <br /><span class="text-italic font-body-xs">*如果您已输入您的电子邮件地址。</span>'
+      body_secondary_html: 您会收到美国邮政服务 (USPS) 的后续确认电子邮件* ，并在检测试剂开始发送时收到另一封带有邮件追踪号码的电子邮件。 <br /><span class="text-italic font-body-xs">*如果您已输入您的电子邮件地址。</span>
       heading: 接下来
       instructions:
         body_html: |
@@ -100,17 +99,10 @@ zh:
         sub_heading: 还可以通过以下途径获得免费的COVID检测试剂：
       sub_heading: 下一步
       tests:
-        body_html: |
-          <p><strong>如果您家多于 4 人,</strong> 请优先检测未接种疫苗者、65岁以上人士、或因为有身体病况导致风险增加者（并且如果已经出现COVID-19症状或与COVID-19患者密切接触）。</p>
+        body_html: "<p><strong>如果您家多于 4 人,</strong> 请优先检测未接种疫苗者、65岁以上人士、或因为有身体病况导致风险增加者（并且如果已经出现COVID-19症状或与COVID-19患者密切接触）。</p>\n"
         heading: 如果您需要更多检测试剂
       title: 谢谢，您的订单已下单。
       whatif_negative:
-        body_html: |
-          <p><strong>居家检测结果为阴性即表示检测中没有发现 COVID-19 病毒，</strong> 您将疾病传播给他人的风险可能较低。</p>
-
-          <p>查看检测试剂盒的说明，了解具体的后续步骤。 如果您的检测结果为阴性，您应在几天内再次检测，两次检测应至少间隔 24 小时。</p>
-
-          <p>如果您的检测结果为阴性，请访问 <a class="text-white desktop:text-dark-blue" href="https://chinese.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">CDC 自我检测网页</a>.</p>
         body_html: '家用检测结果为<strong>阴性</strong>，表示检测没有发现COVID-19病毒，您将疾病传播给他人的风险可能比较低。如果您的检测结果为阴性，通常应在第一次检测的2~3天后再次进行检测。请查看检测试剂盒说明，了解具体的操作步骤。 </p> <p> 关于当检测结果为阴性时，应该做什么的详细信息，请访问 <a href="https://www.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">CDC自我检测网页</a>. '
         heading: 如果您测试为<strong>阴性</strong>
       whatif_positive:

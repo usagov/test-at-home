@@ -53,13 +53,15 @@ en:
             <li>Are also referred to self-tests or over-the-counter (OTC) tests</li>
           </ul>
         heading: At-home tests
+        sub_heading: 'Las pruebas caseras:'
       body_html: |
         <p class="text-bold margin-top-0">Tests will be sent out in late January.</p>
         <p class="margin-bottom-0">
           You will receive <strong>4</strong> individual at-home antigen tests to the address you provided.
         </p>
-      body_secondary_html: |
-        You will receive a follow up confirmation email* from the US Postal Service (USPS) and another email with a tracking number when the tests ship.<br /><span class="text-italic font-body-xs">*If you provided your email address.</span>
+      body_secondary_html: 'You will receive a follow up confirmation email* from the US Postal Service (USPS) and another email with a tracking number when the tests ship.<br /><span class="text-italic font-body-xs">*If you provided your email address.</span>
+
+        '
       heading: What to expect next
       instructions:
         body_html: |
@@ -69,34 +71,7 @@ en:
             <li>When you’re going to gather with a group of people, especially those who are at risk of severe disease or may not be <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/stay-up-to-date.html" rel="noopener">up to date on their COVID-19 vaccines</a>.</li>
           </ul>
         heading: Once you get your tests
-        sub_heading: "Take an at-home test:"
-      resources:
-        alt: Mask-wearing young child using hand sanitizer
-        body_html: |
-          <ul>
-            <li><a href="https://findahealthcenter.hrsa.gov/" rel="noopener">Community health centers</a></li>
-            <li><a href="https://www.hhs.gov/coronavirus/community-based-testing-sites/index.html" rel="noopener">State resources</a></li>
-            <li><a href="https://doineedacovid19test.com/" rel="noreferrer noopener">Local independent pharmacies</a></li>
-            <li><a href="https://www.cms.gov/how-to-get-your-at-home-OTC-COVID-19-test-for-free" rel="noopener">Insurance reimbursement program</a></li>
-          </ul>
-        heading: Other Testing Resources
-        sub_heading: "Free COVID tests are also available through:"
-      tests:
-        body_html: |
-          <p><strong>If you have more than four people in your household,</strong> prioritize administering tests to members who are unvaccinated, over age 65, or medical conditions that increase risk and currently have symptoms of COVID-19 or have come in close contact with someone with COVID-19.</p>
-
-          <p>For more information on who should get tested for COVID-19, visit <a href="https://www.cdc.gov/coronavirus/2019-ncov/testing/diagnostic-testing.html" rel="noopener">CDC’s Test for Current Infection resource</a>.</p>
-        heading: If you need more tests
-      other:
-        body_html: |
-          <h4>Everyone is encouraged to:</h4>
-          <ul>
-            <li>Get up to date with their COVID-19 vaccinations. Visit <a href="https://vaccines.gov" rel="noopener">vaccines.gov</a> to find a vaccine or booster near you.</li>
-            <li>Wear a well-fitted mask when gathering indoors.</li>
-            <li>Maintain 6 feet of distance between people.</li>
-          </ul>
-        heading: Vaccination, Masking and Social Distancing
-        sub_heading: "Testing is only one step you can take to protect yourself, friends, family, and others."
+        sub_heading: 'Take an at-home test:'
       nav:
         body_html: |
           <ul class="add-list-reset">
@@ -112,7 +87,34 @@ en:
           </ul>
         heading: COVID-19 Testing Advice and Resources
         sub_heading: On this page
+      other:
+        alt: 佩戴口罩的儿童在使用洗手液
+        body_html: |
+          <h4>Everyone is encouraged to:</h4>
+          <ul>
+            <li>Get up to date with their COVID-19 vaccinations. Visit <a href="https://vaccines.gov" rel="noopener">vaccines.gov</a> to find a vaccine or booster near you.</li>
+            <li>Wear a well-fitted mask when gathering indoors.</li>
+            <li>Maintain 6 feet of distance between people.</li>
+          </ul>
+        heading: Vaccination, Masking and Social Distancing
+        sub_heading: Testing is only one step you can take to protect yourself, friends, family, and others.
+      resources:
+        alt: Mask-wearing young child using hand sanitizer
+        body_html: |
+          <ul>
+            <li><a href="https://www.hhs.gov/coronavirus/community-based-testing-sites/index.html" rel="noopener">State resources</a></li>
+            <li><a href="https://doineedacovid19test.com/" rel="noreferrer noopener">Local independent pharmacies</a></li>
+            <li><a href="https://www.cms.gov/how-to-get-your-at-home-OTC-COVID-19-test-for-free" rel="noopener">Insurance reimbursement program</a></li>
+          </ul>
+        heading: Other Testing Resources
+        sub_heading: 'Free COVID tests are also available through:'
       sub_heading: Qué puede esperar a continuación
+      tests:
+        body_html: |
+          <p><strong>If you have more than four people in your household,</strong> prioritize administering tests to members who are unvaccinated, over age 65, or medical conditions that increase risk and currently have symptoms of COVID-19 or have come in close contact with someone with COVID-19.</p>
+
+          <p>For more information on who should get tested for COVID-19, visit <a href="https://www.cdc.gov/coronavirus/2019-ncov/testing/diagnostic-testing.html" rel="noopener">CDC’s Test for Current Infection resource</a>.</p>
+        heading: If you need more tests
       title: Thank you, your order has been placed.
       whatif_negative:
         body_html: |

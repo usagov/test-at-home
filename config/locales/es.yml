@@ -45,7 +45,6 @@ es:
             <li>También se conocen en inglés como “self-tests” o pruebas de venta libre (“over-the-counter”)</li>
           </ul>
         heading: Sobre las pruebas caseras de COVID-19
-        sub_heading: 'Las pruebas caseras:'
       body_html: |
         <p class="text-bold">Las pruebas se enviarán a partir de finales de enero.</p>
         <p>Recibirá un kit con <strong>4</strong> pruebas de antígeno individuales en la dirección que haya indicado.</p>
@@ -53,8 +52,7 @@ es:
           Recibirá un correo electrónico de confirmación* del Servicio Postal de Estados Unidos (USPS, sigla en inglés) y otro correo electrónico con un número de rastreo cuando se envíen las pruebas.
           <span class="text-italic">*Si compartió su dirección de correo electrónico.</span>
         </p>
-      body_secondary_html: 'Recibirá un correo electrónico de confirmación* del Servicio Postal de Estados Unidos (USPS, sigla en inglés) y otro correo electrónico con un número de rastreo cuando se envíen las pruebas.
-        <br /><span class="text-italic font-body-xs">*Si compartió su dirección de correo electrónico.</span>'
+      body_secondary_html: Recibirá un correo electrónico de confirmación* del Servicio Postal de Estados Unidos (USPS, sigla en inglés) y otro correo electrónico con un número de rastreo cuando se envíen las pruebas. <br /><span class="text-italic font-body-xs">*Si compartió su dirección de correo electrónico.</span>
       heading: Qué puede esperar a continuación
       instructions:
         body_html: |
@@ -109,8 +107,7 @@ es:
         heading: Si necesita más pruebas caseras
       title: Gracias, su pedido ha sido completado.
       whatif_negative:
-        body_html: Un resultado <strong>negativo</strong> en la prueba casera significa que la prueba no encontró el virus COVID-19 y usted podría tener un menor riesgo de contagiar a otras personas con la enfermedad.  Si el resultado es negativo, debe volver a hacerse la prueba luego de varios días y esperar al menos 24 horas entre las pruebas.</p>
-          <p>Si su prueba es negativa, visite la <a href="https://espanol.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">página sobre la prueba en casa de los CDC</a>.
+        body_html: Un resultado <strong>negativo</strong> en la prueba casera significa que la prueba no encontró el virus COVID-19 y usted podría tener un menor riesgo de contagiar a otras personas con la enfermedad.  Si el resultado es negativo, debe volver a hacerse la prueba luego de varios días y esperar al menos 24 horas entre las pruebas.</p> <p>Si su prueba es negativa, visite la <a href="https://espanol.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">página sobre la prueba en casa de los CDC</a>.
         heading: Si el resultado de su prueba es <strong>negativo</strong>
       whatif_positive:
         body_html: Un resultado <strong>positivo</strong> en la prueba casera significa que la prueba encontró el virus de COVID-19 y es muy probable que usted esté infectado con COVID-19. Si el resultado de la prueba casera es positivo, siga las <a href="https://espanol.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html" rel="noopener">las recomendaciones más recientes de los CDC sobre el aislamiento</a>.
