@@ -8,8 +8,8 @@ zh:
       last_name: 姓
       mailing_address_1: 详细地址 - 第 1 行
       mailing_address_2: 详细地址 - 第 2 行
-      state: 州/地区
-      zip_code: 邮政编码
+      state: 州/领地
+      zip_code: 邮区编码
     errors:
       messages:
         address_incorrect: 美国邮政无法送达这一地址
@@ -28,7 +28,7 @@ zh:
       email_too_long: 请将电子邮件地址限制为50个字符 （包含字母、数字、符号）
       missing_default: 请填写此栏
       missing_select: 请选择一项
-      zip_code: 请输入有效的 5 位邮政编码
+      zip_code: 请输入有效的 5 位邮区编码
     review: 查看您的订单
     submit: 下订单
   kit_requests:
@@ -37,31 +37,47 @@ zh:
         alt: COVID-19检测拭子的开发
         body_html: |
           <ul>
-            <li>是快速抗原居家检测，不是 PCR 检测</li>
+            <li>是快速抗原居家检测试剂，不是 PCR 检测试剂</li>
             <li>可在任何地点进行检测</li>
-            <li>30 分钟内获得结果（无需送往实验室)</li>
-            <li>有无COVID-19症状均可使用</li>
-            <li>是否完成COVID-19疫苗或加强针接种均可使用</li>
-            <li>也称为自助检测或非处方类（OTC）检测</li>
+            <li>在30 分钟内获得结果（无需送往实验室）</li>
+            <li>对您是否有COVID-19症状均可使用</li>
+            <li>对您是否完成COVID-19疫苗或加强针接种均可使用</li>
+            <li>也称为自我检测或非处方类（OTC）检测</li>
           </ul>
-        heading: 家用COVID-19检测试剂说明
-        sub_heading: 家用检测试剂：
+        heading: 居家检测试剂：
       body_html: |
-        <p>
-          您会收到美国邮政服务 (USPS) 的后续确认电子邮件* 并在检测试剂开始发送时收到另一封带有邮件追踪编号的电子邮件。
-          <span class="text-italic">*I如果您已输入您的电子邮件地址。</span>
+        <p class="text-bold margin-top-0">检测试剂将会在一月下旬发货。</p>
+        <p class="margin-bottom-0">
+          您将会在您提供的地址收到<strong>4</strong>盒独立包装的居家抗原检测试剂。
         </p>
+      body_secondary_html: '您会收到美国邮政服务 (USPS) 的后续确认电子邮件* ，并在检测试剂开始发送时收到另一封带有邮件追踪号码的电子邮件。
+        <br /><span class="text-italic font-body-xs">*如果您已输入您的电子邮件地址。</span>'
+      heading: 接下来
       instructions:
         body_html: |
           <ul>
-            <li>如果您开始出现发烧、喉咙痛、流鼻涕，或味觉或嗅觉丧失等COVID-19的症状，或者</li>
-            <li>当您开始有COVID-19症状，如喉咙痛、流鼻涕、发烧、味觉或嗅觉丧失，或</li>
-            <li>在您与COVID-19患者密切接触的5天后，或 当您要参加多人聚会时，特别是如果您有重症风险或
+            <li>当您开始有COVID-19的症状，如喉咙痛、流鼻涕、发烧、味觉或嗅觉丧失，或</li>
+            <li>在您与COVID-19患者密切接触的5天后，或</li>
+            <li>当您要参加多人聚会时，特别是如果您有重症风险或
                 <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/stay-up-to-date.html" rel="noopener">没有完成疫苗或加强针接种</a>
             </li>
           </ul>
         heading: 在您收到检测试剂后
-        sub_heading: 使用家用检测试剂的适用情况：
+        sub_heading: 使用居家检测试剂的适用情况：
+      nav:
+        body_html: |
+          <ul class="add-list-reset">
+            <li><a href="#receive">在您收到检测试剂后</a>
+              <ul class="add-list-reset margin-left-4">
+                <li><a class="text-normal" href="#instructions">居家检测试剂</a></li>
+                <li><a class="text-normal" href="#tests">如果您需要更多检测试剂</a></li>
+              </ul>
+            </li>
+            <li><a href="#whatif_positive">如果您的检测结果为阳性</a></li>
+            <li><a href="#whatif_negative">如果您的检测结果为阴性</a></li>
+            <li><a href="#other">其他保持安全的方法</a></li>
+          </ul>
+        sub_heading: 在此页
       other:
         alt: 佩戴口罩的儿童在使用洗手液
         body_html: |
@@ -81,33 +97,45 @@ zh:
             <li><a href="https://www.cms.gov/how-to-get-your-at-home-OTC-COVID-19-test-for-free" rel="noopener">医疗保险补偿计划</a></li>
           </ul>
         heading: 其他检测资源
-        sub_heading: 还可以通过以下途径获得免费的COVID检测：
+        sub_heading: 还可以通过以下途径获得免费的COVID检测试剂：
       sub_heading: 下一步
+      tests:
+        body_html: |
+          <p><strong>如果您家多于 4 人,</strong> 请优先检测未接种疫苗者、65岁以上人士、或因为有身体病况导致风险增加者（并且如果已经出现COVID-19症状或与COVID-19患者密切接触）。</p>
+        heading: 如果您需要更多检测试剂
       title: 谢谢，您的订单已下单。
       whatif_negative:
+        body_html: |
+          <p><strong>居家检测结果为阴性即表示检测中没有发现 COVID-19 病毒，</strong> 您将疾病传播给他人的风险可能较低。</p>
+
+          <p>查看检测试剂盒的说明，了解具体的后续步骤。 如果您的检测结果为阴性，您应在几天内再次检测，两次检测应至少间隔 24 小时。</p>
+
+          <p>如果您的检测结果为阴性，请访问 <a class="text-white desktop:text-dark-blue" href="https://chinese.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">CDC 自我检测网页</a>.</p>
         body_html: '家用检测结果为<strong>阴性</strong>，表示检测没有发现COVID-19病毒，您将疾病传播给他人的风险可能比较低。如果您的检测结果为阴性，通常应在第一次检测的2~3天后再次进行检测。请查看检测试剂盒说明，了解具体的操作步骤。 </p> <p> 关于当检测结果为阴性时，应该做什么的详细信息，请访问 <a href="https://www.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">CDC自我检测网页</a>. '
-        heading: 如果您的检测结果为<strong>阴性</strong>
+        heading: 如果您测试为<strong>阴性</strong>
       whatif_positive:
-        body_html: 家用检测结果为<strong>阳性</strong>，表示检测发现了COVID-19病毒，您很可能感染了COVID-19。如果您的家用检测结果呈阳性，请遵循<a href="https://www.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html" rel="noopener">l最新的CDC隔离指示</a>.
+        body_html: |
+          <p><strong>居家检测结果为阳性，表示检测发现了COVID-19病毒,</strong> 您很可能感染了COVID-19。</p>
+
+          <p>如果您的居家检测结果呈阳性，请遵循 <a class="text-white desktop:text-dark-blue" href="https://chinese.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html" rel="noopener">最新的CDC隔离指示</a>.</p>
         heading: 如果您的检测结果为<strong>阳性</strong>
     new:
-      body_html: |
-        <p class="usa-intro margin-bottom-4">请填写此表格申请免费邮寄上门的家用COVID-19检测试剂。此套检测试剂将包括 4 份独立包装的快速抗原检测试剂。</p>
-        <p class="text-bold margin-bottom-4 bullet">检测试剂将在一月下旬发货。</p>
+      autocomplete_label: Address
+      body_html: "<p class=\"margin-bottom-4\">\n  此套检测试剂将包括 \n  <strong>4 盒独立包装的快速抗原检测试剂。</strong>\n</p>\n"
       contact_heading: 联系信息
       contact_html: 收件人的联系信息。<span class="text-magenta">*</span><span class="text-italic">必填项</span>
-      email_optional: 这一步是可选的，但如果没有电子邮件地址，我们将无法提供相关信息跟订单追踪。
+      email_optional: 这一步是可选的，但如果没有填写电子邮件地址，我们将无法提供相关信息跟订单追踪号码。
       privacy:
         heading: 隐私声明
         html: |
           <p class="font-body-2xs">
-            usa.gov 需获知您的姓名和地址，以便通过美国邮政服务 (“USPS”) 免费向您邮寄 4 份家用快速 COVID 检测试剂。如果您提供电子邮件地址，USPS 将向您发送一封包含您订单追踪编号的电子邮件。此信息收集由 2002 年《电子政务法》（44 U.S.C. § 3501）授权。
+            usa.gov 需获知您的姓名和地址，以便通过美国邮政服务 (“USPS”) 免费向您邮寄 4 份居家快速 COVID 检测试剂。如果您提供电子邮件地址，USPS 将向您发送一封包含您订单追踪号码的电子邮件。此信息收集由 2002 年《电子政务法》（44 U.S.C. § 3501）授权。
           </p>
           <p class="font-body-2xs">
-            您无需提供您的姓名和地址；但是，如您拒绝提供此信息，USPS 无法向您邮寄 COVID 检测试剂。您也无需提供您的电子邮件地址；但是，如您拒绝提供电子邮件地址，USPS 无法向您发送发货信息。
+            您无需提供您的姓名和地址；但是，如您拒绝提供此信息，USPS 无法向您邮寄 COVID 检测试剂。您也无需提供您的电子邮件地址；但是，如您拒绝提供此信息，USPS 无法向您发送发货信息。
           </p>
           <p class="font-body-2xs">
-            您在下单时提供的所有信息都将与 USPS 共享，并且还可能按照已发布的 <a href="https://www.federalregister.gov/documents/2016/07/18/2016-16868/privacy-act-of-1974-notice-of-an-updated-system-of-records">《隐私法记录系统通知》</a> 中的说明进行披露。
+            您在下单时提供的所有信息都将与 USPS 共享，并且还可能按照已发布的 <a href="https://www.federalregister.gov/documents/2016/07/18/2016-16868/privacy-act-of-1974-notice-of-an-updated-system-of-records">《隐私法记录系统通知》</a> <usa.gov> 中的说明进行披露。
           </p>
       review:
         edit: 编辑
@@ -118,18 +146,18 @@ zh:
       shipping_heading: 发货信息
       shipping_html: <span class="text-magenta">*</span><span class="text-italic">必填项</span>
       submit: 下订单
-      title_html: 免费预订一套家用COVID-19检测试剂。
+      title_html: 免费预订一套COVID-19居家检测试剂。
       tracking: 如果想接收您的检测试剂订单状态更新消息，请提供电子邮件地址。
-      tracking_heading: 订单跟踪
+      tracking_heading: 订单追踪
   shared:
     banner:
-      gov_description_html: <strong>“.gov”</strong>网站为美国官方政府组织机构网站。
+      gov_description_html: "<strong>“.gov”</strong>网站为美国官方政府组织机构网站。"
       gov_heading: 官方网站使用“.gov”
       how: 这里是了解途径
       lock: 锁
       locked_padlock: 上锁的挂锁
       official_site: 美国政府的官方网站
-      secure_description_html: <strong>锁形图标</strong> (%{lock_icon}) 或 <strong>“https://”</strong>表示您已安全连接到.gov网站。仅在安全的官方网站上分享敏感信息。
+      secure_description_html: "<strong>锁形图标</strong> (%{lock_icon}) 或 <strong>“https://”</strong>表示您已安全连接到.gov网站。仅在安全的官方网站上分享敏感信息。"
       secure_heading: 安全的.gov网站使用HTTPS
       us_flag: 美国国旗
     footer:
