@@ -19,6 +19,7 @@ applications:
     RECAPTCHA_SITE_KEY: ((recaptcha_site_key))
     RECAPTCHA_PROJECT_ID: ctusa-338400
     RAILS_MAX_THREADS: 10
+  no-route: true
   processes:
   - type: web
     instances: ((web_instances))
