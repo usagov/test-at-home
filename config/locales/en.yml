@@ -19,16 +19,18 @@ en:
         email_too_long: Please limit email to %{count} characters
         recaptcha_not_valid: Javascript is required. Please enable or try another browser.
   errors:
-    404:
+    '404':
+      body_html: 'If you are looking to order a set of rapid at-home COVID tests, please visit <a class="text-white" href="https://covidtests.gov" rel="noopener">COVIDtests.gov</a>.
+
+        '
       code: 404
       title: Page not found
-      body_html: |
-        If you are looking to order a set of rapid at-home COVID tests, please visit <a class="text-white" href="https://covidtests.gov" rel="noopener">COVIDtests.gov</a>.
-    500:
+    '500':
+      body_html: 'If you are looking to order a set of rapid at-home COVID tests, please visit <a class="text-white" href="https://covidtests.gov" rel="noopener">COVIDtests.gov</a>.
+
+        '
       code: 500
       title: We're sorry, but something went wrong.
-      body_html: |
-        If you are looking to order a set of rapid at-home COVID tests, please visit <a class="text-white" href="https://covidtests.gov" rel="noopener">COVIDtests.gov</a>.
     format: "%{message}"
   js:
     autocomplete:
@@ -69,9 +71,7 @@ en:
         <p class="margin-bottom-0">
           You will receive <strong>4</strong> individual at-home antigen tests to the address you provided.
         </p>
-      body_secondary_html: 'You will receive a follow up confirmation email* from the US Postal Service (USPS) and another email with a tracking number when the tests ship.<br /><span class="text-italic font-body-xs">*If you provided your email address.</span>
-
-        '
+      body_secondary_html: You will receive a follow up confirmation email* from the US Postal Service (USPS) and another email with a tracking number when the tests ship. <span class="text-italic font-body-xs">*If you provided your email address.</span>
       instructions:
         body_html: |
           <ul>
@@ -163,7 +163,7 @@ en:
       shipping_heading: Shipping Information
       shipping_html: <span class="text-magenta">*</span><span class="text-italic">Required</span>
       submit: Place your order
-      title_html: Place your pre-order for a set of <span class="text-light-blue">free at-home COVID-19 tests</span>.
+      title_html: Place your pre-order for a set of <span class="text-light-blue">free at-home COVID-19 tests.</span>
       tracking: To receive updates on the status of your order, please provide an email address.
       tracking_heading: Order Tracking
   shared:

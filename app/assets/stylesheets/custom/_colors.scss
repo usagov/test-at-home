@@ -13,6 +13,7 @@
     a {
       color: $color-white;
     }
+
     .accent-after::after,
     .accent-before::before {
       background-color: $color-white;
@@ -28,6 +29,7 @@
     a {
       color: $color-white;
     }
+
     .accent-after::after,
     .accent-before::before {
       background-color: $color-white;
@@ -40,6 +42,7 @@
     a {
       color: $color-white;
     }
+
     .accent-after::after,
     .accent-before::before {
       background-color: $color-white;
@@ -70,6 +73,11 @@
 
       a {
         color: $color-dark-blue !important;
+      }
+
+      .accent-after::after,
+      .accent-before::before {
+        background-color: $color-magenta !important;
       }
     }
   }
@@ -146,38 +154,5 @@
   }
   &-lighter-blue {
     color: $color-lighter-blue !important;
-  }
-}
-
-.outline {
-  &-white {
-    outline-color: $color-white !important;
-  }
-  &-blue {
-    outline-color: $color-blue !important;
-  }
-  &-cyan {
-    outline-color: $color-cyan !important;
-  }
-  &-magenta {
-    outline-color: $color-magenta !important;
-  }
-  &-dark-blue {
-    outline-color: $color-dark-blue !important;
-  }
-  &-gray {
-    outline-color: $color-gray !important;
-  }
-  &-light-gray {
-    outline-color: $color-light-gray !important;
-  }
-  &-light-magenta {
-    outline-color: $color-light-magenta !important;
-  }
-  &-light-blue {
-    outline-color: $color-light-blue !important;
-  }
-  &-lighter-blue {
-    outline-color: $color-lighter-blue !important;
   }
 }

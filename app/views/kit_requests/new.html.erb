@@ -1,119 +1,120 @@
 <div class="bg-light-gray">
-  <%= form_with model: @kit_request, class: "usa-form usa-form--large maxw-none", id: "form" do |form| %>
-    <%= form.hidden_field :js_smarty_status %>
-    <div id="form-cntr">
-      <div class="bg-blue">
-        <div class="covidtest-container usa-section padding-bottom-12">
-          <div class="maxw-tablet">
-            <h1 tabindex="-1">
-              <%= t('kit_requests.new.title_html') %>
-            </h1>
+  <%= form_with model: @kit_request, class: "usa-form maxw-none", id: "form" do |form| %>
 
-            <%= t('kit_requests.new.body_html') %>
-          </div>
+  <%= form.hidden_field :js_smarty_status %>
+
+  <% if ENV["RECAPTCHA_REQUIRED"] == "true" %>
+    <%= form.hidden_field :recaptcha_token, id: "g-recaptcha-response" %>
+  <% end %>
+
+  <div id="form-cntr">
+    <div class="bg-blue">
+      <div class="covidtest-container usa-section padding-bottom-12">
+        <div class="maxw-tablet">
+          <h1 tabindex="-1"><%= t('kit_requests.new.title_html') %></h1>
+          <%= t('kit_requests.new.body_html') %>
         </div>
       </div>
-      <div class="covidtest-container usa-section maxw-tablet margin-x-auto margin-top-neg-15 padding-top-4 padding-bottom-0">
-        <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.contact_heading')} do %>
-          <p class="font-body-xs margin-top-0">
-            <%= t('kit_requests.new.contact_html') %>
-          </p>
+    </div>
 
-          <% if ENV["RECAPTCHA_REQUIRED"] == "true" %>
-            <%= accessible_errors(@kit_request, :recaptcha_token) %>
-          <% end %>
-        
-          <%= form.label :first_name, class: "usa-label" do %>
-            <%= t('activerecord.attributes.first_name') %>
-            <span class="text-magenta">*</span>
-          <% end %>
-          <%= form.text_field :first_name, class: "usa-input", required: true, **error_options(@kit_request, :first_name) %>
-          <%= accessible_errors(@kit_request, :first_name) %>
+    <div class="covidtest-container usa-section maxw-tablet margin-x-auto margin-top-neg-15 padding-top-4 padding-bottom-0">
+      <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.contact_heading')} do %>
+        <p>
+          <%= t('kit_requests.new.contact_html') %>
+        </p>
 
-          <%= form.label :last_name, class: "usa-label" do %>
-            <%= t('activerecord.attributes.last_name') %>
-            <span class="text-magenta">*</span>
-          <% end %>
-          <%= form.text_field :last_name, class: "usa-input", required: true,  **error_options(@kit_request, :last_name) %>
-          <%= accessible_errors(@kit_request, :last_name) %>
+        <% if ENV["RECAPTCHA_REQUIRED"] == "true" %>
+          <%= accessible_errors(@kit_request, :recaptcha_token) %>
         <% end %>
 
-        <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.shipping_heading'), :error_id => accessible_error_id(@kit_request, :mailing_address) } do %>
-          <p class="font-body-xs margin-top-0">
-            <%= t('kit_requests.new.shipping_html') %>
-          </p>
+        <%= form.label :first_name, class: "usa-label" do %>
+          <%= t('activerecord.attributes.first_name') %>
+          <span class="text-magenta">*</span>
+        <% end %>
+        <%= form.text_field :first_name, class: "usa-input", required: true, **error_options(@kit_request, :first_name) %>
+        <%= accessible_errors(@kit_request, :first_name) %>
 
-          <%= accessible_errors(@kit_request, :mailing_address, class: "error-message", tabindex: "-1") %>
+        <%= form.label :last_name, class: "usa-label" do %>
+          <%= t('activerecord.attributes.last_name') %>
+          <span class="text-magenta">*</span>
+        <% end %>
+        <%= form.text_field :last_name, class: "usa-input", required: true, **error_options(@kit_request, :last_name) %>
+        <%= accessible_errors(@kit_request, :last_name) %>
+      <% end %>
 
-          <div id="address-simple-cntr" hidden>
-            <label for="address-autocomplete"><%= t('kit_requests.new.autocomplete_label') %></label>
-            <div id="address-autocomplete"></div>
-          </div>
+      <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.shipping_heading'), :error_id => accessible_error_id(@kit_request, :mailing_address) } do %>
+        <p>
+          <%= t('kit_requests.new.shipping_html') %>
+        </p>
 
-          <div id="address-full-cntr">
-            <%= form.label :mailing_address_1, class: "usa-label" do %>
-              <%= t('activerecord.attributes.mailing_address_1') %>
-              <span class="text-magenta">*</span>
-            <% end %>
-            <%= form.text_field :mailing_address_1, class: "usa-input", required: true, **error_options(@kit_request, :mailing_address_1) %>
-            <%= accessible_errors(@kit_request, :mailing_address_1) %>
+        <%= accessible_errors(@kit_request, :mailing_address, class: "error-message", tabindex: "-1") %>
 
-            <%= form.label :mailing_address_2, t('activerecord.attributes.mailing_address_2'), class: "usa-label" %>
-            <%= form.text_field :mailing_address_2, class: "usa-input" %>
+        <div id="address-simple-cntr" hidden="hidden">
+          <label for="address-autocomplete"><%= t('kit_requests.new.autocomplete_label') %></label>
+          <div id="address-autocomplete"></div>
+        </div>
+
+        <div id="address-full-cntr">
+          <%= form.label :mailing_address_1, class: "usa-label" do %>
+            <%= t('activerecord.attributes.mailing_address_1') %>
+            <span class="text-magenta">*</span>
+          <% end %>
+          <%= form.text_field :mailing_address_1, class: "usa-input", required: true, **error_options(@kit_request, :mailing_address_1) %>
+          <%= accessible_errors(@kit_request, :mailing_address_1) %>
+
+          <%= form.label :mailing_address_2, t('activerecord.attributes.mailing_address_2'), class: "usa-label" %>
+          <%= form.text_field :mailing_address_2, class: "usa-input" %>
 
           <%= form.label :city, class: "usa-label" do %>
-          <%= t('activerecord.attributes.city') %>
+            <%= t('activerecord.attributes.city') %>
             <span class="text-magenta">*</span>
           <% end %>
           <%= form.text_field :city, class: "usa-input", required: true, **error_options(@kit_request, :city) %>
           <%= accessible_errors(@kit_request, :city) %>
 
-            <%= form.label :state, class: "usa-label" do %>
+          <%= form.label :state, class: "usa-label" do %>
             <%= t('activerecord.attributes.state') %>
-              <span class="text-magenta">*</span>
-            <% end %>
-            <div class="usa-combo-box" data-bouncer-target="#error-state">
-              <%= form.select :state, options_for_select(us_states), {}, { class: 'usa-select', required: true } %>
-            </div>
-            <div id="error-state"></div>
+            <span class="text-magenta">*</span>
+          <% end %>
+          <div class="usa-combo-box" data-bouncer-target="#error-state">
+          <%= form.select :state, options_for_select(us_states), {}, { class: 'usa-select', required: true } %></div>
+          <div id="error-state"></div>
 
           <%= form.label :zip_code, class: "usa-label" do %>
-          <%= t('activerecord.attributes.zip_code') %>
+            <%= t('activerecord.attributes.zip_code') %>
             <span class="text-magenta">*</span>
           <% end %>
           <%= form.text_field :zip_code, class: "usa-input usa-input--medium", data: {'bouncer-is-valid-zip': true}, required: true, **error_options(@kit_request, :zip_code) %>
           <%= accessible_errors(@kit_request, :zip_code) %>
-        <% end %>
-
-        <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.tracking_heading') } do %>
-          <p id="email-description" class="font-body-xs margin-top-0">
-            <%= t('kit_requests.new.tracking') %>
-            <% unless UsStreetAddressValidator.smarty_disabled? %>
-              <span class="text-italic text-blue"> <%= t('kit_requests.new.email_optional') %></span>
-            <% end %>
-          </p>
-          <%= form.label :email, class: "usa-label" do %>
-            <%= t('activerecord.attributes.email') %>
-            <% if UsStreetAddressValidator.smarty_disabled? %>
-              <span class="text-magenta">*</span>
-            <% end %>
-          <% end %>
-          <%= form.email_field :email, class: "usa-input", data: {'bouncer-email-length': true}, aria: {describedby: 'email-description'}, required: UsStreetAddressValidator.smarty_disabled? ? true : false, **error_options(@kit_request, :email) %>
-          <%= accessible_errors(@kit_request, :email) %>
-        <% end %>
-      </div>
-    </div>
-
-    <%= render "application/review" %>
-
-    <div class="covidtest-container usa-section maxw-tablet margin-x-auto padding-top-0">
-      <%= render "application/privacy" %>
-
-      <% if ENV["RECAPTCHA_REQUIRED"] == "true" %>
-        <%= form.hidden_field :recaptcha_token, id: "g-recaptcha-response" %>
+        </div>
       <% end %>
 
-      <%= form.submit t('kit_requests.new.submit'), class: "usa-button radius-pill font-ui-lg width-full margin-top-0", id:"submit-btn" %>
+      <%= render :layout => 'card', :locals => {:title => t('kit_requests.new.tracking_heading') } do %>
+        <p id="email-description">
+          <%= t('kit_requests.new.tracking') %>
+          <% unless UsStreetAddressValidator.smarty_disabled? %>
+          <span class="text-italic text-blue">
+            <%= t('kit_requests.new.email_optional') %>
+          </span>
+          <% end %>
+        </p>
+
+        <%= form.label :email, class: "usa-label" do %>
+          <%= t('activerecord.attributes.email') %>
+          <% if UsStreetAddressValidator.smarty_disabled? %>
+            <span class="text-magenta">*</span>
+          <% end %>
+        <% end %>
+        <%= form.email_field :email, class: "usa-input", data: {'bouncer-email-length': true}, aria: {describedby: 'email-description'}, required: UsStreetAddressValidator.smarty_disabled? ? true : false, **error_options(@kit_request, :email) %>
+        <%= accessible_errors(@kit_request, :email) %>
+      <% end %>
     </div>
-  <% end %>
-</div>
+  </div>
+  <%= render "application/review" %>
+
+  <div class="covidtest-container usa-section maxw-tablet margin-x-auto padding-top-0">
+    <%= render "application/privacy" %>
+
+    <%= form.submit t('kit_requests.new.submit'), class: "usa-button radius-pill font-ui-lg width-full desktop:width-auto desktop:padding-x-4 margin-top-0", id:"submit-btn" %>
+  </div>
+<% end %>
