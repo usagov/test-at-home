@@ -100,7 +100,6 @@ zh:
         body_html: |
           <p><strong>如果您家多于 4 人，</strong>对于已经出现COVID-19症状或曾经与COVID-19患者密切接触过的下列人士，请优先检测：未接种疫苗者、65岁以上人士、或因为有身体病况导致风险增加的人士。</p>
           <p>想要查询更多有关谁应该接受 COVID-19 检测的信息，请访问<a href="https://chinese.cdc.gov/coronavirus/2019-ncov/testing/diagnostic-testing.html" rel="noopener">CDC检测目前是否感染的资源</a>。</p>
-        body_html: "<p><strong>如果您家多于 4 人,</strong> 请优先检测未接种疫苗者、65岁以上人士、或因为有身体病况导致风险增加者（并且如果已经出现COVID-19症状或与COVID-19患者密切接触）。</p>\n"
         heading: 如果您需要更多检测试剂
       title: 谢谢，您的订单已下单。
       whatif_negative:
