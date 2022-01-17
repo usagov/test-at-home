@@ -9,6 +9,7 @@ import { validate } from "./helpers/validate";
 // DOM elements
 const form = document.getElementById("form");
 const formContainer = document.getElementById("form-cntr");
+const smartyHidden = document.getElementById("kit_request_js_smarty_status");
 
 const addressAutocomplete = document.getElementById("address-autocomplete");
 const addressErrorContainer = document.getElementById(
@@ -121,6 +122,7 @@ const getFormValues = form => {
     authenticity_token,
     commit,
     "input-autocomplete": autocomplete,
+    "kit_request[js_smarty_status]": js_smarty_status,
     ...data
   } = Object.fromEntries(entries);
 
@@ -137,8 +139,15 @@ const hideReview = () => {
   isFormValid = false;
 };
 
-const showReview = event =>
-  isFormValid ? event.target.submit() : handleFormValidation(event);
+const showReview = event => {
+  if (isFormValid) {
+    smartyHidden.value = "pass";
+
+    event.target.submit();
+  } else {
+    handleFormValidation(event);
+  }
+};
 
 const toggleContainer = () => {
   // Scroll page to top to emulate page refresh
