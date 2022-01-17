@@ -12,11 +12,11 @@ RSpec.describe "Viewing site in multiple languages", type: :system do
 
     page.all("a", text: "Español").first.click
 
-    expect(page).to have_content(I18n.t("kit_requests.new.title_html", locale: "es"))
+    expect(page).to have_content(I18n.t("shared.banner.official_site", locale: "es"))
 
     page.all("a", text: "中文").first.click
 
-    expect(page).to have_content(I18n.t("kit_requests.new.title_html", locale: "zh"))
+    expect(page).to have_content(I18n.t("shared.banner.official_site", locale: "zh"))
 
     page.all("a", text: "English").first.click
 

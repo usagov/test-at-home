@@ -130,7 +130,7 @@ es:
       shipping_heading: Información para el envío
       shipping_html: <span class="text-magenta">*</span><span class="text-italic">Elementos obligatorios</span>
       submit: Haga su pedido
-      title_html: Ordene por adelantado un kit gratuito de pruebas caseras de COVID-19
+      title_html: Ordene por adelantado <span class="text-light-blue">un kit gratuito de pruebas caseras de COVID-19</span>
       tracking: Para recibir información actualizada sobre el estado de su pedido del kit de pruebas, proporcione una dirección de correo electrónico.
       tracking_heading: Rastreo del pedido
   shared:
