@@ -17,6 +17,7 @@ es:
         blank: Por favor, rellene este campo
         email_invalid: Por favor, escriba el correo electrónico en el formato nombre@ejemplo.com
         email_too_long: Su correo electrónico no puede tener más de %{count} caracteres
+        recaptcha_not_valid: Se requiere Javascript. Habilite o pruebe con otro navegador.
   errors:
     format: "%{message}"
   js:
