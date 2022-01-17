@@ -5,10 +5,6 @@
   }
 }
 
-.font-noto-sans {
-  font-family: "Noto Sans", sans !important;
-}
-
 h1,
 .h1 {
   @include covidtest-font(24, 32);
@@ -128,7 +124,7 @@ legend {
   p,
   li {
     font-size: px-to-rem(18);
-    line-height: divide(32, 18);
+    line-height: divide(24, 18);
     margin: units(2) 0;
   }
 
