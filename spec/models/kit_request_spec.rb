@@ -164,5 +164,74 @@ RSpec.describe KitRequest, type: :model do
         expect(kit_request).to_not be_valid
       end
     end
+
+    describe "recaptcha" do
+      context "when recaptcha required" do
+        around do |example|
+          ClimateControl.modify RECAPTCHA_REQUIRED: "true" do
+            example.run
+          end
+        end
+
+        let(:recaptcha_response) do
+          {
+            "name" => "projects/asdfasdf/assessments/lkjasdlkfjasldfk",
+            "event" =>
+              {"token" =>
+                "adfasdfasdfasdfasdfasdfasdfasdfsadf",
+               "siteKey" => "asdfasdfasdf",
+               "userAgent" => "",
+               "userIpAddress" => "",
+               "expectedAction" => "submit",
+               "hashedAccountId" => ""},
+            "score" => 0.9,
+            "tokenProperties" =>
+              {"valid" => true,
+               "invalidReason" => "INVALID_REASON_UNSPECIFIED",
+               "hostname" => "localhost",
+               "action" => "submit",
+               "createTime" => "2022-01-16T16:35:44.371Z"},
+            "reasons" => []
+          }
+        end
+
+        it "is valid" do
+          stub_request(:any, /recaptchaenterprise.googleapis.com/).to_return(body: recaptcha_response.to_json)
+
+          kr = FactoryBot.build(:kit_request, recaptcha_token: "asdfasdf")
+
+          expect(kr).to be_valid
+        end
+
+        context "invalid states" do
+          it "is invalid without token, and does not hit recaptcha API" do
+            stub_request(:any, /recaptchaenterprise.googleapis.com/).to_return(body: recaptcha_response.to_json)
+
+            kr = FactoryBot.build(:kit_request, recaptcha_token: "")
+
+            expect(kr).to_not be_valid
+            expect(WebMock).not_to have_requested(:any, /recaptchaenterprise.googleapis.com/)
+          end
+
+          it "requires recaptcha to be valid" do
+            recaptcha_response["tokenProperties"]["valid"] = false
+            stub_request(:any, /recaptchaenterprise.googleapis.com/).to_return(body: recaptcha_response.to_json)
+
+            kr = FactoryBot.build(:kit_request, recaptcha_token: "asdfasdf")
+
+            expect(kr).to_not be_valid
+          end
+
+          it "requires action to be submit" do
+            recaptcha_response["tokenProperties"]["action"] = "bogus"
+            stub_request(:any, /recaptchaenterprise.googleapis.com/).to_return(body: recaptcha_response.to_json)
+
+            kr = FactoryBot.build(:kit_request, recaptcha_token: "asdfasdf")
+
+            expect(kr).to_not be_valid
+          end
+        end
+      end
+    end
   end
 end

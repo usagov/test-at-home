@@ -6,6 +6,7 @@ FactoryBot.define do
     city { "Lima" }
     state { "OH" }
     zip_code { "12345" }
+    recaptcha_token { "asdfasdf" }
 
     trait :smarty_streets_disabled do
       email { "foo@example.com" }
