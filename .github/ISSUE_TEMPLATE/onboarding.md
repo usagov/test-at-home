@@ -14,7 +14,8 @@ Welcome! And thank you!
   - #covidtest-app (shared with USDS)
   - #tts-covidtest-devops (platform & devops)
   - #tts-covidtest-rails (app development)
-  - #tts-covidtest-rails-alerts (app alerts)
+  - #tts-covidtest-rails-alerts (development-related alerts, like Github)
+  - #tts-covidtest-production-alerts (prod-related alerts, like New Relic)
   - #tts-covidtest-situation (active incident resolution)
 - [ ] Add team member to [Google Drive](https://drive.google.com/drive/folders/1u2VvxA9CqFXWSdqLVd21wGM7J-MdMn2b)
 - [ ] Add team member to Service Now
