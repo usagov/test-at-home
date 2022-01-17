@@ -2,7 +2,7 @@
 <% full_width = false if local_assigns[:full_width].nil? %>
 
 <div class="usa-card__container margin-x-0 margin-bottom-4 shadow-2">
-  <div class="usa-card__body text-gray-90 <% if full_width %>padding-0<% end %>">
+  <div class="usa-card__body text-gray-90 <% if full_width %>padding-0 <% end %>padding-t-6 padding-bottom-5">
     <% if is_fieldset %>
     <fieldset class="usa-fieldset" aria-describedby="<%= defined?(error_id) ? error_id : '' %>">
       <legend class="text-blue">
