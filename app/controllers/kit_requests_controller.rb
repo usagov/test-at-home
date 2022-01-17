@@ -41,7 +41,8 @@ class KitRequestsController < ApplicationController
       :city,
       :state,
       :zip_code,
-      :js_smarty_status
+      :js_smarty_status,
+      :recaptcha_token
     )
   end
 end

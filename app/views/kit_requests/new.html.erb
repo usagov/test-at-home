@@ -19,6 +19,10 @@
             <%= t('kit_requests.new.contact_html') %>
           </p>
 
+          <% if ENV["RECAPTCHA_REQUIRED"] == "true" %>
+            <%= accessible_errors(@kit_request, :recaptcha_token) %>
+          <% end %>
+        
           <%= form.label :first_name, class: "usa-label" do %>
             <%= t('activerecord.attributes.first_name') %>
             <span class="text-magenta">*</span>
@@ -105,7 +109,11 @@
     <div class="covidtest-container usa-section maxw-tablet margin-x-auto padding-top-0">
       <%= render "application/privacy" %>
 
-      <%= form.submit t('kit_requests.new.submit'), class: "usa-button radius-pill font-ui-lg width-full desktop:width-auto margin-top-0 padding-x-4", id:"submit-btn" %>
+      <% if ENV["RECAPTCHA_REQUIRED"] == "true" %>
+        <%= form.hidden_field :recaptcha_token, id: "g-recaptcha-response" %>
+      <% end %>
+
+      <%= form.submit t('kit_requests.new.submit'), class: "usa-button radius-pill font-ui-lg width-full margin-top-0", id:"submit-btn" %>
     </div>
   <% end %>
 </div>

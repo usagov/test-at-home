@@ -230,6 +230,7 @@ jobs:
                   VARS_FILE: config/deployment/stage.yml
                   RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
+                  RECAPTCHA_REQUIRED: "true"
       - when:
           condition:
             and:
@@ -248,6 +249,7 @@ jobs:
                   VARS_FILE: config/deployment/prod.yml
                   RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
+                  RECAPTCHA_REQUIRED: "true"
   deploy_foundry_2:
     docker:
       - image: cimg/ruby:3.0.3-node
@@ -290,6 +292,7 @@ jobs:
                   VARS_FILE: config/deployment/stage.yml
                   RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
+                  RECAPTCHA_REQUIRED: "true"
       - when:
           condition:
             and:
@@ -308,6 +311,7 @@ jobs:
                   VARS_FILE: config/deployment/prod.yml
                   RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
+                  RECAPTCHA_REQUIRED: "true"
   deploy_foundry_3:
     docker:
       - image: cimg/ruby:3.0.3-node
@@ -350,6 +354,7 @@ jobs:
                   VARS_FILE: config/deployment/prod.yml
                   RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
+                  RECAPTCHA_REQUIRED: "true"
   deploy_foundry_4:
     docker:
       - image: cimg/ruby:3.0.3-node
@@ -392,6 +397,7 @@ jobs:
                   VARS_FILE: config/deployment/stage.yml
                   RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
+                  RECAPTCHA_REQUIRED: "true"
       - when:
           condition:
             and:
@@ -410,6 +416,7 @@ jobs:
                   VARS_FILE: config/deployment/prod.yml
                   RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
+                  RECAPTCHA_REQUIRED: "true"
 
 workflows:
   version: 2.1

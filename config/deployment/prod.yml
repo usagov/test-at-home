@@ -4,3 +4,4 @@ web_instances: 20
 web_memory: 256M
 smarty_streets_public_key: 114809815293488434
 cache_form_age: 3600
+recaptcha_site_key: 6LdBOhYeAAAAAFKWgCowR0u0dQNg2O6xu0r-9UIz
