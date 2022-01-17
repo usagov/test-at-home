@@ -1,5 +1,6 @@
 <div class="bg-light-gray">
   <%= form_with model: @kit_request, class: "usa-form usa-form--large maxw-none", id: "form" do |form| %>
+    <%= form.hidden_field :js_smarty_status %>
     <div id="form-cntr">
       <div class="bg-blue">
         <div class="covidtest-container usa-section padding-bottom-12">
