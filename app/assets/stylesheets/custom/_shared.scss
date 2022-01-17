@@ -21,8 +21,9 @@ i.e.
 */
 $max-width: "desktop-lg";
 
-$font-family: "Source Sans Pro";
-$font-stack: #{$font-family}, sans;
+$font-family: "Source Sans Pro Web";
+$font-stack: #{$font-family}, Helvetica Neue, Helvetica, Roboto, Arial,
+  sans-serif;
 $font-size: 16;
 $line-height: 22;
 
