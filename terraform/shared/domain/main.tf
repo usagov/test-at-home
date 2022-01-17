@@ -29,40 +29,16 @@ data "cloudfoundry_app" "tah" {
 # /foundry_<x>/<env>/map-routes.sh is used to connect the rest of the apps
 ###########################################################################
 
-data "cloudfoundry_domain" "global_url" {
-  name = var.global_domain_name
-}
-
 data "cloudfoundry_domain" "origin_url" {
   name = var.origin_domain_name
-}
-
-data "cloudfoundry_domain" "regional_url" {
-  name = var.regional_domain_name
 }
 
 data "cloudfoundry_domain" "foundation_url" {
   name = var.foundation_domain_name
 }
 
-resource "cloudfoundry_route" "global_route-n" {
-  domain = data.cloudfoundry_domain.global_url.id
-  space  = data.cloudfoundry_space.space.id
-  target {
-    app = data.cloudfoundry_app.tah.id
-  }
-}
-
 resource "cloudfoundry_route" "origin_route-n" {
   domain = data.cloudfoundry_domain.origin_url.id
-  space  = data.cloudfoundry_space.space.id
-  target {
-    app = data.cloudfoundry_app.tah.id
-  }
-}
-
-resource "cloudfoundry_route" "regional_route-n" {
-  domain = data.cloudfoundry_domain.regional_url.id
   space  = data.cloudfoundry_space.space.id
   target {
     app = data.cloudfoundry_app.tah.id

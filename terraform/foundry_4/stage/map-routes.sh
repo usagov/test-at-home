@@ -20,9 +20,7 @@ app_number=0
 while [ $app_number -lt 10 ]
 do
   cf unmap-route "test_at_home-stage-$app_number" app.eb.cloud.gov --hostname "test_at_home-stage-$app_number"
-  cf map-route "test_at_home-stage-$app_number" staging-covidtest.usa.gov
   cf map-route "test_at_home-stage-$app_number" route.staging-covidtest.usa.gov
-  cf map-route "test_at_home-stage-$app_number" east.staging-covidtest.usa.gov
   cf map-route "test_at_home-stage-$app_number" eastb.staging-covidtest.usa.gov
 
   ((app_number++))

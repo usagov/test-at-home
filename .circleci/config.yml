@@ -231,6 +231,8 @@ jobs:
                   RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
                   RECAPTCHA_REQUIRED: "true"
+                  APP_COUNT: 2
+                  FEATURE_NAME: "stage"
       - when:
           condition:
             and:
@@ -250,6 +252,23 @@ jobs:
                   RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
                   RECAPTCHA_REQUIRED: "true"
+                  APP_COUNT: 10
+                  FEATURE_NAME: "prod"
+            - run:
+                name: Deploy to foundry 1 prod, no smartystreets
+                command: ./bin/cf-deploy
+                environment:
+                  CF_FOUNDRY_API: api.fr.wb.cloud.gov
+                  CF_USER: b714c36d-f931-4b0c-bcfe-03eb27a1c58e
+                  CF_PASSWORD_NAME: CF_FOUNDRY_1_PROD_PASS
+                  CF_ORG: gsa-tts-test-kits
+                  CF_SPACE: prod
+                  VARS_FILE: config/deployment/prod.yml
+                  RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
+                  DISABLE_SMARTY_STREETS: "true"
+                  RECAPTCHA_REQUIRED: "true"
+                  APP_COUNT: 10
+                  FEATURE_NAME: "prod-nosmarty"
   deploy_foundry_2:
     docker:
       - image: cimg/ruby:3.0.3-node
@@ -293,6 +312,8 @@ jobs:
                   RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
                   RECAPTCHA_REQUIRED: "true"
+                  APP_COUNT: 2
+                  FEATURE_NAME: "stage"
       - when:
           condition:
             and:
@@ -312,6 +333,23 @@ jobs:
                   RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
                   RECAPTCHA_REQUIRED: "true"
+                  APP_COUNT: 10
+                  FEATURE_NAME: "prod"
+            - run:
+                name: Deploy to foundry 2 prod, no smartystreets
+                command: ./bin/cf-deploy
+                environment:
+                  CF_FOUNDRY_API: api.fr.wc.cloud.gov
+                  CF_USER: 13119234-66b2-4cd6-87ab-ec0e04001a50
+                  CF_PASSWORD_NAME: CF_FOUNDRY_2_PROD_PASS
+                  CF_ORG: gsa-tts-test-kits
+                  CF_SPACE: prod
+                  VARS_FILE: config/deployment/prod.yml
+                  RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
+                  DISABLE_SMARTY_STREETS: "true"
+                  RECAPTCHA_REQUIRED: "true"
+                  APP_COUNT: 10
+                  FEATURE_NAME: "prod-nosmarty"
   deploy_foundry_3:
     docker:
       - image: cimg/ruby:3.0.3-node
@@ -355,6 +393,23 @@ jobs:
                   RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
                   RECAPTCHA_REQUIRED: "true"
+                  APP_COUNT: 10
+                  FEATURE_NAME: "prod"
+            - run:
+                name: Deploy to foundry 3 prod, no smartystreets
+                command: ./bin/cf-deploy
+                environment:
+                  CF_FOUNDRY_API: api.fr.ea.cloud.gov
+                  CF_USER: a4b5dfa2-5a83-4a69-a83d-2a314e42663e
+                  CF_PASSWORD_NAME: CF_FOUNDRY_3_PROD_PASS
+                  CF_ORG: gsa-tts-test-kits
+                  CF_SPACE: prod
+                  VARS_FILE: config/deployment/prod.yml
+                  RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
+                  DISABLE_SMARTY_STREETS: "true"
+                  RECAPTCHA_REQUIRED: "true"
+                  APP_COUNT: 10
+                  FEATURE_NAME: "prod-nosmarty"
   deploy_foundry_4:
     docker:
       - image: cimg/ruby:3.0.3-node
@@ -398,6 +453,8 @@ jobs:
                   RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
                   RECAPTCHA_REQUIRED: "true"
+                  APP_COUNT: 2
+                  FEATURE_NAME: "stage"
       - when:
           condition:
             and:
@@ -417,6 +474,23 @@ jobs:
                   RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
                   RECAPTCHA_REQUIRED: "true"
+                  APP_COUNT: 10
+                  FEATURE_NAME: "prod"
+            - run:
+                name: Deploy to foundry 4 prod, no smartystreets
+                command: ./bin/cf-deploy
+                environment:
+                  CF_FOUNDRY_API: api.fr.eb.cloud.gov
+                  CF_USER: 57e67907-7715-4172-a085-53d0bd94ee2d
+                  CF_PASSWORD_NAME: CF_FOUNDRY_4_PROD_PASS
+                  CF_ORG: gsa-tts-test-kits
+                  CF_SPACE: prod
+                  VARS_FILE: config/deployment/prod.yml
+                  RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
+                  DISABLE_SMARTY_STREETS: "true"
+                  RECAPTCHA_REQUIRED: "true"
+                  APP_COUNT: 10
+                  FEATURE_NAME: "prod-nosmarty"
 
 workflows:
   version: 2.1
