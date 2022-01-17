@@ -3,12 +3,12 @@ en:
   activerecord:
     attributes:
       city: City
-      email: Email address
+      email: Email Address
       first_name: First name
       last_name: Last name
-      mailing_address_1: Mailing address 1
-      mailing_address_2: Mailing address 2
-      state: State, Territory, Military Base
+      mailing_address_1: Address Line 1
+      mailing_address_2: Address Line 2
+      state: State / Territory
       zip_code: Zip code
     errors:
       messages:
@@ -52,14 +52,15 @@ en:
             <li>Work whether or not you are up to date on your COVID-19 vaccines</li>
             <li>Are also referred to self-tests or over-the-counter (OTC) tests</li>
           </ul>
-        heading: About At-Home Tests
+        heading: At-home tests
       body_html: |
         <p class="text-bold margin-top-0">Tests will be sent out in late January.</p>
         <p class="margin-bottom-0">
           You will receive <strong>4</strong> individual at-home antigen tests to the address you provided.
         </p>
-      body_secondary_html: |
-        You will receive a follow up confirmation email* from the US Postal Service (USPS) and another email with a tracking number when the tests ship.<br /><span class="text-italic font-body-xs">*If you provided your email address.</span>
+      body_secondary_html: 'You will receive a follow up confirmation email* from the US Postal Service (USPS) and another email with a tracking number when the tests ship.<br /><span class="text-italic font-body-xs">*If you provided your email address.</span>
+
+        '
       instructions:
         body_html: |
           <ul>
@@ -67,34 +68,8 @@ en:
             <li>5 days after you come into close contact with someone with COVID-19, or</li>
             <li>When you’re going to gather with a group of people, especially those who are at risk of severe disease or may not be <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/stay-up-to-date.html" rel="noopener">up to date on their COVID-19 vaccines</a>.</li>
           </ul>
-        heading: Once you receive your tests
-        sub_heading: "Take an at-home test:"
-      resources:
-        alt: Mask-wearing young child using hand sanitizer
-        body_html: |
-          <ul>
-            <li><a href="https://www.hhs.gov/coronavirus/community-based-testing-sites/index.html" rel="noopener">State resources</a></li>
-            <li><a href="https://doineedacovid19test.com/" rel="noreferrer noopener">Local independent pharmacies</a></li>
-            <li><a href="https://www.cms.gov/how-to-get-your-at-home-OTC-COVID-19-test-for-free" rel="noopener">Insurance reimbursement program</a></li>
-          </ul>
-        heading: Other testing resources
-        sub_heading: "Free COVID tests are also available through:"
-      tests:
-        body_html: |
-          <p><strong>If you have more than four people in your household,</strong> prioritize administering tests to members who are unvaccinated, over age 65, or medical conditions that increase risk and currently have symptoms of COVID-19 or have come in close contact with someone with COVID-19.</p>
-
-          <p>For more information on who should get tested for COVID-19, visit <a href="https://www.cdc.gov/coronavirus/2019-ncov/testing/diagnostic-testing.html" rel="noopener">CDC’s Test for Current Infection resource</a>.</p>
-        heading: If you need more tests
-      other:
-        body_html: |
-          <h4>Everyone is encouraged to:</h4>
-          <ul>
-            <li>Get up to date with their COVID-19 vaccinations. Visit <a href="https://vaccines.gov" rel="noopener">vaccines.gov</a> to find a vaccine or booster near you.</li>
-            <li>Wear a well-fitted mask when gathering indoors.</li>
-            <li>Maintain 6 feet of distance between people.</li>
-          </ul>
-        heading: Vaccination, Masking and Social Distancing
-        sub_heading: "Testing is only one step you can take to protect yourself, friends, family, and others."
+        heading: Once you get your tests
+        sub_heading: 'Take an at-home test:'
       nav:
         body_html: |
           <ul class="add-list-reset">
@@ -108,17 +83,42 @@ en:
             <li><a href="#whatif_negative">If you test negative</a></li>
             <li><a href="#other">Other ways to stay safe</a></li>
           </ul>
-        heading: COVID-19 testing advice and resources
+        heading: COVID-19 Testing Advice and Resources
         sub_heading: On this page
+      other:
+        body_html: |
+          <h4>Everyone is encouraged to:</h4>
+          <ul>
+            <li>Get up to date with their COVID-19 vaccinations. Visit <a href="https://vaccines.gov" rel="noopener">vaccines.gov</a> to find a vaccine or booster near you.</li>
+            <li>Wear a well-fitted mask when gathering indoors.</li>
+            <li>Maintain 6 feet of distance between people.</li>
+          </ul>
+        heading: Vaccination, Masking and Social Distancing
+        sub_heading: Testing is only one step you can take to protect yourself, friends, family, and others.
+      resources:
+        body_html: |
+          <ul>
+            <li><a href="https://www.hhs.gov/coronavirus/community-based-testing-sites/index.html" rel="noopener">State resources</a></li>
+            <li><a href="https://doineedacovid19test.com/" rel="noreferrer noopener">Local independent pharmacies</a></li>
+            <li><a href="https://www.cms.gov/how-to-get-your-at-home-OTC-COVID-19-test-for-free" rel="noopener">Insurance reimbursement program</a></li>
+          </ul>
+        heading: Other Testing Resources
+        sub_heading: 'Free COVID tests are also available through:'
       sub_heading: What to expect next
+      tests:
+        body_html: |
+          <p><strong>If you have more than four people in your household,</strong> prioritize administering tests to members who are unvaccinated, over age 65, or medical conditions that increase risk and currently have symptoms of COVID-19 or have come in close contact with someone with COVID-19.</p>
+
+          <p>For more information on who should get tested for COVID-19, visit <a href="https://www.cdc.gov/coronavirus/2019-ncov/testing/diagnostic-testing.html" rel="noopener">CDC’s Test for Current Infection resource</a>.</p>
+        heading: If you need more tests
       title: Thank you, your order has been placed.
       whatif_negative:
         body_html: |
-          <p><strong>A negative at-home test result means that the test did not find the COVID-19 virus,</strong> and you may have a lower risk of spreading the disease to others. Check your test kit’s instructions for specific next steps.</p>
+          <p><strong>A negative at-home test result means that the test did not find the COVID-19 virus,</strong> and you may have a lower risk of spreading the disease to others.</p>
 
-          <p>If you test negative, you should <strong>test again within a few days</strong> with at least 24 hours between tests.</p>
+          <p>If you test negative, you should generally test again 2 to 3 days after the first test. Check your test kit’s instructions for specific next steps.</p>
 
-          <p>If you test negative, visit the <a class="text-white desktop:text-dark-blue" href="https://www.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">CDC Self-Testing webpage</a>.</p>
+          <p>For more information on what to do if you test negative, visit the <a class="text-white desktop:text-dark-blue" href="https://www.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">CDC Self-Testing webpage</a>.</p>
         heading: If you test negative
       whatif_positive:
         body_html: |
@@ -133,29 +133,28 @@ en:
           Fill in this form to request free at-home tests to be delivered to you. Orders will include
           <strong>4 individual rapid antigen tests.</strong>
         </p>
-        <p class="text-bold margin-bottom-4 bullet">Testing kits will ship in late January.</p>
-      contact_heading: Contact information
+        <p class="text-bold margin-bottom-4 bullet">The tests will ship in late January.</p>
+      contact_heading: Contact Information
       contact_html: Contact information for the person receiving the order. <span class="text-magenta">*</span><span class="text-italic">Required</span>
       email_optional: This step is optional, but we will not be able to provide tracking without an email.
-      error_header: Couldn't process your request because of errors
       privacy:
         heading: Privacy Statement
         html: |
           <p class="font-body-3xs">usa.gov is asking for your name and address so that the United States Postal Service (“USPS”) can ship you four at-home rapid COVID tests for free. If you provide an email address, USPS will send you an email that includes a number to track shipment. This collection of information is authorized by the E-Government Act of 2002 (44 U.S.C. § 3501).</p>
           <p class="font-body-3xs">You are not required to provide your name and address; however, not providing it will prevent USPS from shipping COVID tests to you. You are not required to provide your email address; however, not providing it will prevent USPS from emailing you shipment information.</p>
-          <p class="font-body-3xs">Any information you provide when placing your order will be shared with USPS and may also be disclosed as described in the published Privacy Act <a href="https://www.federalregister.gov/documents/2016/07/18/2016-16868/privacy-act-of-1974-notice-of-an-updated-system-of-records">System of Records Notice</a>.</p>
+          <p class="font-body-3xs">Any information you provide when placing your order will be shared with USPS and may also be disclosed as described in the published Privacy Act System of Records Notice, <a href="https://www.federalregister.gov/documents/2016/07/18/2016-16868/privacy-act-of-1974-notice-of-an-updated-system-of-records">usa.gov</a>.</p>
       review:
         edit: Edit
         please_confirm: Please confirm we have your delivery information correct.
         ship_to: Ship to
-        title: Review your order
+        title: Review Your Order
         tracking_to: Send tracking to
-      shipping_heading: Shipping address
+      shipping_heading: Shipping Information
       shipping_html: <span class="text-magenta">*</span><span class="text-italic">Required</span>
       submit: Place your order
-      title_html: Place your pre-order for <span class="text-light-blue">free COVID-19 at-home test</span>
-      tracking: To receive updates on the status of your order from USPS, please provide an email address.
-      tracking_heading: Order tracking
+      title_html: Place your pre-order for a set of <span class="text-light-blue">free at-home COVID-19 tests</span>.
+      tracking: To receive updates on the status of your order, please provide an email address.
+      tracking_heading: Order Tracking
   shared:
     banner:
       gov_description_html: A <strong>.gov</strong> website belongs to an official government organization in the United States.
