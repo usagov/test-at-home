@@ -213,8 +213,8 @@ RSpec.describe "Person requests a test kit", type: :system do
         fill_in "First name", with: "Kewpee"
         fill_in "Last name", with: "Doll"
 
-        fill_in "Mailing address 1", with: "1234 Fake St"
-        fill_in "Mailing address 2", with: "Apt 2"
+        fill_in "Address Line 1", with: "1234 Fake St"
+        fill_in "Address Line 2", with: "Apt 2"
         fill_in "City", with: "Lima"
         select "OH", from: "State"
         fill_in "Zip code", with: "12345"
