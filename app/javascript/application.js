@@ -1,7 +1,10 @@
-// Entry point for the build script in your package.json
+// Polyfills for IE support
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+import "promise-polyfill/src/polyfill";
+
 import "uswds";
 import i18n from "i18n-js";
-import "promise-polyfill/src/polyfill";
 
 import { autocomplete } from "./helpers/addressAutocomplete";
 import { verifyAddress } from "./helpers/addressVerification";
@@ -148,7 +151,9 @@ const showReview = event => {
 
     if (process.env.RECAPTCHA_REQUIRED === "true") {
       grecaptcha.enterprise.ready(function() {
-        grecaptcha.enterprise.execute(process.env.RECAPTCHA_SITE_KEY, {action: 'submit'}).then(function(token) {
+        grecaptcha.enterprise
+          .execute(process.env.RECAPTCHA_SITE_KEY, { action: "submit" })
+          .then(function(token) {
             recaptchaField.value = token;
             event.target.submit();
           });
