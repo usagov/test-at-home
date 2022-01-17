@@ -6,7 +6,7 @@ import accessibleAutocomplete from "accessible-autocomplete";
 const SmartyStreetsCore = SmartyStreetsSDK.core;
 const Lookup = SmartyStreetsSDK.usAutocompletePro.Lookup;
 
-const key = process.env.SMARTY_STREETS_EMBEDDED_KEY;
+const key = SMARTY_STREETS_EMBEDDED_KEY;
 const credentials = new SmartyStreetsCore.SharedCredentials(key);
 
 const clientBuilder = new SmartyStreetsCore.ClientBuilder(
