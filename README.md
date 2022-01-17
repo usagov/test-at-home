@@ -117,6 +117,32 @@ on a daily basis.
 Each environment has dependencies on a PostgreSQL RDS instance managed by cloud.gov.
 See [cloud.gov docs](https://cloud.gov/docs/services/relational-database/) for information on RDS.
 
+#### Foundry configuration
+
+**Last updated Jan 17 at 2:30p EST**
+
+Our application is deployed across four foundries, all different than the usual `cloud.gov`. They have been stood up for this application, anticipating high load.
+
+Each foundry has:
+- one org: `gsa-tts-test-kits`
+- two spaces: `staging` and `prod`
+
+In each foundatation's `prod` space, there are two deployed application configurations: one with Smarty Streets API enabled and one with it disabled. We are launching with Smarty Streets enabled, and plan to route traffic to the applications where it is disabled in case of a Smarty service problem.
+
+**Foundry 1:**
+CF_FOUNDRY_API: api.fr.wb.cloud.gov
+
+**Foundry 2**
+CF_FOUNDRY_API: api.fr.wc.cloud.gov
+
+**Foundry 3**
+CF_FOUNDRY_API: api.fr.ea.cloud.gov
+
+**Foundry 4**
+CF_FOUNDRY_API: api.fr.eb.cloud.gov
+
+**Questions?** Ask in #tts-covidtest-devops for platform, and #tts-covidtest-rails for application development and config.
+
 #### Staging
 
 First time only: create DB service with `cf create-service aws-rds micro-psql test_at_home-rds-stage`
