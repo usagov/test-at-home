@@ -14,6 +14,7 @@ fi
 export RAILS_ENV=ci
 export DISABLE_SMARTY_STREETS=true
 export RECAPTCHA_REQUIRED=false
+export DISABLE_SMARTY_STREETS_AUTOCOMPLETE=true
 
 # ensure assets are properly compiled for CI environment
 bundle exec rake assets:clobber
