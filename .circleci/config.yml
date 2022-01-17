@@ -49,23 +49,23 @@ jobs:
           name: Database setup
           command: bundle exec rails db:schema:load --trace
 
-      # Precompile assets
-      # Load assets from cache if possible, precompile assets then save cache
-      # Multiple caches are used to increase the chance of a cache hit
-      # https://circleci.com/docs/2.0/caching/#full-example-of-saving-and-restoring-cache
-      - restore_cache:
-          keys:
-            - asset-cache-v1-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
-            - asset-cache-v1-{{ arch }}-{{ .Branch }}
-            - asset-cache-v1
+      # # Precompile assets
+      # # Load assets from cache if possible, precompile assets then save cache
+      # # Multiple caches are used to increase the chance of a cache hit
+      # # https://circleci.com/docs/2.0/caching/#full-example-of-saving-and-restoring-cache
+      # - restore_cache:
+      #     keys:
+      #       - asset-cache-v1-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+      #       - asset-cache-v1-{{ arch }}-{{ .Branch }}
+      #       - asset-cache-v1
 
       - run: bundle exec rake assets:precompile
 
-      - save_cache:
-          key: asset-cache-v1-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
-          paths:
-            - public/assets
-            - tmp/cache/assets/sprockets
+      # - save_cache:
+      #     key: asset-cache-v1-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+      #     paths:
+      #       - public/assets
+      #       - tmp/cache/assets/sprockets
 
       - ruby/rspec-test
 
