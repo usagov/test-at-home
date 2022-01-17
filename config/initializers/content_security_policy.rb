@@ -12,7 +12,7 @@ Rails.application.configure do
     policy.frame_ancestors :none
     policy.img_src :self, :data, "https://*.nr-data.net"
     policy.object_src :none
-    policy.script_src :self, "https://dap.digitalgov.gov", "https://js-agent.newrelic.com", "https://*.nr-data.net", "https://www.google.com"
+    policy.script_src :self, "https://dap.digitalgov.gov", "https://js-agent.newrelic.com", "https://*.nr-data.net", "https://www.google.com", "https://www.google-analytics.com"
     policy.connect_src :self, "https://dap.digitalgov.gov", "https://*.nr-data.net", "https://*.api.smartystreets.com"
     policy.style_src :self
   end
