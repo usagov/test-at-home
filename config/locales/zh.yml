@@ -34,7 +34,6 @@ zh:
   kit_requests:
     confirmation:
       about:
-        alt: COVID-19检测拭子的开发
         body_html: |
           <ul>
             <li>是快速抗原居家检测试剂，不是 PCR 检测试剂</li>
@@ -51,7 +50,6 @@ zh:
           您将会在您提供的地址收到<strong>4</strong>盒独立包装的居家抗原检测试剂。
         </p>
       body_secondary_html: 您会收到美国邮政服务 (USPS) 的后续确认电子邮件* ，并在检测试剂开始发送时收到另一封带有邮件追踪号码的电子邮件。 <br /><span class="text-italic font-body-xs">*如果您已输入您的电子邮件地址。</span>
-      heading: 接下来
       instructions:
         body_html: |
           <ul>
@@ -78,7 +76,6 @@ zh:
           </ul>
         sub_heading: 在此页
       other:
-        alt: 佩戴口罩的儿童在使用洗手液
         body_html: |
           <ul>
             <li>及时接种COVID-19疫苗。请访问 <a href="https://vaccines.gov" rel="noopener">vaccines.gov</a> 可以查找到您附近的疫苗或加强针接种点。</li>
@@ -88,7 +85,6 @@ zh:
         heading: 疫苗接种、佩戴口罩和保持社交距离
         sub_heading: 检测只是您保护自己、朋友、家人和他人的一项措施。我们鼓励每个人都要：
       resources:
-        alt: 成年人在接受COVID-19检测
         body_html: |
           <ul>
             <li><a href="https://www.hhs.gov/coronavirus/community-based-testing-sites/index.html" rel="noopener">州政府资源</a></li>

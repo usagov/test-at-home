@@ -34,7 +34,6 @@ es:
   kit_requests:
     confirmation:
       about:
-        alt: Hisopos de pruebas de COVID-19
         body_html: |
           <ul>
             <li>​​Son pruebas caseras de antígeno, no son pruebas PCR</li>
@@ -53,7 +52,6 @@ es:
           <span class="text-italic">*Si compartió su dirección de correo electrónico.</span>
         </p>
       body_secondary_html: Recibirá un correo electrónico de confirmación* del Servicio Postal de Estados Unidos (USPS, sigla en inglés) y otro correo electrónico con un número de rastreo cuando se envíen las pruebas. <br /><span class="text-italic font-body-xs">*Si compartió su dirección de correo electrónico.</span>
-      heading: Qué puede esperar a continuación
       instructions:
         body_html: |
           <ul>
@@ -79,7 +77,6 @@ es:
         heading: Recomendaciones para las pruebas de COVID-19 y otros recursos
         sub_heading: En esta página
       other:
-        alt: Niño pequeño con mascarilla usando desinfectante de manos
         body_html: |
           <ul>
             <li>Ponerse al día con sus vacunas de COVID-19. Visite <a href="https://vacunas.gov" rel="noopener">vacunas.gov</a> para encontrar una vacuna o una dosis de refuerzo cerca de usted.</li>
@@ -89,7 +86,6 @@ es:
         heading: Vacunación, uso de mascarillas y distanciamiento social
         sub_heading: 'Las pruebas son solo una medida que puede tomar para protegerse a sí mismo, a sus amigos y a su familia. Se les recomienda a todas las personas:'
       resources:
-        alt: Adulto que recibe una prueba de COVID-19
         body_html: |
           <ul>
             <li><a href="https://www.hhs.gov/coronavirus/community-based-testing-sites/index.html" rel="noopener">Recursos de ayuda en su estado (en inglés)</a></li>
