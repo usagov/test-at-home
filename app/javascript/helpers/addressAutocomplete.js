@@ -18,15 +18,30 @@ const client = clientBuilder.buildUsAutocompleteProClient();
 const element = document.querySelector("#address-autocomplete");
 
 const handleConfirm = async value => {
-  document.getElementById("kit_request_mailing_address_1").value =
-    value.streetLine;
-  document.getElementById("kit_request_mailing_address_2").value =
-    value.secondary;
-  document.getElementById("kit_request_city").value = value.city;
-  document.getElementById("kit_request_state").value = value.state;
-  document.querySelector("select[name='kit_request[state]']").value =
-    value.state;
-  document.getElementById("kit_request_zip_code").value = value.zipcode;
+  if (value.entries > 1) {
+    const input = element.querySelector("input");
+    const lookup = new Lookup(formatAddress(value, true));
+    lookup.selected = `${value.streetLine} ${value.secondary} (${value.entries}) ${value.city} ${value.state} ${value.zipcode}`;
+
+    autoComplete.props.source(lookup, options => {
+      autoComplete.setState({
+        menuOpen: true,
+        options,
+        selected: 0,
+        validChoiceMade: false
+      });
+    });
+  } else {
+    document.getElementById("kit_request_mailing_address_1").value =
+      value.streetLine;
+    document.getElementById("kit_request_mailing_address_2").value =
+      value.secondary;
+    document.getElementById("kit_request_city").value = value.city;
+    document.getElementById("kit_request_state").value = value.state;
+    document.querySelector("select[name='kit_request[state]']").value =
+      value.state;
+    document.getElementById("kit_request_zip_code").value = value.zipcode;
+  }
 };
 
 const handleRequest = async lookup => {
@@ -39,23 +54,36 @@ const handleRequest = async lookup => {
   }
 };
 
-const formatAddress = ({ streetLine, secondary, city, state, zipcode }) =>
-  `${streetLine}${
-    secondary ? `, ${secondary}` : ""
-  }, ${city}, ${state} ${zipcode}`;
+const formatAddress = (
+  { streetLine, secondary, city, state, zipcode, entries },
+  primaryOnly = false
+) =>
+  primaryOnly
+    ? `${streetLine}${secondary ? `, ${secondary}` : ""}`
+    : `${streetLine}${secondary ? `, ${secondary}` : ""}${
+        entries > 1 ? ` (${entries} more entries)` : ""
+      } ${city}, ${state} ${zipcode}`;
 
 export const autoComplete =
   element &&
   accessibleAutocomplete({
-    confirmOnBlur: false,
+    autoSelect: true,
+    confirmOnBlur: true,
     element,
     id: "address-autocomplete",
     minLength: 6,
     required: true,
     source: async (query, populateResults) => {
-      const lookup = new Lookup(query);
+      let lookup;
+
+      if (typeof query === "object") {
+        lookup = query;
+      } else {
+        lookup = new Lookup(query);
+      }
+
       lookup.maxResults = 4;
-      lookup.source = "all";
+      lookup.source = "postal";
 
       const res = await handleRequest(lookup);
 
@@ -63,7 +91,8 @@ export const autoComplete =
     },
     onConfirm: handleConfirm,
     templates: {
-      inputValue: value => (value ? formatAddress(value) : ""),
+      inputValue: value =>
+        value ? formatAddress(value, value.entries > 1) : "",
       suggestion: value => (value ? formatAddress(value) : "")
     },
     tQueryTooShort: minQueryLength =>
