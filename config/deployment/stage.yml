@@ -3,4 +3,5 @@ rails_env: staging
 web_instances: 20
 web_memory: 256M
 smarty_streets_public_key: 114809814616057556
-cache_form_age: 600
+cache_form_age: 60
+recaptcha_site_key: 6LdCKxMeAAAAAN_jjT0ELbnU1efQLtm1iQmN6IkF

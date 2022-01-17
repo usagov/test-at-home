@@ -231,8 +231,6 @@ jobs:
                   RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
                   RECAPTCHA_REQUIRED: "true"
-                  RECAPTCHA_SITE_KEY: 6LdCKxMeAAAAAN_jjT0ELbnU1efQLtm1iQmN6IkF
-                  RECAPTCHA_PROJECT_ID: ctusa-338400
       - when:
           condition:
             and:
@@ -252,8 +250,6 @@ jobs:
                   RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
                   RECAPTCHA_REQUIRED: "true"
-                  RECAPTCHA_SITE_KEY: 6LdBOhYeAAAAAFKWgCowR0u0dQNg2O6xu0r-9UIz
-                  RECAPTCHA_PROJECT_ID: ctusa-338400
   deploy_foundry_2:
     docker:
       - image: cimg/ruby:3.0.3-node
@@ -297,8 +293,6 @@ jobs:
                   RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
                   RECAPTCHA_REQUIRED: "true"
-                  RECAPTCHA_SITE_KEY: 6LdCKxMeAAAAAN_jjT0ELbnU1efQLtm1iQmN6IkF
-                  RECAPTCHA_PROJECT_ID: ctusa-338400
       - when:
           condition:
             and:
@@ -318,8 +312,6 @@ jobs:
                   RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
                   RECAPTCHA_REQUIRED: "true"
-                  RECAPTCHA_SITE_KEY: 6LdBOhYeAAAAAFKWgCowR0u0dQNg2O6xu0r-9UIz
-                  RECAPTCHA_PROJECT_ID: ctusa-338400
   deploy_foundry_3:
     docker:
       - image: cimg/ruby:3.0.3-node
@@ -363,8 +355,6 @@ jobs:
                   RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
                   RECAPTCHA_REQUIRED: "true"
-                  RECAPTCHA_SITE_KEY: 6LdBOhYeAAAAAFKWgCowR0u0dQNg2O6xu0r-9UIz
-                  RECAPTCHA_PROJECT_ID: ctusa-338400
   deploy_foundry_4:
     docker:
       - image: cimg/ruby:3.0.3-node
@@ -408,8 +398,6 @@ jobs:
                   RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
                   RECAPTCHA_REQUIRED: "true"
-                  RECAPTCHA_SITE_KEY: 6LdCKxMeAAAAAN_jjT0ELbnU1efQLtm1iQmN6IkF
-                  RECAPTCHA_PROJECT_ID: ctusa-338400
       - when:
           condition:
             and:
@@ -429,8 +417,6 @@ jobs:
                   RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
                   RECAPTCHA_REQUIRED: "true"
-                  RECAPTCHA_SITE_KEY: 6LdBOhYeAAAAAFKWgCowR0u0dQNg2O6xu0r-9UIz
-                  RECAPTCHA_PROJECT_ID: ctusa-338400
 
 workflows:
   version: 2.1

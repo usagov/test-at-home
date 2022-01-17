@@ -16,7 +16,7 @@ applications:
     SMARTY_STREETS_EMBEDDED_KEY: ((smarty_streets_public_key))
     RECAPTCHA_REQUIRED: ((recaptcha_required))
     RECAPTCHA_SITE_KEY: ((recaptcha_site_key))
-    RECAPTCHA_PROJECT_ID: ((recaptcha_project_id))
+    RECAPTCHA_PROJECT_ID: ctusa-338400
     RAILS_MAX_THREADS: 10
   processes:
   - type: web
