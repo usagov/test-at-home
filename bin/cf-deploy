@@ -11,13 +11,14 @@
 # RAILS_MASTER_KEY_NAME: name of ENV variable holding key to decrypt the credentials file(s)
 # DISABLE_SMARTY_STREETS: boolean to disable Smarty API address validation
 # RECAPTCHA_REQUIRED: boolean to disable Google Recaptcha validation
+# APP_COUNT: number of apps to push to this space
 
 # login to the given foundry, and target the correct space
 cf login -a $CF_FOUNDRY_API -u $CF_USER -p ${!CF_PASSWORD_NAME} -o $CF_ORG -s $CF_SPACE
 
 # do the deploys
 app_number=0
-while [ $app_number -lt 10 ]
+while [ $app_number -lt $APP_COUNT ]
 do
   cf push --strategy rolling --no-wait --vars-file $VARS_FILE \
       --var rails_master_key=${!RAILS_MASTER_KEY_NAME} \
