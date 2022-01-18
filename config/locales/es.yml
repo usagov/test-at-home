@@ -61,15 +61,15 @@ es:
       nav:
         body_html: |
           <ul class="add-list-reset">
-            <li><a href="#receive" class="text-dark-blue text-bold">Una vez que obtenga las pruebas</a>
+            <li><a href="#receive">Una vez que obtenga las pruebas</a>
               <ul class="add-list-reset margin-left-4">
-                <li><a class="text-normal" class="text-dark-blue" href="#instructions">Pruebas caseras</a></li>
-                <li><a class="text-normal" class="text-dark-blue" href="#tests">Si necesita más pruebas</a></li>
+                <li><a class="text-normal" href="#instructions">Pruebas caseras</a></li>
+                <li><a class="text-normal" href="#tests">Si necesita más pruebas</a></li>
               </ul>
             </li>
-            <li><a href="#whatif_positive" class="text-dark-blue text-bold">Si el resultado de su prueba es positivo</a></li>
-            <li><a href="#whatif_negative" class="text-dark-blue text-bold">Si el resultado de su prueba es negativo</a></li>
-            <li><a href="#other" class="text-dark-blue text-bold">Otras formas de protegerse del COVID-19</a></li>
+            <li><a href="#whatif_positive">Si el resultado de su prueba es positivo</a></li>
+            <li><a href="#whatif_negative">Si el resultado de su prueba es negativo</a></li>
+            <li><a href="#other">Otras formas de protegerse del COVID-19</a></li>
           </ul>
         heading: Recomendaciones para las pruebas de COVID-19 y otros recursos
         sub_heading: En esta página
