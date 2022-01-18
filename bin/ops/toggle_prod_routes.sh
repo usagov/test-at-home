@@ -65,53 +65,9 @@ if [[ "$to_enable" = "" && "$to_disable" = "" ]]; then
   exit 1;
 fi
 
-targetlist="${targets//,/ }"
-
-# Check to see if they've already set up targets or not
-cf targets --help > /dev/null 2>&1 ||
-    ( echo "ERROR: cf targets plugin not installed!
-
-Install it with:
-    cf install-plugin Targets -r CF-Community
-" && exit 1 )
-
-# Check for all of the targets
-existingtargetlist=$(cf targets | cut -d ' ' -f 1)
-
-difference=$(diff --left-column <( echo "$targetlist" | sed "s/\ /\n/g" | sort ) <( echo "$existingtargetlist" | sed "s/\ /\n/g" | sort ) | grep '^<' || true)
-
-if [ -n "${difference}" ]; then
-    echo "ERROR - These targets don't exist:"
-    echo "$difference"
-
-    cat << EOF
-
-To set up a target:
-    cf api ENDPOINT; cf login --sso
-    cf t -o ORG
-    cf save-target TARGET
-EOF
-    exit 1
-fi
-
-# If DRYRUN is set
-if [ -n "${DRYRUN}" ]; then
-    # Just echo the commands, don't run them.
-    output="echo"
-fi
-
-function pushtarget() {
-    startingtarget=$1
-    cf save-target -f "$startingtarget" > /dev/null 2>&1
-}
-
-function poptarget() {
-  cf set-target "$startingtarget"     > /dev/null 2>&1
-  cf delete-target "$startingtarget"  > /dev/null 2>&1
-}
-
-pushtarget $(uuidgen)
-trap poptarget exit
+DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
+source "$DIR/cf-targets-support"
 
 domain="covidtest.usa.gov"
 if [ "$space" != "prod" ]; then
@@ -161,6 +117,3 @@ for target in $targetlist; do
     ((app_number++))
   done
 done
-
-cf set-target "$startingtarget" > /dev/null 2>&1
-cf delete-target "$startingtarget" > /dev/null 2>&1
