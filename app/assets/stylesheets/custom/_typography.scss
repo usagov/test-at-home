@@ -1,139 +1,77 @@
-@mixin covidtest-font($font-size-px, $line-height-px: false) {
-  font-size: px-to-rem($font-size-px) !important;
-  @if $line-height-px {
-    line-height: divide($line-height-px, $font-size-px) !important;
-  }
-}
+#main-content {
+  border-top: 5px solid rgba(#eaf0f1, 0.72);
+  color: $color-dark-blue;
+  font-family: "Noto Sans", Georgia, Cambria, "Times New Roman", Times, serif;
+  font-display: swap;
 
-h1,
-.h1 {
-  @include covidtest-font(24, 32);
+  @include covidtest-font(16, 24);
 
-  @include at-media("tablet") {
-    @include covidtest-font(45, 54);
-  }
-
-  outline: none !important;
-
-  &::before {
-    content: "";
-    display: block;
-    margin-bottom: units(2);
-    height: 4px;
-    width: 30px;
-    background: $color-light-blue;
-  }
-}
-
-h2,
-.h2 {
-  @include covidtest-font(24, 32);
-
-  @include at-media("tablet") {
-    @include covidtest-font(32, 32);
+  h1,
+  h2,
+  h3,
+  h4,
+  legend {
+    color: $color-dark-blue;
+    font-weight: 700;
+    margin-top: 0;
   }
 
-  border-bottom: 1px solid $color-gray;
-  content: none;
-  font-weight: 700;
-  letter-spacing: normal;
-  margin: units(2) 0;
-  text-transform: none;
-}
+  h1 {
+    @include covidtest-font(24, 32);
 
-.h2 {
-  @include covidtest-font(24, 32);
+    @include at-media("tablet") {
+      @include covidtest-font(45, 54);
+    }
 
-  @include at-media("tablet") {
-    @include covidtest-font(32, 40);
+    outline: none !important;
+
+    @extend .accent-before;
+    @extend .accent-light-blue;
   }
 
-  border-bottom: 1px solid $color-gray;
-  content: none !important;
-  font-weight: 700 !important;
-  letter-spacing: normal !important;
-  margin: units(2) 0 !important;
-  text-transform: none !important;
-}
+  h2 {
+    @include covidtest-font(18, 32);
 
-h3 {
-  @include covidtest-font(16, 22);
-
-  @include at-media("tablet") {
-    @include covidtest-font(18, 22);
+    @include at-media("tablet") {
+      @include covidtest-font(22, 32);
+    }
   }
 
-  border: 0;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  h3,
+  legend {
+    @include covidtest-font(24, 32);
 
-  &::after {
-    margin-top: units(1);
-    content: "";
-    display: block;
-    height: 4px;
-    width: 30px;
-    background: $color-magenta;
-  }
-}
-
-.h3 {
-  @include covidtest-font(16, 22);
-
-  @include at-media("tablet") {
-    @include covidtest-font(18, 22);
+    @include at-media("tablet") {
+      @include covidtest-font(32, 40);
+    }
   }
 
-  border: 0;
-  font-weight: 400 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.08em !important;
+  h4 {
+    @include covidtest-font(18, 24);
 
-  &::after {
-    margin-top: units(1) !important;
-    content: "" !important;
-    display: block !important;
-    height: 4px !important;
-    width: 30px !important;
-    background: $color-magenta !important;
-  }
-}
+    @include at-media("tablet") {
+      @include covidtest-font(16, 24);
+    }
 
-h4,
-.h4 {
-  @include covidtest-font(18, 32);
-
-  @include at-media("tablet") {
-    @include covidtest-font(20, 32);
-  }
-}
-
-legend {
-  @include covidtest-font(24, 32);
-
-  @include at-media("tablet") {
-    @include covidtest-font(32, 32);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
   }
 
-  font-weight: 700;
-  margin: 0;
-}
-
-.covidtest-main {
-  p,
   li {
-    font-size: px-to-rem(18);
-    line-height: divide(24, 18);
     margin: units(2) 0;
+  }
+
+  ul {
+    padding-left: 1.1em;
   }
 
   a {
     &,
     &:visited {
-      font-weight: 700;
       position: relative;
       color: $color-dark-blue;
+      font-weight: 700;
       text-decoration: underline;
       transition: all 0.2s ease;
     }
@@ -141,6 +79,55 @@ legend {
     &:focus,
     &:hover {
       color: $color-magenta;
+    }
+  }
+
+  .h1 {
+    @include covidtest-font(24, 32);
+
+    @include at-media("tablet") {
+      @include covidtest-font(45, 54);
+    }
+
+    outline: none !important;
+
+    @extend .accent-before;
+    @extend .accent-light-blue;
+  }
+
+  .h2 {
+    @include covidtest-font(18, 32);
+
+    @include at-media("tablet") {
+      @include covidtest-font(22, 32);
+    }
+  }
+
+  .h3 {
+    @include covidtest-font(24, 32);
+
+    @include at-media("tablet") {
+      @include covidtest-font(32, 32);
+    }
+  }
+
+  .h4 {
+    @include covidtest-font(18, 24);
+
+    @include at-media("tablet") {
+      @include covidtest-font(16, 24);
+    }
+
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .usa-lead {
+    @include covidtest-font(16, 32);
+
+    @include at-media("tablet") {
+      @include covidtest-font(22, 32);
     }
   }
 }

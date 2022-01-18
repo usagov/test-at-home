@@ -9,7 +9,6 @@
     "autoprefixer": "^10.4.2",
     "babel-loader": "^8.2.3",
     "core-js": "^3.20.3",
-    "dotenv-webpack": "^7.0.3",
     "formbouncerjs": "^1.4.6",
     "i18n-js": "^3.8.0",
     "patch-package": "^6.4.7",

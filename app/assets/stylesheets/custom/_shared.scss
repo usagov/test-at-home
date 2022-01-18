@@ -19,11 +19,14 @@ i.e.
 @include u-padding-right('05');
 ----------------------------------------
 */
+.usa-link--external::after {
+  mask-size: 1.8ex 3ex;
+}
+
 $max-width: "desktop-lg";
 
-$font-family: "Source Sans Pro Web";
-$font-stack: #{$font-family}, Helvetica Neue, Helvetica, Roboto, Arial,
-  sans-serif;
+$font-family: "Noto Sans";
+$font-stack: #{$font-family}, sans;
 $font-size: 16;
 $line-height: 22;
 
@@ -120,9 +123,9 @@ a.covidtest-button {
     @include covidtest-font(37);
   }
 
-  @include at-media("widescreen") {
-    margin-left: -98px; // Logo img width
-  }
+  // @include at-media('widescreen') {
+  //   margin-left: -98px; // Logo img width
+  // }
 
   &__text {
     display: flex;
@@ -130,22 +133,27 @@ a.covidtest-button {
     font-style: normal;
     font-weight: 700;
 
-    img {
-      @include at-media-max("tablet-lg") {
-        max-width: 50px;
-        max-height: 50px;
-      }
+    line-height: 50px;
+    @include at-media("tablet-lg") {
+      line-height: 98px;
     }
+
+    // img {
+    //   @include at-media-max('tablet-lg') {
+    //     max-width: 50px;
+    //     max-height: 50px;
+    //   }
+    // }
 
     a {
       color: $color-blue;
       text-decoration: none;
-      border-left: 1px solid rgb(165, 173, 179);
-      padding-left: units(1);
+      // border-left: 1px solid rgb(165, 173, 179);
+      // padding-left: units(1);
 
-      @include at-media("desktop") {
-        padding-left: units(2);
-      }
+      // @include at-media('desktop') {
+      //   padding-left: units(2);
+      // }
     }
   }
 }
@@ -296,48 +304,11 @@ a.covidtest-button {
   }
 }
 
-.covidtest-main {
-  @include covidtest-font-base;
-  border-top: 5px solid rgba(#eaf0f1, 0.72);
-
-  h1,
-  h2,
-  h3 {
-    font-weight: 700;
-    margin: units(2) 0;
-  }
-
-  // Desktop styles
-  p,
-  li {
-    @include covidtest-font(20, 27);
-    margin: units(2) 0;
-  }
-
-  ul {
-    padding-left: 1.1em;
-  }
-
-  a {
-    &,
-    &:visited {
-      position: relative;
-      color: $color-blue;
-      text-decoration: underline;
-      transition: all 0.2s ease;
-    }
-
-    &:focus,
-    &:hover {
-      color: $color-magenta;
-    }
-  }
-}
-
 .covidtest-footer {
   @include covidtest-font-base;
   padding-top: units(2);
   padding-bottom: units(5);
+  border-top: 5px solid rgba(#eaf0f1, 0.72);
 
   @include at-media("tablet-lg") {
     padding-bottom: units(10);

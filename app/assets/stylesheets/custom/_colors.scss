@@ -10,55 +10,43 @@
     background-color: $color-blue !important;
     color: $color-white !important;
 
-    a {
-      color: $color-white;
+    a,
+    h1,
+    h2,
+    h3,
+    h4 {
+      color: $color-white !important;
     }
-
-    .accent-after::after,
-    .accent-before::before {
-      background-color: $color-white;
-    }
-  }
-  &-cyan {
-    background-color: $color-cyan !important;
   }
   &-magenta {
     background-color: $color-magenta !important;
     color: $color-white !important;
 
-    a {
-      color: $color-white;
-    }
-
-    .accent-after::after,
-    .accent-before::before {
-      background-color: $color-white;
+    a,
+    h1,
+    h2,
+    h3,
+    h4 {
+      color: $color-white !important;
     }
   }
   &-dark-blue {
     background-color: $color-dark-blue !important;
     color: $color-white !important;
 
-    a {
-      color: $color-white;
+    a,
+    h1,
+    h2,
+    h3,
+    h4 {
+      color: $color-white !important;
     }
-
-    .accent-after::after,
-    .accent-before::before {
-      background-color: $color-white;
-    }
-  }
-  &-gray {
-    background-color: $color-gray !important;
   }
   &-light-gray {
     background-color: $color-light-gray !important;
   }
   &-light-magenta {
     background-color: $color-light-magenta !important;
-  }
-  &-light-blue {
-    background-color: $color-light-blue !important;
   }
   &-lighter-blue {
     background-color: $color-lighter-blue !important;
@@ -71,13 +59,12 @@
       background-color: $color-white !important;
       color: $color-dark-blue !important;
 
-      a {
+      a,
+      h1,
+      h2,
+      h3,
+      h4 {
         color: $color-dark-blue !important;
-      }
-
-      .accent-after::after,
-      .accent-before::before {
-        background-color: $color-magenta !important;
       }
     }
   }
@@ -111,7 +98,7 @@
   &-light-blue {
     border-color: $color-light-blue !important;
   }
-  &-lightrt-blue {
+  &-lighter-blue {
     border-color: $color-lighter-blue !important;
   }
 }
