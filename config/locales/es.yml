@@ -19,8 +19,25 @@ es:
         email_too_long: Su correo electrónico no puede tener más de %{count} caracteres
         recaptcha_not_valid: Se requiere Javascript. Habilite o pruebe con otro navegador.
   errors:
+    '404':
+      body_html: Si desea solicitar un kit de pruebas caseras de COVID-19, visite <a class="text-white" href="https://covidtests.gov/es" rel="noopener">COVIDtests.gov</a>.
+      code: '404'
+      title: Página no encontrada
+    '500':
+      body_html: Si desea solicitar un kit de pruebas caseras de COVID-19, visite <a class="text-white" href="https://covidtests.gov/es" rel="noopener">COVIDtests.gov</a>.
+      code: '500'
+      title: Lo sentimos, pero algo salió mal.
     format: "%{message}"
   js:
+    autocomplete:
+      are: son
+      assistive_hint: Cuando los resultados de la función de autocompletar estén disponibles, utilice las flechas arriba y abajo para revisar y presione enter para para seleccionar. Usuarios de dispositivos táctiles, exploren con el tacto o deslizando.
+      is: es
+      no_results: No se han encontrado resultados
+      query_too_short: Escriba %(minQueryLength) o más caracteres para obtener resultados 
+      result: resultado
+      results: resultados
+      selected_option:  "%(selectedOption) %(index) de %(length) está resaltado"
     empty: No se ha proporcionado la información
     invalid:
       address_incorrect: USPS no puede entregar en esta dirección
@@ -106,6 +123,7 @@ es:
         body_html: Un resultado <strong>positivo</strong> en la prueba casera significa que la prueba encontró el virus de COVID-19 y es muy probable que usted esté infectado con COVID-19. Si el resultado de la prueba casera es positivo, siga las <a href="https://espanol.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html" rel="noopener">las recomendaciones más recientes de los CDC sobre el aislamiento</a>.
         heading: Si el resultado de su prueba es <strong>positivo</strong>
     new:
+      autocomplete_label: Dirección
       body_html: |
         <p class="margin-bottom-4">Complete este formulario para solicitar que se le envíe a su dirección un kit con pruebas caseras gratuitas.</p>
         <p class="text-bold margin-bottom-4 bullet">Las órdenes incluirán 4 pruebas de antígeno individuales, que se enviarán a partir de finales de enero.</p>
@@ -145,7 +163,7 @@ es:
       links:
         covid: Juntos sí podemos
         hhs: Departamento de Salud y Servicios humanos de EE. UU.
-        usps: Servicio Postal de EE.UU.
+        usps: Servicio Postal de los Estados Unidos
     header:
       primary: Navegacion primaria
     skip_link: Salte al contenido principal
