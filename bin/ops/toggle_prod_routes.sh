@@ -65,6 +65,9 @@ if [[ "$to_enable" = "" && "$to_disable" = "" ]]; then
   exit 1;
 fi
 
+# source cf-targets-support to verify cf-targets is installed,
+# properly parse $targets into $targetlist, and
+# set $output if DRYRUN is set
 DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
 source "$DIR/cf-targets-support"

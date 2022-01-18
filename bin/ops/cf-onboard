@@ -47,6 +47,9 @@ targets=${4:-$defaulttargets}
 
 spacelist="${spaces//,/ }"
 
+# source cf-targets-support to verify cf-targets is installed,
+# properly parse $targets into $targetlist, and
+# set $output if DRYRUN is set
 DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
 source "$DIR/cf-targets-support"

@@ -3,13 +3,26 @@
 # switch the foundation we're logged into
 # will attempt to use cf-targets if installed, and otherwise
 # fall back to cf login
-#
-# usage: ./switch_foundation.sh [0-4]
-# arg is number of the foundation, matching the terraform folders
+
+usage="
+usage: ./switch_foundation.sh [0-4]
+
+arg is number of the foundation, matching the terraform folders
+
+# 0 = OG cloud.gov, not used for staging or production spaces for this app
+# 1 = westb
+# 2 = westc
+# 3 = easta
+# 4 = eastb
+"
 
 set -e
 
 case $1 in
+  0)
+    hostname="api.fr.cloud.gov"
+    target="tah-wa"
+    ;;
   1)
     hostname="api.fr.wb.cloud.gov"
     target="tah-wb"
@@ -27,8 +40,8 @@ case $1 in
     target="tah-eb"
     ;;
   *)
-    hostname="api.fr.cloud.gov"
-    target="tah-wa"
+    echo "$usage"
+    exit 1
     ;;
 esac
 

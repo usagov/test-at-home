@@ -14,7 +14,7 @@ read verify
 echo
 
 if [ "$verify" != "y" ]; then
-  echo "Use switch_foundation.sh to switch foundations"
+  echo "Use \`switch_foundation.sh <<FOUNDATION_NUMBER>>\` to switch foundations"
   exit 1;
 fi
 

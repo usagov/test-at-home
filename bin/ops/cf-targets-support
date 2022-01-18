@@ -22,9 +22,8 @@ function verify_cf_targets() {
     targetlist="${targets//,/ }"
   fi
 
-  # diff --left-column <( echo $targetlist | sed "s/\ /\n/g" | sort ) <( echo $existingtargetlist | sed "s/\ /\n/g" | sort ) | grep '^<'
+  # check that all the targets we want to use exist as saved targets within cf-targets
   difference=$(diff --left-column <( echo "$targetlist" | sed "s/\ /\n/g" | sort ) <( echo "$existingtargetlist" | sed "s/\ /\n/g" | sort ) | grep '^<' || true)
-
   if [ -n "${difference}" ]; then
       echo "ERROR - These targets don't exist:"
       echo "$difference"
