@@ -147,13 +147,13 @@ CF_FOUNDRY_API: api.fr.eb.cloud.gov
 
 First time only: create DB service with `cf create-service aws-rds micro-psql test_at_home-rds-stage`
 
-`cf push --strategy rolling --vars-file config/deployment/stage.yml --var rails_master_key=$(cat config/credentials/production.key)`
+`cf push --strategy rolling --vars-file config/deployment/stage.yml --var rails_master_key=$(cat config/master.key)`
 
 #### Production
 
 First time only: create DB service with `cf create-service aws-rds <<SERVICE_PLAN_NAME>> test_at_home-rds-prod`
 
-`cf push --strategy rolling --vars-file config/deployment/prod.yml --var prod_rails_master_key=$(cat config/master.key)`
+`cf push --strategy rolling --vars-file config/deployment/prod.yml --var prod_rails_master_key=$(cat config/credentials/production.key)`
 
 ### Configuring ENV variables in cloud.gov
 
