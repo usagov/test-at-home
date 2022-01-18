@@ -17,7 +17,7 @@ Options:
 
 Notes:
 * default space is prod
-* deafult app count is 10
+* default app count is 10
 * default target list is tah-wb,tah-wc,tah-ea,tah-eb
 * you must be a SpaceDeveloper in all of the target orgs
 * this script relies on the cf-targets plugin
