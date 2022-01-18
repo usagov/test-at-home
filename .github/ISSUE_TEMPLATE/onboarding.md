@@ -29,7 +29,7 @@ Welcome! And thank you!
     ```
     bin/cf-onboard <EMAIL> SpaceDeveloper prod,staging tah-ea,tah-eb,tah-wb,tah-wc
     ```
-    This requires spaces to be configured by the names above. To set these, install `cf targets` based on script directions and configure with:
+    This requires spaces to be configured by the names above. To set these, [install `cf targets`](https://github.com/guidowb/cf-targets-plugin#installation) and configure with:
     ```
     cf api api.fr.wb.cloud.gov; cf login --sso; \
         cf t -o gsa-tts-test-kits; \
@@ -64,6 +64,11 @@ Welcome! And thank you!
     - [ ] Let admin know you have accepted invites so they can grant you access to spaces
     - [ ] After admin grants you space access, configure local CF targets for easy switching:
         ```
+        # Install [cf-targets plugin](https://github.com/guidowb/cf-targets-plugin)
+        cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org/
+        cf install-plugin Targets -r CF-Community
+
+        # Set targets
         cf api api.fr.wb.cloud.gov; cf login --sso; \
             cf t -o gsa-tts-test-kits; \
             cf save-target -f tah-wb
