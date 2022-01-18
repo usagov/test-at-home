@@ -1,5 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!--
+
+  |* * * * * * * * * * OOOOOOOOOOOOOOOOOOOOOOOOO|
+  | * * * * * * * * *  OOOOOOOOOOOOOOOOOOOOOOOOO|
+  |* * * * * * * * * * OOOOOOOOOOOOOOOOOOOOOOOOO|
+  | * * * * * * * * *  OOOOOOOOOOOOOOOOOOOOOOOOO|
+  |* * * * * * * * * * OOOOOOOOOOOOOOOOOOOOOOOOO|
+  | * * * * * * * * *  OOOOOOOOOOOOOOOOOOOOOOOOO|
+  |* * * * * * * * * * OOOOOOOOOOOOOOOOOOOOOOOOO|
+  |OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO|
+  |OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO|
+  |OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO|
+  |OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO|
+  |OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO|
+  |OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO|
+
+  "Make the damn websites work"
+    - GSA Administrator Robin Carnahan
+
+  https://join.tts.gsa.gov/
+
+  -->
   <head>
     <title><%= t('shared.header.title') %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -65,6 +87,14 @@
     <%= javascript_tag nonce: true do %>
       I18n.defaultLocale = "<%= I18n.default_locale %>";
       I18n.locale = "<%= I18n.locale || I18n.default_locale %>";
+
+      window.RECAPTCHA_REQUIRED = "<%= ENV["RECAPTCHA_REQUIRED"] %>";
+      window.RECAPTCHA_SITE_KEY = "<%= ENV["RECAPTCHA_SITE_KEY"] %>";
+      window.RECAPTCHA_PROJECT_ID = "<%= ENV["RECAPTCHA_PROJECT_ID"] %>";
+
+      window.DISABLE_SMARTY_STREETS = "<%= ENV["DISABLE_SMARTY_STREETS"] %>";
+      window.DISABLE_SMARTY_STREETS_AUTOCOMPLETE = "<%= ENV["DISABLE_SMARTY_STREETS_AUTOCOMPLETE"] %>";
+      window.SMARTY_STREETS_EMBEDDED_KEY = "<%= ENV["SMARTY_STREETS_EMBEDDED_KEY"] %>";
     <% end %>
   </body>
 </html>

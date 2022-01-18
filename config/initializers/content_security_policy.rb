@@ -10,10 +10,10 @@ Rails.application.configure do
     policy.font_src :self
     policy.form_action :self
     policy.frame_ancestors :none
-    policy.img_src :self, :data, "https://*.nr-data.net"
+    policy.img_src :self, :data, "https://*.nr-data.net", "https://www.google-analytics.com"
     policy.object_src :none
-    policy.script_src :self, "https://dap.digitalgov.gov", "https://js-agent.newrelic.com", "https://*.nr-data.net", "https://www.google.com"
-    policy.connect_src :self, "https://dap.digitalgov.gov", "https://*.nr-data.net", "https://*.api.smartystreets.com"
+    policy.script_src :self, "https://dap.digitalgov.gov", "https://js-agent.newrelic.com", "https://*.nr-data.net", "https://www.google.com", "https://www.google-analytics.com"
+    policy.connect_src :self, "https://dap.digitalgov.gov", "https://*.nr-data.net", "https://*.api.smartystreets.com", "https://www.google-analytics.com"
     policy.style_src :self
   end
 

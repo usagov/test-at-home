@@ -51,7 +51,7 @@ const handleFormValidation = async ({ target }) => {
 
     // If DISABLE_SMARTY_STREETS=true, skip address verification
     if (
-      process.env.DISABLE_SMARTY_STREETS !== "true" &&
+      DISABLE_SMARTY_STREETS !== "true" &&
       JSON.stringify(address) !== prevAddress
     ) {
       const res = await verifyAddress(address);
@@ -149,10 +149,10 @@ const showReview = event => {
   if (isFormValid) {
     smartyHidden.value = "pass";
 
-    if (process.env.RECAPTCHA_REQUIRED === "true") {
+    if (RECAPTCHA_REQUIRED === "true") {
       grecaptcha.enterprise.ready(function() {
         grecaptcha.enterprise
-          .execute(process.env.RECAPTCHA_SITE_KEY, { action: "submit" })
+          .execute(RECAPTCHA_SITE_KEY, { action: "submit" })
           .then(function(token) {
             recaptchaField.value = token;
             event.target.submit();
@@ -196,7 +196,7 @@ if (form) {
   privacyContainer.setAttribute("hidden", "");
 
   // If DISABLE_SMARTY_STREETS_AUTOCOMPLETE=true, remove autocomplete
-  if (process.env.DISABLE_SMARTY_STREETS_AUTOCOMPLETE !== "true") {
+  if (DISABLE_SMARTY_STREETS_AUTOCOMPLETE !== "true") {
     addressFullContainer.setAttribute("hidden", "");
     addressSimpleContainer.removeAttribute("hidden", "");
     addressAutocomplete.addEventListener("input", clearValues, false);
