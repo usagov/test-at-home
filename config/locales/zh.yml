@@ -65,15 +65,15 @@ zh:
       nav:
         body_html: |
           <ul class="add-list-reset">
-            <li><a href="#receive">在您收到检测试剂后</a>
+            <li><a href="#receive" class="text-dark-blue text-bold">在您收到检测试剂后</a>
               <ul class="add-list-reset margin-left-4">
-                <li><a class="text-normal" href="#instructions">居家检测试剂</a></li>
-                <li><a class="text-normal" href="#tests">如果您需要更多检测试剂</a></li>
+                <li><a class="text-dark-blue" href="#instructions">居家检测试剂</a></li>
+                <li><a class="text-dark-blue" href="#tests">如果您需要更多检测试剂</a></li>
               </ul>
             </li>
-            <li><a href="#whatif_positive">如果您的检测结果为阳性</a></li>
-            <li><a href="#whatif_negative">如果您的检测结果为阴性</a></li>
-            <li><a href="#other">其他保持安全的方法</a></li>
+            <li><a href="#whatif_positive" class="text-dark-blue text-bold">如果您的检测结果为阳性</a></li>
+            <li><a href="#whatif_negative" class="text-dark-blue text-bold">如果您的检测结果为阴性</a></li>
+            <li><a href="#other" class="text-dark-blue text-bold">其他保持安全的方法</a></li>
           </ul>
         heading: COVID-19检测建议和资源
         sub_heading: 在此页

@@ -57,19 +57,19 @@ es:
             <li>cuando vaya a reunirse con un grupo de personas, especialmente con aquellas que corren riesgo de padecer una enfermedad grave o que pueden   <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/stay-up-to-date.html" rel="noopener">no estar al día con sus vacunas de COVID-19</a>.</li>
           </ul>
         heading: Una vez que obtenga pruebas
-        sub_heading: 'Hágase una prueba casera:'
+        sub_heading: "Hágase una prueba casera:"
       nav:
         body_html: |
           <ul class="add-list-reset">
-            <li><a href="#receive">Una vez que obtenga las pruebas</a>
+            <li><a href="#receive" class="text-dark-blue text-bold">Una vez que obtenga las pruebas</a>
               <ul class="add-list-reset margin-left-4">
-                <li><a class="text-normal" href="#instructions">Pruebas caseras</a></li>
-                <li><a class="text-normal" href="#tests">Si necesita más pruebas</a></li>
+                <li><a class="text-normal" class="text-dark-blue" href="#instructions">Pruebas caseras</a></li>
+                <li><a class="text-normal" class="text-dark-blue" href="#tests">Si necesita más pruebas</a></li>
               </ul>
             </li>
-            <li><a href="#whatif_positive">Si el resultado de su prueba es positivo</a></li>
-            <li><a href="#whatif_negative">Si el resultado de su prueba es negativo</a></li>
-            <li><a href="#other">Otras formas de protegerse del COVID-19</a></li>
+            <li><a href="#whatif_positive" class="text-dark-blue text-bold">Si el resultado de su prueba es positivo</a></li>
+            <li><a href="#whatif_negative" class="text-dark-blue text-bold">Si el resultado de su prueba es negativo</a></li>
+            <li><a href="#other" class="text-dark-blue text-bold">Otras formas de protegerse del COVID-19</a></li>
           </ul>
         heading: Recomendaciones para las pruebas de COVID-19 y otros recursos
         sub_heading: En esta página
@@ -81,7 +81,7 @@ es:
             <li>Mantener 6 pies de distancia con otras personas.</li>
           </ul>
         heading: Vacunación, uso de mascarillas y distanciamiento social
-        sub_heading: 'Las pruebas son solo una medida que puede tomar para protegerse a sí mismo, a sus amigos y a su familia. Se les recomienda a todas las personas:'
+        sub_heading: "Las pruebas son solo una medida que puede tomar para protegerse a sí mismo, a sus amigos y a su familia. Se les recomienda a todas las personas:"
       resources:
         body_html: |
           <ul>
@@ -90,7 +90,7 @@ es:
             <li><a href="https://www.cms.gov/how-to-get-your-at-home-OTC-COVID-19-test-for-free" rel="noopener">Programa de reembolso del seguro médico (en inglés)</a></li>
           </ul>
         heading: Otros recursos sobre pruebas de COVID-19
-        sub_heading: 'Las pruebas de COVID-19 gratuitas también están disponibles a través de:'
+        sub_heading: "Las pruebas de COVID-19 gratuitas también están disponibles a través de:"
       sub_heading: Qué puede esperar a continuación
       tests:
         body_html: |
@@ -123,7 +123,7 @@ es:
         please_confirm: Por favor, confirme que su información esté correcta.
         ship_to: Enviar a
         title: Revise su orden
-        tracking_to: 'Enviar información de rastreo a:'
+        tracking_to: "Enviar información de rastreo a:"
       shipping_heading: Información para el envío
       shipping_html: <span class="text-magenta">*</span><span class="text-italic">Elementos obligatorios</span>
       submit: Haga su pedido

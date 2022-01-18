@@ -24,7 +24,7 @@ $theme-accordion-font-family: "body";
 
 // Alert
 $theme-alert-bar-width: 1;
-$theme-alert-font-family: "ui";
+$theme-alert-font-family: "body";
 $theme-alert-icon-size: 4;
 $theme-alert-padding-x: 2.5;
 $theme-alert-padding-y: 2;
@@ -51,7 +51,7 @@ $theme-breadcrumb-padding-x: 0;
 $theme-breadcrumb-separator-color: "base";
 
 // Button
-$theme-button-font-family: "ui";
+$theme-button-font-family: "body";
 $theme-button-border-radius: "md";
 $theme-button-small-width: 6;
 $theme-button-stroke-width: 2px;
@@ -79,10 +79,10 @@ $theme-footer-max-width: "desktop";
 
 // Form and input
 $theme-checkbox-border-radius: "sm";
-$theme-form-font-family: "ui";
+$theme-form-font-family: "body";
 $theme-input-background-color: default;
 $theme-input-line-height: 3;
-$theme-input-max-width: "mobile-lg";
+$theme-input-max-width: "auto";
 $theme-input-select-border-width: 2px;
 $theme-input-select-size: 2.5;
 $theme-input-state-border-width: 0.5;
@@ -90,7 +90,7 @@ $theme-input-tile-border-radius: "md";
 $theme-input-tile-border-width: 2px;
 
 // Header
-$theme-header-font-family: "ui";
+$theme-header-font-family: "body";
 $theme-header-logo-text-width: 33%;
 $theme-header-max-width: "desktop";
 $theme-header-min-width: "desktop";
@@ -142,7 +142,7 @@ $theme-process-list-heading-font-family: "ui";
 $theme-process-list-heading-font-size: "lg";
 
 // Navigation
-$theme-navigation-font-family: "ui";
+$theme-navigation-font-family: "body";
 $theme-megamenu-columns: 3;
 
 // Search

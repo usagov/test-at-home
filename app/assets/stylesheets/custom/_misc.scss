@@ -1,19 +1,49 @@
-.accent-before::before {
-  margin-bottom: units(2);
-  content: "";
-  display: block;
-  height: 4px;
-  width: 30px;
-  background: $color-magenta;
+.accent {
+  &-after::after,
+  &-before::before {
+    background: $color-magenta;
+    content: "";
+    display: block;
+    height: 4px;
+    width: 30px;
+  }
+
+  &-blue::after,
+  &-blue::before {
+    background: $color-blue !important;
+  }
+
+  &-light-blue::after,
+  &-light-blue::before {
+    background: $color-light-blue !important;
+  }
+
+  &-magenta::after,
+  &-magenta::before {
+    background: $color-magenta !important;
+  }
+
+  &-white::after,
+  &-white::before {
+    background: $color-white !important;
+  }
+
+  &-after::after {
+    margin-top: units(2);
+  }
+
+  &-before::before {
+    margin-bottom: units(2);
+  }
 }
 
-.accent-after::after {
-  margin-top: units(2);
-  content: "";
-  display: block;
-  height: 4px;
-  width: 30px;
-  background: $color-magenta;
+@include at-media("desktop") {
+  .desktop\:accent-magenta {
+    &::after,
+    &::before {
+      background: $color-magenta !important;
+    }
+  }
 }
 
 .arrow {
@@ -33,6 +63,7 @@
     border-radius: 9999px;
     content: "";
     display: block;
+    flex: none;
     height: 10px;
     margin-right: units(1);
     width: 10px;
