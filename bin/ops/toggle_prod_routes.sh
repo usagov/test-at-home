@@ -88,6 +88,21 @@ map_routes () {
   fi
 }
 
+if [ "$to_enable" != "" ]; then
+  echo "You are about to enable app \"$to_enable\" in space \"$space\" across targets \"$targetlist\""
+  echo -n "Are you sure you want to proceed? (y/n) "
+  read verify_enable
+  echo
+  if [ "$verify_enable" != "y" ]; then exit 1; fi
+fi
+if [ "$to_disable" != "" ]; then
+  echo "You are about to disable app \"$to_disable\" in space \"$space\" across targets \"$targetlist\""
+  echo -n "Are you sure you want to proceed? (y/n) "
+  read verify_disable
+  echo
+  if [ "$verify_disable" != "y" ]; then exit 1; fi
+fi
+
 for target in $targetlist; do
   cf set-target "$target"
   cf target -s "$space"

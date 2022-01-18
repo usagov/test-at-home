@@ -54,6 +54,11 @@ DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
 source "$DIR/cf-targets-support"
 
+echo "You are about to remove \"$role\" access from \"$user\" across spaces \"$spacelist\" and targets \"$targetlist\""
+echo -n "Are you sure you want to proceed? (y/n) "
+read verify
+echo
+if [ "$verify" != "y" ]; then exit 1; fi
 for target in $targetlist ; do
     cf set-target "$target"
     org=$(cf target | grep org: | cut -d : -f 2 | sed s/\ //g)
