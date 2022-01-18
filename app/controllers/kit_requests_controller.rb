@@ -11,7 +11,7 @@ class KitRequestsController < ApplicationController
       ::NewRelic::Agent.increment_metric("Custom/Submission/success")
       render_confirmation
     else
-      ::NewRelic::Agent.increment_metric("Custom/Submission/error") 
+      ::NewRelic::Agent.increment_metric("Custom/Submission/error")
       render :new
     end
   end

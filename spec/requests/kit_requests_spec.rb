@@ -121,7 +121,7 @@ RSpec.describe "KitRequests", type: :request do
       it "sends a success metric to NewRelic" do
         post "/kit_requests", params: valid_params
 
-        expect(::NewRelic::Agent).to have_received(:increment_metric).with('Custom/Submission/success')
+        expect(::NewRelic::Agent).to have_received(:increment_metric).with("Custom/Submission/success")
       end
     end
 
@@ -129,7 +129,7 @@ RSpec.describe "KitRequests", type: :request do
       let(:invalid_params) do
         {
           kit_request: {
-            first_name: ''
+            first_name: ""
           }
         }
       end
@@ -146,7 +146,7 @@ RSpec.describe "KitRequests", type: :request do
       it "sends an errored metric to NewRelic" do
         post "/kit_requests", params: invalid_params
 
-        expect(::NewRelic::Agent).to have_received(:increment_metric).with('Custom/Submission/error')
+        expect(::NewRelic::Agent).to have_received(:increment_metric).with("Custom/Submission/error")
       end
     end
   end
