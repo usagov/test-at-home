@@ -234,6 +234,7 @@ jobs:
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 2
                   FEATURE_NAME: "stage"
+                  EXTRA_DEPLOY_ARGS: ""
       - when:
           condition:
             and:
@@ -255,6 +256,7 @@ jobs:
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 10
                   FEATURE_NAME: "prod"
+                  EXTRA_DEPLOY_ARGS: "--no-route"
             - run:
                 name: Deploy to foundry 1 prod, no smartystreets
                 command: ./bin/cf-deploy
@@ -270,6 +272,7 @@ jobs:
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 10
                   FEATURE_NAME: "prod-nosmarty"
+                  EXTRA_DEPLOY_ARGS: "--no-route"
   deploy_foundry_2:
     docker:
       - image: cimg/ruby:3.0.3-node
@@ -315,6 +318,7 @@ jobs:
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 2
                   FEATURE_NAME: "stage"
+                  EXTRA_DEPLOY_ARGS: ""
       - when:
           condition:
             and:
@@ -336,6 +340,7 @@ jobs:
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 10
                   FEATURE_NAME: "prod"
+                  EXTRA_DEPLOY_ARGS: "--no-route"
             - run:
                 name: Deploy to foundry 2 prod, no smartystreets
                 command: ./bin/cf-deploy
@@ -351,6 +356,7 @@ jobs:
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 10
                   FEATURE_NAME: "prod-nosmarty"
+                  EXTRA_DEPLOY_ARGS: "--no-route"
   deploy_foundry_3:
     docker:
       - image: cimg/ruby:3.0.3-node
@@ -396,6 +402,7 @@ jobs:
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 10
                   FEATURE_NAME: "prod"
+                  EXTRA_DEPLOY_ARGS: "--no-route"
             - run:
                 name: Deploy to foundry 3 prod, no smartystreets
                 command: ./bin/cf-deploy
@@ -411,6 +418,7 @@ jobs:
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 10
                   FEATURE_NAME: "prod-nosmarty"
+                  EXTRA_DEPLOY_ARGS: "--no-route"
   deploy_foundry_4:
     docker:
       - image: cimg/ruby:3.0.3-node
@@ -456,6 +464,7 @@ jobs:
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 2
                   FEATURE_NAME: "stage"
+                  EXTRA_DEPLOY_ARGS: ""
       - when:
           condition:
             and:
@@ -477,6 +486,7 @@ jobs:
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 10
                   FEATURE_NAME: "prod"
+                  EXTRA_DEPLOY_ARGS: "--no-route"
             - run:
                 name: Deploy to foundry 4 prod, no smartystreets
                 command: ./bin/cf-deploy
@@ -492,6 +502,7 @@ jobs:
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 10
                   FEATURE_NAME: "prod-nosmarty"
+                  EXTRA_DEPLOY_ARGS: "--no-route"
 
 workflows:
   version: 2.1
