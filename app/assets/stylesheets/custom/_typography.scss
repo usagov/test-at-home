@@ -5,6 +5,10 @@
   }
 }
 
+.font-noto-sans {
+  font-family: "Noto Sans", sans !important;
+}
+
 h1,
 .h1 {
   @include covidtest-font(24, 32);
