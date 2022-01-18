@@ -2,23 +2,48 @@
 #
 # this script is used to map a new config, and unmap an old config using cf map-route
 #
-# USAGE: ./toggle_prod_routes.sh FEATURE_NAME_TO_ENABLE FEATURE_NAME_TO_DISABLE
+# USAGE: ./toggle_prod_routes.sh -e FEATURE_NAME_TO_ENABLE -d FEATURE_NAME_TO_DISABLE
 #
-# Example: ./toggle_prod_routes.sh prod-nosmarty prod
+# Examples:
+# ./toggle_prod_routes.sh -e prod-nosmarty -d prod
+# ./toggle_prod_routes.sh -d prod
+# ./toggle_prod_routes.sh -e prod
 
-if [[ $# -ne 2 ]]; then
-  echo "./toggle_prod_routes.sh <<FEATURE_NAME_TO_ENABLE>> <<FEATURE_NAME_TO_DISABLE>>"
+
+to_enable=""
+to_disable=""
+usage="./toggle_prod_routes.sh [-e <<FEATURE_NAME_TO_ENABLE>>] [-d <<FEATURE_NAME_TO_DISABLE>>]"
+
+while getopts "he:d:" opt; do
+  case "$opt" in
+    e)
+      to_enable=$OPTARG
+      ;;
+    d)
+      to_disable=$OPTARG
+      ;;
+    *)
+      echo $usage
+      exit 1
+      ;;
+  esac
+done
+
+if [[ "$to_enable" = "" && "$to_disable" = "" ]]; then
+  echo "You must supply at least one of -e or -d"
+  echo $usage
   exit 1
 fi
 
-to_enable=$1
-to_disable=$2
-
 map_routes () {
-  cf map-route "test_at_home-$to_enable-$1" route.covidtest.usa.gov
-  cf unmap-route "test_at_home-$to_disable-$1" route.covidtest.usa.gov
-  cf map-route "test_at_home-$to_enable-$1" $2
-  cf unmap-route "test_at_home-$to_disable-$1" $2
+  if [ "$to_enable" != "" ]; then
+    cf map-route "test_at_home-$to_enable-$1" route.covidtest.usa.gov
+    cf map-route "test_at_home-$to_enable-$1" $2
+  fi
+  if [ "$to_disable" != "" ]; then
+    cf unmap-route "test_at_home-$to_disable-$1" route.covidtest.usa.gov
+    cf unmap-route "test_at_home-$to_disable-$1" $2
+  fi
 }
 
 ./switch_foundation.sh 1
