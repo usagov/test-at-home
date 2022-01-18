@@ -26,6 +26,9 @@ If the environment variable DRYRUN is set, then commands will be echoed rather t
   DRYRUN=1 $0 -d prod-nosmarty
 "
 
+set -e
+set -o pipefail
+
 to_enable=""
 to_disable=""
 space="prod"
