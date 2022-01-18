@@ -20,11 +20,11 @@ zh:
         recaptcha_not_valid: 需要使用 Javascript。 请启用或尝试用其他浏览器。
   errors:
     '404':
-      body_html: 如果您想订购一套快速的居家 COVID 检测试剂，请访问 <a class=“text-white” href=“https://covidtests.gov/zh” rel=“noopener”>COVIDtests.gov</a>.
+      body_html: 如果您想订购一套快速的居家 COVID 检测试剂，请访问 <a class=“text-white” href=“https://covidtests.gov/zh” rel=“noopener”>COVIDtests.gov</a>。
       code: '404'
       title: 找不到网页
     '500':
-      body_html: 如果您想订购一套快速的居家 COVID 检测试剂，请访问 <a class=“text-white” href=“https://covidtests.gov/zh” rel=“noopener”>COVIDtests.gov</a>.
+      body_html: 如果您想订购一套快速的居家 COVID 检测试剂，请访问 <a class=“text-white” href=“https://covidtests.gov/zh” rel=“noopener”>COVIDtests.gov</a>。
       code: '500'
       title: 发生错误
     format: "%{message}"
@@ -120,13 +120,13 @@ zh:
         heading: 如果您需要更多检测试剂
       title: 谢谢，您的订单已下单。
       whatif_negative:
-        body_html: '家用检测结果为<strong>阴性</strong>，表示检测没有发现COVID-19病毒，您将疾病传播给他人的风险可能比较低。如果您的检测结果为阴性，通常应在第一次检测的2~3天后再次进行检测。请查看检测试剂盒说明，了解具体的操作步骤。 </p> <p> 关于当检测结果为阴性时，应该做什么的详细信息，请访问 <a href="https://www.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">CDC自我检测网页</a>. '
+        body_html: '家用检测结果为<strong>阴性</strong>，表示检测没有发现COVID-19病毒，您将疾病传播给他人的风险可能比较低。如果您的检测结果为阴性，通常应在第一次检测的2~3天后再次进行检测。请查看检测试剂盒说明，了解具体的操作步骤。 </p> <p> 关于当检测结果为阴性时，应该做什么的详细信息，请访问 <a href="https://www.cdc.gov/coronavirus/2019-ncov/testing/self-testing.html#anchor_1620925514532" rel="noopener">CDC自我检测网页</a>。'
         heading: 如果您测试为<strong>阴性</strong>
       whatif_positive:
         body_html: |
           <p><strong>居家检测结果为阳性，表示检测发现了COVID-19病毒,</strong> 您很可能感染了COVID-19。</p>
 
-          <p>如果您的居家检测结果呈阳性，请遵循 <a class="text-white desktop:text-dark-blue" href="https://chinese.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html" rel="noopener">最新的CDC隔离指示</a>.</p>
+          <p>如果您的居家检测结果呈阳性，请遵循 <a class="text-white desktop:text-dark-blue" href="https://chinese.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html" rel="noopener">最新的CDC隔离指示</a>。</p>
         heading: 如果您的检测结果为<strong>阳性</strong>
     new:
       autocomplete_label: 地址
