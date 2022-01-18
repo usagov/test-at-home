@@ -1,5 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!--
+
+  * * * * * ==============================
+  * * * * * ==============================
+  * * * * * ==============================
+  * * * * * ==============================
+  ========================================
+  ========================================
+  ========================================
+
+  "Make the damn websites work"
+    - GSA Administrator Robin Carnahan
+
+  https://join.tts.gsa.gov/
+
+  -->
   <head>
     <title><%= t('shared.header.title') %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -58,7 +74,7 @@
   <body>
     <%= render "application/usa_banner" %>
     <%= render "application/header" %>
-    <main id="main-content" class="covidtest-main border-top-0">
+    <main id="main-content">
       <%= yield %>
     </main>
     <%= render "application/footer" %>

@@ -1,0 +1,68 @@
+#!/bin/bash
+
+usage="
+$0: Grant a role across a set of spaces in a set of target orgs.
+
+Usage:
+   cf-onboard -h
+   cf-onboard user [role [spaces [targets]]]
+
+Note that you must be an OrgManager in all of the target orgs
+
+Options:
+-h:      show help and exit
+user:    email address of the user
+role:    name of the role to grant
+spaces:  comma-separated list of spaces where the role should apply
+targets: comma-separated list of targets where the role should apply
+
+If the environment variable DRYRUN is set, then commands will be echoed rather
+than invoked. For example:
+   DRYRUN=1 $0 someone somerole space1,space2,space3 target1,target2,target3
+"
+
+if [[ "$1" == "-h" ]]; then
+    echo "${usage}"
+    exit 1
+fi
+
+set -e
+set -o pipefail
+
+user=$1
+
+defaultrole="SpaceDeveloper"
+defaultspaces="management,prod,prod-egress,staging,dev"
+defaulttargets="tah-ea,tah-eb,tah-wa,tah-wb,tah-wc"
+
+if [ -z "${user}" ]; then
+    echo "ERROR: You must supply at least a username."
+    echo "${usage}"
+    exit 1;
+fi
+
+role=${2:-$defaultrole}
+spaces=${3:-$defaultspaces}
+targets=${4:-$defaulttargets}
+
+spacelist="${spaces//,/ }"
+
+# source cf-targets-support to verify cf-targets is installed,
+# properly parse $targets into $targetlist, and
+# set $output if DRYRUN is set
+DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
+source "$DIR/cf-targets-support"
+
+echo "You are about to grant \"$user\" \"$role\" access to spaces \"$spacelist\" and targets \"$targetlist\""
+echo -n "Are you sure you want to proceed? (y/n) "
+read verify
+echo
+if [ "$verify" != "y" ]; then exit 1; fi
+for target in $targetlist ; do
+    cf set-target "$target"
+    org=$(cf target | grep org: | cut -d : -f 2 | sed s/\ //g)
+    for space in $spacelist ; do
+        $output cf set-space-role "$user" "$org" "$space" "$role"
+    done
+done

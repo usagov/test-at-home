@@ -1,0 +1,137 @@
+#!/bin/bash
+
+usage="
+$0: Map and/or unmap production routes from a set of apps in target foundations.
+
+Usage:
+  toggle_prod_routes.sh -h
+  toggle_prod_routes.sh [-e <<FEATURE_NAME_TO_ENABLE>>] [-d <<FEATURE_NAME_TO_DISABLE>>] [-t <<TARGETS>>]
+
+Options:
+-h:                         show help and exit
+-e FEATURE_NAME_TO_ENABLE:  app feature name to map, example: prod
+-d FEATURE_NAME_TO_DISABLE: app feature name to unmap, example: prod-nosmarty
+-s SPACE:                   space apps exist in
+-c APP_COUNT:               number of apps to map/unmap
+-t TARGETS:                 comma-delimited set of cf-targets to run against. You must use all active foundations or pain will follow
+
+Notes:
+* default space is prod
+* deafult app count is 10
+* default target list is tah-wb,tah-wc,tah-ea,tah-eb
+* you must be a SpaceDeveloper in all of the target orgs
+* this script relies on the cf-targets plugin
+
+If the environment variable DRYRUN is set, then commands will be echoed rather than invoked. For example:
+  DRYRUN=1 $0 -d prod-nosmarty
+"
+
+set -e
+set -o pipefail
+
+to_enable=""
+to_disable=""
+space="prod"
+app_count=10
+targets="tah-wb,tah-wc,tah-ea,tah-eb"
+
+while getopts "he:d:s:c:t:" opt; do
+  case "$opt" in
+    e)
+      to_enable=$OPTARG
+      ;;
+    d)
+      to_disable=$OPTARG
+      ;;
+    s)
+      space=$OPTARG
+      ;;
+    c)
+      app_count=$OPTARG
+      ;;
+    t)
+      targets=$OPTARG
+      ;;
+    *)
+      echo "$usage"
+      exit 1
+      ;;
+  esac
+done
+
+if [[ "$to_enable" = "" && "$to_disable" = "" ]]; then
+  echo "You must supply at least one of -e or -d"
+  echo "$usage"
+  exit 1;
+fi
+
+# source cf-targets-support to verify cf-targets is installed,
+# properly parse $targets into $targetlist, and
+# set $output if DRYRUN is set
+DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
+source "$DIR/cf-targets-support"
+
+domain="covidtest.usa.gov"
+if [ "$space" != "prod" ]; then
+  domain="staging-covidtest.usa.gov"
+fi
+
+map_routes () {
+  if [ "$to_enable" != "" ]; then
+    $output cf map-route "test_at_home-$to_enable-$1" "route.$domain"
+    $output cf map-route "test_at_home-$to_enable-$1" "$2.$domain"
+  fi
+  if [ "$to_disable" != "" ]; then
+    $output cf unmap-route "test_at_home-$to_disable-$1" "route.$domain"
+    $output cf unmap-route "test_at_home-$to_disable-$1" "$2.$domain"
+  fi
+}
+
+if [ "$to_enable" != "" ]; then
+  echo "You are about to enable app \"$to_enable\" in space \"$space\" across targets \"$targetlist\""
+  echo -n "Are you sure you want to proceed? (y/n) "
+  read verify_enable
+  echo
+  if [ "$verify_enable" != "y" ]; then exit 1; fi
+fi
+if [ "$to_disable" != "" ]; then
+  echo "You are about to disable app \"$to_disable\" in space \"$space\" across targets \"$targetlist\""
+  echo -n "Are you sure you want to proceed? (y/n) "
+  read verify_disable
+  echo
+  if [ "$verify_disable" != "y" ]; then exit 1; fi
+fi
+
+for target in $targetlist; do
+  cf set-target "$target"
+  cf target -s "$space"
+
+  endpoint=$(cf target | grep endpoint | cut -d / -f 3 | cut -d . -f 3)
+  case "$endpoint" in
+    wb)
+      foundation_host="westb"
+      ;;
+    wc)
+      foundation_host="westc"
+      ;;
+    ea)
+      foundation_host="easta"
+      ;;
+    eb)
+      foundation_host="eastb"
+      ;;
+    *)
+      echo "Could not determine foundation host for target $target"
+      exit 1;
+      ;;
+  esac
+
+  app_number=0
+  while [ $app_number -lt $app_count ]
+  do
+    map_routes $app_number $foundation_host
+
+    ((app_number++))
+  done
+done

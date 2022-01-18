@@ -13,20 +13,21 @@
 # RECAPTCHA_REQUIRED: boolean to disable Google Recaptcha validation
 # APP_COUNT: number of apps to push to this space
 # FEATURE_NAME: app name addition indicating which features are active
+# EXTRA_DEPLOY_ARGS: additional customization to pass to cf push
+
+if [ $CIRCLE_NODE_INDEX -ge $APP_COUNT ]; then
+  echo "Skipping job. App number $CIRCLE_NODE_INDEX >= app count: $APP_COUNT"
+  exit 0;
+fi
 
 # login to the given foundry, and target the correct space
 cf login -a $CF_FOUNDRY_API -u $CF_USER -p ${!CF_PASSWORD_NAME} -o $CF_ORG -s $CF_SPACE
 
-# do the deploys
-app_number=0
-while [ $app_number -lt $APP_COUNT ]
-do
-  cf push --strategy rolling --no-wait --vars-file $VARS_FILE \
-      --var rails_master_key=${!RAILS_MASTER_KEY_NAME} \
-      --var disable_smarty_streets=$DISABLE_SMARTY_STREETS \
-      --var recaptcha_required=$RECAPTCHA_REQUIRED \
-      --var feature_name=$FEATURE_NAME \
-      --var app_number=$app_number
-
-  ((app_number++))
-done
+# do the deploy
+cf push --strategy rolling --no-wait --vars-file $VARS_FILE \
+    --var rails_master_key=${!RAILS_MASTER_KEY_NAME} \
+    --var disable_smarty_streets=$DISABLE_SMARTY_STREETS \
+    --var recaptcha_required=$RECAPTCHA_REQUIRED \
+    --var feature_name=$FEATURE_NAME \
+    --var app_number=$CIRCLE_NODE_INDEX \
+    $EXTRA_DEPLOY_ARGS

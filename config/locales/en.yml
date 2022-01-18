@@ -19,14 +19,16 @@ en:
         email_too_long: Please limit email to %{count} characters
         recaptcha_not_valid: Javascript is required. Please enable or try another browser.
   errors:
-    '404':
-      body_html: 'If you are looking to order a set of rapid at-home COVID tests, please visit <a class="text-white" href="https://covidtests.gov" rel="noopener">COVIDtests.gov</a>.
+    "404":
+      body_html:
+        'If you are looking to order a set of rapid at-home COVID tests, please visit <a class="text-light-blue" href="https://covidtests.gov" rel="noopener">COVIDtests.gov</a>.
 
         '
       code: 404
       title: Page not found
-    '500':
-      body_html: 'If you are looking to order a set of rapid at-home COVID tests, please visit <a class="text-white" href="https://covidtests.gov" rel="noopener">COVIDtests.gov</a>.
+    "500":
+      body_html:
+        'If you are looking to order a set of rapid at-home COVID tests, please visit <a class="text-light-blue" href="https://covidtests.gov" rel="noopener">COVIDtests.gov</a>.
 
         '
       code: 500
@@ -80,7 +82,7 @@ en:
             <li>When you’re going to gather with a group of people, especially those who are at risk of severe disease or may not be <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/stay-up-to-date.html" rel="noopener">up to date on their COVID-19 vaccines</a>.</li>
           </ul>
         heading: Once you get your tests
-        sub_heading: 'Take an at-home test:'
+        sub_heading: "Take an at-home test:"
       nav:
         body_html: |
           <ul class="add-list-reset">
@@ -114,7 +116,7 @@ en:
             <li><a href="https://www.cms.gov/how-to-get-your-at-home-OTC-COVID-19-test-for-free" rel="noopener">Insurance reimbursement program</a></li>
           </ul>
         heading: Other Testing Resources
-        sub_heading: 'Free COVID tests are also available through:'
+        sub_heading: "Free COVID tests are also available through:"
       sub_heading: What to expect next
       tests:
         body_html: |
