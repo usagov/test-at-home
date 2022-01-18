@@ -32,6 +32,10 @@ RSpec.describe "KitRequests", type: :request do
       }
     end
 
+    before do
+      allow(::NewRelic::Agent).to receive(:increment_metric)
+    end
+
     context "when data is valid" do
       let(:smarty_response) do
         # San Francisco DMV
@@ -113,22 +117,36 @@ RSpec.describe "KitRequests", type: :request do
         expect(record.zip_code).to eq("12345")
         expect(record.recaptcha_score).to eq(0.9)
       end
+
+      it "sends a success metric to NewRelic" do
+        post "/kit_requests", params: valid_params
+
+        expect(::NewRelic::Agent).to have_received(:increment_metric).with('Custom/Submission/success')
+      end
     end
 
     context "when data is invalid" do
-      it "renders errors without creating new record" do
-        invalid_params = {
+      let(:invalid_params) do
+        {
           kit_request: {
-            first_name: ""
+            first_name: ''
           }
         }
+      end
 
+      it "renders errors without creating new record" do
         expect {
           post "/kit_requests", params: invalid_params
         }.to change { KitRequest.count }.by(0)
 
         expect(response).to have_http_status(200)
         expect(response).to render_template(:new)
+      end
+
+      it "sends an errored metric to NewRelic" do
+        post "/kit_requests", params: invalid_params
+
+        expect(::NewRelic::Agent).to have_received(:increment_metric).with('Custom/Submission/error')
       end
     end
   end
