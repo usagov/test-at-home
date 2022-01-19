@@ -7,6 +7,18 @@ export const validate = new Bouncer("#form", {
   disableSubmit: true,
   messageTarget: "bouncerTarget",
   customValidations: {
+    addrSelected: field => {
+      if (field.id !== "address-autocomplete") return false;
+      if (
+        Array.from(addressFullContainer.querySelectorAll("input", "select"))
+          .filter(el => el.id !== "kit_request_mailing_address_2")
+          .every(input => input.validity.value)
+      ) {
+        return false;
+      }
+
+      return true;
+    },
     isValidZip: field => {
       if (!field.getAttribute("data-bouncer-is-valid-zip")) return false;
 
@@ -19,6 +31,7 @@ export const validate = new Bouncer("#form", {
     }
   },
   messages: {
+    addrSelected: I18n.t("js.invalid.address_not_found"),
     isValidZip: I18n.t("js.invalid.zip_code"),
     emailLength: I18n.t("js.invalid.email_too_long"),
     missingValue: {

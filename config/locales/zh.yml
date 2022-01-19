@@ -34,10 +34,10 @@ zh:
       assistive_hint: 当自动完成结果可用时，使用向上和向下箭头查看并输入选择。 触摸设备用户可以通过触摸或滑动手势进行探索。
       is: 是
       no_results: 没有结果
-      query_too_short: 输入 %(minQueryLength) 个或更多字符（字母、数字、标点符号）才可以获得结果。
+      query_too_short: 输入 %{minQueryLength} 个或更多字符（字母、数字、标点符号）才可以获得结果。
       result: 结果
       results: 结果
-      selected_option: "%(selectedOption)， %(length)个选项中的第 %(index) 个选项已经突出显示"
+      selected_option: "%{selectedOption}， %{length}个选项中的第 %{index} 个选项已经突出显示"
     empty: 未提供
     invalid:
       address_incorrect: 美国邮政无法送达这一地址

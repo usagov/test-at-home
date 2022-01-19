@@ -34,10 +34,10 @@ es:
       assistive_hint: Cuando los resultados de la función de autocompletar estén disponibles, utilice las flechas arriba y abajo para revisar y presione enter para para seleccionar. Usuarios de dispositivos táctiles, exploren con el tacto o deslizando.
       is: es
       no_results: No se han encontrado resultados
-      query_too_short: Escriba %(minQueryLength) o más caracteres para obtener resultados 
+      query_too_short: Escriba %{minQueryLength} o más caracteres para obtener resultados
       result: resultado
       results: resultados
-      selected_option:  "%(selectedOption) %(index) de %(length) está resaltado"
+      selected_option: "%{selectedOption} %{index} de %{length} está resaltado"
     empty: No se ha proporcionado la información
     invalid:
       address_incorrect: USPS no puede entregar en esta dirección
