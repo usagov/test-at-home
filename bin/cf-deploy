@@ -27,6 +27,7 @@ cf login -a $CF_FOUNDRY_API -u $CF_USER -p ${!CF_PASSWORD_NAME} -o $CF_ORG -s $C
 cf push --strategy rolling --no-wait --vars-file $VARS_FILE \
     --var rails_master_key=${!RAILS_MASTER_KEY_NAME} \
     --var disable_smarty_streets=$DISABLE_SMARTY_STREETS \
+    --var disable_smarty_streets_autocomplete=$DISABLE_SMARTY_STREETS_AUTOCOMPLETE \
     --var recaptcha_required=$RECAPTCHA_REQUIRED \
     --var feature_name=$FEATURE_NAME \
     --var app_number=$CIRCLE_NODE_INDEX \
