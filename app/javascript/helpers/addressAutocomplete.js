@@ -15,9 +15,11 @@ const clientBuilder = new SmartyStreetsCore.ClientBuilder(
 
 const client = clientBuilder.buildUsAutocompleteProClient();
 
-const element = document.querySelector("#address-autocomplete");
+const element = document.querySelector("#address-autocomplete-cntr");
 
 const handleConfirm = async value => {
+  if (!value) return;
+
   if (value.entries > 1) {
     const input = element.querySelector("input");
     const lookup = new Lookup(formatAddress(value, true));
@@ -61,7 +63,11 @@ const formatAddress = (
   primaryOnly
     ? `${streetLine}${secondary ? `, ${secondary}` : ""}`
     : `${streetLine}${secondary ? `, ${secondary}` : ""}${
-        entries > 1 ? ` (${entries} more entries)` : ""
+        entries > 1
+          ? ` ${I18n.t("js.autocomplete.expanded_results", {
+              entries: entries.toString()
+            })}`
+          : ""
       } ${city}, ${state} ${zipcode}`;
 
 export const autoComplete =
