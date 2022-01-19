@@ -25,9 +25,9 @@ Welcome! And thank you!
     - [ ] [fr.wc.cloud.gov](https://account.fr.wc.cloud.gov/invite)
     - [ ] [fr.ea.cloud.gov](https://account.fr.ea.cloud.gov/invite)
     - [ ] [fr.eb.cloud.gov](https://account.fr.eb.cloud.gov/invite)
-- [ ] [If cloud.gov access needed] After they've accepted all CF invites, grant team member Space Developer access to all relevant CF spaces via `bin/cf-onboard`. 
+- [ ] [If cloud.gov access needed] After they've accepted all CF invites, grant team member Space Developer access to all relevant CF spaces via `bin/ops/cf-onboard`.
     ```
-    bin/cf-onboard <EMAIL> SpaceDeveloper prod,staging tah-ea,tah-eb,tah-wb,tah-wc
+    bin/ops/cf-onboard <EMAIL> SpaceDeveloper prod,staging tah-ea,tah-eb,tah-wb,tah-wc
     ```
     This requires spaces to be configured by the names above. To set these, [install `cf targets`](https://github.com/guidowb/cf-targets-plugin#installation) and configure with:
     ```
@@ -87,3 +87,4 @@ Welcome! And thank you!
         ```
 - [ ] Familiarize yourself with our [incident response checklist](https://github.com/usagov/test-at-home/wiki/Incident-Response-Checklist)
 - [ ] Familiarize yourself with our application in [staging](https://staging-covidtest.usa.gov)
+- [ ] Read the [Run Book](https://github.com/usagov/test-at-home/tree/main/doc/run-book.md)

@@ -1,0 +1,58 @@
+#!/bin/bash
+
+usage="
+$0: List app across specified spaces and targets
+
+Usage:
+  cf-list-apps -h
+  cf-list-apps [-s <<SPACE>>] [-t <<TARGETS>>]
+
+Options:
+-h:         show help and exit
+-s SPACE:   space apps exist in
+-t TARGETS: comma-delimited set of cf-targets to run against
+
+Notes:
+* default space is prod
+* default target list is tah-wb,tah-wc,tah-ea,tah-eb
+* you must be a SpaceDeveloper in all of the target orgs
+* this script relies on the cf-targets plugin
+
+If the environment variable DRYRUN is set, then commands will be echoed rather than invoked. For example:
+  DRYRUN=1 $0 -d prod-nosmarty
+"
+
+set -e
+set -o pipefail
+
+space="prod"
+targets="tah-wb,tah-wc,tah-ea,tah-eb"
+
+while getopts "hs:t:" opt; do
+  case "$opt" in
+    s)
+      space=$OPTARG
+      ;;
+    t)
+      targets=$OPTARG
+      ;;
+    *)
+      echo "$usage"
+      exit 1
+      ;;
+  esac
+done
+
+# source cf-targets-support to verify cf-targets is installed,
+# properly parse $targets into $targetlist, and
+# set $output if DRYRUN is set
+DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
+source "$DIR/cf-targets-support"
+
+for target in $targetlist; do
+  $output cf set-target "$target"
+  $output cf target -s "$space"
+
+  $output cf apps
+done
