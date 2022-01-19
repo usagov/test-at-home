@@ -15,6 +15,7 @@ services:
       DATABASE_URL: postgres://circleci:notasecret@db:5432/test_at_home_ci
       RAILS_MASTER_KEY: $RAILS_MASTER_KEY
       DISABLE_SMARTY_STREETS: "true"
+      DISABLE_SMARTY_STREETS_AUTOCOMPLETE: "true"
       RECAPTCHA_REQUIRED: "true"
   db:
     image: cimg/postgres:12.9

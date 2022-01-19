@@ -141,7 +141,6 @@ jobs:
       PGUSER: circleci
       PGPASSWORD: ""
       RAILS_ENV: ci
-      DISABLE_SMARTY_STREETS_AUTOCOMPLETE: "true"
     steps:
       - checkout
       - ruby/install-deps
@@ -217,7 +216,11 @@ jobs:
       - when:
           condition:
             and:
-              - equal: [<< pipeline.project.git_url >>, "https://github.com/usagov/test-at-home"]
+              - equal:
+                  [
+                    << pipeline.project.git_url >>,
+                    "https://github.com/usagov/test-at-home",
+                  ]
               - equal: [<< pipeline.git.branch >>, "main"]
           steps:
             - run:
@@ -232,6 +235,7 @@ jobs:
                   VARS_FILE: config/deployment/stage.yml
                   RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
+                  DISABLE_SMARTY_STREETS_AUTOCOMPLETE: "false"
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 2
                   FEATURE_NAME: "stage"
@@ -239,7 +243,11 @@ jobs:
       - when:
           condition:
             and:
-              - equal: [<< pipeline.project.git_url >>, "https://github.com/usagov/test-at-home"]
+              - equal:
+                  [
+                    << pipeline.project.git_url >>,
+                    "https://github.com/usagov/test-at-home",
+                  ]
               - equal: [<< pipeline.git.branch >>, "production"]
           steps:
             - run:
@@ -254,6 +262,7 @@ jobs:
                   VARS_FILE: config/deployment/prod.yml
                   RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
+                  DISABLE_SMARTY_STREETS_AUTOCOMPLETE: "false"
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 10
                   FEATURE_NAME: "prod"
@@ -270,6 +279,7 @@ jobs:
                   VARS_FILE: config/deployment/prod.yml
                   RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "true"
+                  DISABLE_SMARTY_STREETS_AUTOCOMPLETE: "true"
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 10
                   FEATURE_NAME: "prod-nosmarty"
@@ -302,7 +312,11 @@ jobs:
       - when:
           condition:
             and:
-              - equal: [<< pipeline.project.git_url >>, "https://github.com/usagov/test-at-home"]
+              - equal:
+                  [
+                    << pipeline.project.git_url >>,
+                    "https://github.com/usagov/test-at-home",
+                  ]
               - equal: [<< pipeline.git.branch >>, "main"]
           steps:
             - run:
@@ -317,6 +331,7 @@ jobs:
                   VARS_FILE: config/deployment/stage.yml
                   RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
+                  DISABLE_SMARTY_STREETS_AUTOCOMPLETE: "false"
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 2
                   FEATURE_NAME: "stage"
@@ -324,7 +339,11 @@ jobs:
       - when:
           condition:
             and:
-              - equal: [<< pipeline.project.git_url >>, "https://github.com/usagov/test-at-home"]
+              - equal:
+                  [
+                    << pipeline.project.git_url >>,
+                    "https://github.com/usagov/test-at-home",
+                  ]
               - equal: [<< pipeline.git.branch >>, "production"]
           steps:
             - run:
@@ -339,6 +358,7 @@ jobs:
                   VARS_FILE: config/deployment/prod.yml
                   RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
+                  DISABLE_SMARTY_STREETS_AUTOCOMPLETE: "false"
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 10
                   FEATURE_NAME: "prod"
@@ -355,6 +375,7 @@ jobs:
                   VARS_FILE: config/deployment/prod.yml
                   RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "true"
+                  DISABLE_SMARTY_STREETS_AUTOCOMPLETE: "true"
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 10
                   FEATURE_NAME: "prod-nosmarty"
@@ -387,7 +408,11 @@ jobs:
       - when:
           condition:
             and:
-              - equal: [<< pipeline.project.git_url >>, "https://github.com/usagov/test-at-home"]
+              - equal:
+                  [
+                    << pipeline.project.git_url >>,
+                    "https://github.com/usagov/test-at-home",
+                  ]
               - equal: [<< pipeline.git.branch >>, "production"]
           steps:
             - run:
@@ -402,6 +427,7 @@ jobs:
                   VARS_FILE: config/deployment/prod.yml
                   RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
+                  DISABLE_SMARTY_STREETS_AUTOCOMPLETE: "false"
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 10
                   FEATURE_NAME: "prod"
@@ -418,6 +444,7 @@ jobs:
                   VARS_FILE: config/deployment/prod.yml
                   RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "true"
+                  DISABLE_SMARTY_STREETS_AUTOCOMPLETE: "true"
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 10
                   FEATURE_NAME: "prod-nosmarty"
@@ -450,7 +477,11 @@ jobs:
       - when:
           condition:
             and:
-              - equal: [<< pipeline.project.git_url >>, "https://github.com/usagov/test-at-home"]
+              - equal:
+                  [
+                    << pipeline.project.git_url >>,
+                    "https://github.com/usagov/test-at-home",
+                  ]
               - equal: [<< pipeline.git.branch >>, "main"]
           steps:
             - run:
@@ -465,6 +496,7 @@ jobs:
                   VARS_FILE: config/deployment/stage.yml
                   RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
+                  DISABLE_SMARTY_STREETS_AUTOCOMPLETE: "false"
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 2
                   FEATURE_NAME: "stage"
@@ -472,7 +504,11 @@ jobs:
       - when:
           condition:
             and:
-              - equal: [<< pipeline.project.git_url >>, "https://github.com/usagov/test-at-home"]
+              - equal:
+                  [
+                    << pipeline.project.git_url >>,
+                    "https://github.com/usagov/test-at-home",
+                  ]
               - equal: [<< pipeline.git.branch >>, "production"]
           steps:
             - run:
@@ -487,6 +523,7 @@ jobs:
                   VARS_FILE: config/deployment/prod.yml
                   RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "false"
+                  DISABLE_SMARTY_STREETS_AUTOCOMPLETE: "false"
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 10
                   FEATURE_NAME: "prod"
@@ -503,6 +540,7 @@ jobs:
                   VARS_FILE: config/deployment/prod.yml
                   RAILS_MASTER_KEY_NAME: PROD_RAILS_MASTER_KEY
                   DISABLE_SMARTY_STREETS: "true"
+                  DISABLE_SMARTY_STREETS_AUTOCOMPLETE: "true"
                   RECAPTCHA_REQUIRED: "true"
                   APP_COUNT: 10
                   FEATURE_NAME: "prod-nosmarty"
