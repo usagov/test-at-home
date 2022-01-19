@@ -8,6 +8,10 @@ The launch date for this solution is January 17, 2022.
 
 For more detail, see the [product scope doc](https://github.com/usagov/test-at-home/blob/main/doc/product/product-scope.md)
 
+## Operations
+
+* [Run Book](https://github.com/usagov/test-at-home/blob/main/doc/run-book.md)
+
 ## Development
 
 If you're new to Rails, see the [Getting Started with Rails](https://guides.rubyonrails.org/getting_started.html)
