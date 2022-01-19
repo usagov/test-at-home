@@ -44,7 +44,7 @@ en:
       result: result
       results: results
       selected_option: "%{selectedOption} %{index} of %{length} is highlighted"
-      expanded_results: "(%{entries} more entries<span class='sr-only'>, press enter to view more entries</span>)"
+      expanded_results: "(%{entries} more entries<span class='sr-only'>, press enter to view more addresses like this</span>)"
     empty: Not provided
     invalid:
       address_incorrect: USPS cannot deliver to this address
