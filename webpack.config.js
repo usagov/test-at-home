@@ -19,9 +19,10 @@ module.exports = {
         // Targeting problematic package, https://stackoverflow.com/a/60395448
         include: [
           path.resolve(__dirname, "app/javascript"),
-          path.resolve(__dirname, "node_modules/axios-retry")
+          path.resolve(__dirname, "node_modules/axios-retry"),
+          path.resolve(__dirname, "node_modules/smartystreets-javascript-sdk")
         ],
-        exclude: /node_modules\/(?!(axios-retry)\/).*/,
+        exclude: /node_modules\/(?!(axios-retry|smartystreets-javascript-sdk)\/).*/,
         use: {
           loader: "babel-loader",
           options: {
