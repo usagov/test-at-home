@@ -31,22 +31,13 @@ class KitRequest < ApplicationRecord
     end
 
     # No matches
-    unless validation_results
+    unless validation_results && validation_results.any?
       errors.add :mailing_address, :address_not_found
       return false
     end
 
-    deliverable_results = validation_results.select { |result| UsStreetAddressValidator.deliverable?(result) }
-    # A deliverable match
-    if deliverable_results.any?
-      @smarty_response_json = deliverable_results.first.to_json
-      self.address_validated = true
-      true
-    # A match that is undeliverable (eg missing apartment number)
-    else
-      errors.add :mailing_address, :address_incorrect
-      false
-    end
+    @smarty_response_json = validation_results.first.to_json
+    true
   end
 
   def recaptcha_provided

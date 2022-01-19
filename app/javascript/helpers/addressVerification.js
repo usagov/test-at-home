@@ -21,15 +21,7 @@ const addressIncorrect = I18n.t("js.invalid.address_incorrect");
 
 function handleSuccess(response) {
   if (response.lookups[0].result.length) {
-    const code = response.lookups[0].result[0].analysis.dpvMatchCode;
-
-    if (["S", "Y"].some(validCode => validCode === code)) {
-      return { status: "valid" };
-    } else {
-      if (code === "D") return { status: "invalid", message: addressIncorrect };
-
-      return { status: "invalid", message: addressNotFound };
-    }
+    return { status: "valid" };
   }
 
   return { status: "invalid", message: addressNotFound };
@@ -63,7 +55,7 @@ export const verifyAddress = async address => {
   lookup.state = address.state;
   lookup.zipCode = address.zip_code;
   lookup.maxCandidates = 1;
-  lookup.match = "strict";
+  lookup.match = "enhanced";
 
   return await handleResponse(lookup);
 };

@@ -29,7 +29,7 @@ class UsStreetAddressValidator
     lookup.state = kit_request.state
     lookup.zipcode = kit_request.zip_code
     lookup.candidates = 1
-    lookup.match = SmartyStreets::USStreet::MatchType::STRICT # only allow USPS matches
+    lookup.match = SmartyStreets::USStreet::MatchType::ENHANCED
   end
 
   def run
@@ -45,11 +45,6 @@ class UsStreetAddressValidator
     end
 
     lookup.result
-  end
-
-  def self.deliverable?(candidate)
-    return false unless candidate
-    DELIVERABLE_MATCH_CODES.include?(candidate.analysis.dpv_match_code)
   end
 
   def self.smarty_disabled?

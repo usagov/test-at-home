@@ -89,7 +89,7 @@ export const autoComplete =
       }
 
       lookup.maxResults = 4;
-      lookup.source = "postal";
+      lookup.source = "all";
 
       const res = await handleRequest(lookup);
 
