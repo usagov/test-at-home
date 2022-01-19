@@ -1,0 +1,82 @@
+#!/bin/bash
+
+usage="
+$0: Un-map default cloud.gov production routes from a set of apps in target foundations.
+
+Usage:
+  $0 -h
+  $0 [-f <<FEATURE_NAMES>> ] [-t <<TARGETS>>]
+
+Options:
+-h:                         show help and exit
+-f FEATURE_NAMES            comma-delimited set of feature names to run against.
+-s SPACE:                   space apps exist in
+-c APP_COUNT:               number of apps to map/unmap
+-t TARGETS:                 comma-delimited set of cf-targets to run against.
+
+Notes:
+* default feature names is prod,prod-nosmarty
+* default space is prod
+* default app count is 10
+* default target list is tah-wb,tah-wc,tah-ea,tah-eb
+* you must be a SpaceDeveloper in all of the target orgs
+* this script relies on the cf-targets plugin
+
+If the environment variable DRYRUN is set, then commands will be echoed rather than invoked. For example:
+  DRYRUN=1 $0 -d prod-nosmarty
+"
+
+set -e
+set -o pipefail
+
+feature_names="prod,prod-nosmarty"
+space="prod"
+app_count=10
+targets="tah-wb,tah-wc,tah-ea,tah-eb"
+
+while getopts "hf:s:c:t:" opt; do
+  case "$opt" in
+    f)
+      feature_names=$OPTARG
+      ;;
+    s)
+      space=$OPTARG
+      ;;
+    c)
+      app_count=$OPTARG
+      ;;
+    t)
+      targets=$OPTARG
+      ;;
+    *)
+      echo "$usage"
+      exit 1
+      ;;
+  esac
+done
+
+featurelist="${feature_names//,/ }"
+
+# source cf-targets-support to verify cf-targets is installed,
+# properly parse $targets into $targetlist, and
+# set $output if DRYRUN is set
+DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
+source "$DIR/cf-targets-support"
+
+for target in $targetlist; do
+  cf set-target "$target"
+  cf target -s "$space"
+  endpoint=$(cf target | grep endpoint | cut -d / -f 3 | cut -d . -f 3)
+
+  for feature in $featurelist; do
+    app_number=0
+    while [ $app_number -lt $app_count ]
+    do
+      app_name="test_at_home-$feature-$app_number"
+      $output cf unmap-route "$app_name" "app.$endpoint.cloud.gov" -n "$app_name"
+
+      ((app_number++))
+    done
+  done
+done

@@ -4,8 +4,8 @@ usage="
 $0: Map and/or unmap production routes from a set of apps in target foundations.
 
 Usage:
-  toggle_prod_routes.sh -h
-  toggle_prod_routes.sh [-e <<FEATURE_NAME_TO_ENABLE>>] [-d <<FEATURE_NAME_TO_DISABLE>>] [-t <<TARGETS>>]
+  $0 -h
+  $0 [-e <<FEATURE_NAME_TO_ENABLE>>] [-d <<FEATURE_NAME_TO_DISABLE>>] [-t <<TARGETS>>]
 
 Options:
 -h:                         show help and exit
