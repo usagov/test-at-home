@@ -26,7 +26,7 @@ es:
     '500':
       body_html: Si desea solicitar un kit de pruebas caseras de COVID-19, visite <a class="text-white" href="https://covidtests.gov/es" rel="noopener">COVIDtests.gov</a>.
       code: '500'
-      title: Lo sentimos, pero algo salió mal.
+      title: Lo sentimos, pero algo no está funcionando.
     format: "%{message}"
   js:
     autocomplete:
