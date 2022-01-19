@@ -12,7 +12,7 @@ export const validate = new Bouncer("#form", {
       if (
         Array.from(addressFullContainer.querySelectorAll("input", "select"))
           .filter(el => el.id !== "kit_request_mailing_address_2")
-          .every(input => input.validity.value)
+          .every(input => input.validity.valid)
       ) {
         return false;
       }
