@@ -26,5 +26,5 @@
 #     only: "*"
 #
 translations:
-  - file: "public/javascripts/translations.js"
+  - file: "app/assets/builds/translations.js"
     only: "*.js.*"

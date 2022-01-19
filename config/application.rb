@@ -35,7 +35,6 @@ module TestAtHome
     config.generators.system_tests = nil
     config.i18n.available_locales = [:en, :es, :zh]
     config.i18n.fallbacks = [:en]
-    config.middleware.use I18n::JS::Middleware
 
     # Don't bother with sessions or CSRF
     config.session_store :disabled
