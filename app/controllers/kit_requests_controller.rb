@@ -12,7 +12,7 @@ class KitRequestsController < ApplicationController
       render_confirmation
     else
       ::NewRelic::Agent.increment_metric("Custom/Submission/error")
-      render :new
+      render :new, formats: :html
     end
   end
 
@@ -23,7 +23,7 @@ class KitRequestsController < ApplicationController
     if File.exist?(filename)
       render file: filename, layout: false
     else
-      html = render_to_string :confirmation
+      html = render_to_string :confirmation, formats: :html
       if ENV["CACHE_CONFIRMATION"] == "true"
         File.open(filename, "wb") do |file|
           file << html

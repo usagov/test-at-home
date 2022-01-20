@@ -14,13 +14,13 @@ class ErrorsController < ApplicationController
     if File.exist?(filename)
       render file: filename, layout: false, status: 404
     else
-      html = render_to_string :not_found
+      html = render_to_string :not_found, formats: :html
       if ENV["CACHE_ERRORS"] == "true"
         File.open(filename, "wb") do |file|
           file << html
         end
       end
-      render status: 404
+      render html: html, status: 404
     end
   end
 
@@ -29,13 +29,13 @@ class ErrorsController < ApplicationController
     if File.exist?(filename)
       render file: filename, layout: false, status: 500
     else
-      html = render_to_string :internal_server_error
+      html = render_to_string :internal_server_error, formats: :html
       if ENV["CACHE_ERRORS"] == "true"
         File.open(filename, "wb") do |file|
           file << html
         end
       end
-      render status: 500
+      render html: html, status: 500
     end
   end
 end
