@@ -9,6 +9,15 @@ class ErrorsController < ApplicationController
 
   private
 
+  # customize switch_locale for exception handling
+  def switch_locale(&action)
+    if request.env["action_dispatch.original_path"] =~ /\A\/(en|es|zh)\//
+      I18n.with_locale($1, &action)
+    else
+      super
+    end
+  end
+
   def render_not_found
     filename = Rails.root.join("tmp/cache/not_found_#{I18n.locale}.html")
     if File.exist?(filename)
