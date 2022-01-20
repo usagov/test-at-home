@@ -19,7 +19,7 @@ The below steps rely on you first configuring access to the Terraform state in s
     # something that communicates the purpose of the deployer
     # for example: circleci-deployer for the credentials CircleCI uses to
     # deploy the application
-    ./create_space_deployer.sh <SPACE-NAME> <SERVICE-NAME> > foundry_<X>/<env>/secrets.auto.tfvars
+    ./create_space_deployer.sh <SPACE-NAME> <SERVICE-NAME> -f > foundry_<X>/<env>/secrets.auto.tfvars
     ```
 
     The script will output the `username` (as `cf_user`) and `password` (as `cf_password`) for your `<SERVICE-NAME>`. Read more in the [cloud.gov service account documentation](https://cloud.gov/docs/services/cloud-gov-service-account/).

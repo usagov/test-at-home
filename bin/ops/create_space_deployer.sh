@@ -3,19 +3,22 @@
 set -e
 set -o pipefail
 
-if [[ $# -ne 2 ]]; then
+if [[ $# -lt 2 ]]; then
   echo "./create_space_deployer.sh <<SPACE_NAME>> <<SERVICE_NAME>>"
   exit 1;
 fi
 
-cf target
-echo -n "Are you in the correct foundation? (y/n) "
-read verify
-echo
+if [ "$3" != "-f" ];
+then
+  cf target
+  echo -n "Are you in the correct foundation? (y/n) "
+  read verify
+  echo
 
-if [ "$verify" != "y" ]; then
-  echo "Use \`switch_foundation.sh <<FOUNDATION_NUMBER>>\` to switch foundations"
-  exit 1;
+  if [ "$verify" != "y" ]; then
+    echo "Use \`switch_foundation.sh <<FOUNDATION_NUMBER>>\` to switch foundations"
+    exit 1;
+  fi
 fi
 
 space=$1
