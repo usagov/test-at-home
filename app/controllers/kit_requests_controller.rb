@@ -7,7 +7,7 @@ class KitRequestsController < ApplicationController
   def create
     @kit_request = KitRequest.new(kit_request_params)
 
-    if @kit_request.save
+    if @kit_request.valid?
       ::NewRelic::Agent.increment_metric("Custom/Submission/success")
       render_confirmation
     else

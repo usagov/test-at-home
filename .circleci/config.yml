@@ -188,6 +188,51 @@ jobs:
           name: Run pa11y-ci
           command: yarn run pa11y-ci
 
+  deploy_foundry_0:
+    docker:
+      - image: cimg/ruby:3.0.3-node
+    steps:
+      - checkout
+      - when:
+          condition:
+            and:
+              - equal:
+                  [
+                    << pipeline.project.git_url >>,
+                    "https://github.com/usagov/test-at-home"
+                  ]
+              - equal: [<< pipeline.git.branch >>, "main"]
+          steps:
+            - ruby/install-deps
+            - run:
+                name: Vendor gems
+                command: bundle cache --all
+            - node/install-packages:
+                cache-only-lockfile: false
+                cache-version: v2
+                pkg-manager: yarn
+            - run:
+                name: Install Cloud Foundry CLI
+                command: |
+                  curl -v -L -o cf-cli_amd64.deb 'https://packages.cloudfoundry.org/stable?release=debian64&version=v7&source=github'
+                  sudo dpkg -i cf-cli_amd64.deb
+            - run:
+                name: Deploy to foundry 0 staging
+                command: ./bin/cf-deploy
+                environment:
+                  CF_FOUNDRY_API: api.fr.cloud.gov
+                  CF_USER: 45277c52-7050-4a69-8959-46bd43b2d518
+                  CF_PASSWORD_NAME: CF_FOUNDRY_0_STAGE_PASS
+                  CF_ORG: tts-usps-test-at-home
+                  CF_SPACE: staging
+                  VARS_FILE: config/deployment/stage.yml
+                  RAILS_MASTER_KEY_NAME: RAILS_MASTER_KEY
+                  DISABLE_SMARTY_STREETS: "false"
+                  DISABLE_SMARTY_STREETS_AUTOCOMPLETE: "false"
+                  RECAPTCHA_REQUIRED: "false"
+                  APP_COUNT: 1
+                  FEATURE_NAME: "stage"
+                  EXTRA_DEPLOY_ARGS: ""
   deploy_foundry_1:
     docker:
       - image: cimg/ruby:3.0.3-node
@@ -566,6 +611,13 @@ workflows:
       - a11y_scan:
           requires:
             - build
+      - deploy_foundry_0:
+          requires:
+            - test
+            - brakeman
+            - dependency_audits
+            - owasp_scan
+            - a11y_scan
       # - deploy_foundry_1:
       #     requires:
       #       - test
@@ -594,24 +646,22 @@ workflows:
       #       - dependency_audits
       #       - owasp_scan
       #       - a11y_scan
-  # daily_scan:
-  #   triggers:
-  #     - schedule:
-  #         cron: "0 12 * * *"
-  #         filters:
-  #           branches:
-  #             only:
-  #               - dev
-  #               - main
-  #               - production
-  #   jobs:
-  #     - build
-  #     - brakeman:
-  #         requires:
-  #           - build
-  #     - dependency_audits:
-  #         requires:
-  #           - build
-  #     - owasp_scan:
-  #         requires:
-  #           - build
+  daily_scan:
+    triggers:
+      - schedule:
+          cron: "0 12 * * *"
+          filters:
+            branches:
+              only:
+                - main
+    jobs:
+      - build
+      - brakeman:
+          requires:
+            - build
+      - dependency_audits:
+          requires:
+            - build
+      - owasp_scan:
+          requires:
+            - build

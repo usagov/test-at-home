@@ -19,12 +19,12 @@ applications:
       SMARTY_STREETS_EMBEDDED_KEY: ((smarty_streets_public_key))
       RECAPTCHA_REQUIRED: ((recaptcha_required))
       RECAPTCHA_SITE_KEY: ((recaptcha_site_key))
-      RECAPTCHA_PROJECT_ID: ctusa-338400
-      RAILS_MAX_THREADS: 10
+      RECAPTCHA_PROJECT_ID: asdfasdf
+      RAILS_MAX_THREADS: 5
     processes:
       - type: web
         instances: ((web_instances))
         memory: ((web_memory))
-        command: bundle exec rake cf:on_first_instance db:migrate && bundle exec rails s -b 0.0.0.0 -p $PORT -e $RAILS_ENV
-    services:
-      - test_at_home-rds-((env))-((app_number))
+        # command: bundle exec rake cf:on_first_instance db:migrate && bundle exec rails s -b 0.0.0.0 -p $PORT -e $RAILS_ENV
+    # services:
+    #   - test_at_home-rds-((env))-((app_number))
