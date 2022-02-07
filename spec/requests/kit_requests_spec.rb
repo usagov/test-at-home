@@ -100,7 +100,8 @@ RSpec.describe "KitRequests", type: :request do
         expect(response).to render_template(:confirmation)
       end
 
-      it "creates a new kit request with correct attributes" do
+      # turned off data persistentce
+      xit "creates a new kit request with correct attributes" do
         expect {
           post "/kit_requests", params: valid_params
         }.to change { KitRequest.count }.by(1)
@@ -116,6 +117,12 @@ RSpec.describe "KitRequests", type: :request do
         expect(record.state).to eq("CA")
         expect(record.zip_code).to eq("12345")
         expect(record.recaptcha_score).to eq(0.9)
+      end
+
+      it "does not persist a new kit request" do
+        expect {
+          post "/kit_requests", params: valid_params
+        }.to_not change { KitRequest.count }
       end
 
       it "sends a success metric to NewRelic" do
