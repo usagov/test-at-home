@@ -108,7 +108,7 @@ $align-self-settings: (
 );
 
 $background-color-settings: (
-  output: false,
+  output: true,
   responsive: false,
   active: false,
   focus: false,
@@ -198,7 +198,7 @@ $clearfix-settings: (
 );
 
 $color-settings: (
-  output: false,
+  output: true,
   responsive: false,
   active: false,
   focus: false,
@@ -607,7 +607,7 @@ $align-self-manual-values: ();
 
 // .background-color
 
-$background-color-palettes: ();
+$background-color-palettes: ("palette-color-system-red-vivid");
 $background-color-manual-values: ();
 
 // .border
