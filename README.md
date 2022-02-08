@@ -1,5 +1,9 @@
 Test At Home
 ============
+## Project Status :warning: :rotating_light:
+The USPS web store was successfully launched on January 18, 2022. 
+
+This back-up solution is no longer being actively developed nor used in production. It is targeted to be archived at the end of February 2022.
 
 ## Overview
 A web-based, mobile-responsive solution for the public to submit a pre-order request for 1 set of four COVID-19 tests to be sent directly to their home through the USPS infrastructure. This solution is intended to be a back-up for the USPS web store, if it cannot stand peak traffic.
