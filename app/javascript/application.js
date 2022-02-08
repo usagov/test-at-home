@@ -175,6 +175,7 @@ const toggleContainer = () => {
     formContainer.removeAttribute("hidden", "");
     formContainer.querySelector("h1").focus();
     submitButton.value = reviewText;
+    submitButton.removeAttribute("disabled");
     privacyContainer.setAttribute("hidden", "");
   } else {
     formContainer.setAttribute("hidden", "");
@@ -184,6 +185,7 @@ const toggleContainer = () => {
     reviewContainer.removeAttribute("hidden", "");
     reviewContainer.querySelector("h1").focus();
     submitButton.value = submitText;
+    submitButton.setAttribute("disabled", true);
     privacyContainer.removeAttribute("hidden", "");
   } else {
     reviewContainer.setAttribute("hidden", "");
@@ -193,6 +195,7 @@ const toggleContainer = () => {
 if (form) {
   // Set up user interface
   submitButton.value = reviewText;
+  submitButton.removeAttribute("disabled");
   privacyContainer.setAttribute("hidden", "");
 
   // If DISABLE_SMARTY_STREETS_AUTOCOMPLETE=true, remove autocomplete
