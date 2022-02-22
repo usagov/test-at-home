@@ -611,13 +611,13 @@ workflows:
       - a11y_scan:
           requires:
             - build
-      - deploy_foundry_0:
-          requires:
-            - test
-            - brakeman
-            - dependency_audits
-            - owasp_scan
-            - a11y_scan
+      # - deploy_foundry_0:
+      #     requires:
+      #       - test
+      #       - brakeman
+      #       - dependency_audits
+      #       - owasp_scan
+      #       - a11y_scan
       # - deploy_foundry_1:
       #     requires:
       #       - test
@@ -646,22 +646,22 @@ workflows:
       #       - dependency_audits
       #       - owasp_scan
       #       - a11y_scan
-  daily_scan:
-    triggers:
-      - schedule:
-          cron: "0 12 * * *"
-          filters:
-            branches:
-              only:
-                - main
-    jobs:
-      - build
-      - brakeman:
-          requires:
-            - build
-      - dependency_audits:
-          requires:
-            - build
-      - owasp_scan:
-          requires:
-            - build
+  # daily_scan: 
+  #   triggers:
+  #     - schedule:
+  #         cron: "0 12 * * *"
+  #         filters:
+  #           branches:
+  #             only:
+  #               - main
+  #   jobs:
+  #     - build
+  #     - brakeman:
+  #         requires:
+  #           - build
+  #     - dependency_audits:
+  #         requires:
+  #           - build
+  #     - owasp_scan:
+  #         requires:
+  #           - build
